@@ -1,0 +1,526 @@
+
+****************************************************************************************
+****************************************************************************************
+PROCEDIMIENTOS IMPORTADOS DE LA TABLA stkparp_clients				********
+****************************************************************************************
+****************************************************************************************
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+FUNCIONES									+++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
++++++++++++++++++++++ cambiar_pass_x_nick 
+DELIMITER $$
+CREATE DEFINER=`stkparp`@`localhost` FUNCTION `cambiar_pass_x_nick`(`_nick` VARCHAR(50), `_pass` VARCHAR(100)) RETURNS varchar(30) CHARSET utf8 COLLATE utf8_spanish_ci
+    NO SQL
+BEGIN
+SET @rfc = NULL;
+SET @res = NULL;
+SELECT n.RFC INTO @rfc FROM navegantes AS n WHERE n.Nick LIKE _nick;
+
+
+ 	IF (@rfc IS NULL) THEN
+    	
+        SET @res = 'FALSE';
+        
+        RETURN @res;
+        
+ 	ELSE
+    	
+        UPDATE navegantes 
+        
+        SET Pasword = AES_ENCRYPT(_pass, @rfc)
+        WHERE RFC = @rfc;
+ 		
+        SET @res = 'TRUE';
+        
+        RETURN @res;
+ 		
+ 	END IF;
+
+
+END$$
+DELIMITER ;
+
+
++++++++++++++++++ concatena_nombre
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `concatena_nombre`(`apat` VARCHAR(50), `amat` VARCHAR(50), `nomb` VARCHAR(50)) RETURNS varchar(150) CHARSET utf8 COLLATE utf8_spanish_ci
+    NO SQL
+IF( (apat="")OR(apat IS NULL) )THEN
+	RETURN concat(amat," ",nomb);
+	ELSEIF ( (amat="")OR(amat IS NULL) ) THEN
+		RETURN concat(apat," ",nomb);
+	ELSE
+		RETURN concat(apat," ",amat," ",nomb);
+END IF$$
+DELIMITER ;
+
+
+++++++++++++++++++ decry_pass_x_rfc
+DELIMITER $$
+CREATE DEFINER=`stkparp`@`localhost` FUNCTION `decry_pass_x_rfc`(`_rfc` VARCHAR(13)) RETURNS varchar(100) CHARSET utf8 COLLATE utf8_spanish_ci
+    NO SQL
+BEGIN
+
+	SET @result_pass := NULL;
+
+        SELECT AES_DECRYPT(Pasword,RFC) INTO @result_pass 
+        FROM navegantes as nav 
+        WHERE nav.RFC = _rfc ;
+    
+    IF (@result_pass IS NULL )THEN
+    	
+        RETURN 'FALSE';
+    
+    ELSE
+    	
+        RETURN @result_pass;
+    	
+    END IF;
+
+END$$
+DELIMITER ;
+
+
++++++++++++++++++ save_hist
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `save_hist`(`_rfc` VARCHAR(13), `_mod` VARCHAR(50), `_rec` VARCHAR(50), `_pet` VARCHAR(50), `_petdet` VARCHAR(50)) RETURNS bigint(20) unsigned
+    NO SQL
+BEGIN
+
+SET @acc = NULL;
+
+INSERT INTO historial 
+(RFC,Modulo,Recurso,Peticion,Peticion_detalle)
+VALUES(_rfc, _mod, _rec, _pet, _petdet);
+
+SELECT hi.Id_HL INTO @acc FROM historial hi ORDER BY hi.FCap DESC LIMIT 1;
+
+RETURN @acc;
+
+END$$
+DELIMITER ;
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-------------------------------------------------------------------------------------------------------------------------
+PROCEDIMIENTOS								---------
+-------------------------------------------------------------------------------------------------------------------------
+
+
+------------------------ RFC_x_modulo
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RFC_x_modulo`(IN `_id` BIGINT UNSIGNED)
+    NO SQL
+SELECT
+l.Id_link,
+l.RFC,
+l.ID_MOD,
+m.nombre,
+m.URL,
+concatena_nombre(n.Apaterno,n.Amaterno,n.Nombre) AS Nombre,
+n.Nick,
+n.Status,
+n.Foto
+FROM links l
+INNER JOIN modulos m
+   ON (m.Id_modulos = l.ID_MOD)
+LEFT JOIN navegantes n
+   ON (n.RFC = l.RFC)
+WHERE l.ID_MOD = _id$$
+DELIMITER ;
+
+
+------------------------ checkuser
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `checkuser`(IN `_nick` VARCHAR(50), IN `_token` VARCHAR(40))
+    NO SQL
+BEGIN
+SET @cant = 0;
+SET @rfc = null;
+SET @last_login = null;
+SET @cant_us = 0;
+
+#Se verifica que exista el nick
+SELECT COUNT(ng.RFC) INTO @cant_us FROM navegantes ng WHERE ng.Nick LIKE _nick;
+
+# Si existe el nick
+IF NOT _nick IS NULL  AND @cant_us > 0 THEN
+
+	#Se valida el usuario buscando el nick y el token
+	SELECT COUNT(n.RFC) INTO @cant FROM navegantes n
+        WHERE n.Nick LIKE _nick AND n.Token LIKE _token;
+        
+	# Si es un usuario valido
+	if NOT _token IS NULL AND @cant > 0 THEN
+    	
+        #Primero: Se obtiene el rfc
+    	SELECT nv.rfc INTO @rfc FROM navegantes nv
+        	WHERE nv.Nick LIKE _nick AND nv.Token LIKE _token;
+        
+        
+        #Segundo: Se obtiene la hora fecha del ultimo login
+        SELECT hi.FCap INTO @last_login 
+        FROM historial hi
+            WHERE hi.RFC = @rfc 
+                AND hi.Modulo LIKE 'Logger'
+                AND hi.Recurso LIKE 'login'
+                ORDER BY hi.FCap DESC LIMIT 1;
+            
+        #Tercero: Se muestra la ultima peticion realizada
+        SELECT 
+            (True) AS status,
+            ('Usuario valido') AS msj,
+            (@last_login) AS last_login,
+            h.Id_HL,
+            h.Recurso,
+            h.FCap 
+        FROM historial h
+            	WHERE h.RFC = @rfc 
+                ORDER BY h.FCap DESC LIMIT 1;
+        
+    ELSE
+    	SELECT 
+        (False) AS status,
+        ('Token invalido')AS msj;
+    END IF;
+    
+ELSE
+   SELECT 
+    (False) AS status,
+    ('Usuario incorrecto')AS msj;
+END IF;
+
+END$$
+DELIMITER ;
+
+
+------------------------ inserta_usuario
+DELIMITER $$
+CREATE DEFINER=`cpses_ire2hqrrhi`@`localhost` PROCEDURE `inserta_usuario`(IN `_rfc` VARCHAR(13), IN `_pat` VARCHAR(50), IN `_mat` VARCHAR(50), IN `_nom` VARCHAR(50), IN `_nick` VARCHAR(50), IN `_pass` VARCHAR(50), IN `_nivel` INT UNSIGNED, IN `_nbramto` VARCHAR(80), IN `_ufis` VARCHAR(100), IN `_usuario` VARCHAR(13))
+    NO SQL
+BEGIN
+
+INSERT INTO navegantes
+(RFC, 
+ Apaterno, Amaterno, Nombre, 
+ Nombramiento, U_Fisica, 
+ Niv_acceso, 
+ Nick, Pasword,
+ Usuario)
+VALUES 
+(_rfc, 
+ _pat, _mat, _nom,
+ _nick, AES_ENCRYPT(_pass,_rfc),
+ _nivel, _nombramiento, _ufis,
+ _usuario);
+
+END$$
+DELIMITER ;
+
+
+------------------------ login
+DELIMITER $$
+CREATE DEFINER=`cpses_ire2hqrrhi`@`localhost` PROCEDURE `login`(IN `_nick` VARCHAR(50), IN `_pass` VARCHAR(50))
+    NO SQL
+BEGIN
+SET @rfc = NULL;
+SET @acc = 0;
+SET @id_h = NULL;
+SET @res = NULL;
+SET @fec = NULL;
+SELECT n.RFC INTO @rfc FROM navegantes AS n WHERE n.Nick LIKE _nick;
+SELECT COUNT(g.RFC) INTO @acc FROM navegantes as g WHERE 
+			g.Pasword = AES_ENCRYPT(_pass, @rfc);
+
+# No existe el nick
+IF NOT @rfc IS NULL THEN
+
+ 	IF @acc > 0 THEN
+ 		#Primero: se inserta el registro en el historial
+        SELECT save_hist(@rfc,'logger','login', 'Acceso autorizado',NULL) 
+        INTO @id_h;
+        
+        #Segundo: se obtiene la fecha de insercion en historial
+        SELECT hi.FCap INTO @fec FROM historial hi 
+        WHERE hi.Id_HL = @id_h ORDER BY hi.FCap DESC LIMIT 1;
+                   
+        #Tercero: se genera el token
+        SET @tok = SHA1(CONCAT(@fec,_nick));
+        
+        #Cuarto: se guarda en el navegante correspondiente
+        UPDATE navegantes na SET na.Token = @tok WHERE na.RFC = @rfc;
+        
+        #Quinto: se retorna el token
+        SELECT
+        (TRUE) AS status,
+        ('Acceso autorizado')AS msj,
+        nv.Token,
+        nv.RFC,
+        nv.Apaterno,
+        nv.Amaterno,
+        nv.Nombre,
+        concatena_nombre(
+            nv.Apaterno,
+            nv.Amaterno,
+            nv.Nombre) AS Nombre_completo,
+        nv.Nick,
+        nv.Niv_acceso,
+        nv.Nombramiento,
+        nv.U_Fisica,
+        nv.Status,
+        nv.Foto
+        FROM navegantes nv 
+        WHERE nv.RFC = @rfc;
+ 	ELSE
+ 		#Contraseña incorrecta
+        SELECT 
+    	(FALSE) AS status,
+    	('Contraseña incorrecta') AS msj;
+ 	END IF;
+ELSE
+   SELECT 
+    (FALSE) AS status,
+    ('Nombre de usuario inexistente') AS msj;
+END IF;
+END$$
+DELIMITER ;
+
+
+------------------------ logout
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `logout`(IN `_nick` VARCHAR(50))
+    NO SQL
+BEGIN
+SET @rfc = NULL;
+SET @acc = 0;
+SET @id_h = NULL;
+SELECT n.RFC INTO @rfc FROM navegantes AS n WHERE n.Nick LIKE _nick;
+
+#Existe el nick?
+IF NOT @rfc IS NULL THEN
+	
+        #Primero: se inserta el registro en el historial
+        SELECT save_hist(@rfc,'logger','logout', 'Sesion finalizada',NULL) 
+        INTO @id_h;
+        
+        #Segundo: se borra el token del registro del usuario
+        UPDATE navegantes na SET na.Token = NULL WHERE na.RFC = @rfc;
+        
+        #Tercero: se retorna el resultado
+        SELECT
+        ('TRUE') AS status,
+        ('Sesion finalizada')AS msj;
+    
+ELSE
+   SELECT 
+    ('FALSE') AS status,
+    ('Nombre de usuario incorrecto') AS msj;
+END IF;
+
+END$$
+DELIMITER ;
+
+
+------------------------ modulo_principal
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modulo_principal`(IN `RFC` VARCHAR(13))
+    NO SQL
+SELECT
+l.RFC,
+m.URL,
+m.nombre,
+m.tiempo
+FROM links l
+INNER JOIN modulos m ON (m.Id_modulos = l.ID_MOD)
+WHERE l.RFC LIKE RFC AND l.Principal = TRUE$$
+DELIMITER ;
+
+
+------------------------ modulos_x_RFC
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `modulos_x_RFC`(IN `_rfc` VARCHAR(13))
+    NO SQL
+BEGIN
+SET @cant = NULL;
+SELECT COUNT(n.RFC) INTO @cant FROM navegantes n WHERE n.RFC = _rfc;
+IF @cant > 0 THEN
+    SELECT
+    l.Id_link,
+    l.RFC,
+    l.ID_MOD,
+    concatena_nombre(n.Apaterno,n.Amaterno,n.Nombre) AS Nombre,
+    m.nombre,
+    m.URL,
+    m.tiempo
+    FROM links l
+    LEFT JOIN navegantes n
+       ON ((n.RFC = l.RFC))
+    LEFT JOIN modulos m
+       ON (m.Id_modulos = l.ID_MOD)
+    WHERE l.RFC = _rfc;
+ELSE
+	SELECT 
+    (FALSE) AS status,
+    ('RFC sin modulos')AS msj;
+END IF;
+END$$
+DELIMITER ;
+
+
+------------------------ navegante_nick
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `navegante_nick`(IN `_nick` VARCHAR(50))
+    NO SQL
+SELECT
+n.RFC,
+n.Apaterno,
+n.Amaterno,
+n.Nombre,
+n.Nombramiento,
+n.U_Fisica,
+n.Niv_acceso,
+n.Nick,
+n.Status,
+n.Foto
+FROM navegantes n
+WHERE n.Nick LIKE _nick$$
+DELIMITER ;
+
+
+------------------------ navegante_rfc
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `navegante_rfc`(IN `_rfc` VARCHAR(13))
+    NO SQL
+BEGIN
+
+SELECT
+n.RFC,
+n.Apaterno,
+n.Amaterno,
+n.Nombre,
+n.Nombramiento,
+n.U_Fisica,
+n.Niv_acceso,
+n.Nick,
+AES_DECRYPT(n.Pasword,n.RFC)AS Pasword,
+n.Status,
+n.Foto
+FROM navegantes n
+WHERE n.RFC LIKE _rfc;
+
+END$$
+DELIMITER ;
+
+
+------------------------ usuario_nick
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `usuario_nick`(IN `_nick` VARCHAR(50))
+    NO SQL
+BEGIN
+SET @rfc = NULL;
+
+SELECT 
+nav.RFC INTO @rfc
+FROM navegantes AS nav
+WHERE nav.Nick = nick;
+
+if NOT @rfc IS NULL THEN
+	SELECT (@rfc) AS rfc;
+ELSE
+	SELECT (FALSE)AS rfc;
+END IF;
+
+END$$
+DELIMITER ;
+
+-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
+
+****************************************************************************************
+****************************************************************************************
+****************************************************************************************
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||  clientes  |||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+clientes
+
+
+vs_clientes -------------------------------------------------------------
+
+DELIMITER $$
+CREATE DEFINER=`cpses_ircm6230nn`@`localhost` PROCEDURE `vs_clientes`()
+    NO SQL
+SELECT *
+FROM clientes$$
+DELIMITER ;
+
+-------------------------------------------------------------------------
+
+
+clientes_id -------------------------------------------------------------
+
+DELIMITER $$
+CREATE DEFINER=`cpses_ircm6230nn`@`localhost` PROCEDURE `clientes_id`(IN `_id` BIGINT UNSIGNED)
+    NO SQL
+SELECT *
+FROM clientes c
+WHERE c.Id_Cliente = _id$$
+DELIMITER ;
+
+-------------------------------------------------------------------------
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+						inserta_usuario			
+
+DROP PROCEDURE `inserta_usuario`; 
+CREATE DEFINER=`cpses_irbrivy5f5`@`localhost` PROCEDURE `inserta_usuario`(IN `_rfc` VARCHAR(13), IN `_pat` VARCHAR(50), IN `_mat` VARCHAR(50), IN `_nom` VARCHAR(50), IN `_nick` VARCHAR(50), IN `_pass` BLOB, IN `_email` VARCHAR(100), IN `_status` TINYINT, IN `_niv_acceso` VARCHAR(13), IN `_usuario` VARCHAR(13)) NOT DETERMINISTIC NO SQL SQL SECURITY 
+DEFINER 
+BEGIN 
+INSERT INTO navegantes 
+(RFC,
+ Apaterno,
+ Amaterno, 
+ Nombre, 
+ Nick,
+ Pasword,
+ Email,
+ Status,
+ Niv_acceso,
+ Usuario)
+ VALUES 
+(_rfc,
+ _pat,
+ _mat,
+ _nom,
+ _nick,
+ AES_ENCRYPT(_pass,_rfc),
+ _email,
+ _status,
+ _niv_acceso,
+ _usuario);
+
+SELECT 'TRUE' AS status, 'Registro insertado con exito' AS msj;
+
+END
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
