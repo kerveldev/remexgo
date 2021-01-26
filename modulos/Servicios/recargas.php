@@ -47,7 +47,7 @@ $us = $_SESSION['user']['data'];
                     <h2><span class="text-navy">RECARGAS</span></h2>
                     <ol class="breadcrumb">
                         <li>
-                            <a href="index.html">Ano en curso</a>
+                            <a href="index.html">AÑo en curso</a>
                         </li>
                         <li>
                             <a>Dos meses</a>
