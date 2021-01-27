@@ -196,9 +196,10 @@ define('IPH',[
 
 define('RH',[
           'base'=> 'stkparp_RH',
-          'ruta'=>ROOT.'mmx/',
-          'ruta_web'=> ROOT_WEB.'mmx/',
-          'controlador'=>MODULOS.'iph/iph_ctrl.php'
+          'ruta'=>ROOT.'modulos/mmx/',
+          'ruta_web'=> ROOT_WEB.'modulos/mmx/',
+          'controlador'=>MODULOS.'rh/rh_ctrl.php',
+          'clientes'=>MOCULOS.'rh/clientes/Clientes'
      ]);
 
 define('QR',[
