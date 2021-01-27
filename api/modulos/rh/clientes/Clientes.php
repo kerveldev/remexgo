@@ -19,6 +19,14 @@ class clientes {
                         break;
                     
                     default:
+
+                    case 'modifica_clientes':
+                        $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
+                        $box = new Storer($fields);
+                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                        
+                        return peticion_actualizar($x->nick,$x->token,RH['base'],"clientes","Id_Cliente",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        break;
                         $cuerpo = PETICION_INVALIDA;
                         break;
                 }
@@ -43,11 +51,11 @@ class clientes {
             case 'delete':
                 switch ($peticion) {
                     case 'elimina_clientes':
-                        $fields = array("nick","token");// Lista de parametros por recibir
+                        $fields = array("nick","token","Id");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_eliminar($x->nick, $x->token, RH['base'], "clientes","Id_Cliente", $x->id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        return peticion_eliminar($x->nick, $x->token, RH['base'], "clientes","Id_Cliente", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
