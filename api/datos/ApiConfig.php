@@ -4,7 +4,7 @@
  * ******************************************/
 define('IREK',[
     'serv' => 'localhost',
-    'us' => 'stkparp_irek',
+    'us' => 'irek',
     'pass' => '123ilich@irek'
     ]);
 
