@@ -9,7 +9,7 @@ define('IREK',[
     ]);
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
-define('ROOT_WEB','https://remex.parp.com/');
+define('ROOT_WEB','https://remex.kerveldev.com/');
 
 //define('MULTIMEDIA',ROOT.'mmx/');
 //define('MULTIMEDIA_WEB',ROOT_WEB.'mmx/');
@@ -162,7 +162,7 @@ const ERROR_CONTROLADOR = [
  * ***************************************/
 
 define('USUARIOS',[
-        'base' => 'stkparp_rmx',
+        'base' => 'rmx',
         'ruta' => ROOT.'remex/modulos/doc_usuarios',
         'ruta_web' => ROOT_WEB.'remex/modulos/doc_usuarios',
         'logger' => MODULOS.'login/Logger.php',
@@ -195,7 +195,7 @@ define('IPH',[
 
 
 define('RH',[
-          'base'=> 'stkparp_RH',
+          'base'=> 'rmx',
           'ruta'=>ROOT.'modulos/mmx/',
           'ruta_web'=> ROOT_WEB.'modulos/mmx/',
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
