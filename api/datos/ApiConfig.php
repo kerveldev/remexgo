@@ -199,7 +199,7 @@ define('RH',[
           'ruta'=>ROOT.'modulos/mmx/',
           'ruta_web'=> ROOT_WEB.'modulos/mmx/',
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
-          'clientes'=>MODULOS.'rh/clientes/Clientes.php'
+          'clientes'=>MODULOSs.'rh/clientes/Clientes.php'
      ]);
 
 define('QR',[
