@@ -40,7 +40,7 @@ class clientes {
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick para agregar campo usuario 
                         $x->datos->Usuario = $_rfc;                         
                         
-                        return "come popo";//peticion_insertar($x->nick, $x->token, RH['base'], "clientes",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
+                        return "come popo rapido";//peticion_insertar($x->nick, $x->token, RH['base'], "clientes",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
