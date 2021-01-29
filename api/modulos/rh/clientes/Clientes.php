@@ -17,8 +17,6 @@ class clientes {
                         $sql = "CALL clientes_lst();";
                         return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
-                    
-                    default:
 
                     case 'modifica_clientes':
                         $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
@@ -27,10 +25,13 @@ class clientes {
                         
                         return peticion_actualizar($x->nick,$x->token,RH['base'],"clientes","Id_Cliente",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
+
+                        default:
                         $cuerpo = PETICION_INVALIDA;
                         break;
                 }
                 break;
+
             case 'put':
                 switch ($peticion) {
                     case 'crea_clientes':
