@@ -3,7 +3,7 @@
  *      Internas                            *
  * ******************************************/
 define('IREK',[
-    'serv' => 'p3plzcpnl447272',
+    'serv' => 'localhost',
     'us' => 'irek',
     'pass' => '123ilich@irek'
     ]);
