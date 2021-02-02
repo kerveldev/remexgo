@@ -3,7 +3,7 @@
  *      Internas                            *
  * ******************************************/
 define('IREK',[
-    'serv' => 'https://remex.kerveldev.com/',
+    'serv' => 'https://kerveldev.com/',
     'us' => 'irek',
     'pass' => '123ilich@irek'
     ]);
