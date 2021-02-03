@@ -49,6 +49,18 @@
         </li>
 
         <li>
+            <a href="index.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Clientes</span> <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+       
+           
+                          <li><a href="../Recursos_Humanos/Alta/Alta">Cl</a></li>
+                          <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
+    
+               
+            </ul>
+        </li>
+
+        <li>
             <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Servicios</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
 
