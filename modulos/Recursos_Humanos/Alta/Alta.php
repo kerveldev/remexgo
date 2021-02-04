@@ -77,17 +77,31 @@ $us = $_SESSION['user']['data'];
                                       </div>
                                   </div> -->
                                   <div class="ibox-content">
-                                      <p>
-                                          This is basic example of Step
-                                      </p>
+
                                       <div id="wizard">
-                                          <h1>First Step</h1>
+                                          <h1>Datos Personales</h1>
                                           <div class="step-content">
                                               <div class="text-center m-t-md">
-                                              <h2>Hello in Step 1</h2>
-                                              <p>
-                                                  This is the first content.
-                                              </p>
+                                                
+                                                    <div class="row">
+
+                                                      <div class="col-sm-4">
+                                                        <label for="A_Paterno_usuario">A. Paterno:</label>
+                                                        <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                      </div>
+                  
+                                                      <div class="col-sm-4">
+                                                        <label for="A_Materno_usuario">A. Materno:</label>
+                                                        <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                      </div>
+                  
+                                                      <div class="col-sm-4">
+                                                        <label  for="Nombre_usuario">Nombre:</label>
+                                                        <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                      </div>  
+                        
+                                                  </div>
+              
                                               </div>
                                           </div>
               
