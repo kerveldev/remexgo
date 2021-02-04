@@ -262,10 +262,10 @@ $us = $_SESSION['user']['data'];
     <script src="/js/plugins/toastr/toastr.min.js"></script>
 
     <!-- Steps -->
-    <script src="js/plugins/steps/jquery.steps.min.js"></script>
+    <script src="/js/plugins/steps/jquery.steps.min.js"></script>
 
     <!-- Jquery Validate -->
-    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="/js/plugins/validate/jquery.validate.min.js"></script>
     
     
     <script src="js/Alta.js"></script>
