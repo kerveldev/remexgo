@@ -53,7 +53,7 @@ $us = $_SESSION['user']['data'];
 
                           <div class="card-body">
 
-                                <div class="ibox float-e-margins">
+                                <!-- <div class="ibox float-e-margins"> -->
 
                                       <div id="wizard">
                                           <h1>Personales</h1>
@@ -176,7 +176,7 @@ $us = $_SESSION['user']['data'];
                                               </div>
                                           </div>
                                       </div>
-                              </div>
+                              <!-- </div> -->
 
                           </div>
 
