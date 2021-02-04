@@ -16,8 +16,12 @@ $us = $_SESSION['user']['data'];
     <title>REMEX | Alta RH</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+ 
 
       <!-- DataTables Responsive CSS -->
       <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -27,8 +31,7 @@ $us = $_SESSION['user']['data'];
     <!-- Toastr style -->
     <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
-    <link href="/css/animate.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+  
 
     <link rel="icon" href="/img/ico.png">
 
@@ -41,7 +44,7 @@ $us = $_SESSION['user']['data'];
             <div class="modal-content">
                     <!--Encabezado modal-->
                     <div class="modal-header">
-                        <h5 class="modal-title" id="titulo">Cambio de Contraseña de <span id="nUsuario"></span></h5>
+                        <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
                         <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                     </div>
 
@@ -52,7 +55,67 @@ $us = $_SESSION['user']['data'];
                           </div>
                           <div class="card-body">
 
-                                  <div class="row">
+                                <div class="ibox float-e-margins">
+                                  <div class="ibox-title">
+                                      <h5>Basic Wizzard</h5>
+                                      <div class="ibox-tools">
+                                          <a class="collapse-link">
+                                              <i class="fa fa-chevron-up"></i>
+                                          </a>
+                                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                              <i class="fa fa-wrench"></i>
+                                          </a>
+                                          <ul class="dropdown-menu dropdown-user">
+                                              <li><a href="#">Config option 1</a>
+                                              </li>
+                                              <li><a href="#">Config option 2</a>
+                                              </li>
+                                          </ul>
+                                          <a class="close-link">
+                                              <i class="fa fa-times"></i>
+                                          </a>
+                                      </div>
+                                  </div>
+                                  <div class="ibox-content">
+                                      <p>
+                                          This is basic example of Step
+                                      </p>
+                                      <div id="wizard">
+                                          <h1>First Step</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                              <h2>Hello in Step 1</h2>
+                                              <p>
+                                                  This is the first content.
+                                              </p>
+                                              </div>
+                                          </div>
+              
+                                          <h1>Second Step</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                                  <h2>This is step 2</h2>
+                                                  <p>
+                                                      This content is diferent than the first one.
+                                                  </p>
+                                              </div>
+                                          </div>
+              
+                                          <h1>Third Step</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                                  <h2>This is step 3</h2>
+                                                  <p>
+                                                      This is last content.
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+              
+                                  </div>
+                              </div>
+
+                                  <!-- <div class="row">
 
                                     <div class="col-sm-4">
                                       <label for="num_emp_usuario">N° Empleado:</label>
@@ -104,7 +167,7 @@ $us = $_SESSION['user']['data'];
                                       <input type="text" class="form-control" name="Pasword_cam" id="Pasword_cam"> 
                                     </div>
 
-                                </div>
+                                </div> -->
 
                           </div>
                         </div>
