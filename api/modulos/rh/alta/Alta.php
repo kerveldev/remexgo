@@ -61,7 +61,9 @@ class altas{
 								$cuerpo['status']=FALSE;
 								$cuerpo['status_sesion']=NULL;
 								$cuerpo['msj']="No existe <$recurso>";
-								$cuerpo['data'] = NULL;
+                                $cuerpo['data'] = NULL;
+                            break;
+
 				        }
 
                 	break;
@@ -149,7 +151,8 @@ class altas{
                 			$cuerpo['status']=FALSE;
 					        $cuerpo['status_sesion']=NULL;
 					        $cuerpo['msj']="No existe <$recurso>";
-					        $cuerpo['data'] = NULL;
+                            $cuerpo['data'] = NULL;
+                            break;
                 	}
                 	break;
 				    	
@@ -171,6 +174,7 @@ class altas{
                             $cuerpo['status_sesion']=NULL;
                             $cuerpo['msj']="No existe <$recurso>";
                             $cuerpo['data'] = NULL;
+                            break;
 	                }
 	            
 	            break;
@@ -180,6 +184,7 @@ class altas{
                     $cuerpo['status_sesion'] = NULL;
                     $cuerpo['msj'] = "Metodo <$metodo> no admitido.";
                     $cuerpo['data'] = NULL;
+                    break;
 		        
 		    }
         
