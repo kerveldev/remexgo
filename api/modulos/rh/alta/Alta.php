@@ -20,8 +20,18 @@
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick
                         $sql = "CALL usuarios_lst()";
                         return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $peticion, $peticion);
-                        //return "Hola";
 
+                    break;
+                    
+                    case'navegante_id':
+
+                        $fields = array("nick","token","Id_Elemento");// Lista de parametros por recibir
+                        $box = new Storer($fields);
+                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                        
+                        $sql = "CALL navegante_id('$x->Id_Elemento');";
+                        return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $peticion, $peticion);
+                        
 					break;
 
  					default:

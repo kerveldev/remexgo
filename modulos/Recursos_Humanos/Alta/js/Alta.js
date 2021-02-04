@@ -168,7 +168,7 @@ $(document).ready(function() {
     
         $("#nUsuario").text(_nombre_usuario);
     
-        fetch ('https://remex.kerveldev.com/api/logger/navegante_id', {  
+        fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
