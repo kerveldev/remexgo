@@ -28,9 +28,9 @@ class alta {
                         return peticion_actualizar($x->nick,$x->token,RH['base'],"ke_generales","Id_Elemento",$x->Id_Elemento,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
-                        default:
+                    default:
                         $cuerpo = PETICION_INVALIDA;
-                        break;
+                   
                 }
                 break;
 
@@ -48,7 +48,6 @@ class alta {
                     
                     default:
                         $cuerpo = PETICION_INVALIDA;
-                        break;
                 }
                 break;
             case 'delete':
@@ -63,13 +62,11 @@ class alta {
                     
                     default:
                         $cuerpo = PETICION_INVALIDA;
-                        break;
+                    break;
                 }
                 break;
-                break;
             default:
-                $cuerpo = METODO_NO_PERMITIDO;
-                break;
+            $cuerpo = METODO_NO_PERMITIDO;
         }
         return $cuerpo;
     }
