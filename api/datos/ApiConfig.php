@@ -196,8 +196,8 @@ define('IPH',[
 
 define('RH',[
           'base'=> 'rmx',
-          'ruta'=>ROOT.'modulos/mmx/',
-          'ruta_web'=> ROOT_WEB.'modulos/mmx/',
+          'ruta'=>NULL,
+          'ruta_web'=> NULL,
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
           'clientes'=>MODULOS.'rh/clientes/Clientes.php',
           'altas'=>MODULOS.'rh/alta/Alta.php'
