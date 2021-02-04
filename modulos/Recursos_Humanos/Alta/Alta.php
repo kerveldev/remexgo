@@ -13,7 +13,7 @@ $us = $_SESSION['user']['data'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Irek Pelaez, Chrystian Redín, Jaquie Gonzalez">
 
-    <title>REMEX | Administrador Usuarios</title>
+    <title>REMEX | Alta RH</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -94,7 +94,7 @@ $us = $_SESSION['user']['data'];
                              <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                     <div class="row wrapper border-bottom white-bg page-heading">
                         <div class="col-lg-10">
-                            <h2>Usuarios</h2>
+                            <h2>Alta RH</h2>
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@ $us = $_SESSION['user']['data'];
                           <div class="card">
                             <div class="card-header">
 
-                              <h6 class="card-title">Alta RH</h6>
+                              <h6 class="card-title">Listado Elementos</h6>
                             </div>
                             <div class="card-body">
                               <div class="row">
