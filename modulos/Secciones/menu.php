@@ -18,7 +18,6 @@
                         <li><a href="#">Contacts</a></li>
                         <li class="divider"></li>
                         <li><a href="javascript:logout('<?php echo $us['Nick'];?>');">Cerrar sesión</a></li>
-                  
                 </ul>
             </div>
             <div class="logo-element">
@@ -30,7 +29,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Menu_Principal/dashboard_remex">Dashboard v.1</a></li>
+                          <li><a href="/modulos/Menu_Principal/dashboard_remex">Dashboard v.1</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -41,7 +40,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Recursos_Humanos/Alta/Alta">Alta</a></li>
+                          <li><a href="/modulos/Recursos_Humanos/Alta/Alta">Alta</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -53,7 +52,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Recursos_Humanos/Alta/Alta">Cl</a></li>
+                          <li><a href="/modulos/Recursos_Humanos/Alta/Alta">Cl</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -65,7 +64,7 @@
             <ul class="nav nav-second-level">
 
        
-                           <li><a href="../Servicios/recargas">Recargas</a></li>
+                           <li><a href="/modulos/Servicios/recargas">Recargas</a></li>
                           <!--<li><a href="dashboard_2.html">Dashboard v.2</a></li>-->
      
                
@@ -77,7 +76,7 @@
             <ul class="nav nav-second-level">
 
           
-                           <li><a href="../AdminUsuarios/adminUsuarios">Adm. Usuarios</a></li>
+                           <li><a href="/modulos/AdminUsuarios/adminUsuarios">Adm. Usuarios</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
          
                
