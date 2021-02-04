@@ -65,7 +65,7 @@ $(document).ready(function() {
         var tabla = "tabla_usuarios";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/rh/alta/navegantes_lst',
+            url : 'https://remex.kerveldev.com/api/rh/altas/navegantes_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -156,7 +156,7 @@ $(document).ready(function() {
                 console.log(xhr);
             },
             complete : function(xhr, status) {
-                
+                console.log(xhr);
             }
         });
     }
