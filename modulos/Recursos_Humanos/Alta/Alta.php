@@ -108,10 +108,8 @@ $us = $_SESSION['user']['data'];
                                           <h1>Second Step</h1>
                                           <div class="step-content">
                                               <div class="text-center m-t-md">
-                                                  <h2>This is step 2</h2>
-                                                  <p>
-                                                      This content is diferent than the first one.
-                                                  </p>
+                                                  
+                                                
                                               </div>
                                           </div>
               
