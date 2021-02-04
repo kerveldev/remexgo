@@ -16,9 +16,9 @@
 
             case 'alta':
                 $v = include_once(RH['alta']);
-    
+
                 if($v == TRUE){
-                    $l = rh::recurso($peticion);
+                    $l = alta::recurso($peticion);
                     $l['status']?$vista->est=200:$vista->est=401;
                     $vista->imprimir($l);
                 }else{
