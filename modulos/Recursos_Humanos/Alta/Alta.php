@@ -50,32 +50,62 @@ $us = $_SESSION['user']['data'];
                           <div class="card-header">
                               <h6 class="card-title">Datos del usuario</h6>
                           </div>
-                          <div class="card-body"> 
-                                <div class="row">
-                                   <div class="col-sm-4">
-                                    <label for="A_Paterno_usuario">A. Paterno:</label>
-                                    <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
-                                  </div>
-                                  <div class="col-sm-4">
-                                    <label for="A_Materno_usuario">A. Materno:</label>
-                                    <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
-                                  </div>
+                          <div class="card-body">
+
+                                  <div class="row">
+
                                     <div class="col-sm-4">
-                                    <label  for="Nombre_usuario">Nombre:</label>
-                                    <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
-                                  </div>  
+                                      <label for="num_emp_usuario">N° Empleado:</label>
+                                      <input type="text" class="form-control" name="num_emp_usuario" id="num_emp_usuario"> 
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                      <label for="RFC_usuario">RFC:</label>
+                                      <input type="text" class="form-control" name="RFC_usuario" id="RFC_usuario"> 
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                      <label  for="CURP_usuario">CURP:</label>
+                                      <input type="text" class="form-control" name="CURP_usuario" id="CURP_usuario"> 
+                                    </div>  
       
                                 </div>
+
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                    <label  for="Nick">Nick:</label>
-                                    <input type="text" class="form-control" name="Nick_cam" id="Nick_cam"> 
-                                  </div>  
-                                  <div class="col-sm-6">
-                                    <label for="Pasword">Pasword:</label>
-                                    <input type="text" class="form-control" name="Pasword_cam" id="Pasword_cam"> 
-                                  </div>
+
+                                    <div class="col-sm-4">
+                                      <label for="A_Paterno_usuario">A. Paterno:</label>
+                                      <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                      <label for="A_Materno_usuario">A. Materno:</label>
+                                      <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                      <label  for="Nombre_usuario">Nombre:</label>
+                                      <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                    </div>  
+      
                                 </div>
+
+
+
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                      <label  for="Nick">Nick:</label>
+                                      <input type="text" class="form-control" name="Nick_cam" id="Nick_cam"> 
+                                    </div>
+                                      
+                                    <div class="col-sm-6">
+                                      <label for="Pasword">Pasword:</label>
+                                      <input type="text" class="form-control" name="Pasword_cam" id="Pasword_cam"> 
+                                    </div>
+
+                                </div>
+
                           </div>
                         </div>
                     </div>
