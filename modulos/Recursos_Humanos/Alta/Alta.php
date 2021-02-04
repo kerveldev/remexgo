@@ -56,7 +56,7 @@ $us = $_SESSION['user']['data'];
                           <div class="card-body">
 
                                 <div class="ibox float-e-margins">
-                                  <div class="ibox-title">
+                                  <!-- <div class="ibox-title">
                                       <h5>Basic Wizzard</h5>
                                       <div class="ibox-tools">
                                           <a class="collapse-link">
@@ -75,7 +75,7 @@ $us = $_SESSION['user']['data'];
                                               <i class="fa fa-times"></i>
                                           </a>
                                       </div>
-                                  </div>
+                                  </div> -->
                                   <div class="ibox-content">
                                       <p>
                                           This is basic example of Step
