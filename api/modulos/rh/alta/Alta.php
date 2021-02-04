@@ -6,7 +6,7 @@ class altas{
     private $cuerpo = NULL;
 
     public static function control($recurso,$metodo){
-        $nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
+        $nave = new nauta(IREK,RH['base'], RH['ruta']);
         // Primero se obtienen las variables para procesar las distintas peticiones de esta clase ('multipart/form-data')
         $_nick = NULL;
         $_pass = NULL;
@@ -23,7 +23,7 @@ class altas{
 								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
 								$_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick
 								$sql = "CALL usuarios_lst()";
-								return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
+								return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
 							break;
 
 							/*Usuario ke_generales Por ID Modulo Sistema De Usuarios*/	
