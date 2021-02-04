@@ -85,20 +85,96 @@ $us = $_SESSION['user']['data'];
                                                 
                                                     <div class="row">
 
-                                                      <div class="col-sm-4">
-                                                        <label for="A_Paterno_usuario">A. Paterno:</label>
-                                                        <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                          <div class="col-sm-4">
+                                                            <label for="A_Paterno_usuario">A. Paterno:</label>
+                                                            <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="A_Materno_usuario">A. Materno:</label>
+                                                            <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="Nombre_usuario">Nombre:</label>
+                                                            <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                          </div>  
+                        
                                                       </div>
-                  
-                                                      <div class="col-sm-4">
-                                                        <label for="A_Materno_usuario">A. Materno:</label>
-                                                        <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+
+                                                      <div class="row">
+
+                                                            <div class="col-sm-4">
+                                                              <label for="A_Paterno_usuario">Fecha Nacimiento:</label>
+                                                              <input type="date" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label for="A_Materno_usuario">Edad:</label>
+                                                              <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label  for="Nombre_usuario">Nacionalidad:</label>
+                                                              <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                            </div>  
+                          
                                                       </div>
-                  
-                                                      <div class="col-sm-4">
-                                                        <label  for="Nombre_usuario">Nombre:</label>
-                                                        <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
-                                                      </div>  
+
+                                                      <div class="row">
+
+                                                            <div class="col-sm-4">
+                                                              <label for="entidad_nac_usuario">Entidad Nacimiento:</label>
+                                                              <input type="text" class="form-control" name="entidad_nac_usuario" id="entidad_nac_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label for="municipio_nac_usuario">Municipio Nacimiento:</label>
+                                                              <input type="text" class="form-control" name="municipio_nac_usuario" id="municipio_nac_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label  for="genero_usuario">Genero:</label>
+                                                              <input type="text" class="form-control" name="genero_usuario" id="genero_usuario"> 
+                                                            </div>  
+                          
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                          <div class="col-sm-4">
+                                                            <label for="tipo_sangre_usuario">Tipo Sangre:</label>
+                                                            <input type="text" class="form-control" name="tipo_sangre_usuario" id="tipo_sangre_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="edo_civil_usuario">Estado Civil:</label>
+                                                            <input type="text" class="form-control" name="edo_civil_usuario" id="edo_civil_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="e_mail_usuario">Correo Electronico:</label>
+                                                            <input type="text" class="form-control" name="e_mail_usuario" id="e_mail_usuario"> 
+                                                          </div>  
+                        
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                          <div class="col-sm-4">
+                                                            <label for="telefono_usuario">Telefono:</label>
+                                                            <input type="text" class="form-control" name="telefono_usuario" id="telefono_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="cel_usuario">Celular:</label>
+                                                            <input type="text" class="form-control" name="cel_usuario" id="cel_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="tel_2_usuario">Otro Telefono:</label>
+                                                            <input type="text" class="form-control" name="tel_2_usuario" id="tel_2_usuario"> 
+                                                          </div>  
                         
                                                   </div>
               
