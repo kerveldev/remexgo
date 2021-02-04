@@ -24,7 +24,7 @@
                 REMEX
             </div>
         </li>
-        <li class="active">
+        <li>
             <a href="index.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
        
