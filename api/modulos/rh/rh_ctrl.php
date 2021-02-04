@@ -14,11 +14,11 @@
             }
             break;
 
-            case 'alta':
-                $v = include_once(RH['alta']);
+            case 'altas':
+                $v = include_once(RH['altas']);
 
                 if($v == TRUE){
-                    $l = alta::recurso($peticion);
+                    $l = altas::recurso($peticion);
                     $l['status']?$vista->est=200:$vista->est=401;
                     $vista->imprimir($l);
                 }else{

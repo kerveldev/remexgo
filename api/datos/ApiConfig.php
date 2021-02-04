@@ -200,7 +200,7 @@ define('RH',[
           'ruta_web'=> ROOT_WEB.'modulos/mmx/',
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
           'clientes'=>MODULOS.'rh/clientes/Clientes.php',
-          'alta'=>MODULOS.'rh/alta/Alta.php'
+          'altas'=>MODULOS.'rh/alta/Alta.php'
      ]);
 
 define('QR',[
