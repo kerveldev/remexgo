@@ -50,9 +50,9 @@ $us = $_SESSION['user']['data'];
 
                     <div class="modal-body">
                         <div class="card">
-                          <div class="card-header">
+                          <!-- <div class="card-header">
                               <h6 class="card-title">Datos del usuario</h6>
-                          </div>
+                          </div> -->
                           <div class="card-body">
 
                                 <div class="ibox float-e-margins">
@@ -260,12 +260,15 @@ $us = $_SESSION['user']['data'];
 
      <!-- Toastr -->
     <script src="/js/plugins/toastr/toastr.min.js"></script>
+
+    <!-- Steps -->
+    <script src="js/plugins/steps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    
     
     <script src="js/Alta.js"></script>
-
-
-
-
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
 
