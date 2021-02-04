@@ -65,7 +65,7 @@ $(document).ready(function() {
         var tabla = "tabla_usuarios";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.parp.mx/api/logger/navegantes_lst',
+            url : 'https://remex.kerveldev.com/api/logger/navegantes_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -168,7 +168,7 @@ $(document).ready(function() {
     
         $("#nUsuario").text(_nombre_usuario);
     
-        fetch ('https://remex.parp.mx/api/logger/navegante_id', {  
+        fetch ('https://remex.kerveldev.com/api/logger/navegante_id', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -204,7 +204,7 @@ $(document).ready(function() {
     
         $("#modal_contraseñas").modal();
     
-        fetch ('https://remex.parp.mx/api/logger/navegante_rfc', {  
+        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -236,7 +236,7 @@ $(document).ready(function() {
         var Nick_cam = $("#Nick_cam").val();
         var Pasword_cam = $("#Pasword_cam").val();
     
-        fetch ('https://remex.parp.mx/api/logger/act_contraseña', {  
+        fetch ('https://remex.kerveldev.com/api/logger/act_contraseña', {  
                     method: 'POST',
                     headers:{
                         'Content-Type': 'application/json'
@@ -301,7 +301,7 @@ $(document).ready(function() {
             confirmButtonText: 'Si, eliminalo!'
         }).then((result) => {
             if (result.value) {
-        fetch ('https://remex.parp.mx/api/logger/elimina_usuario', {  
+        fetch ('https://remex.kerveldev.com/api/logger/elimina_usuario', {  
         method: 'DELETE',   
         headers:{
         'Content-Type': 'application/json'
@@ -369,7 +369,7 @@ $(document).ready(function() {
     
         $("#nombre_usuario").text(nombre);
     
-        fetch ('https://remex.parp.mx/api/logger/navegante_rfc', {  
+        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -468,7 +468,7 @@ $(document).ready(function() {
       if((accion == "nuevo")){
         
     
-         fetch ('https://remex.parp.mx/api/logger/crea_usuario', {  
+         fetch ('https://remex.kerveldev.com/api/logger/crea_usuario', {  
                 method: 'PUT',
                 headers:{
             'Content-Type': 'application/json'
@@ -529,7 +529,7 @@ $(document).ready(function() {
     
                 })
     }else{
-            fetch ('https://remex.parp.mx/api/logger/act_usuario', {  
+            fetch ('https://remex.kerveldev.com/api/logger/act_usuario', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
