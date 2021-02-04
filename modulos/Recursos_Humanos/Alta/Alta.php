@@ -42,7 +42,7 @@ $us = $_SESSION['user']['data'];
     <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
-                    <!--Encabezado modal-->
+
                     <div class="modal-header">
                         <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
                         <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
@@ -50,36 +50,13 @@ $us = $_SESSION['user']['data'];
 
                     <div class="modal-body">
                         <div class="card">
-                          <!-- <div class="card-header">
-                              <h6 class="card-title">Datos del usuario</h6>
-                          </div> -->
+
                           <div class="card-body">
 
                                 <div class="ibox float-e-margins">
-                                  <!-- <div class="ibox-title">
-                                      <h5>Basic Wizzard</h5>
-                                      <div class="ibox-tools">
-                                          <a class="collapse-link">
-                                              <i class="fa fa-chevron-up"></i>
-                                          </a>
-                                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                              <i class="fa fa-wrench"></i>
-                                          </a>
-                                          <ul class="dropdown-menu dropdown-user">
-                                              <li><a href="#">Config option 1</a>
-                                              </li>
-                                              <li><a href="#">Config option 2</a>
-                                              </li>
-                                          </ul>
-                                          <a class="close-link">
-                                              <i class="fa fa-times"></i>
-                                          </a>
-                                      </div>
-                                  </div> -->
-                                  <div class="ibox-content">
 
                                       <div id="wizard">
-                                          <h1>Datos Personales</h1>
+                                          <h1>Personales</h1>
                                           <div class="step-content">
                                               <div class="text-center m-t-md">
                                                 
@@ -199,67 +176,14 @@ $us = $_SESSION['user']['data'];
                                               </div>
                                           </div>
                                       </div>
-              
-                                  </div>
                               </div>
 
-                                  <!-- <div class="row">
-
-                                    <div class="col-sm-4">
-                                      <label for="num_emp_usuario">N° Empleado:</label>
-                                      <input type="text" class="form-control" name="num_emp_usuario" id="num_emp_usuario"> 
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                      <label for="RFC_usuario">RFC:</label>
-                                      <input type="text" class="form-control" name="RFC_usuario" id="RFC_usuario"> 
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                      <label  for="CURP_usuario">CURP:</label>
-                                      <input type="text" class="form-control" name="CURP_usuario" id="CURP_usuario"> 
-                                    </div>  
-      
-                                </div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-4">
-                                      <label for="A_Paterno_usuario">A. Paterno:</label>
-                                      <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                      <label for="A_Materno_usuario">A. Materno:</label>
-                                      <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
-                                    </div>
-
-                                    <div class="col-sm-4">
-                                      <label  for="Nombre_usuario">Nombre:</label>
-                                      <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
-                                    </div>  
-      
-                                </div>
-
-
-
-                                <div class="row">
-
-                                    <div class="col-sm-6">
-                                      <label  for="Nick">Nick:</label>
-                                      <input type="text" class="form-control" name="Nick_cam" id="Nick_cam"> 
-                                    </div>
-                                      
-                                    <div class="col-sm-6">
-                                      <label for="Pasword">Pasword:</label>
-                                      <input type="text" class="form-control" name="Pasword_cam" id="Pasword_cam"> 
-                                    </div>
-
-                                </div> -->
-
                           </div>
+
                         </div>
+
                     </div>
+                    
                   <div class="modal-footer ">
                       <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
                       <button type="button" class="btn btn-primary" onclick="guardarcambio();">Cambiar Contraseña</button>
