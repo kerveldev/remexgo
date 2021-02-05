@@ -50,11 +50,7 @@ $us = $_SESSION['user']['data'];
                   <div class="modal-body">
                         <div class="row">
                             <div class="col-md-16 col-sm-16">
-                                <!-- Inicio del Card -->
-                                <div id="wizard">
-                                          <h1>Personales</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
+                              <div class="text-center m-t-md">
                                                 
                                                     <div class="row">
 
@@ -151,27 +147,8 @@ $us = $_SESSION['user']['data'];
                         
                                                   </div>
               
-                                              </div>
-                                          </div>
+                              </div>
               
-                                          <h1>Second Step</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                  
-                                                
-                                              </div>
-                                          </div>
-              
-                                          <h1>Third Step</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                  <h2>This is step 3</h2>
-                                                  <p>
-                                                      This is last content.
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
                             </div>
                         </div>
                   </div>
