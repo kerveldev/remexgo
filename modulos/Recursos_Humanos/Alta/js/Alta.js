@@ -177,9 +177,7 @@ $(document).ready(function() {
                         "<td>"+
     
                         "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                        "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='asignaModulo(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Asignar Modulo a Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-list-alt'></i></button>&nbsp;</td>"+
-                        
-                        // botones+
+
                         "</tr>";
                 });
                 //Se dibuja la tabla
@@ -216,7 +214,7 @@ $(document).ready(function() {
                             ],
                             buttons: [
                                         {   text: 'Agregar Elemento',
-                                            className: 'btn btn-succes',
+                                            className: 'btn btn-success',
                                             action: function(e, dt, node, config) {
                                                 
                                                 abrirNuevoUsuario();
