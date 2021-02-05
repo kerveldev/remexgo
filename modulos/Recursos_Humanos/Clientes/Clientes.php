@@ -33,7 +33,7 @@ $us = $_SESSION['user']['data'];
 
   
 
-    <link rel="icon" href="../../img/ico.png">
+    <link rel="icon" href="../../../img/ico.png">
 
 </head>
 
