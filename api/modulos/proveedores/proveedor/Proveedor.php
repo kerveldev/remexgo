@@ -9,7 +9,7 @@ class proveedor {
         switch($GLOBALS['metodo']){
             case 'post':
                 switch ($peticion) {
-                    case 'lst_clientes':
+                    case 'lst_proveedores':
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
@@ -18,7 +18,7 @@ class proveedor {
                         return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
-                    case 'modifica_clientes':
+                    case 'modifica_proveedor':
                         $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
@@ -34,7 +34,7 @@ class proveedor {
 
             case 'put':
                 switch ($peticion) {
-                    case 'crea_clientes':
+                    case 'crea_proveedor':
                         $fields = array("nick","token","datos");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
@@ -51,7 +51,7 @@ class proveedor {
                 break;
             case 'delete':
                 switch ($peticion) {
-                    case 'elimina_clientes':
+                    case 'elimina_proveedor':
                         $fields = array("nick","token","Id");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
