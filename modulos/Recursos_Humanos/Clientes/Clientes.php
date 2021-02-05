@@ -220,18 +220,20 @@ $us = $_SESSION['user']['data'];
                                 <div class="col-md-12">
                                   <table class="table table-striped nowrap" id="tabla_clientes">
                                     <thead>
-                                      <th>N° Emp</th>
-                                      <th>Nombre</th>
-                                      <th>Edo. Adm.</th>
+                                      <th>Id</th>
+                                      <th>Cliente</th>
+                                      <th>Entidad</th>
+                                      <th>Status</th>
                                       <th>Acciones</th>
                                     </thead>
                                     <tbody>
                     
                                     </tbody>
                                     <tfoot>
-                                      <th>N° Emp</th>
-                                      <th>Nombre</th>
-                                      <th>Edo. Adm.</th>
+                                      <th>Id</th>
+                                      <th>Cliente</th>
+                                      <th>Entidad</th>
+                                      <th>Status</th>
                                       <th>Acciones</th>
                                     </tfoot>
                                   </table>
