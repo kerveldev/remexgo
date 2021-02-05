@@ -49,17 +49,17 @@ $us = $_SESSION['user']['data'];
                 </div>
                   <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-16 col-sm-16">
+                            <div class="col-md-16 col-sm-12">
                               <div class="text-center m-t-md">
                                                 
                                                     <div class="row">
 
-                                                          <div class="col-sm-8">
+                                                          <div class="col-sm-6">
                                                             <label for="Nombre">Nombre del Cliente:</label>
                                                             <input type="text" class="form-control" name="Nombre" id="Nombre"> 
                                                           </div>
                       
-                                                          <div class="col-sm-8">
+                                                          <div class="col-sm-6">
                                                             <label for="RFC">RFC:</label>
                                                             <input type="text" class="form-control" name="RFC" id="RFC"> 
                                                           </div>
@@ -68,12 +68,12 @@ $us = $_SESSION['user']['data'];
 
                                                       <div class="row">
 
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="Calle">Calle:</label>
                                                               <input type="date" class="form-control" name="Calle" id="Calle"> 
                                                             </div>
                         
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="Numero">Numero:</label>
                                                               <input type="text" class="form-control" name="Numero" id="Numero"> 
                                                             </div>
@@ -82,12 +82,12 @@ $us = $_SESSION['user']['data'];
 
                                                       <div class="row">
 
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="CP">Codigo Postal:</label>
                                                               <input type="text" class="form-control" name="CP" id="CP"> 
                                                             </div>
                         
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="Municipio">Municipio:</label>
                                                               <input type="text" class="form-control" name="Municipio" id="Municipio"> 
                                                             </div>
@@ -96,12 +96,12 @@ $us = $_SESSION['user']['data'];
 
                                                     <div class="row">
 
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="Entidad">Entidad:</label>
                                                               <input type="text" class="form-control" name="Entidad" id="Entidad"> 
                                                             </div>
                         
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-6">
                                                               <label for="Pais">Pais:</label>
                                                               <input type="text" class="form-control" name="Pais" id="Pais"> 
                                                             </div>
@@ -110,7 +110,7 @@ $us = $_SESSION['user']['data'];
 
                                                     <div class="row">
 
-                                                            <div class="col-sm-6">
+                                                            <div class="col-sm-4">
                                                               <label for="Tel1">Tel1:</label>
                                                               <input type="text" class="form-control" name="Tel1" id="Tel1"> 
                                                             </div>
@@ -120,7 +120,7 @@ $us = $_SESSION['user']['data'];
                                                               <input type="text" class="form-control" name="Ext1" id="Ext1"> 
                                                             </div>
                         
-                                                            <div class="col-sm-8">
+                                                            <div class="col-sm-4">
                                                               <label for="Tel2">Tel2:</label>
                                                               <input type="text" class="form-control" name="Tel2" id="Tel2"> 
                                                             </div>
