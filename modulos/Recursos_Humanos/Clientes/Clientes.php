@@ -205,17 +205,17 @@ $us = $_SESSION['user']['data'];
 
                       <div class="row ">
                         <div class="col-sm-12">
-                        <div class="ibox">
-                        <div class="ibox-content">
+                          <div class="ibox">
+                            <div class="ibox-content">
 
                               <h6 class="card-title">Listado Elementos</h6>
                             </div>
-                            <div class="card-body">
+                            <!--<div class="card-body">
                               <div class="row">
                                 <div class="col-md-12">
-                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                  <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> 
                                 </div>
-                              </div>
+                              </div>-->
                               <div class="row">
                                 <div class="col-md-12">
                                   <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15" id="tabla_clientes">
@@ -239,7 +239,7 @@ $us = $_SESSION['user']['data'];
                                   </table>
                                 </div>
                               </div>
-                            </div>
+                            <!--</div>-->
                           </div>
                         </div>
                       </div>
