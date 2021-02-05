@@ -166,7 +166,7 @@ $(document).ready(function() {
                         "<td>"+checarNulos(reg.Estatus)+"</td>"+
                         "<td>"+
     
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
                         
                         // botones+
                         "</tr>";
@@ -239,13 +239,13 @@ $(document).ready(function() {
     }
     
     
-    function abrirUsuario_Id(_id_elemento, _nombre_usuario){
+    function abrirUsuario_Id(_id_cliente, _nombre){
     
          $("#modal_usuario").modal({"backdrop":"static"});
     
         $("#nUsuario").text(_nombre_usuario);
     
-        fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
+        fetch ('https://remex.kerveldev.com/api/rh/clientes/id_cliente', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
