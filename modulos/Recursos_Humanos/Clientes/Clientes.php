@@ -39,156 +39,44 @@ $us = $_SESSION['user']['data'];
 
 <body>
      
-    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
+   
+
+    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo">Respaldo Documental</h5>
+                    <button type="button" class="close" onclick="cerrarModalImgAsignacion();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                  <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-16 col-sm-16">
+                                <!-- Inicio del Card -->
+                                <div class="card">
+                                    <!-- Card Body -->
+                                    <div class="card-body"> 
 
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
-                        <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="card">
-
-                          <div class="card-body">
-
-                                <!-- <div class="ibox float-e-margins"> -->
-
-                                      <div id="wizard">
-                                          <h1>Personales</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                
-                                                    <div class="row">
-
-                                                          <div class="col-sm-4">
-                                                            <label for="A_Paterno_usuario">A. Paterno:</label>
-                                                            <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label for="A_Materno_usuario">A. Materno:</label>
-                                                            <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label  for="Nombre_usuario">Nombre:</label>
-                                                            <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
-                                                          </div>  
-                        
-                                                      </div>
-
-                                                      <div class="row">
-
-                                                            <div class="col-sm-4">
-                                                              <label for="A_Paterno_usuario">Fecha Nacimiento:</label>
-                                                              <input type="date" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
-                                                            </div>
-                        
-                                                            <div class="col-sm-4">
-                                                              <label for="A_Materno_usuario">Edad:</label>
-                                                              <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
-                                                            </div>
-                        
-                                                            <div class="col-sm-4">
-                                                              <label  for="Nombre_usuario">Nacionalidad:</label>
-                                                              <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
-                                                            </div>  
+                                       
                           
-                                                      </div>
-
-                                                      <div class="row">
-
-                                                            <div class="col-sm-4">
-                                                              <label for="entidad_nac_usuario">Entidad Nacimiento:</label>
-                                                              <input type="text" class="form-control" name="entidad_nac_usuario" id="entidad_nac_usuario"> 
-                                                            </div>
-                        
-                                                            <div class="col-sm-4">
-                                                              <label for="municipio_nac_usuario">Municipio Nacimiento:</label>
-                                                              <input type="text" class="form-control" name="municipio_nac_usuario" id="municipio_nac_usuario"> 
-                                                            </div>
-                        
-                                                            <div class="col-sm-4">
-                                                              <label  for="genero_usuario">Genero:</label>
-                                                              <input type="text" class="form-control" name="genero_usuario" id="genero_usuario"> 
-                                                            </div>  
-                          
-                                                    </div>
-
-                                                    <div class="row">
-
-                                                          <div class="col-sm-4">
-                                                            <label for="tipo_sangre_usuario">Tipo Sangre:</label>
-                                                            <input type="text" class="form-control" name="tipo_sangre_usuario" id="tipo_sangre_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label for="edo_civil_usuario">Estado Civil:</label>
-                                                            <input type="text" class="form-control" name="edo_civil_usuario" id="edo_civil_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label  for="e_mail_usuario">Correo Electronico:</label>
-                                                            <input type="text" class="form-control" name="e_mail_usuario" id="e_mail_usuario"> 
-                                                          </div>  
-                        
-                                                    </div>
-
-                                                    <div class="row">
-
-                                                          <div class="col-sm-4">
-                                                            <label for="telefono_usuario">Telefono:</label>
-                                                            <input type="text" class="form-control" name="telefono_usuario" id="telefono_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label for="cel_usuario">Celular:</label>
-                                                            <input type="text" class="form-control" name="cel_usuario" id="cel_usuario"> 
-                                                          </div>
-                      
-                                                          <div class="col-sm-4">
-                                                            <label  for="tel_2_usuario">Otro Telefono:</label>
-                                                            <input type="text" class="form-control" name="tel_2_usuario" id="tel_2_usuario"> 
-                                                          </div>  
-                        
-                                                  </div>
-              
-                                              </div>
+                                           <div class="form-row">
+                                            <div class="form-group col-sm-16 col-md-16 col-xl-16">
+                                                <form>
+                                                  <div class="file-loading">
+                                                      <input id="input-1" name="input-1" type="file" multiple="">
+                                                 </div>
+                                                </form>
+                                            </div> 
                                           </div>
-              
-                                          <h1>Second Step</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                  
-                                                
-                                              </div>
-                                          </div>
-              
-                                          <h1>Third Step</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                  <h2>This is step 3</h2>
-                                                  <p>
-                                                      This is last content.
-                                                  </p>
-                                              </div>
-                                          </div>
-                                      </div>
-                              <!-- </div> -->
-
-                          </div>
-
+                                      
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                  </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" onclick="cerrarModalImgAsignacion();">Cerrar</button>
 
-                    </div>
-                    
-                  <!-- <div class="modal-footer ">
-                      <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
-                      <button type="button" class="btn btn-primary" onclick="guardarcambio();">Cambiar Contraseña</button>
-                  </div> -->
-            
+                </div>
             </div>
         </div>
     </div>
@@ -204,8 +92,11 @@ $us = $_SESSION['user']['data'];
                     </div>
 
                       <div class="row">
-                        <div class="col-sm-12">
-                          <div class="card">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+                                <div class="ibox-content">
+                                <div class="card">
+                            <div class="card-block">
                             <div class="card-header">
 
                               <h6 class="card-title">Listado Elementos</h6>
@@ -240,965 +131,967 @@ $us = $_SESSION['user']['data'];
                                 </div>
                               </div>
                             </div>
+                            </div>
                           </div>
+                                </div>
+                            </div>
                         </div>
                       </div>
-
                       <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox">
-                        <div class="ibox-content">
+                        <div class="col-lg-12">
+                            <div class="ibox">
+                                <div class="ibox-content">
 
-                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
-                                <thead>
-                                <tr>
+                                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                                        <thead>
+                                        <tr>
 
-                                    <th>Order ID</th>
-                                    <th data-hide="phone">Customer</th>
-                                    <th data-hide="phone">Amount</th>
-                                    <th data-hide="phone">Date added</th>
-                                    <th data-hide="phone,tablet" >Date modified</th>
-                                    <th data-hide="phone">Status</th>
-                                    <th class="text-right">Action</th>
+                                            <th>Order ID</th>
+                                            <th data-hide="phone">Customer</th>
+                                            <th data-hide="phone">Amount</th>
+                                            <th data-hide="phone">Date added</th>
+                                            <th data-hide="phone,tablet" >Date modified</th>
+                                            <th data-hide="phone">Status</th>
+                                            <th class="text-right">Action</th>
 
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                       3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-danger">Canceled</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-warning">Expired</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                              3214
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $500.00
+                                            </td>
+                                            <td>
+                                                03/04/2015
+                                            </td>
+                                            <td>
+                                                03/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3214
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $500.00
+                                            </td>
+                                            <td>
+                                                03/04/2015
+                                            </td>
+                                            <td>
+                                                03/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-danger">Canceled</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-warning">Expired</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3214
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $500.00
+                                            </td>
+                                            <td>
+                                                03/04/2015
+                                            </td>
+                                            <td>
+                                                03/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                3214
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $500.00
+                                            </td>
+                                            <td>
+                                                03/04/2015
+                                            </td>
+                                            <td>
+                                                03/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                324
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $320.00
+                                            </td>
+                                            <td>
+                                                12/04/2015
+                                            </td>
+                                            <td>
+                                                21/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                546
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $2770.00
+                                            </td>
+                                            <td>
+                                                06/07/2015
+                                            </td>
+                                            <td>
+                                                04/08/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                6327
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $8560.00
+                                            </td>
+                                            <td>
+                                                01/12/2015
+                                            </td>
+                                            <td>
+                                                05/12/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                642
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $6843.00
+                                            </td>
+                                            <td>
+                                                10/04/2015
+                                            </td>
+                                            <td>
+                                                13/07/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-success">Shipped</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                7435
+                                            </td>
+                                            <td>
+                                                Customer example
+                                            </td>
+                                            <td>
+                                                $750.00
+                                            </td>
+                                            <td>
+                                                04/04/2015
+                                            </td>
+                                            <td>
+                                                14/05/2015
+                                            </td>
+                                            <td>
+                                                <span class="label label-primary">Pending</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="btn-group">
+                                                    <button class="btn-white btn btn-xs">View</button>
+                                                    <button class="btn-white btn btn-xs">Edit</button>
+                                                    <button class="btn-white btn btn-xs">Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
 
 
 
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="7">
-                                        <ul class="pagination pull-right"></ul>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <td colspan="7">
+                                                <ul class="pagination pull-right"></ul>
+                                            </td>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                      </div>
                          <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 </div>
         </div>
