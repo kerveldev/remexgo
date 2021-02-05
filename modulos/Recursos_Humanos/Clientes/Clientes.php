@@ -137,7 +137,7 @@ $us = $_SESSION['user']['data'];
                                                             <label class=""> 
                                                             <div class="icheckbox_square-green checked" style="position: relative;">
                                                               <input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;">
-                                                              <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px;  border: 0px; opacity: 0;">
+                                                              <ins class="iCheck-helper">
                                                               </ins>
                                                             </div> Remember me </label>
                                                         </div>
