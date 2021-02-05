@@ -249,6 +249,44 @@ $us = $_SESSION['user']['data'];
                         <div class="col-lg-12">
                             <div class="ibox">
                                 <div class="ibox-content">
+                                <div class="card">
+                            <div class="card-block">
+                            <div class="card-header">
+
+                              <h6 class="card-title">Listado Elementos</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <table class="table table-striped nowrap" id="tabla_clientes">
+                                    <thead>
+                                      <th>Id</th>
+                                      <th>Cliente</th>
+                                      <th>Entidad</th>
+                                      <th>Status</th>
+                                      <th>Acciones</th>
+                                    </thead>
+                                    <tbody>
+                    
+                                    </tbody>
+                                    <tfoot>
+                                      <th>Id</th>
+                                      <th>Cliente</th>
+                                      <th>Entidad</th>
+                                      <th>Status</th>
+                                      <th>Acciones</th>
+                                    </tfoot>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
                                 </div>
                             </div>
                         </div>
