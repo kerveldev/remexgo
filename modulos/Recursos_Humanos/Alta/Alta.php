@@ -158,9 +158,70 @@ $us = $_SESSION['user']['data'];
                                               </div>
                                           </div>
               
-                                          <h1>Second Step</h1>
+                                          <h1>Domicilio</h1>
                                           <div class="step-content">
                                               <div class="text-center m-t-md">
+
+                                                    <div class="row">
+
+                                                      <div class="col-sm-4">
+                                                        <label for="calle_usuario">Calle:</label>
+                                                        <input type="text" class="form-control" name="calle_usuario" id="calle_usuario"> 
+                                                      </div>
+                  
+                                                      <div class="col-sm-4">
+                                                        <label for="nexterior_usuario">N° Exterior:</label>
+                                                        <input type="text" class="form-control" name="nexterior_usuario" id="nexterior_usuario"> 
+                                                      </div>
+                  
+                                                      <div class="col-sm-4">
+                                                        <label  for="ninterior_usuario">N° Interior:</label>
+                                                        <input type="text" class="form-control" name="ninterior_usuario" id="ninterior_usuario"> 
+                                                      </div>  
+                    
+                                                  </div>
+
+                                                  <div class="row">
+
+                                                    <div class="col-sm-4">
+                                                      <label for="cp_usuario">C.P.:</label>
+                                                      <input type="text" class="form-control" name="cp_usuario" id="cp_usuario"> 
+                                                    </div>
+                
+                                                    <div class="col-sm-4">
+                                                      <label for="cruce1_usuario">Cruce 1:</label>
+                                                      <input type="text" class="form-control" name="cruce1_usuario" id="cruce1_usuario"> 
+                                                    </div>
+                
+                                                    <div class="col-sm-4">
+                                                      <label  for="cruce2_usuario">Cruce 2:</label>
+                                                      <input type="text" class="form-control" name="cruce2_usuario" id="cruce2_usuario"> 
+                                                    </div>  
+                  
+                                                  </div>
+
+                                                  
+                                                  <div class="row">
+
+                                                    <div class="col-sm-4">
+                                                      <label for="colonia_usuario">Colonia.:</label>
+                                                      <input type="text" class="form-control" name="colonia_usuario" id="colonia_usuario"> 
+                                                    </div>
+                
+                                                    <div class="col-sm-4">
+                                                      <label for="entidad_dom_usuario">Entidad:</label>
+                                                      <input type="text" class="form-control" name="entidad_dom_usuario" id="entidad_dom_usuario"> 
+                                                    </div>
+                
+                                                    <div class="col-sm-4">
+                                                      <label  for="municipio_dom_usuario">Municipio:</label>
+                                                      <input type="text" class="form-control" name="municipio_dom_usuario" id="municipio_dom_usuario"> 
+                                                    </div>  
+                  
+                                                  </div>
+
+                                                  
+                                                  
                                                   
                                                 
                                               </div>
