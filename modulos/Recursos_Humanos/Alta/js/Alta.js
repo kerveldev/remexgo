@@ -262,7 +262,8 @@ $(document).ready(function() {
                     if(resJson.status_sesion){
                             
                     respuesta = resJson.data;
-
+                    
+                    //Datos Personales
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
@@ -278,13 +279,17 @@ $(document).ready(function() {
                     $("#telefono_usuario").val(respuesta[0].Tel);
                     $("#cel_usuario").val(respuesta[0].Cel);
                     $("#tel_2_usuario").val(respuesta[0].OtroTel);
-
-                    $("#calle_usuario").val(respuesta[0].Apaterno);
-                    $("#cruce1_usuario").val(respuesta[0].Amaterno);
-                    $("#cruce2_usuario").val(respuesta[0].Nombre);
-                    $("#colonia_usuario").val(respuesta[0].FNacimiento);
-                    $("#entidad_dom_usuario").val(respuesta[0].Nacionalidad);
-                    $("#municipio_dom_usuario").val(respuesta[0].Entidad);
+                    
+                    //Domicilio
+                    $("#calle_usuario").val(respuesta[0].Calle);
+                    $("#nexterior_usuario").val(respuesta[0].Num);
+                    $("#ninterior_usuario").val(respuesta[0].NInterior);
+                    $("#cp_usuario").val(respuesta[0].CP);
+                    $("#cruce1_usuario").val(respuesta[0].Cruce1);
+                    $("#cruce2_usuario").val(respuesta[0].Cruce2);
+                    $("#colonia_usuario").val(respuesta[0].Colonia);
+                    $("#entidad_dom_usuario").val(respuesta[0].Estado);
+                    $("#municipio_dom_usuario").val(respuesta[0].Municipio);
                   
                 }
             })
