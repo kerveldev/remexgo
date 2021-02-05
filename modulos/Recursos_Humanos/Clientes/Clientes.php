@@ -203,10 +203,10 @@ $us = $_SESSION['user']['data'];
                         </div>
                     </div>
 
-                      <div class="row wrapper wrapper-content mx-auto">
+                      <div class="row ">
                         <div class="col-sm-12">
-                          <div class="card">
-                            <div class="card-header">
+                        <div class="ibox">
+                        <div class="ibox-content">
 
                               <h6 class="card-title">Listado Elementos</h6>
                             </div>
