@@ -280,7 +280,7 @@ $(document).ready(function() {
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
                     $("#f_nacimiento_usuario").val(respuesta[0].FNacimiento);
 
-                    $("#edad_usuario").val(getEdad($("#f_nacimiento_usuario").val(respuesta[0].FNacimiento)));
+                    $("#edad_usuario").val(getEdad(respuesta[0].FNacimiento));
                     // $("#edad_usuario").val(respuesta[0].Apaterno);
                     $("#nacionalidad_usuario").val(respuesta[0].Nacionalidad);
                     $("#entidad_nac_usuario").val(respuesta[0].Entidad);
