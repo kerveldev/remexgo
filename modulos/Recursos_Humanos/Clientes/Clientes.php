@@ -70,7 +70,7 @@ $us = $_SESSION['user']['data'];
 
                                                             <div class="col-sm-6">
                                                               <label for="Calle">Calle:</label>
-                                                              <input type="date" class="form-control" name="Calle" id="Calle"> 
+                                                              <input type="text" class="form-control" name="Calle" id="Calle"> 
                                                             </div>
                         
                                                             <div class="col-sm-6">
@@ -133,10 +133,9 @@ $us = $_SESSION['user']['data'];
                                                     </div>
 
                                                     <div class="row">
-
-                                                    <label class=""> <div class="icheckbox_square-green checked" style="position: relative;"><input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Status </label>
-                        
-                                                    </div>
+                                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Log in</strong></button>
+                                                            <label class=""> <div class="icheckbox_square-green checked" style="position: relative;"><input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Remember me </label>
+                                                        </div>
 
               
                               </div>
