@@ -53,7 +53,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Recursos_Humanos/Clientes/">Cl</a></li>
+                          <li><a href="../Recursos_Humanos/Clientes/Clientes">Listado</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
