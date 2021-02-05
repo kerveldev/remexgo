@@ -13,7 +13,7 @@ $us = $_SESSION['user']['data'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Irek Pelaez, Chrystian Redín, Jaquie Gonzalez">
 
-    <title>REMEX | Alta RH</title>
+    <title>REMEX | Clientes</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
