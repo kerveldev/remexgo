@@ -23,7 +23,7 @@ class clientes {
                             $box = new Storer($fields,true);
                             if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                             $sql = "Call clientes_id('"$x->id"');";
-                            $cuerpo = peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                           return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                     break; 
 
                     case 'modifica_clientes':
