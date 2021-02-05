@@ -225,16 +225,6 @@ $us = $_SESSION['user']['data'];
                                                 
                                               </div>
                                           </div>
-              
-                                          <h1>Third Step</h1>
-                                          <div class="step-content">
-                                              <div class="text-center m-t-md">
-                                                  <h2>This is step 3</h2>
-                                                  <p>
-                                                      This is last content.
-                                                  </p>
-                                              </div>
-                                          </div>
                                       </div>
                               <!-- </div> -->
 
