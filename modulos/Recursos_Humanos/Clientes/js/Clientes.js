@@ -142,7 +142,7 @@ $(document).ready(function() {
         var tabla = "tabla_usuarios";
         //Se piden los datos
         $.ajax({
-            url : 'http://remex.kerveldev.com/api/rh/clientes/lst_clientes',
+            url : 'https://remex.kerveldev.com/api/rh/clientes/lst_clientes',
             data : 
             { 
                 nick : nuser.Nick,
