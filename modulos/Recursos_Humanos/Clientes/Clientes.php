@@ -206,6 +206,7 @@ $us = $_SESSION['user']['data'];
                       <div class="row">
                         <div class="col-sm-12">
                           <div class="card">
+                            <div class="card-block">
                             <div class="card-header">
 
                               <h6 class="card-title">Listado Elementos</h6>
@@ -239,6 +240,7 @@ $us = $_SESSION['user']['data'];
                                   </table>
                                 </div>
                               </div>
+                            </div>
                             </div>
                           </div>
                         </div>
