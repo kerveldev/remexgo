@@ -82,18 +82,18 @@ $us = $_SESSION['user']['data'];
                                                       <div class="row">
 
                                                             <div class="col-sm-4">
-                                                              <label for="A_Paterno_usuario">Fecha Nacimiento:</label>
-                                                              <input type="date" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                              <label for="f_nacimiento_usuario">Fecha Nacimiento:</label>
+                                                              <input type="date" class="form-control" name="f_nacimiento_usuario" id="f_nacimiento_usuario"> 
                                                             </div>
                         
                                                             <div class="col-sm-4">
-                                                              <label for="A_Materno_usuario">Edad:</label>
-                                                              <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                              <label for="edad_usuario">Edad:</label>
+                                                              <input type="text" class="form-control" name="edad_usuario" id="edad_usuario"> 
                                                             </div>
                         
                                                             <div class="col-sm-4">
-                                                              <label  for="Nombre_usuario">Nacionalidad:</label>
-                                                              <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                              <label  for="nacionalidad_usuario">Nacionalidad:</label>
+                                                              <input type="text" class="form-control" name="nacionalidad_usuario" id="nacionalidad_usuario"> 
                                                             </div>  
                           
                                                       </div>

@@ -262,10 +262,23 @@ $(document).ready(function() {
                     if(resJson.status_sesion){
                             
                     respuesta = resJson.data;
-    
-                    $("#Nombre_usuario").val(respuesta[0].Nombre);
+
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
+                    $("#Nombre_usuario").val(respuesta[0].Nombre);
+                    $("#f_nacimiento_usuario").val(respuesta[0].FNacimiento);
+                    // $("#edad_usuario").val(respuesta[0].Apaterno);
+                    $("#nacionalidad_usuario").val(respuesta[0].Nacionalidad);
+                    $("#entidad_nac_usuario").val(respuesta[0].Entidad);
+                    $("#municipio_nac_usuario").val(respuesta[0].MunicipioNac);
+                    $("#genero_usuario").val(respuesta[0].Genero);
+                    $("#tipo_sangre_usuario").val(respuesta[0].TipoSangre);
+                    $("#edo_civil_usuario").val(respuesta[0].EdoCivil);
+                    $("#e_mail_usuario").val(respuesta[0].Email);
+                    $("#telefono_usuario").val(respuesta[0].Tel);
+                    $("#cel_usuario").val(respuesta[0].Cel);
+                    $("#tel_2_usuario").val(respuesta[0].OtroTel);
+                    
                   
                 }
             })
