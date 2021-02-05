@@ -1,3 +1,9 @@
+<?php
+session_start();
+ini_set('display_errors', '1');
+$us = $_SESSION['user']['data'];
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -5,1468 +11,288 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Irek Pelaez, Chrystian Redín, Jaquie Gonzalez">
 
-    <title>INSPINIA | E-commerce</title>
+    <title>REMEX | Alta RH</title>
 
-    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+ 
 
-    <!-- FooTable -->
-    <link href="../../../css/plugins/footable/footable.core.css" rel="stylesheet">
+      <!-- DataTables Responsive CSS -->
+      <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
+      <link href="/js/datatables/css/responsive.dataTables.min.css" rel="stylesheet">
+      <link href="/js/datatables/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="../../../css/animate.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
-    <link href="../../../css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+  
+
+    <link rel="icon" href="/img/ico.png">
 
 </head>
 
 <body>
+     
+    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
+                        <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="card">
+
+                          <div class="card-body">
+
+                                <!-- <div class="ibox float-e-margins"> -->
+
+                                      <div id="wizard">
+                                          <h1>Personales</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                                
+                                                    <div class="row">
+
+                                                          <div class="col-sm-4">
+                                                            <label for="A_Paterno_usuario">A. Paterno:</label>
+                                                            <input type="text" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="A_Materno_usuario">A. Materno:</label>
+                                                            <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="Nombre_usuario">Nombre:</label>
+                                                            <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                          </div>  
+                        
+                                                      </div>
+
+                                                      <div class="row">
+
+                                                            <div class="col-sm-4">
+                                                              <label for="A_Paterno_usuario">Fecha Nacimiento:</label>
+                                                              <input type="date" class="form-control" name="A_Paterno_usuario" id="A_Paterno_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label for="A_Materno_usuario">Edad:</label>
+                                                              <input type="text" class="form-control" name="A_Materno_usuario" id="A_Materno_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label  for="Nombre_usuario">Nacionalidad:</label>
+                                                              <input type="text" class="form-control" name="Nombre_usuario" id="Nombre_usuario"> 
+                                                            </div>  
+                          
+                                                      </div>
+
+                                                      <div class="row">
+
+                                                            <div class="col-sm-4">
+                                                              <label for="entidad_nac_usuario">Entidad Nacimiento:</label>
+                                                              <input type="text" class="form-control" name="entidad_nac_usuario" id="entidad_nac_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label for="municipio_nac_usuario">Municipio Nacimiento:</label>
+                                                              <input type="text" class="form-control" name="municipio_nac_usuario" id="municipio_nac_usuario"> 
+                                                            </div>
+                        
+                                                            <div class="col-sm-4">
+                                                              <label  for="genero_usuario">Genero:</label>
+                                                              <input type="text" class="form-control" name="genero_usuario" id="genero_usuario"> 
+                                                            </div>  
+                          
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                          <div class="col-sm-4">
+                                                            <label for="tipo_sangre_usuario">Tipo Sangre:</label>
+                                                            <input type="text" class="form-control" name="tipo_sangre_usuario" id="tipo_sangre_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="edo_civil_usuario">Estado Civil:</label>
+                                                            <input type="text" class="form-control" name="edo_civil_usuario" id="edo_civil_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="e_mail_usuario">Correo Electronico:</label>
+                                                            <input type="text" class="form-control" name="e_mail_usuario" id="e_mail_usuario"> 
+                                                          </div>  
+                        
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                          <div class="col-sm-4">
+                                                            <label for="telefono_usuario">Telefono:</label>
+                                                            <input type="text" class="form-control" name="telefono_usuario" id="telefono_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label for="cel_usuario">Celular:</label>
+                                                            <input type="text" class="form-control" name="cel_usuario" id="cel_usuario"> 
+                                                          </div>
+                      
+                                                          <div class="col-sm-4">
+                                                            <label  for="tel_2_usuario">Otro Telefono:</label>
+                                                            <input type="text" class="form-control" name="tel_2_usuario" id="tel_2_usuario"> 
+                                                          </div>  
+                        
+                                                  </div>
+              
+                                              </div>
+                                          </div>
+              
+                                          <h1>Second Step</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                                  
+                                                
+                                              </div>
+                                          </div>
+              
+                                          <h1>Third Step</h1>
+                                          <div class="step-content">
+                                              <div class="text-center m-t-md">
+                                                  <h2>This is step 3</h2>
+                                                  <p>
+                                                      This is last content.
+                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                              <!-- </div> -->
+
+                          </div>
+
+                        </div>
+
+                    </div>
+                    
+                  <!-- <div class="modal-footer ">
+                      <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
+                      <button type="button" class="btn btn-primary" onclick="guardarcambio();">Cambiar Contraseña</button>
+                  </div> -->
+            
+            </div>
+        </div>
+    </div>
 
     <div id="wrapper">
-
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
-                             </span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
-                            <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
-                        </ul>
+                            <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
+                <div id="page-wrapper" class="gray-bg">
+                             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
+                    <div class="row wrapper border-bottom white-bg page-heading">
+                        <div class="col-lg-10">
+                            <h2>Alta RH</h2>
+                        </div>
                     </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="index.html">Dashboard v.1</a></li>
-                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
-                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
-                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="graph_flot.html">Flot Charts</a></li>
-                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
-                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
-                        <li><a href="graph_chartjs.html">Chart.js</a></li>
-                        <li><a href="graph_chartist.html">Chartist</a></li>
-                        <li><a href="c3.html">c3 charts</a></li>
-                        <li><a href="graph_peity.html">Peity Charts</a></li>
-                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="mailbox.html">Inbox</a></li>
-                        <li><a href="mail_detail.html">Email view</a></li>
-                        <li><a href="mail_compose.html">Compose email</a></li>
-                        <li><a href="email_template.html">Email templates</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
-                </li>
-                <li>
-                    <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Forms</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="form_basic.html">Basic form</a></li>
-                        <li><a href="form_advanced.html">Advanced Plugins</a></li>
-                        <li><a href="form_wizard.html">Wizard</a></li>
-                        <li><a href="form_file_upload.html">File Upload</a></li>
-                        <li><a href="form_editors.html">Text Editor</a></li>
-                        <li><a href="form_autocomplete.html">Autocomplete</a></li>
-                        <li><a href="form_markdown.html">Markdown</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">App Views</span>  <span class="pull-right label label-primary">SPECIAL</span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="profile_2.html">Profile v.2</a></li>
-                        <li><a href="contacts_2.html">Contacts v.2</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="project_detail.html">Project detail</a></li>
-                        <li><a href="activity_stream.html">Activity stream</a></li>
-                        <li><a href="teams_board.html">Teams board</a></li>
-                        <li><a href="social_feed.html">Social feed</a></li>
-                        <li><a href="clients.html">Clients</a></li>
-                        <li><a href="full_height.html">Outlook view</a></li>
-                        <li><a href="vote_list.html">Vote list</a></li>
-                        <li><a href="file_manager.html">File manager</a></li>
-                        <li><a href="calendar.html">Calendar</a></li>
-                        <li><a href="issue_tracker.html">Issue tracker</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="article.html">Article</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="pin_board.html">Pin board</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Other Pages</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="search_results.html">Search results</a></li>
-                        <li><a href="lockscreen.html">Lockscreen</a></li>
-                        <li><a href="invoice.html">Invoice</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="login_two_columns.html">Login v.2</a></li>
-                        <li><a href="forgot_password.html">Forget password</a></li>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="404.html">404 Page</a></li>
-                        <li><a href="500.html">500 Page</a></li>
-                        <li><a href="empty_page.html">Empty page</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-globe"></i> <span class="nav-label">Miscellaneous</span><span class="label label-info pull-right">NEW</span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="toastr_notifications.html">Notification</a></li>
-                        <li><a href="nestable_list.html">Nestable list</a></li>
-                        <li><a href="agile_board.html">Agile board</a></li>
-                        <li><a href="timeline_2.html">Timeline v.2</a></li>
-                        <li><a href="diff.html">Diff</a></li>
-                        <li><a href="pdf_viewer.html">PDF viewer</a></li>
-                        <li><a href="i18support.html">i18 support</a></li>
-                        <li><a href="sweetalert.html">Sweet alert</a></li>
-                        <li><a href="idle_timer.html">Idle timer</a></li>
-                        <li><a href="truncate.html">Truncate</a></li>
-                        <li><a href="password_meter.html">Password meter</a></li>
-                        <li><a href="spinners.html">Spinners</a></li>
-                        <li><a href="spinners_usage.html">Spinners usage</a></li>
-                        <li><a href="tinycon.html">Live favicon</a></li>
-                        <li><a href="google_maps.html">Google maps</a></li>
-                        <li><a href="datamaps.html">Datamaps</a></li>
-                        <li><a href="social_buttons.html">Social buttons</a></li>
-                        <li><a href="code_editor.html">Code editor</a></li>
-                        <li><a href="modal_window.html">Modal window</a></li>
-                        <li><a href="clipboard.html">Clipboard</a></li>
-                        <li><a href="text_spinners.html">Text spinners</a></li>
-                        <li><a href="forum_main.html">Forum view</a></li>
-                        <li><a href="validation.html">Validation</a></li>
-                        <li><a href="tree_view.html">Tree view</a></li>
-                        <li><a href="loading_buttons.html">Loading buttons</a></li>
-                        <li><a href="chat_view.html">Chat view</a></li>
-                        <li><a href="masonry.html">Masonry</a></li>
-                        <li><a href="tour.html">Tour</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-flask"></i> <span class="nav-label">UI Elements</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="icons.html">Icons</a></li>
-                        <li><a href="draggable_panels.html">Draggable Panels</a></li> <li><a href="resizeable_panels.html">Resizeable Panels</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="video.html">Video</a></li>
-                        <li><a href="tabs_panels.html">Panels</a></li>
-                        <li><a href="tabs.html">Tabs</a></li>
-                        <li><a href="notifications.html">Notifications & Tooltips</a></li>
-                        <li><a href="helper_classes.html">Helper css classes</a></li>
-                        <li><a href="badges_labels.html">Badges, Labels, Progress</a></li>
-                    </ul>
-                </li>
 
-                <li>
-                    <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-table"></i> <span class="nav-label">Tables</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="table_basic.html">Static Tables</a></li>
-                        <li><a href="table_data_tables.html">Data Tables</a></li>
-                        <li><a href="table_foo_table.html">Foo Tables</a></li>
-                        <li><a href="jq_grid.html">jqGrid</a></li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="#"><i class="fa fa-shopping-cart"></i> <span class="nav-label">E-commerce</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="ecommerce_products_grid.html">Products grid</a></li>
-                        <li><a href="ecommerce_product_list.html">Products list</a></li>
-                        <li><a href="ecommerce_product.html">Product edit</a></li>
-                        <li><a href="ecommerce_product_detail.html">Product detail</a></li>
-                        <li><a href="ecommerce-cart.html">Cart</a></li>
-                        <li class="active"><a href="ecommerce-orders.html">Orders</a></li>
-                        <li><a href="ecommerce_payments.html">Credit Card form</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-picture-o"></i> <span class="nav-label">Gallery</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="basic_gallery.html">Lightbox Gallery</a></li>
-                        <li><a href="slick_carousel.html">Slick Carousel</a></li>
-                        <li><a href="carousel.html">Bootstrap Carousel</a></li>
+                      <div class="row wrapper wrapper-content mx-auto">
+                        <div class="col-sm-12">
+                          <div class="card">
+                            <div class="card-header">
 
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Menu Levels </span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li>
-                            <a href="#">Third Level <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Item</a>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <li><a href="#">Second Level Item</a></li>
-                        <li>
-                            <a href="#">Second Level Item</a></li>
-                        <li>
-                            <a href="#">Second Level Item</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
-                </li>
-                <li class="special_link">
-                    <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
-                </li>
-            </ul>
-
-        </div>
-    </nav>
-
-        <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                </div>
-            </form>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a7.jpg">
-                                </a>
-                                <div class="media-body">
-                                    <small class="pull-right">46h ago</small>
-                                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
-                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                              <h6 class="card-title">Listado Elementos</h6>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
                                 </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/a4.jpg">
-                                </a>
-                                <div class="media-body ">
-                                    <small class="pull-right text-navy">5h ago</small>
-                                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
-                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                              </div>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <table class="table table-striped nowrap" id="tabla_usuarios">
+                                    <thead>
+                                      <th>N° Emp</th>
+                                      <th>Nombre</th>
+                                      <th>Edo. Adm.</th>
+                                      <th>Acciones</th>
+                                    </thead>
+                                    <tbody>
+                    
+                                    </tbody>
+                                    <tfoot>
+                                      <th>N° Emp</th>
+                                      <th>Nombre</th>
+                                      <th>Edo. Adm.</th>
+                                      <th>Acciones</th>
+                                    </tfoot>
+                                  </table>
                                 </div>
+                              </div>
                             </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="dropdown-messages-box">
-                                <a href="profile.html" class="pull-left">
-                                    <img alt="image" class="img-circle" src="img/profile.jpg">
-                                </a>
-                                <div class="media-body ">
-                                    <small class="pull-right">23h ago</small>
-                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
-                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="mailbox.html">
-                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="mailbox.html">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="profile.html">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="grid_options.html">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="notifications.html">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
-        </div>
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                    <h2>E-commerce orders</h2>
-                    <ol class="breadcrumb">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a>E-commerce</a>
-                        </li>
-                        <li class="active">
-                            <strong>Orders</strong>
-                        </li>
-                    </ol>
+                          </div>
+                        </div>
+                      </div>
+                         <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 </div>
-                <div class="col-lg-2">
-
-                </div>
-            </div>
-
-        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-
-
-            <div class="ibox-content m-b-sm border-bottom">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="order_id">Order ID</label>
-                            <input type="text" id="order_id" name="order_id" value="" placeholder="Order ID" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="status">Order status</label>
-                            <input type="text" id="status" name="status" value="" placeholder="Status" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="customer">Customer</label>
-                            <input type="text" id="customer" name="customer" value="" placeholder="Customer" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="date_added">Date added</label>
-                            <div class="input-group date">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="date_added" type="text" class="form-control" value="03/04/2014">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="date_modified">Date modified</label>
-                            <div class="input-group date">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input id="date_modified" type="text" class="form-control" value="03/06/2014">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="control-label" for="amount">Amount</label>
-                            <input type="text" id="amount" name="amount" value="" placeholder="Amount" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox">
-                        <div class="ibox-content">
-
-                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
-                                <thead>
-                                <tr>
-
-                                    <th>Order ID</th>
-                                    <th data-hide="phone">Customer</th>
-                                    <th data-hide="phone">Amount</th>
-                                    <th data-hide="phone">Date added</th>
-                                    <th data-hide="phone,tablet" >Date modified</th>
-                                    <th data-hide="phone">Status</th>
-                                    <th class="text-right">Action</th>
-
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-                                       3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-danger">Canceled</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-warning">Expired</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        3214
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $500.00
-                                    </td>
-                                    <td>
-                                        03/04/2015
-                                    </td>
-                                    <td>
-                                        03/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        324
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $320.00
-                                    </td>
-                                    <td>
-                                        12/04/2015
-                                    </td>
-                                    <td>
-                                        21/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        546
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $2770.00
-                                    </td>
-                                    <td>
-                                        06/07/2015
-                                    </td>
-                                    <td>
-                                        04/08/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        6327
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $8560.00
-                                    </td>
-                                    <td>
-                                        01/12/2015
-                                    </td>
-                                    <td>
-                                        05/12/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        642
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $6843.00
-                                    </td>
-                                    <td>
-                                        10/04/2015
-                                    </td>
-                                    <td>
-                                        13/07/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-success">Shipped</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        7435
-                                    </td>
-                                    <td>
-                                        Customer example
-                                    </td>
-                                    <td>
-                                        $750.00
-                                    </td>
-                                    <td>
-                                        04/04/2015
-                                    </td>
-                                    <td>
-                                        14/05/2015
-                                    </td>
-                                    <td>
-                                        <span class="label label-primary">Pending</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="btn-group">
-                                            <button class="btn-white btn btn-xs">View</button>
-                                            <button class="btn-white btn btn-xs">Edit</button>
-                                            <button class="btn-white btn btn-xs">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-
-
-
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <td colspan="7">
-                                        <ul class="pagination pull-right"></ul>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
-        <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
-            </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
-            </div>
-        </div>
-
-        </div>
-        </div>
-
-
-
+    
     <!-- Mainly scripts -->
-    <script src="../../../js/jquery-3.1.1.min.js"></script>
-    <script src="../../../js/bootstrap.min.js"></script>
-    <script src="../../../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="../../../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/js/plugins/sweetAlert2/sweetalert2.all.js"></script>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="../../../js/inspinia.js"></script>
-    <script src="../../../js/plugins/pace/pace.min.js"></script>
+    <script src="/js/inspinia.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
 
-    <!-- Data picker -->
-    <script src="../../../js/plugins/datapicker/bootstrap-datepicker.js"></script>
+     <!-- Datables -->
+<!--     <script src="../../../js/plugins/dataTables/datatables.min.js"></script> -->
 
-    <!-- FooTable -->
-    <script src="../../../js/plugins/footable/footable.all.min.js"></script>
+    <!--Datatables-->
+    <script src="/js/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="/js/datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="/js/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="/js/datatables/js/jszip.min.js"></script>
+    <script src="/js/datatables/js/pdfmake.min.js"></script>
+    <script src="/js/datatables/js/vfs_fonts.js"></script>
+    <script src="/js/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="/js/datatables/js/buttons.html5.min.js"></script>
+    <script src="/js/datatables/js/dataTables.select.min.js" type="text/javascript" ></script>
 
-    <!-- Page-Level Scripts -->
+     <!-- Toastr -->
+    <script src="/js/plugins/toastr/toastr.min.js"></script>
+
+    <!-- Steps -->
+    <script src="/js/plugins/steps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="/js/plugins/validate/jquery.validate.min.js"></script>
+    
+    
+    <script src="js/Alta.js"></script>
+    <script src="/js/end.js" type="text/javascript"></script>
+    <script src="/js/ayudante.js" type="text/javascript"></script>
+
     <script>
-        $(document).ready(function() {
-
-            $('.footable').footable();
-
-            $('#date_added').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
-
-            $('#date_modified').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
-
-        });
-
+        var nuser = JSON.parse(<?php echo "'".json_encode($us)."'"; ?>);
+        if(!nuser){
+            alert("La sesion a caducado.");
+            location = "https://remex.kerveldev.com";
+        }
+        localStorage.setItem("user",nuser);
+        //console.log(nuser);
     </script>
 
 </body>
-
 </html>
