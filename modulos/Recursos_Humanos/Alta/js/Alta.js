@@ -218,7 +218,16 @@ $(document).ready(function() {
     
                                 {   extend: 'excel', 
                                     className: 'btn btn-info',
-                                }
+                                },
+                                {   text: 'Agregar Elemento',
+                                    className: 'btn btn-succes',
+                                    action: function(e, dt, node, config) {
+                                        
+                                        $("#modal_usuario").modal({"backdrop":"static"});
+                                        
+                                    }
+        
+                                },
                             ],
     
                             language: {
