@@ -166,7 +166,7 @@ $(document).ready(function() {
                         "<td>"+checarNulos(reg.Estatus)+"</td>"+
                         "<td>"+
     
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Informacion del cliente"+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
                         
                         // botones+
                         "</tr>";
