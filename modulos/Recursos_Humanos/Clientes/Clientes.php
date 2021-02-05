@@ -203,7 +203,7 @@ $us = $_SESSION['user']['data'];
                         </div>
                     </div>
 
-                      <div class="row wrapper wrapper-content mx-auto">
+                      <div class="row">
                         <div class="col-sm-12">
                           <div class="card">
                             <div class="card-header">
