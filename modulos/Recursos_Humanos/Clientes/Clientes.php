@@ -218,7 +218,7 @@ $us = $_SESSION['user']['data'];
                               </div>
                               <div class="row">
                                 <div class="col-md-12">
-                                  <table class="table table-striped nowrap" id="tabla_usuarios">
+                                  <table class="table table-striped nowrap" id="tabla_clientes">
                                     <thead>
                                       <th>N° Emp</th>
                                       <th>Nombre</th>

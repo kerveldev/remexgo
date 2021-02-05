@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    InicializarDatatable("tabla_usuarios");
+    InicializarDatatable("tabla_clientes");
     
         setTimeout(function() {
             toastr.options = {
@@ -12,7 +12,7 @@ $(document).ready(function() {
             toastr.success(nuser.Nombre_completo);
     }, 1300);  
     
-         listadoUsuarios();
+        listadoClientes();
 
          $("#wizard").steps();
          $("#form").steps({
@@ -138,8 +138,8 @@ $(document).ready(function() {
     }
     
     
-    function listadoUsuarios(){
-        var tabla = "tabla_usuarios";
+    function listadoClientes(){
+        var tabla = "tabla_clientes";
         //Se piden los datos
         $.ajax({
             url : 'https://remex.kerveldev.com/api/rh/clientes/lst_clientes',
