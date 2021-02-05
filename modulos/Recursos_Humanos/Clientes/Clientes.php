@@ -199,7 +199,7 @@ $us = $_SESSION['user']['data'];
                              <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                     <div class="row wrapper border-bottom white-bg page-heading">
                         <div class="col-lg-10">
-                            <h2>Alta RH</h2>
+                            <h2>Clientes</h2>
                         </div>
                     </div>
 
@@ -280,7 +280,7 @@ $us = $_SESSION['user']['data'];
     <script src="/js/plugins/validate/jquery.validate.min.js"></script>
     
     
-    <script src="js/Alta.js"></script>
+    <script src="js/Clientes.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
 
