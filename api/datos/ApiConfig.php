@@ -257,4 +257,14 @@ define('MPUSUARIOS',[
           'controlador'=>MODULOS.'mp_usuarios/mp_user_ctrl.php',
           'mpusuarios'=>MODULOS.'mp_usuarios/mp_usuarios/MP_USUARIOS.php'      
      ]);
+
+
+
+define('PROVEEDOR',[
+          'base'=> 'rmx',
+          'ruta'=>NULL,
+          'ruta_web'=> NULL,
+          'controlador'=>MODULOS.'proveedores/proveedores_ctrl.php',
+          'proveedores'=>MODULOS.'proveedores/proveedor/Proveedor.php'
+     ]);
 ?>
