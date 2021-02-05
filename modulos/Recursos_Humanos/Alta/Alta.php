@@ -200,7 +200,6 @@ $us = $_SESSION['user']['data'];
                   
                                                   </div>
 
-                                                  
                                                   <div class="row">
 
                                                     <div class="col-sm-4">
