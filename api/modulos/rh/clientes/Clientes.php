@@ -9,14 +9,14 @@ class clientes {
         switch($GLOBALS['metodo']){
             case 'post':
                 switch ($peticion) {
+                    
                     case 'lst_clientes':
-                        $fields = array("nick","token");// Lista de parametros por recibir
-                        $box = new Storer($fields);
-                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-                        
-                        $sql = "CALL clientes_lst();";
-                        return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
-                        break;
+                            $fields = array("nick","token");// Lista de parametros por recibir
+                            $box = new Storer($fields,true);
+                            if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                            $sql = "Call clientes_lst;";
+                            $cuerpo = peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        break; 
 
                     case 'modifica_clientes':
                         $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
