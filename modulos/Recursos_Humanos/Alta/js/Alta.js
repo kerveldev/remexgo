@@ -215,20 +215,18 @@ $(document).ready(function() {
                                 [0, "asc"]
                             ],
                             buttons: [
-    
-                                {   extend: 'excel', 
-                                    className: 'btn btn-info',
-                                },
-                                {   text: 'Agregar Elemento',
-                                    className: 'btn btn-succes',
-                                    action: function(e, dt, node, config) {
-                                        
-                                        $("#modal_usuario").modal({"backdrop":"static"});
-                                        
-                                    }
-        
-                                },
-                            ],
+                                        {   text: 'Agregar Elemento',
+                                            className: 'btn btn-succes',
+                                            action: function(e, dt, node, config) {
+                                                
+                                                abrirNuevoUsuario();
+                                                
+                                            }
+                                        },
+                                        {   extend: 'excel', 
+                                            className: 'btn btn-info',
+                                        },
+                                ],
     
                             language: {
     
@@ -257,7 +255,48 @@ $(document).ready(function() {
             }
         });
     }
+
+    function limpiarModalUsuario(){
+
+            //Datos Personales
+            $("#A_Paterno_usuario").val("");
+            $("#A_Materno_usuario").val("");
+            $("#Nombre_usuario").val("");
+            $("#f_nacimiento_usuario").val("");
+            $("#edad_usuario").val("");
+            $("#nacionalidad_usuario").val("");
+            $("#entidad_nac_usuario").val("");
+            $("#municipio_nac_usuario").val("");
+            $("#genero_usuario").val("");
+            $("#tipo_sangre_usuario").val("");
+            $("#edo_civil_usuario").val("");
+            $("#e_mail_usuario").val("");
+            $("#telefono_usuario").val("");
+            $("#cel_usuario").val("");
+            $("#tel_2_usuario").val("");
+            
+            //Domicilio
+            $("#calle_usuario").val("");
+            $("#nexterior_usuario").val("");
+            $("#ninterior_usuario").val("");
+            $("#cp_usuario").val("");
+            $("#cruce1_usuario").val("");
+            $("#cruce2_usuario").val("");
+            $("#colonia_usuario").val("");
+            $("#entidad_dom_usuario").val("");
+            $("#municipio_dom_usuario").val("");
+
+
+    }
     
+    function abrirNuevoUsuario(){
+        
+        limpiarModalUsuario();
+        $("#modal_usuario").modal({"backdrop":"static"});
+   
+        $("#nUsuario").text("Nuevo Usuario");
+   
+   }
     
     function abrirUsuario_Id(_id_elemento, _nombre_usuario){
     
