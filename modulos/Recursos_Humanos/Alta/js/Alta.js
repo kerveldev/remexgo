@@ -104,8 +104,6 @@ $(document).ready(function() {
         return edad;
     }
     
-    alert(getAge('2010/04/29'));
-    
     function checarNulos(_valor){
         var regresarValor = "";
         if (_valor == '' || _valor == null) {
@@ -275,17 +273,6 @@ $(document).ready(function() {
                     if(resJson.status_sesion){
                             
                     respuesta = resJson.data;
-
-                    var dob = '19800810';
-                    var year = Number(dob.substr(0, 4));
-                    var month = Number(dob.substr(4, 2)) - 1;
-                    var day = Number(dob.substr(6, 2));
-                    var today = new Date();
-                    var age = today.getFullYear() - year;
-                    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
-                    age--;
-                    }
-                    alert(age);
                     
                     //Datos Personales
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
