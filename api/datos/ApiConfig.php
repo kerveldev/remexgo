@@ -259,7 +259,6 @@ define('MPUSUARIOS',[
      ]);
 
 
-
 define('PROVEEDOR',[
           'base'=> 'rmx',
           'ruta'=>NULL,
