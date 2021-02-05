@@ -91,7 +91,20 @@ $(document).ready(function() {
                      }
                  });
     
-    }); 
+    });
+    
+    function getEdad(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var edad = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            edad--;
+        }
+        return edad;
+    }
+    
+    alert(getAge('2010/04/29'));
     
     function checarNulos(_valor){
         var regresarValor = "";
@@ -262,12 +275,25 @@ $(document).ready(function() {
                     if(resJson.status_sesion){
                             
                     respuesta = resJson.data;
+
+                    var dob = '19800810';
+                    var year = Number(dob.substr(0, 4));
+                    var month = Number(dob.substr(4, 2)) - 1;
+                    var day = Number(dob.substr(6, 2));
+                    var today = new Date();
+                    var age = today.getFullYear() - year;
+                    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+                    age--;
+                    }
+                    alert(age);
                     
                     //Datos Personales
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
                     $("#f_nacimiento_usuario").val(respuesta[0].FNacimiento);
+
+                    $("#edad_usuario").val(getEdad($("#f_nacimiento_usuario").val(respuesta[0].FNacimiento)));
                     // $("#edad_usuario").val(respuesta[0].Apaterno);
                     $("#nacionalidad_usuario").val(respuesta[0].Nacionalidad);
                     $("#entidad_nac_usuario").val(respuesta[0].Entidad);
