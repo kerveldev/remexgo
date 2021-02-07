@@ -1,6 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', '1');
+//ini_set('display_errors', '1');
 $us = $_SESSION['user']['data'];
 ?>
 
@@ -21,17 +21,12 @@ $us = $_SESSION['user']['data'];
     <link href="/css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-
-
     <!-- DataTables Responsive CSS -->
     <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="/js/datatables/css/responsive.dataTables.min.css" rel="stylesheet">
     <link href="/js/datatables/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
-
     <!-- Toastr style -->
     <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-
 
     <link rel="icon" href="/img/ico.png">
 
@@ -262,7 +257,7 @@ $us = $_SESSION['user']['data'];
 
                   <div class="modal-footer ">
                         <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
-                        <button type="button" class="btn btn-primary btn-guardar-usuario">Cambiar Contraseña</button>
+                        <button type="button" class="btn btn-primary btn-guardar-usuario">Guardar</button>
                     </div>
 
             </div>
@@ -331,10 +326,6 @@ $us = $_SESSION['user']['data'];
     <!-- Custom and plugin javascript -->
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
-
-    <!-- Datables -->
-    <!--     <script src="../../../js/plugins/dataTables/datatables.min.js"></script> -->
-
     <!--Datatables-->
     <script src="/js/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/js/datatables/js/dataTables.bootstrap4.js"></script>
@@ -345,17 +336,13 @@ $us = $_SESSION['user']['data'];
     <script src="/js/datatables/js/dataTables.buttons.min.js"></script>
     <script src="/js/datatables/js/buttons.html5.min.js"></script>
     <script src="/js/datatables/js/dataTables.select.min.js" type="text/javascript"></script>
-
     <!-- Toastr -->
     <script src="/js/plugins/toastr/toastr.min.js"></script>
-
     <!-- Steps -->
     <script src="/js/plugins/steps/jquery.steps.min.js"></script>
-
     <!-- Jquery Validate -->
     <script src="/js/plugins/validate/jquery.validate.min.js"></script>
-
-
+    <!-- Personal JS -->
     <script src="js/Alta.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
