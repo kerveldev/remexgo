@@ -291,7 +291,7 @@ function listadoUsuarios(){
         
         limpiarModalUsuario();
         $("#modal_usuario").modal({"backdrop":"static"});
-        $("#btn-guardar-usuario").attr('onClick', 'guardarNuevoUsuario();');
+        $(".btn-guardar-usuario").attr('onClick', 'guardarNuevoUsuario();');
         $("#nUsuario").text("Nuevo Usuario");
    
    }
@@ -299,7 +299,7 @@ function listadoUsuarios(){
     function abrirUsuario_Id(_id_elemento, _nombre_usuario){
     
         $("#modal_usuario").modal({"backdrop":"static"});
-        $("#btn-guardar-usuario").attr('onClick', 'actualizarUsuario('+_id_elemento+');');
+        $(".btn-guardar-usuario").attr('onClick', 'actualizarUsuario('+_id_elemento+');');
         $("#nUsuario").text(_nombre_usuario);
     
         fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
