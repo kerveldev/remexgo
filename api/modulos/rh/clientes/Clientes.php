@@ -18,7 +18,7 @@ class clientes {
                             $cuerpo = peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break; 
 
-                    case 'lst_clientes':
+                    case 'id_cliente':
                             $fields = array("nick","token","id");// Lista de parametros por recibir
                             $box = new Storer($fields,true);
                             if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
