@@ -325,6 +325,11 @@ function listadoUsuarios(){
                     respuesta = resJson.data;
                     
                     //Datos Personales
+
+                    $("#f_ingreso_usuario").val(respuesta[0].FIngreso);
+                    $("#num_emp_usuario").val(respuesta[0].NoEmp_RH);
+                    $("#rfc_usuario").val(respuesta[0].RFC);
+                    $("#curp_usuario").val(respuesta[0].CURP);
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
