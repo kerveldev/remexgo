@@ -16,6 +16,16 @@ $(document).ready(function() {
         radioClass: 'iradio_square-green',
     });
 
+    $("#btn_status").on('change', function(){
+        var v = document.getElementById("btn_status");
+        if(v.checked===true){
+            var val = 1;
+            $("#Estatus").val(val);
+        }else{
+            var val= 0;
+            $("#Estatus").val(val);
+        }
+    });
         listadoClientes();
 
          $("#wizard").steps();
