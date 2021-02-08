@@ -94,7 +94,7 @@
 									.$_id_elemento.
 									"');";
 
-									$t = $nave->consultaSQL_asociativo($sql);
+									//$t = $nave->consultaSQL_asociativo($sql);
 
 									echo json_encode($t);
 									
