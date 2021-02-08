@@ -331,8 +331,8 @@ function listadoUsuarios(){
                     $("#num_emp_usuario").val(respuesta[0].NoEmp_RH);
                     $("#rfc_usuario").val(respuesta[0].RFC);
                     $("#curp_usuario").val(respuesta[0].CURP);
-                    $("#A_Paterno_usuario").val(respuesta[0].APaterno);
-                    $("#A_Materno_usuario").val(respuesta[0].AMaterno);
+                    $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
+                    $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
                     $("#f_nacimiento_usuario").val(respuesta[0].FNacimiento);
 
