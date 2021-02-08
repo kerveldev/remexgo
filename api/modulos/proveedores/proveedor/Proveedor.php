@@ -56,7 +56,13 @@ class proveedor {
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick para agregar campo usuario 
                         $x->datos->Usuario = $_rfc;                         
                         
-                        return "come popo rapido ssss";//peticion_insertar($x->nick, $x->token, RH['base'], "clientes",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
+                        $cuerpo = [
+                            'status' => TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj' => 'datos',
+                            'data' => $_rfc
+                        ];
+                        //$cuerpo = peticion_insertar($x->nick, $x->token, PROVEEDOR['base'], "proveedores",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
@@ -77,7 +83,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_eliminar($x->nick, $x->token, PROVEEDOR['base'], "clientes","Id_Cliente", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        return peticion_eliminar($x->nick, $x->token, PROVEEDOR['base'], "proveedores","Id_Proveedor", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
