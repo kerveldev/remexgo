@@ -137,7 +137,7 @@ $us = $_SESSION['user']['data'];
                                                             <br> 
 
                                                             <label class="checkbox-inline"> 
-                                                                <input type="checkbox" value="btn_status" id="btn_status" style="width: 100%; height: 100%;">
+                                                                <input type="checkbox" value="btn_status" id="btn_status" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%;">
                                                                 |
                                                             </label>
                                                             <br>
