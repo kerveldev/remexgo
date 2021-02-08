@@ -302,7 +302,7 @@ $(document).ready(function() {
         var Tel2 = $("#Tel2").val(respuesta[0].Tel2);
         var Estatus = $("#Estatus").val(respuesta[0].Estatus);
     
-        fetch ('https://remex.kerveldev.com/api/clientes/act_contraseña', {  
+        fetch ('https://remex.kerveldev.com/api/clientes/modifica_clientes', {  
                     method: 'POST',
                     headers:{
                         'Content-Type': 'application/json'
