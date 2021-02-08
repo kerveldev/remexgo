@@ -607,21 +607,18 @@ function eliminarUsuario_Id(_id_elemento, nombre){
         .then((resdelJson)=>{
             console.log(resdelJson)
 
-            if(resdelJson.status_sesion){
-
                 if (resdelJson.status) {
                    
                     swal({
                         type: 'success',
                         title: 'El Usuario ha sido eliminada.!',
                         confirmButtonText: 'Ok'
-                    }).then((result)=>{
-                        if(result.value){
+                    })
+                       
                            
                             listadoUsuarios();
 
-                        }
-                    })
+                  
                 }else{
                    
                     swal(
@@ -630,10 +627,8 @@ function eliminarUsuario_Id(_id_elemento, nombre){
                                 'error'
                             )
                 }
-               
 
-            }
-        })
+            })
 
         }
     });
