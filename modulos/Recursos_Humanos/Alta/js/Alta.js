@@ -361,6 +361,9 @@ function cerrarModalUsuario_Id(){
     
 function guardarNuevoUsuario(){
     //Datos Personales
+    var NoEmp_RH = $("#num_emp_usuario").val();
+    var RFC = $("#rfc_usuario").val();
+    var CURP = $("#curp_usuario").val();
     var Apaterno = $("#A_Paterno_usuario").val();
     var AMaterno = $("#A_Materno_usuario").val();
     var Nombre = $("#Nombre_usuario").val();
@@ -401,7 +404,10 @@ function guardarNuevoUsuario(){
             body: JSON.stringify({
                 nick : nuser.Nick,
                 token: nuser.Token,
-                datos:{
+                datos:{ 
+                        NoEmp_RH:NoEmp_RH,
+                        RFC:RFC,
+                        CURP:CURP,
                         Apaterno:Apaterno,
                         AMaterno:AMaterno,
                         Nombre:Nombre,

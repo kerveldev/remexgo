@@ -60,6 +60,29 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
+                                                <label for="num_emp_usuario">NoEmp_RH:</label>
+                                                <input type="text" class="form-control" name="num_emp_usuario"
+                                                    id="num_emp_usuario">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="rfc_usuario">RFC:</label>
+                                                <input type="text" class="form-control" name="rfc_usuario"
+                                                    id="rfc_usuario">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="curp_usuario">CURP:</label>
+                                                <input type="text" class="form-control" name="curp_usuario"
+                                                    id="curp_usuario">
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="row">
+
+                                            <div class="col-sm-4">
                                                 <label for="A_Paterno_usuario">A. Paterno:</label>
                                                 <input type="text" class="form-control" name="A_Paterno_usuario"
                                                     id="A_Paterno_usuario">

@@ -63,6 +63,12 @@
 								if($nave->conectado==TRUE){
 									
 									$sql = "CALL inserta_usuario('"
+									.$x->datos->NoEmp_RH."','"
+									.$x->datos->RFC."','"
+									.$x->datos->CURP."','"
+									.$x->datos->Apaterno."','"
+									.$x->datos->AMaterno."','"
+									.$x->datos->Nombre."','"
 									.$x->datos->Apaterno."','"
 									.$x->datos->AMaterno."','"
 									.$x->datos->Nombre."','"
