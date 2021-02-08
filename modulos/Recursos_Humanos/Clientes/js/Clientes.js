@@ -333,7 +333,7 @@ $(document).ready(function() {
         var Ext2 = $("#Ext2").val();
         var Estatus = $("#Estatus").val();
 
-        if(Estatus != 1 || Estatus != 0){
+        if(Estatus == 1 || Estatus == 0){
             Estatus = $("#Estatus").val();
         }else{
             Estatus = 0;
