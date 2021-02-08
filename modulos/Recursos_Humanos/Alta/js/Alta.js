@@ -257,6 +257,10 @@ function listadoUsuarios(){
     function limpiarModalUsuario(){
 
             //Datos Personales
+            $("#f_ingreso_usuario").val("");
+            $("#num_emp_usuario").val("");
+            $("#rfc_usuario").val("");
+            $("#curp_usuario").val("");
             $("#A_Paterno_usuario").val("");
             $("#A_Materno_usuario").val("");
             $("#Nombre_usuario").val("");
@@ -289,7 +293,7 @@ function listadoUsuarios(){
     
     function abrirNuevoUsuario(){
         
-        limpiarModalUsuario();
+    
         $("#modal_usuario").modal({"backdrop":"static"});
         $(".btn-guardar-usuario").attr('onClick', 'guardarNuevoUsuario();');
         $("#nUsuario").text("Nuevo Usuario");
@@ -321,6 +325,11 @@ function listadoUsuarios(){
                     respuesta = resJson.data;
                     
                     //Datos Personales
+
+                    $("#f_ingreso_usuario").val(respuesta[0].FIngreso);
+                    $("#num_emp_usuario").val(respuesta[0].NoEmp_RH);
+                    $("#rfc_usuario").val(respuesta[0].RFC);
+                    $("#curp_usuario").val(respuesta[0].CURP);
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
@@ -357,6 +366,7 @@ function listadoUsuarios(){
     
 function cerrarModalUsuario_Id(){
     $("#modal_usuario").modal("hide");
+    limpiarModalUsuario();
 }
     
 function guardarNuevoUsuario(){
@@ -457,6 +467,7 @@ function guardarNuevoUsuario(){
                     html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
                     showConfirmButton: true,
                 });
+                $("#modal_usuario").modal("hide");
             }
             
         });

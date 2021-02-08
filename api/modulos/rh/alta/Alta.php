@@ -56,6 +56,8 @@
 								// Se valida el usuario
 								$uchk = logger::UserCheck($x->nick, $x->token);
 								if($uchk['status_sesion']==FALSE){return $uchk;}
+
+
 								
 								// Se conecta a la base de datos
 								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
@@ -66,9 +68,6 @@
 									.$x->datos->NoEmp_RH."','"
 									.$x->datos->RFC."','"
 									.$x->datos->CURP."','"
-									.$x->datos->Apaterno."','"
-									.$x->datos->AMaterno."','"
-									.$x->datos->Nombre."','"
 									.$x->datos->Apaterno."','"
 									.$x->datos->AMaterno."','"
 									.$x->datos->Nombre."','"
@@ -96,7 +95,7 @@
 									"');";
 
 									$t = $nave->consultaSQL_asociativo($sql);
-									
+					
 									if ($t['status']==TRUE){
 										$cuerpo['status']=$t['status'];
 										$cuerpo['status_sesion']=$uchk['status_sesion'];
