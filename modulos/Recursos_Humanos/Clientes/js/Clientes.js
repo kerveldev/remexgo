@@ -378,7 +378,7 @@ $(document).ready(function() {
                                                                   text:'Modificacion de información Exitosa',
                                                                   showConfirmButton: true,
                                                                   confirmButtonColor: "#8CD4F5",
-                                                                  confirmButtonText: "Yes, delete it!",
+                                                                  confirmButtonText: "OK",
                                                                   closeOnConfirm: false
                                                                 });
                                                             cerrarModalClientes();
