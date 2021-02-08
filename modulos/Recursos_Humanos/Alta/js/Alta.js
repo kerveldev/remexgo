@@ -610,7 +610,7 @@ function eliminarUsuario_Id(_id_elemento, nombre){
             if(resdelJson.status_sesion){
 
                 if (resdelJson.status) {
-                    cerrarmodal_Usuarios();
+                   
                     swal({
                         type: 'success',
                         title: 'El Usuario ha sido eliminada.!',
@@ -623,7 +623,7 @@ function eliminarUsuario_Id(_id_elemento, nombre){
                         }
                     })
                 }else{
-                    cerrarmodal_Usuarios();
+                   
                     swal(
                                 'Error!',
                                 'El Usuario no fue eliminado.',
@@ -632,12 +632,6 @@ function eliminarUsuario_Id(_id_elemento, nombre){
                 }
                
 
-            }else{
-                 swal({
-                       title: 'La sesion a caducado, inicie sesion nuevamente',
-                        
-                        confirmButtonText: 'Ok'
-                    })
             }
         })
 
