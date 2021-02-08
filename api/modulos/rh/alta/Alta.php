@@ -59,7 +59,6 @@
 								
 								// Se conecta a la base de datos
 								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
-								
 								if($nave->conectado==TRUE){
 									
 									$sql = "CALL inserta_usuario('"
