@@ -13,9 +13,9 @@ class proveedor {
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-                        $cuerpo['msj'] = "Peticion 1";
-                        /* $sql = "CALL proveedores_lst();";
-                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion); */
+                        
+                        $sql = "CALL proveedores_lst();";
+                        $cuerpo = peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                     case 'proveedores_id':
@@ -24,7 +24,7 @@ class proveedor {
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
                         $sql = "CALL proveedores_id(".$x->id.");";
-                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $cuerpo = peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                     case 'modifica_proveedor':
@@ -32,7 +32,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_actualizar($x->nick,$x->token,PROVEEDOR['base'],"proveedores","Id_Proveedor",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $cuerpo = peticion_actualizar($x->nick,$x->token,PROVEEDOR['base'],"proveedores","Id_Proveedor",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                     default:
