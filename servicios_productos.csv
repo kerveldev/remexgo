@@ -1,0 +1,11 @@
+Id_SP,Id_Proveedor,Tipo,Nombre_SP,Caracteristicas,Precio,Descuento,Cantidad,Min,Unidad,Usuario,FCap
+1,1,Tipo 1,Nombre A,Caracteristicas 1,110,2,1000,100,gr,2,
+2,2,Tipo 2,Nombre B,Caracteristicas 2,130,3,500,100,lts,2,
+3,3,Tipo 3,Nombre C,Caracteristicas 3,150,4,810,100,pzs,2,
+4,4,Tipo 4,Nombre D,Caracteristicas 4,170,5,659,100,kg,2,
+5,3,Tipo 5,Nombre E,Caracteristicas 5,190,6,325,200,gr,2,
+6,2,Tipo 6,Nombre F,Caracteristicas 6,210,7,1477,500,lts,2,
+7,1,Tipo 7,Nombre G,Caracteristicas 7,230,8,987,500,pzs,2,
+8,4,Tipo 8,Nombre H,Caracteristicas 8,250,9,468,500,kg,2,
+9,3,Tipo 9,Nombre I,Caracteristicas 9,270,10,321,200,gr,2,
+10,1,Tipo 10,Nombre J,Caracteristicas 10,290,11,852,1000,lts,2,
