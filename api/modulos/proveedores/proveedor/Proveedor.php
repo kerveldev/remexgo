@@ -59,8 +59,8 @@ class proveedor {
                         $cuerpo = [
                             'status' => TRUE,
                             'status_sesion'=> TRUE,
-                            'msj' => 'datos',
-                            'data' => $_rfc
+                            'msj' => 'datos'.$_rfc,
+                            'data' => $x
                         ];
                         //$cuerpo = peticion_insertar($x->nick, $x->token, PROVEEDOR['base'], "proveedores",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
                         break;
