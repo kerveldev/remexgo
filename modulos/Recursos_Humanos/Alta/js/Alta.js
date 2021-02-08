@@ -611,7 +611,7 @@ function eliminarUsuario_Id(_id_elemento, nombre){
                    
                     swal({
                         type: 'success',
-                        title: 'El Usuario ha sido eliminada.!',
+                        title: 'El Usuario ha sido eliminado.!',
                         confirmButtonText: 'Ok'
                     })
                        
