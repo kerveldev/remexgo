@@ -266,4 +266,12 @@ define('PROVEEDOR',[
           'controlador'=>MODULOS.'proveedores/proveedores_ctrl.php',
           'proveedores'=>MODULOS.'proveedores/proveedor/Proveedor.php'
      ]);
+
+define('SP',[
+          'base'=> 'rmx',
+          'ruta'=>NULL,
+          'ruta_web'=> NULL,
+          'controlador'=>MODULOS.'servicios_productos/sp_ctrl.php',
+          'sp'=>MODULOS.'servicios_productos/sp/Servicios_Productos.php'
+     ]);
 ?>
