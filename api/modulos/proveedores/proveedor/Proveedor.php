@@ -56,12 +56,6 @@ class proveedor {
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick para agregar campo usuario 
                         $x->datos->Usuario = $_rfc;                         
                         
-                        /* $cuerpo = [
-                            'status' => TRUE,
-                            'status_sesion'=> TRUE,
-                            'msj' => 'datos - '.$_rfc,
-                            'data' => $x
-                        ]; */
                         $cuerpo = peticion_insertar($x->nick, $x->token, PROVEEDOR['base'], "proveedores",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
                         break;
                     
