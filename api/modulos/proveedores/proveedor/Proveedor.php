@@ -23,7 +23,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        $sql = "CALL proveedores_id('".$x->id."');";
+                        $sql = "CALL proveedores_id('".$x->Id."');";
                         $cuerpo = peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
