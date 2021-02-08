@@ -381,13 +381,14 @@ $(document).ready(function() {
                                                                   confirmButtonText: "Yes, delete it!",
                                                                   closeOnConfirm: false
                                                                 });
-                                                            
+                                                            cerrarModalClientes();
                                                         }else{
                                                              swal({
                                                                   type: 'error',
                                                                   title: 'Error al modificar información',
                                                                   text: respApi.msj,
                                                                 });
+                                                            cerrarModalClientes();
                                                         }
                                             }else{//Status false
                                                 swal({
