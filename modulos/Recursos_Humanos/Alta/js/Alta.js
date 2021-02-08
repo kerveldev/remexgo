@@ -454,7 +454,7 @@ function guardarNuevoUsuario(){
             }else{
                 swal({
                     type: 'error',
-                    html: '<h2>Error</h2><p>'+resp.msj+'</p>',
+                    html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
                     showConfirmButton: true,
                 });
             }
