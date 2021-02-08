@@ -1,0 +1,5 @@
+Id_Proveedor,Nombre,Contacto,Tel1,Ext1,Tel2,Ext2,Direccion,CP,Municipio,Entidad,Pais,Email,Estatus,Usuario,FCap
+1,Empresa 1,Contacto1,1234567890,654,1234569870,987,Dir 1,12345,Guadalajara,Jalisco,Mexico,correo@mail.com,1,1,21/01/2021 09:20
+2,Empresa 2,Contacto2,3256719032,111,1111133333,888,Dir 2,22222,Zapopan,Jalisco,Mexico,correo2@mail.com,1,1,21/01/2021 09:20
+3,Empresa 3,Contacto3,6549832135,222,5555566666,504,Dir 3,55555,Tonala,Jalisco,Mexico,correo3mail.com,1,1,21/01/2021 09:20
+4,Empresa 4,Contacto4,6654668822,444,7788213332,702,Dir 4,77777,Tlaquepaque,Jalisco,Mexico,correo4@mail.com,1,1,21/01/2021 09:20
