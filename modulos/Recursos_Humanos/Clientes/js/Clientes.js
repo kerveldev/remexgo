@@ -285,7 +285,7 @@ $(document).ready(function() {
      $("#modal_clientes").modal("hide");
     }
     
-    function guardarcambio(){
+    function guardar_cliente(){
         
         var Id_cliente = $("#Id_cliente").val(respuesta[0].Id_cliente);
         var Nombre = $("#Nombre").val(respuesta[0].Nombre);
