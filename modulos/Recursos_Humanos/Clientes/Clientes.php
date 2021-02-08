@@ -133,15 +133,16 @@ $us = $_SESSION['user']['data'];
                                                     </div>
 
                                                     <div class="row">
-                                                            
+                                                        <div class="col-sm-2">   
                                                             <label class=""> 
                                                             <label class=""> 
                                                             <div class="icheckbox_square-green checked" style="position: relative;">
                                                               <input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;">
                                                               <ins class="iCheck-helper">
                                                               </ins>
-                                                            </div> Remember me </label>
-                                                        </div>
+                                                            </div> Status </label>
+                                                        </div>  
+                                                    </div>
 
               
                               </div>
