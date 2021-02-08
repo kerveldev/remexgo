@@ -151,7 +151,7 @@
 						$box = new Storer($fields);
 						if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
 
-						return peticion_eliminar($x->nick, $x->token, RH['base'], "ke_generales","Id_Elemento", $x->Id_Elemento,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+						return peticion_eliminar($x->nick, $x->token, RH['base'], "ke_generales","Id_Elemento", $x->Id,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
 							
 						break;
                 		
