@@ -54,6 +54,7 @@ $us = $_SESSION['user']['data'];
                                                 
                                                     <div class="row">
                                                         <input type="hidden" id="Id_cliente" name="Id_cliente"></input>
+                                                        <input type="hidden" id="Estatus" name="Estatus"></input>
                                                           <div class="col-sm-6">
                                                             <label for="Nombre">Nombre del Cliente:</label>
                                                             <input type="text" class="form-control" name="Nombre" id="Nombre"> 
