@@ -59,6 +59,16 @@ $us = $_SESSION['user']['data'];
 
                                         <div class="row">
 
+                                            <div class="col-sm-12">
+                                                <label for="f_ingreso_usuario">F. Ingreso Elemento:</label>
+                                                <input type="date" class="form-control" name="f_ingreso_usuario"
+                                                    id="f_ingreso_usuario">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
                                             <div class="col-sm-4">
                                                 <label for="num_emp_usuario">NoEmp_RH:</label>
                                                 <input type="text" class="form-control" name="num_emp_usuario"

@@ -361,6 +361,9 @@ function cerrarModalUsuario_Id(){
     
 function guardarNuevoUsuario(){
     //Datos Personales
+
+    var FIngreso = $("#f_ingreso_usuario").val();
+
     var NoEmp_RH = $("#num_emp_usuario").val();
     var RFC = $("#rfc_usuario").val();
     var CURP = $("#curp_usuario").val();
@@ -405,6 +408,7 @@ function guardarNuevoUsuario(){
                 nick : nuser.Nick,
                 token: nuser.Token,
                 datos:{ 
+                        FIngreso:FIngreso,
                         NoEmp_RH:NoEmp_RH,
                         RFC:RFC,
                         CURP:CURP,
@@ -443,6 +447,10 @@ function guardarNuevoUsuario(){
                     title: 'Creacion exitosa.',
                     text: respuesta,
                 })
+
+                cerrarModalUsuario_Id();
+                listadoUsuarios();
+                
             }else{
                 swal({
                     type: 'error',
@@ -450,7 +458,7 @@ function guardarNuevoUsuario(){
                     showConfirmButton: true,
                 });
             }
-            listadoUsuarios();
+            
         });
 
 }
