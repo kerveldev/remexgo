@@ -330,8 +330,8 @@ function listadoUsuarios(){
                     $("#num_emp_usuario").val(respuesta[0].NoEmp_RH);
                     $("#rfc_usuario").val(respuesta[0].RFC);
                     $("#curp_usuario").val(respuesta[0].CURP);
-                    $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
-                    $("#A_Materno_usuario").val(respuesta[0].Amaterno);
+                    $("#A_Paterno_usuario").val(respuesta[0].APaterno);
+                    $("#A_Materno_usuario").val(respuesta[0].AMaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
                     $("#f_nacimiento_usuario").val(respuesta[0].FNacimiento);
 
@@ -377,7 +377,7 @@ function guardarNuevoUsuario(){
     var NoEmp_RH = $("#num_emp_usuario").val();
     var RFC = $("#rfc_usuario").val();
     var CURP = $("#curp_usuario").val();
-    var Apaterno = $("#A_Paterno_usuario").val();
+    var APaterno = $("#A_Paterno_usuario").val();
     var AMaterno = $("#A_Materno_usuario").val();
     var Nombre = $("#Nombre_usuario").val();
     var FNacimiento	 = $("#f_nacimiento_usuario").val();
@@ -422,7 +422,7 @@ function guardarNuevoUsuario(){
                         NoEmp_RH:NoEmp_RH,
                         RFC:RFC,
                         CURP:CURP,
-                        Apaterno:Apaterno,
+                        APaterno:APaterno,
                         AMaterno:AMaterno,
                         Nombre:Nombre,
                         FNacimiento:FNacimiento,
@@ -482,7 +482,7 @@ function actualizarUsuario(_id_elemento){
     var NoEmp_RH = $("#num_emp_usuario").val();
     var RFC = $("#rfc_usuario").val();
     var CURP = $("#curp_usuario").val();
-    var Apaterno = $("#A_Paterno_usuario").val();
+    var APaterno = $("#A_Paterno_usuario").val();
     var AMaterno = $("#A_Materno_usuario").val();
     var Nombre = $("#Nombre_usuario").val();
     var FNacimiento	 = $("#f_nacimiento_usuario").val();
@@ -506,7 +506,7 @@ function actualizarUsuario(_id_elemento){
     //Domicilio
     var Calle = $("#calle_usuario").val();
     var Num = $("#nexterior_usuario").val();
-    var NInterior	 = $("#ninterior_usuario").val();
+    var NInterior = $("#ninterior_usuario").val();
     var CP = $("#cp_usuario").val();
     var Cruce1 = $("#cruce1_usuario").val();
     var Cruce2 = $("#cruce2_usuario").val();
@@ -528,7 +528,7 @@ function actualizarUsuario(_id_elemento){
                         NoEmp_RH:NoEmp_RH,
                         RFC:RFC,
                         CURP:CURP,
-                        Apaterno:Apaterno,
+                        APaterno:APaterno,
                         AMaterno:AMaterno,
                         Nombre:Nombre,
                         FNacimiento:FNacimiento,
