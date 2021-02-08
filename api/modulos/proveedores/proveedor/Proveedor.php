@@ -9,13 +9,22 @@ class proveedor {
         switch($GLOBALS['metodo']){
             case 'post':
                 switch ($peticion) {
-                    case 'lst_proveedores':
+                    case 'proveedores_lst':
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        $sql = "CALL clientes_lst();";
-                        return peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $sql = "CALL proveedores_lst();";
+                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        break;
+
+                    case 'proveedores_id':
+                        $fields = array("nick","token", "Id");// Lista de parametros por recibir
+                        $box = new Storer($fields);
+                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                        
+                        $sql = "CALL proveedores_id(".$x->id.");";
+                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                     case 'modifica_proveedor':
@@ -23,7 +32,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_actualizar($x->nick,$x->token,RH['base'],"clientes","Id_Cliente",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        return peticion_actualizar($x->nick,$x->token,PROVEEDOR['base'],"proveedores","Id_Proveedor",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                         default:
@@ -56,7 +65,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_eliminar($x->nick, $x->token, RH['base'], "clientes","Id_Cliente", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        return peticion_eliminar($x->nick, $x->token, PROVEEDOR['base'], "clientes","Id_Cliente", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
