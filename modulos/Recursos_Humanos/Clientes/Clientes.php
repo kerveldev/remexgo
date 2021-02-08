@@ -127,7 +127,7 @@ $us = $_SESSION['user']['data'];
 
                                                             <div class="col-sm-2">
                                                               <label for="Ext2">Ext1:</label>
-                                                              <input type="Ext2" class="form-control" name="Ext2" id="Ext2"> 
+                                                              <input type="text" class="form-control" name="Ext2" id="Ext2"> 
                                                             </div>
                         
                                                     </div>
