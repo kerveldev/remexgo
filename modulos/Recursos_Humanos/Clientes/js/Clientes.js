@@ -377,7 +377,7 @@ $(document).ready(function() {
                                                                   type: 'success',
                                                                   text:'Modificacion de información Exitosa',
                                                                   showConfirmButton: true,
-                                                                  confirmButtonColor: "#DD6B55",
+                                                                  confirmButtonColor: "#8CD4F5",
                                                                   confirmButtonText: "Yes, delete it!",
                                                                   closeOnConfirm: false
                                                                 });
