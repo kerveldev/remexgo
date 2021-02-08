@@ -140,6 +140,7 @@ $us = $_SESSION['user']['data'];
                                                                 <input type="checkbox" value="btn_status" id="btn_status" style="width: 100%; height: 100%;">
                                                                 |
                                                             </label>
+                                                            <br>
                                                             <label>Status</label>
                                                             <!--<div class="icheckbox_square-green" style="position: relative;">
                                                                 <input type="checkbox" id="btn_status" name="btn_status" class="i-checks" style="position: absolute; opacity: 0;">
