@@ -253,7 +253,7 @@ $(document).ready(function() {
                 body: JSON.stringify({
                     nick: nuser.Nick,
                     token: nuser.Token,
-                    Id_Elemento: _id_elemento
+                    Id_Elemento: _id_cliente
                 })
             }).then((res)=> res.json())
                 .then((resJson)=>{
