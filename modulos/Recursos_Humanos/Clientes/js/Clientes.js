@@ -11,25 +11,16 @@ $(document).ready(function() {
             };
             toastr.success(nuser.Nombre_completo);
     }, 1300);  
-    $('.i-checks').iCheck({
-        checkboxClass: 'icheckbox_square-green',
-        radioClass: 'iradio_square-green',
+    
+    $('#btn_status').change(function(){
+        if($(this).prop("checked") == true){
+            va = 1;
+            $("#Estatus").val(va);
+        }else{
+            va = 0;
+            $("#Estatus").val(va);
+        }
     });
-
-    
-
-    
-$('#btn_status').change(function(){
-
-    if($(this).prop("checked") == true){
-        $("#Estatus").show();
-      
-    }else{
-        $("#Estatus").hide();
-       
-    }
-
-});
 
         listadoClientes();
 
@@ -111,7 +102,27 @@ $('#btn_status').change(function(){
                  });
     
     }); 
+    function comprobarCheck(var_check){
+
+        if ($("#"+var_check+"").prop("checked")) {
+            var checkIP = 1;
+        } else {
+            var checkIP = "false";
+        }
     
+        return checkIP;
+    }
+    
+    function pintarCheckOtroTrabajo(var_check,respuesta_valor){
+        if (respuesta_valor == 1) {
+           $("#"+var_check+"").prop("checked", true);
+           $("#divOTrabj").css("display", "block");
+       }else{ 
+           $("#"+var_check+"").prop("checked", false);
+           $("#divOTrabj").css("display", "none");
+       }
+   }
+
     function checarNulos(_valor){
         var regresarValor = "";
         if (_valor == '' || _valor == null) {
@@ -155,7 +166,6 @@ $('#btn_status').change(function(){
              });
     
     }
-    
     
     function listadoClientes(){
         var tabla = "tabla_clientes";
@@ -259,7 +269,7 @@ $('#btn_status').change(function(){
     
     function abrirClientes_Id(_id_cliente, _nombre){
     
-         $("#modal_clientes").modal({"backdrop":"static"});
+        $("#modal_clientes").modal({"backdrop":"static"});
     
         $("#nUsuario").text(_nombre);
     
@@ -293,6 +303,7 @@ $('#btn_status').change(function(){
                     $("#Ext1").val(respuesta[0].Ext1);
                     $("#Tel2").val(respuesta[0].Tel2);
                     $("#Tel2").val(respuesta[0].Tel2);
+                    pintarCheckOtroTrabajo("btn_status",respuesta[0].Estatus);
                     $("#Estatus").val(respuesta[0].Estatus);
                   
                 }
@@ -306,20 +317,20 @@ $('#btn_status').change(function(){
     
     function guardar_cliente(){
         
-        var Id_cliente = $("#Id_cliente").val(respuesta[0].Id_cliente);
-        var Nombre = $("#Nombre").val(respuesta[0].Nombre);
-        var RFC = $("#RFC").val(respuesta[0].RFC);
-        var Calle= $("#Calle").val(respuesta[0].Calle);
-        var Numero = $("#Numero").val(respuesta[0].Numero);
-        var CP = $("#CP").val(respuesta[0].CP);
-        var Municipio = $("#Municipio").val(respuesta[0].Municipio);
-        var Entidad = $("#Entidad").val(respuesta[0].Entidad);
-        var Pais = $("#Pais").val(respuesta[0].Pais);
-        var Tel1 = $("#Tel1").val(respuesta[0].Tel1);
-        var Ext1 = $("#Ext1").val(respuesta[0].Ext1);
-        var Tel2 = $("#Tel2").val(respuesta[0].Tel2);
-        var Tel2 = $("#Tel2").val(respuesta[0].Tel2);
-        var Estatus = $("#Estatus").val(respuesta[0].Estatus);
+        var Id_cliente = $("#Id_cliente").val();
+        var Nombre = $("#Nombre").val();
+        var RFC = $("#RFC").val();
+        var Calle= $("#Calle").val();
+        var Numero = $("#Numero").val();
+        var CP = $("#CP").val();
+        var Municipio = $("#Municipio").val();
+        var Entidad = $("#Entidad").val();
+        var Pais = $("#Pais").val();
+        var Tel1 = $("#Tel1").val();
+        var Ext1 = $("#Ext1").val();
+        var Tel2 = $("#Tel2").val();
+        var Tel2 = $("#Tel2").val();
+        var Estatus = $("#Estatus").val();
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/modifica_clientes', {  
                     method: 'POST',
