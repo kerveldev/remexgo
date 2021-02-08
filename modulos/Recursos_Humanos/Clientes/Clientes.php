@@ -136,7 +136,10 @@ $us = $_SESSION['user']['data'];
                                                         <div class="col-sm-2">  
                                                             <br> 
 
-                                                            <input class="checkbox-inline" type="checkbox" id="btn_status" name="btn_status" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                            <label class="checkbox-inline"> 
+                                                                <input type="checkbox" value="option1" id="inlineCheckbox1">
+                                                            Status
+                                                            </label>
                                                             <!--<div class="icheckbox_square-green" style="position: relative;">
                                                                 <input type="checkbox" id="btn_status" name="btn_status" class="i-checks" style="position: absolute; opacity: 0;">
                                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
