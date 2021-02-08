@@ -54,7 +54,7 @@ class proveedor {
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick para agregar campo usuario 
-                        $x->datos["Usuario"] = $_rfc;                         
+                        $x->datos->Usuario = $_rfc;                         
                         
                         $cuerpo = [
                             'status' => TRUE,
