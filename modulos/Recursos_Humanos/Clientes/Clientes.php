@@ -21,13 +21,13 @@ $us = $_SESSION['user']['data'];
     <link href="/css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
- 
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
 
       <!-- DataTables Responsive CSS -->
       <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
       <link href="/js/datatables/css/responsive.dataTables.min.css" rel="stylesheet">
       <link href="/js/datatables/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
-
+        
     <!-- Toastr style -->
     <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
