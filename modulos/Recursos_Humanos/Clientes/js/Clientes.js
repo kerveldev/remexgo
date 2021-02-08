@@ -241,9 +241,9 @@ $(document).ready(function() {
     
     function abrirUsuario_Id(_id_cliente, _nombre){
     
-         $("#modal_usuario").modal({"backdrop":"static"});
+         $("#modal_clientes").modal({"backdrop":"static"});
     
-        $("#nUsuario").text(_nombre_usuario);
+        $("#nUsuario").text(_nombre);
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/id_cliente', {  
                 method: 'POST',
@@ -263,8 +263,8 @@ $(document).ready(function() {
                             
                     respuesta = resJson.data;
     
-                    $("#Nombre_usuario").val(respuesta[0].Nombre);
-                    $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
+                    $("#Nombre").val(respuesta[0].Nombre);
+                    $("#RFC").val(respuesta[0].RFC);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                   
                 }
@@ -272,8 +272,8 @@ $(document).ready(function() {
     
     }
     
-    function cerrarModalUsuario_Id(){
-     $("#modal_usuario").modal("hide");
+    function cerrarModalClientes(){
+     $("#modal_clientes").modal("hide");
     }
     
     
@@ -434,7 +434,7 @@ $(document).ready(function() {
     }
     
     function agregar_usu(){
-        $("#modal_usuarios").modal();
+        $("#modal_clientes").modal();
         $("#Pasword").prop("disabled",false);
     
         var actualiza = "nuevo";
@@ -442,7 +442,7 @@ $(document).ready(function() {
     }
     
     function abrirmodal(rfc, nombre){
-        $("#modal_usuarios").modal();
+        $("#modal_clientes").modal();
     
         $("#nombre_usuario").text(nombre);
     
@@ -506,7 +506,7 @@ $(document).ready(function() {
     
     
     function cerrarmodal_Usuarios(){
-        $("#modal_usuarios").modal("hide");
+        $("#modal_clientes").modal("hide");
         limpiar_mUsuarios();
     }
     

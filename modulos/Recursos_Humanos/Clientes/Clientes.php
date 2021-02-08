@@ -40,12 +40,12 @@ $us = $_SESSION['user']['data'];
 <body>
   
 
-    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
+    <div class="modal dark_bg" id="modal_clientes" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="titulo">Información General del Cliente</h5>
-                    <button type="button" class="close" onclick="cerrarModalImgAsignacion();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                    <button type="button" class="close" onclick="cerrarModalClientes();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                 </div>
                   <div class="modal-body">
                         <div class="row">
