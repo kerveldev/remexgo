@@ -56,6 +56,8 @@
 								// Se valida el usuario
 								$uchk = logger::UserCheck($x->nick, $x->token);
 								if($uchk['status_sesion']==FALSE){return $uchk;}
+
+
 								
 								// Se conecta a la base de datos
 								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
@@ -93,6 +95,8 @@
 									"');";
 
 									$t = $nave->consultaSQL_asociativo($sql);
+
+									echo json_encode($t);
 									
 									if ($t['status']==TRUE){
 										$cuerpo['status']=$t['status'];
