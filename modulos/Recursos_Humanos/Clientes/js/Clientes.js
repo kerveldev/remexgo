@@ -303,7 +303,7 @@ $(document).ready(function() {
                     $("#Tel1").val(respuesta[0].Tel1);
                     $("#Ext1").val(respuesta[0].Ext1);
                     $("#Tel2").val(respuesta[0].Tel2);
-                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Ext2").val(respuesta[0].Ext2);
                     pintarCheckOtroTrabajo("btn_status",respuesta[0].Estatus);
                     $("#Estatus").val(respuesta[0].Estatus);
                   
