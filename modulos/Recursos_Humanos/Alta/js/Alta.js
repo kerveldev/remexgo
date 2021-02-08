@@ -177,7 +177,7 @@ function listadoUsuarios(){
                         "<td>"+
     
                         "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                        "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Eliminar Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-thrash'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Eliminar Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-trash'></i></button>&nbsp;"+
 
                         "</tr>";
                 });
@@ -593,7 +593,7 @@ function eliminarUsuario_Id(_id_elemento, nombre){
         confirmButtonText: 'Si, eliminalo!'
     }).then((result) => {
         if (result.value) {
-    fetch ('https://remex.kerveldev.com/api/altas/elimina_usuario', {  
+    fetch ('https://remex.kerveldev.com/api/rh/altas/elimina_usuario', {  
     method: 'DELETE',   
     headers:{
     'Content-Type': 'application/json'
