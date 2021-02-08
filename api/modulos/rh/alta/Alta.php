@@ -94,9 +94,8 @@
 									.$_id_elemento.
 									"');";
 
-									//$t = $nave->consultaSQL_asociativo($sql);
+									$t = $nave->consultaSQL_asociativo($sql);
 
-									echo json_encode($t);
 									
 									if ($t['status']==TRUE){
 										$cuerpo['status']=$t['status'];
