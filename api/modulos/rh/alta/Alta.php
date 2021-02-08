@@ -95,9 +95,7 @@
 									"');";
 
 									$t = $nave->consultaSQL_asociativo($sql);
-
-									echo json_encode($t);
-									
+					
 									if ($t['status']==TRUE){
 										$cuerpo['status']=$t['status'];
 										$cuerpo['status_sesion']=$uchk['status_sesion'];
