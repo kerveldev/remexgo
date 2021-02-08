@@ -332,6 +332,12 @@ $(document).ready(function() {
         var Tel2 = $("#Tel2").val();
         var Ext2 = $("#Ext2").val();
         var Estatus = $("#Estatus").val();
+
+        if(Estatus != 1 || Estatus != 0){
+            Estatus = $("#Estatus").val();
+        }else{
+            Estatus = 0;
+        }
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/modifica_clientes', {  
                     method: 'POST',
