@@ -1224,14 +1224,6 @@ $us = $_SESSION['user']['data'];
         }
 
         
-        $(document).ready(function () {
-                $('.i-checks').iCheck({
-                    checkboxClass: 'icheckbox_square-green',
-                    radioClass: 'iradio_square-green',
-                    $("#Estatus").val("1");
-                });
-            });
-        
         localStorage.setItem("user",nuser);
         //console.log(nuser);
     </script>

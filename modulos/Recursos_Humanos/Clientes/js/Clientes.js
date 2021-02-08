@@ -11,7 +11,11 @@ $(document).ready(function() {
             };
             toastr.success(nuser.Nombre_completo);
     }, 1300);  
-    
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+        $("#Estatus").val("1");
+    });
         listadoClientes();
 
          $("#wizard").steps();
