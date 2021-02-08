@@ -52,13 +52,13 @@ $(document).ready(function() {
                  // Suppress (skip) "Warning" step if the user is old enough.
                  if (currentIndex === 2 && Number($("#age").val()) >= 18)
                  {
-                     $(this).steps("next");
+                     $(this).steps("siguiente");
                  }
 
                  // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
                  if (currentIndex === 2 && priorIndex === 3)
                  {
-                     $(this).steps("previous");
+                     $(this).steps("anterior");
                  }
              },
              onFinishing: function (event, currentIndex)
@@ -149,7 +149,7 @@ $(document).ready(function() {
     }
     
     
-    function listadoUsuarios(){
+function listadoUsuarios(){
         var tabla = "tabla_usuarios";
         //Se piden los datos
         $.ajax({
@@ -177,9 +177,7 @@ $(document).ready(function() {
                         "<td>"+
     
                         "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                        "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='asignaModulo(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Asignar Modulo a Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-list-alt'></i></button>&nbsp;</td>"+
-                        
-                        // botones+
+
                         "</tr>";
                 });
                 //Se dibuja la tabla
@@ -215,11 +213,18 @@ $(document).ready(function() {
                                 [0, "asc"]
                             ],
                             buttons: [
-    
-                                {   extend: 'excel', 
-                                    className: 'btn btn-info',
-                                }
-                            ],
+                                        {   text: 'Agregar Elemento',
+                                            className: 'btn btn-success',
+                                            action: function(e, dt, node, config) {
+                                                
+                                                abrirNuevoUsuario();
+                                                
+                                            }
+                                        },
+                                        {   extend: 'excel', 
+                                            className: 'btn btn-info',
+                                        },
+                                ],
     
                             language: {
     
@@ -248,12 +253,53 @@ $(document).ready(function() {
             }
         });
     }
+
+    function limpiarModalUsuario(){
+
+            //Datos Personales
+            $("#A_Paterno_usuario").val("");
+            $("#A_Materno_usuario").val("");
+            $("#Nombre_usuario").val("");
+            $("#f_nacimiento_usuario").val("");
+            $("#edad_usuario").val("");
+            $("#nacionalidad_usuario").val("");
+            $("#entidad_nac_usuario").val("");
+            $("#municipio_nac_usuario").val("");
+            $("#genero_usuario").val("");
+            $("#tipo_sangre_usuario").val("");
+            $("#edo_civil_usuario").val("");
+            $("#e_mail_usuario").val("");
+            $("#telefono_usuario").val("");
+            $("#cel_usuario").val("");
+            $("#tel_2_usuario").val("");
+            
+            //Domicilio
+            $("#calle_usuario").val("");
+            $("#nexterior_usuario").val("");
+            $("#ninterior_usuario").val("");
+            $("#cp_usuario").val("");
+            $("#cruce1_usuario").val("");
+            $("#cruce2_usuario").val("");
+            $("#colonia_usuario").val("");
+            $("#entidad_dom_usuario").val("");
+            $("#municipio_dom_usuario").val("");
+
+
+    }
     
+    function abrirNuevoUsuario(){
+        
+        limpiarModalUsuario();
+        $("#modal_usuario").modal({"backdrop":"static"});
+        $(".btn-guardar-usuario").attr('onClick', 'guardarNuevoUsuario();');
+        $("#nUsuario").text("Nuevo Usuario");
+   
+   }
     
     function abrirUsuario_Id(_id_elemento, _nombre_usuario){
     
-         $("#modal_usuario").modal({"backdrop":"static"});
-    
+        $("#modal_usuario").modal({"backdrop":"static"});
+        $(".btn-guardar-usuario").attr('onClick', 'actualizarUsuario('+_id_elemento+');');
         $("#nUsuario").text(_nombre_usuario);
     
         fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
@@ -309,400 +355,96 @@ $(document).ready(function() {
     
     }
     
-    function cerrarModalUsuario_Id(){
-     $("#modal_usuario").modal("hide");
-    }
+function cerrarModalUsuario_Id(){
+    $("#modal_usuario").modal("hide");
+}
     
-    
-    function modificaContraseña(rfc){
-    
-        $("#modal_contraseñas").modal();
-    
-        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-          },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    rfc: rfc
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if(resJson.status_sesion){
-                            
-                    respuesta = resJson.data;
-                    var actualiza = "actualiza";
-                    $("#Nick_cam").val(respuesta[0].Nick);
-                    $("#Pasword_cam").val(respuesta[0].Pasword);
-                    $("#Pasword").prop("disabled",false);
-    
-                }
-            })
-    
-    }
-    
-    function guardarcambio(){
-    
-        var Nick_cam = $("#Nick_cam").val();
-        var Pasword_cam = $("#Pasword_cam").val();
-    
-        fetch ('https://remex.kerveldev.com/api/logger/act_contraseña', {  
-                    method: 'POST',
-                    headers:{
-                        'Content-Type': 'application/json'
-                        },
-                                body: JSON.stringify({
-                                        nick:nuser.Nick,
-                                        token: nuser.Token,
-                                        nick_mod: Nick_cam,
-                                        pass: Pasword_cam
-                                            
-                                        })
-                                    }).then((res)=> res.json())
-                                        .then((respApi)=>{
-                                            console.log(respApi);
-    
-                                            if(respApi.status_sesion){
-    
-                                                        if(respApi.status){
-                                                            swal({
-                                                                  timer: 2000,
-                                                                  type: 'success',
-                                                                  title: 'Actualizado',
-                                                                  text:'Cambio de Contraseña Exitosa',
-                                                                  showConfirmButton: false,
-                                                                });
-                                                            cerrarcontraseña();
-                                                            
-    
-                                                        }else{
-                                                             swal({
-                                                                  type: 'error',
-                                                                  title: 'Error al Intentar Cambiar la Contraseña',
-                                                                  text: respApi.msj,
-                                                                });
-                                                             cerrarcontraseña();
-                                                        }
-                                            }else{//Status false
-                                                swal({
-                                                          type: 'error',
-                                                          title: 'Sesión expiró',
-                                                          text: respApi.msj,
-                                                          showConfirmButton: false,
-                                                        });
-                                                //location = "https://lab.parp.mx";
-                                            }
-                                        })
-    }
-    
-    function cerrarcontraseña(){
-        $("#modal_contraseñas").modal("hide");
-        
-    }
-    
-    function eliminarUsuario(rfc, nombre){
-    
-        swal({
-            title: 'Deseas eliminar a '+nombre+' ?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminalo!'
-        }).then((result) => {
-            if (result.value) {
-        fetch ('https://remex.kerveldev.com/api/logger/elimina_usuario', {  
-        method: 'DELETE',   
+function guardarNuevoUsuario(){
+    //Datos Personales
+    var Apaterno = $("#A_Paterno_usuario").val();
+    var AMaterno = $("#A_Materno_usuario").val();
+    var Nombre = $("#Nombre_usuario").val();
+    var FNacimiento	 = $("#f_nacimiento_usuario").val();
+
+    $( "#f_nacimiento_usuario" ).change(function() {
+    var edadUsuario = getEdad($("#f_nacimiento_usuario").val());
+    $("#edad_usuario").val(edadUsuario);  
+    });
+
+    var Nacionalidad = $("#nacionalidad_usuario").val();
+    var Entidad = $("#entidad_nac_usuario").val();
+    var MunicipioNac = $("#municipio_nac_usuario").val();
+    var Genero = $("#genero_usuario").val();
+    var TipoSangre = $("#tipo_sangre_usuario").val();
+    var EdoCivil = $("#edo_civil_usuario").val();
+    var Email = $("#e_mail_usuario").val();
+    var Tel = $("#telefono_usuario").val();
+    var Cel = $("#cel_usuario").val();
+    var OtroTel = $("#tel_2_usuario").val();
+            
+    //Domicilio
+    var Calle = $("#calle_usuario").val();
+    var Num = $("#nexterior_usuario").val();
+    var NInterior	 = $("#ninterior_usuario").val();
+    var CP = $("#cp_usuario").val();
+    var Cruce1 = $("#cruce1_usuario").val();
+    var Cruce2 = $("#cruce2_usuario").val();
+    var Colonia = $("#colonia_usuario").val();
+    var Estado = $("#entidad_dom_usuario").val();
+    var Municipio = $("#municipio_dom_usuario").val();
+
+    fetch ('https://remex.kerveldev.com/api/rh/altas/crea_usuario',{  
+        method: 'PUT',
         headers:{
-        'Content-Type': 'application/json'
-        },
+            'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
-                nick: nuser.Nick,
+                nick : nuser.Nick,
                 token: nuser.Token,
-                rfc: rfc
-            })
-        }).then((res)=> res.json())
-            .then((resdelJson)=>{
-                console.log(resdelJson)
-    
-                if(resdelJson.status_sesion){
-    
-                    if (resdelJson.status) {
-                        cerrarmodal_Usuarios();
-                        swal({
-                            type: 'success',
-                            title: 'El Usuario ha sido eliminada.!',
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                               document.location.reload();
-    
-                            }
-                        })
-                    }else{
-                        cerrarmodal_Usuarios();
-                        swal(
-                                    'Error!',
-                                    'El Usuario no fue eliminado.',
-                                    'error'
-                                )
-                    }
-                   
-    
-                }else{
-                     swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                            document.location.reload();
-                            }
-                        })
+                datos:{
+                        Apaterno:Apaterno,
+                        AMaterno:AMaterno,
+                        Nombre:Nombre,
+                        FNacimiento:FNacimiento,
+                        Nacionalidad:Nacionalidad,
+                        Entidad:Entidad,
+                        MunicipioNac:MunicipioNac,
+                        Genero:Genero,
+                        TipoSangre:TipoSangre,
+                        EdoCivil:EdoCivil,
+                        Email:Email,
+                        Tel:Tel,
+                        Cel:Cel,
+                        OtroTel:OtroTel,
+                        Calle:Calle,
+                        Num:Num,
+                        NInterior:NInterior,
+                        CP:CP,
+                        Cruce1:Cruce1,
+                        Cruce2:Cruce2,
+                        Colonia:Colonia,
+                        Estado:Estado,
+                        Municipio:Municipio
                 }
-            })
-    
-            }
-        });
-    }
-    
-    function agregar_usu(){
-        $("#modal_usuarios").modal();
-        $("#Pasword").prop("disabled",false);
-    
-        var actualiza = "nuevo";
-        $("#accion").val(actualiza);
-    }
-    
-    function abrirmodal(rfc, nombre){
-        $("#modal_usuarios").modal();
-    
-        $("#nombre_usuario").text(nombre);
-    
-        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-          },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    rfc: rfc
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if(resJson.status_sesion){
-                            
-                    respuesta = resJson.data;
-                    var actualiza = "actualiza";
-                    $("#accion").val(actualiza);
-                    $("#RFC").val(respuesta[0].RFC);
-                    $("#Nombre").val(respuesta[0].Nombre);
-                    $("#Apaterno").val(respuesta[0].Apaterno);
-                    $("#Amaterno").val(respuesta[0].Amaterno);
-                    $("#Nombramiento").val(respuesta[0].Nombramiento);
-                    $("#U_Fisica").val(respuesta[0].U_Fisica);
-                    $("#Email").val(respuesta[0].Email);
-                    $("#Niv_acceso").val(respuesta[0].Niv_acceso);
-                    $("#Nick_user").val(respuesta[0].Nick);
-                    $("#Pasword").val(respuesta[0].Pasword);
-                    $("#Pasword").prop("disabled",true);
-    
-                    var status = respuesta[0].Status;
-                    if (status == 1) {
-                        val = 1;
-                        $("#Status").attr('checked', true);
-                        $("#Status").val(val);
-                    }else{
-                        val = 0;
-                        $("#Status").attr('checked', false);
-                        $("#Status").val(val);
-                    }
-                    
-                }
-            })
-    
-    }
-    
-    $("#Status").on('change', function(){
-            var v = document.getElementById("Status");
-            if(v.checked===true){
-                var val = 1;
-                $("#Status").val(val);
-            }else{
-                var val= 0;
-                $("#Status").val(val);
-            }
-        });
-    
-    
-    function cerrarmodal_Usuarios(){
-        $("#modal_usuarios").modal("hide");
-        limpiar_mUsuarios();
-    }
-    
-    function limpiar_mUsuarios(){
-        $("#RFC").val();
-        $("#Nombre").val();
-        $("#APaterno").val();
-        $("#AMaterno").val();
-        $("#Nombramiento").val();
-        $("#U_Fisica").val();
-        $("#Email").val();
-        $("#Niv_acceso").val();
-        $("#Nick_user").text();
-        $("#Pasword").val();
-        $("#Status").val();
-    
-    }
-    
-    function guardarDatos(){
-    
-    
-        var accion = $("#accion").val();
-        var RFC = $("#RFC").val();
-        var Nombre = $("#Nombre").val();
-        var Apaterno = $("#Apaterno").val();
-        var Amaterno = $("#Amaterno").val();
-        var Nombramiento = $("#Nombramiento").val();
-        var U_Fisica = $("#U_Fisica").val();
-        var Email = $("#Email").val();
-        var Nick = $("#Nick_user").val();
-        var Pasword = $("#Pasword").val();
-        var Niv_acceso = $("#Niv_acceso").val();
-        var Status = $("#Status").val();
-    
-    
-      if((accion == "nuevo")){
-        
-    
-         fetch ('https://remex.kerveldev.com/api/logger/crea_usuario', {  
-                method: 'PUT',
-                headers:{
-            'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    datos: {
-                        RFC: RFC,
-                        Apaterno: Apaterno,
-                        Amaterno: Amaterno,
-                        Nombre: Nombre,
-                        Nick: Nick,
-                        Pasword: Pasword,
-                        Email: Email,
-                        Status: Status,
-                        Niv_acceso: Niv_acceso
-    
-                                        }
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if (resJson.status_sesion) {
-    
-                        if (resJson.status) {
-                            
-                            cerrarmodal_Usuarios();
-                             swal({
-                                        type: 'success',
-                                        title: 'Usuario Creado con Exito',
-                                        confirmButtonText: 'Ok'
-                                
-                                        });
                 
-                        }else{
-                            cerrarmodal_Usuarios();
-                            swal(
-                                    'Error!',
-                                    'El Usuario no fue creado.',
-                                    'error'
-                                )
-                        }
-                    }else{
-                         swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-    
-                                //carga_mod(id);
-                               
-                            }
-                        })
-                    }
-    
+            })
+        }).then((res)=> res.json()).then((respApi)=>{
+            var respuesta = respApi.data;
+
+            if (respApi.status) {
+                swal({
+                    type: 'success',
+                    title: 'Creacion exitosa.',
+                    text: respuesta,
                 })
-    }else{
-            fetch ('https://remex.kerveldev.com/api/logger/act_usuario', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    datos: {
-                        RFC: RFC,
-                        Apaterno: Apaterno,
-                        Amaterno: Amaterno,
-                        Nombre: Nombre,
-                        Nombramiento: Nombramiento,
-                        U_Fisica: U_Fisica,
-                        Email: Email,
-                        Status: Status,
-                        Niv_acceso: Niv_acceso
-    
-                                        }
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if (resJson.status_sesion) {
-    
-                        if (resJson.status) {
-                         
-                            cerrarmodal_Usuarios();
-                             swal({
-                                        type: 'success',
-                                        title: 'Usuario Modificado con Exito',
-                                        confirmButtonText: 'Ok'
-                                
-                                        });
-                            
-                        }else{
-                            cerrarmodal_Usuarios();
-                            swal(
-                                    'Error!',
-                                    'El Usuario no Modificado.',
-                                    'error'
-                                )
-                        }
-                    }else{
-                         swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-    
-                                //carga_mod(id);
-                               
-                            }
-                        })
-    
-                    }
-    
-                })
-    }
-    }
+            }else{
+                swal({
+                    type: 'error',
+                    html: '<h2>Error</h2><p>'+resp.msj+'</p>',
+                    showConfirmButton: true,
+                });
+            }
+            listadoUsuarios();
+        });
+
+}

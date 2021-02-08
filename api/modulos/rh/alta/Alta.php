@@ -44,6 +44,94 @@
  			
  			case 'put':
  				switch ($peticion) {
+					case 'crea_usuario':
+								$fields = array("nick","token","datos");// Lista de parametros por recibir
+								$box = new Storer($fields);
+								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+								if(is_null($x->datos->RFC)){return $cuerpo = FALTAN_PARAMETROS;}
+								if(is_null($x->datos->Nick)){return $cuerpo = FALTAN_PARAMETROS;}
+								if(is_null($x->datos->Pasword)){return $cuerpo = FALTAN_PARAMETROS;}
+
+								// Estructura de la respuesta
+								$resp = array();
+								$_rfc = NULL;
+
+								// Se obtiene el rfc a partir del nick
+								if(empty($_rfc= getUser($x->nick))){
+									$resp['status']=FALSE;
+									$resp['msj']='Nombre de usuario incorrecto -peticion insertar carpeta.';
+									$resp['data']=NULL;
+									return $resp;
+								}
+
+								// Se valida el usuario
+								$uchk = logger::UserCheck($x->nick, $x->token);
+								if($uchk['status_sesion']==FALSE){return $uchk;}
+								
+
+								// Se conecta a la base de datos
+								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
+								
+								if($nave->conectado==TRUE){
+									//"RFC", "Apaterno", "Amaterno", "Nombre", "Nombramiento", "Nick", "Pasword", "Email", "Status", "Niv_acceso"  
+									$sql = "CALL inserta_usuario('"
+									.$x->datos->Apaterno."','"
+									.$x->datos->AMaterno."','"
+									.$x->datos->Nombre."','"
+									.$x->datos->FNacimiento."','"
+									.$x->datos->Nacionalidad."','"
+									.$x->datos->Entidad."','"
+									.$x->datos->MunicipioNac."','"
+									.$x->datos->Genero."','"
+									.$x->datos->TipoSangre."','"
+									.$x->datos->EdoCivil."','"
+									.$x->datos->Email."','"
+									.$x->datos->Tel."','"
+									.$x->datos->Cel."','"
+									.$x->datos->OtroTel."','"
+									.$x->datos->Calle."','"
+									.$x->datos->Num."','"
+									.$x->datos->NInterior."','"
+									.$x->datos->CP."','"
+									.$x->datos->Cruce1."','"
+									.$x->datos->Cruce2."','"
+									.$x->datos->Colonia."','"
+									.$x->datos->Estado."','"
+									.$x->datos->Municipio.
+									"');";
+
+									$t = $nave->consultaSQL_asociativo($sql);
+									
+									if ($t['status']==TRUE){
+										$cuerpo['status']=$t['status'];
+										$cuerpo['status_sesion']=$uchk['status_sesion'];
+										$cuerpo['msj']= "Registro creados con exito. Historial guardado. ";
+										$cuerpo['data']= NULL;
+
+										return $cuerpo;
+									}else{
+										$cuerpo['status']=$t['status'];
+										$cuerpo['status_sesion']=$uchk['status_sesion'];
+										$cuerpo['msj']= "Registro creados sin exito. Historial guardado. ";
+										$cuerpo['data']= NULL;
+										
+										return $cuerpo;
+									}
+
+								}else{
+									$cuerpo['status'] = FALSE;
+									$cuerpo['status_sesion'] = $uchk['status_sesion'];
+									$cuerpo['msj'] = "No se pudo conectar a la base de datos. ".$nave->conx_error_msj;
+									$cuerpo['data'] = NULL;
+
+									return $cuerpo;
+								}
+								
+								//peticion_estandar($_nick, $_token, $_bd, $_sql, $_modulo, $_recurso, $_peticion, $_peticion_detalle= NULL)
+								//$nombre_carpeta = USUARIOS['ruta'].$x->datos->RFC;
+								//return peticion_insertar_carpeta($x->nick, $x->token, USUARIOS['base'], "navegantes",$x->datos, $nombre_carpeta, $GLOBALS['modulo'], $recurso, $recurso);
+					                    
+							break;
  					
  					
  					default:

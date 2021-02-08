@@ -166,8 +166,7 @@ $(document).ready(function() {
                         "<td>"+checarNulos(reg.Estatus)+"</td>"+
                         "<td>"+
     
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                        "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='asignaModulo(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Asignar Modulo a Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-list-alt'></i></button>&nbsp;</td>"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
                         
                         // botones+
                         "</tr>";
@@ -239,14 +238,13 @@ $(document).ready(function() {
         });
     }
     
+    function abrirClientes_Id(_id_cliente, _nombre){
     
-    function abrirUsuario_Id(_id_elemento, _nombre_usuario){
+         $("#modal_clientes").modal({"backdrop":"static"});
     
-         $("#modal_usuario").modal({"backdrop":"static"});
+        $("#nUsuario").text(_nombre);
     
-        $("#nUsuario").text(_nombre_usuario);
-    
-        fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
+        fetch ('https://remex.kerveldev.com/api/rh/clientes/id_cliente', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -254,7 +252,7 @@ $(document).ready(function() {
                 body: JSON.stringify({
                     nick: nuser.Nick,
                     token: nuser.Token,
-                    Id_Elemento: _id_elemento
+                    id: _id_cliente
                 })
             }).then((res)=> res.json())
                 .then((resJson)=>{
@@ -264,17 +262,27 @@ $(document).ready(function() {
                             
                     respuesta = resJson.data;
     
-                    $("#Nombre_usuario").val(respuesta[0].Nombre);
-                    $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
-                    $("#A_Materno_usuario").val(respuesta[0].Amaterno);
+                    $("#Nombre").val(respuesta[0].Nombre);
+                    $("#RFC").val(respuesta[0].RFC);
+                    $("#Calle").val(respuesta[0].Calle);
+                    $("#Numero").val(respuesta[0].Numero);
+                    $("#CP").val(respuesta[0].CP);
+                    $("#Municipio").val(respuesta[0].Municipio);
+                    $("#Entidad").val(respuesta[0].Entidad);
+                    $("#Pais").val(respuesta[0].Pais);
+                    $("#Tel1").val(respuesta[0].Tel1);
+                    $("#Ext1").val(respuesta[0].Ext1);
+                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Estatus").val(respuesta[0].Estatus);
                   
                 }
             })
     
     }
     
-    function cerrarModalUsuario_Id(){
-     $("#modal_usuario").modal("hide");
+    function cerrarModalClientes(){
+     $("#modal_clientes").modal("hide");
     }
     
     
@@ -435,7 +443,7 @@ $(document).ready(function() {
     }
     
     function agregar_usu(){
-        $("#modal_usuarios").modal();
+        $("#modal_clientes").modal();
         $("#Pasword").prop("disabled",false);
     
         var actualiza = "nuevo";
@@ -443,7 +451,7 @@ $(document).ready(function() {
     }
     
     function abrirmodal(rfc, nombre){
-        $("#modal_usuarios").modal();
+        $("#modal_clientes").modal();
     
         $("#nombre_usuario").text(nombre);
     
@@ -507,7 +515,7 @@ $(document).ready(function() {
     
     
     function cerrarmodal_Usuarios(){
-        $("#modal_usuarios").modal("hide");
+        $("#modal_clientes").modal("hide");
         limpiar_mUsuarios();
     }
     
