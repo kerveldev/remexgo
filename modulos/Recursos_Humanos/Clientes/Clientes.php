@@ -1192,8 +1192,6 @@ $us = $_SESSION['user']['data'];
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
     <script src="/js/plugins/iCheck/icheck.min.js"></script>
-     <!-- Datables -->
-<!--     <script src="../../../js/plugins/dataTables/datatables.min.js"></script> -->
 
     <!--Datatables-->
     <script src="/js/datatables/js/jquery.dataTables.min.js"></script>

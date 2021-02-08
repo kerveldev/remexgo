@@ -373,11 +373,13 @@ $(document).ready(function() {
     
                                                         if(respApi.status){
                                                             swal({
-                                                                  timer: 2000,
-                                                                  type: 'success',
                                                                   title: 'Actualizado',
+                                                                  type: 'success',
                                                                   text:'Modificacion de información Exitosa',
-                                                                  showConfirmButton: false,
+                                                                  showConfirmButton: true,
+                                                                  confirmButtonColor: "#DD6B55",
+                                                                  confirmButtonText: "Yes, delete it!",
+                                                                  closeOnConfirm: false
                                                                 });
                                                             
                                                         }else{
