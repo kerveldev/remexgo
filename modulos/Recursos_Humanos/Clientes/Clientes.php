@@ -49,7 +49,7 @@ $us = $_SESSION['user']['data'];
                 </div>
                   <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-16 col-sm-12">
+                            <div class="col-md-12 col-sm-12">
                               <div class="text-center m-t-md">
                                                 
                                                     <div class="row">
