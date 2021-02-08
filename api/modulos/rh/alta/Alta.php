@@ -76,7 +76,7 @@
 									.$x->datos->NoEmp_RH."','"
 									.$x->datos->RFC."','"
 									.$x->datos->CURP."','"
-									.$x->datos->Apaterno."','"
+									.$x->datos->APaterno."','"
 									.$x->datos->AMaterno."','"
 									.$x->datos->Nombre."','"
 									.$x->datos->FNacimiento."','"
