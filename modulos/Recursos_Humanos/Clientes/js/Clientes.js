@@ -285,44 +285,24 @@ $(document).ready(function() {
      $("#modal_clientes").modal("hide");
     }
     
-    
-    function modificaContraseña(rfc){
-    
-        $("#modal_contraseñas").modal();
-    
-        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-          },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    rfc: rfc
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if(resJson.status_sesion){
-                            
-                    respuesta = resJson.data;
-                    var actualiza = "actualiza";
-                    $("#Nick_cam").val(respuesta[0].Nick);
-                    $("#Pasword_cam").val(respuesta[0].Pasword);
-                    $("#Pasword").prop("disabled",false);
-    
-                }
-            })
-    
-    }
-    
     function guardarcambio(){
+        
+        var Id_Cliente = $("#Id_Cliente").val(respuesta[0].Id_Cliente);
+        var Nombre = $("#Nombre").val(respuesta[0].Nombre);
+        var RFC = $("#RFC").val(respuesta[0].RFC);
+        var Calle = $("#Calle").val(respuesta[0].Calle);
+        var Numero = $("#Numero").val(respuesta[0].Numero);
+        var CP = $("#CP").val(respuesta[0].CP);
+        var Municipio = $("#Municipio").val(respuesta[0].Municipio);
+        var Entidad = $("#Entidad").val(respuesta[0].Entidad);
+        var Pais = $("#Pais").val(respuesta[0].Pais);
+        var Tel1 = $("#Tel1").val(respuesta[0].Tel1);
+        var Ext1 = $("#Ext1").val(respuesta[0].Ext1);
+        var Tel2 = $("#Tel2").val(respuesta[0].Tel2);
+        var Ext2 = $("#Ext2").val(respuesta[0].Ext2);
+        var Estatus = $("#Estatus").val(respuesta[0].Estatus);
     
-        var Nick_cam = $("#Nick_cam").val();
-        var Pasword_cam = $("#Pasword_cam").val();
-    
-        fetch ('https://remex.kerveldev.com/api/logger/act_contraseña', {  
+        fetch ('http://remex.kerveldev.com/api/rh/clientes/modifica_clientes', {  
                     method: 'POST',
                     headers:{
                         'Content-Type': 'application/json'
@@ -330,8 +310,22 @@ $(document).ready(function() {
                                 body: JSON.stringify({
                                         nick:nuser.Nick,
                                         token: nuser.Token,
-                                        nick_mod: Nick_cam,
-                                        pass: Pasword_cam
+                                        Id: Id_Cliente,
+                                        datos: {
+                                            Nombre : Nombre,
+                                            RFC : RFC,
+                                            Calle : Calle,
+                                            Numero : Numero,
+                                            CP : CP,
+                                            Municipio : Municipio,
+                                            Entidad : Entidad,
+                                            Pais : Pais,
+                                            Tel1 : Tel1,
+                                            Ext1 : Ext1,
+                                            Tel2 : Tel2,
+                                            Ext2 : Ext2,
+                                            Estatus : Estatus
+                                        }
                                             
                                         })
                                     }).then((res)=> res.json())
