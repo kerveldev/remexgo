@@ -133,7 +133,8 @@ $us = $_SESSION['user']['data'];
                                                     </div>
 
                                                     <div class="row">
-                                                            <button class="btn btn-sm btn-primary pull-right m-t-n-xs" type="submit"><strong>Log in</strong></button>
+                                                            
+                                                            <label class=""> 
                                                             <label class=""> 
                                                             <div class="icheckbox_square-green checked" style="position: relative;">
                                                               <input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;">
