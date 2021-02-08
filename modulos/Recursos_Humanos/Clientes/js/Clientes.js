@@ -265,7 +265,17 @@ $(document).ready(function() {
     
                     $("#Nombre").val(respuesta[0].Nombre);
                     $("#RFC").val(respuesta[0].RFC);
-                    $("#A_Materno_usuario").val(respuesta[0].Amaterno);
+                    $("#Calle").val(respuesta[0].Calle);
+                    $("#Numero").val(respuesta[0].Numero);
+                    $("#CP").val(respuesta[0].CP);
+                    $("#Municipio").val(respuesta[0].Municipio);
+                    $("#Entidad").val(respuesta[0].Entidad);
+                    $("#Pais").val(respuesta[0].Pais);
+                    $("#Tel1").val(respuesta[0].Tel1);
+                    $("#Ext1").val(respuesta[0].Ext1);
+                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Estatus").val(respuesta[0].Estatus);
                   
                 }
             })
