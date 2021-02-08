@@ -48,27 +48,15 @@
 								$fields = array("nick","token","datos");// Lista de parametros por recibir
 								$box = new Storer($fields);
 								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-								if(is_null($x->datos->RFC)){return $cuerpo = FALTAN_PARAMETROS;}
-								if(is_null($x->datos->Nick)){return $cuerpo = FALTAN_PARAMETROS;}
-								if(is_null($x->datos->Pasword)){return $cuerpo = FALTAN_PARAMETROS;}
 
 								// Estructura de la respuesta
 								$resp = array();
-								$_id_elemento = NULL;
-
-								// Se obtiene el rfc a partir del nick
-								if(empty($_id_elemento= getUser($x->nick))){
-									$resp['status']=FALSE;
-									$resp['msj']='Nombre de usuario incorrecto -peticion insertar carpeta.';
-									$resp['data']=NULL;
-									return $resp;
-								}
+								$_id_elemento = getUser($x->nick);
 
 								// Se valida el usuario
 								$uchk = logger::UserCheck($x->nick, $x->token);
 								if($uchk['status_sesion']==FALSE){return $uchk;}
 								
-
 								// Se conecta a la base de datos
 								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
 								
@@ -98,7 +86,7 @@
 									.$x->datos->Colonia."','"
 									.$x->datos->Estado."','"
 									.$x->datos->Municipio."','"
-									.$x->datos->Usuario.
+									.$_id_elemento.
 									"');";
 
 									$t = $nave->consultaSQL_asociativo($sql);
