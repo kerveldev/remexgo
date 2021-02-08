@@ -1,38 +1,38 @@
 <?php
-class proveedor {
+class sp {
     private $cuerpo = array();
     private $nave = NULL;
 
     static public function recurso($peticion){
 
-        $nave = new nauta(IREK,PROVEEDOR['base'],PROVEEDOR['ruta']);
+        $nave = new nauta(IREK,SP['base'],SP['ruta']);
         switch($GLOBALS['metodo']){
             case 'post':
                 switch ($peticion) {
-                    case 'proveedores_lst':
+                    case 'sp_lst':
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        $sql = "CALL proveedores_lst();";
-                        $cuerpo = peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $sql = "CALL servicios_productos_lst();";
+                        $cuerpo = peticion_estandar($x->nick, $x->token, SP['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
-                    case 'proveedores_id':
+                    case 'sp_id':
                         $fields = array("nick","token", "Id");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        $sql = "CALL proveedores_id('".$x->Id."');";
-                        $cuerpo = peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $sql = "CALL servicios_productos_id('".$x->Id."');";
+                        $cuerpo = peticion_estandar($x->nick, $x->token, SP['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
-                    case 'modifica_proveedor':
+                    case 'modifica_sp':
                         $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        $cuerpo = peticion_actualizar($x->nick,$x->token,PROVEEDOR['base'],"proveedores","Id_Proveedor",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $cuerpo = peticion_actualizar($x->nick,$x->token,SP['base'],"servicios_productos","Id_SP",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
                     default:
@@ -49,14 +49,14 @@ class proveedor {
 
             case 'put':
                 switch ($peticion) {
-                    case 'crea_proveedor':
+                    case 'crea_sp':
                         $fields = array("nick","token","datos");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         $_rfc = getUser($x->nick);// Se obtiene el rfc apartir del nick para agregar campo usuario 
                         $x->datos->Usuario = $_rfc;                         
                         
-                        $cuerpo = peticion_insertar($x->nick, $x->token, PROVEEDOR['base'], "proveedores",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
+                        $cuerpo = peticion_insertar($x->nick, $x->token, SP['base'], "servicios_productos",$x->datos, $GLOBALS['modulo'],  $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
@@ -72,12 +72,12 @@ class proveedor {
                 break;
             case 'delete':
                 switch ($peticion) {
-                    case 'elimina_proveedor':
+                    case 'elimina_sp':
                         $fields = array("nick","token","Id");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
                         
-                        return peticion_eliminar($x->nick, $x->token, PROVEEDOR['base'], "proveedores","Id_Proveedor", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        return peticion_eliminar($x->nick, $x->token, SP['base'], "servicios_productos","Id_SP", $x->Id, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
                     
                     default:
