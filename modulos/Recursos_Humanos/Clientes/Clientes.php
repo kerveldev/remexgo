@@ -135,11 +135,15 @@ $us = $_SESSION['user']['data'];
                                                     <div class="row">
                                                         <div class="col-sm-2">  
                                                             <br> 
-                                                            <div class="icheckbox_square-green checked" style="position: relative;">
-                                                              <input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;">
-                                                              <ins class="iCheck-helper">
-                                                              </ins>
-                                                            </div> Status </label>
+
+                                                            <label class=""> 
+                                                            <div class="icheckbox_square-green" style="position: relative;">
+                                                                <input type="checkbox" class="i-checks" style="position: absolute; opacity: 0;">
+                                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;">
+                                                                </ins>
+                                                            </div> 
+                                                            Remember me </label>
+                                                            
                                                         </div>  
                                                     </div>
 
@@ -1218,6 +1222,16 @@ $us = $_SESSION['user']['data'];
             alert("La sesion a caducado.");
             location = "https://remex.kerveldev.com";
         }
+
+        
+        $(document).ready(function () {
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                    $("#Estatus").val("1");
+                });
+            });
+        
         localStorage.setItem("user",nuser);
         //console.log(nuser);
     </script>
