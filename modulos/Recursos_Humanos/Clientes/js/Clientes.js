@@ -329,7 +329,7 @@ $(document).ready(function() {
         var Tel1 = $("#Tel1").val();
         var Ext1 = $("#Ext1").val();
         var Tel2 = $("#Tel2").val();
-        var Tel2 = $("#Tel2").val();
+        var Ext2 = $("#Ext2").val();
         var Estatus = $("#Estatus").val();
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/modifica_clientes', {  
