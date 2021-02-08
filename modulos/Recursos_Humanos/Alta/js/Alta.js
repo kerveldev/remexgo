@@ -515,7 +515,7 @@ function actualizarUsuario(_id_elemento){
     var Municipio = $("#municipio_dom_usuario").val();
 
     fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes',{  
-        method: 'PUT',
+        method: 'POST',
         headers:{
             'Content-Type': 'application/json'
             },
