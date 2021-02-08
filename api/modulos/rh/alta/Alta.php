@@ -34,6 +34,14 @@
                         
 					break;
 
+					case 'modifica_navegantes':
+                        $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
+                        $box = new Storer($fields);
+                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                        
+                        return peticion_actualizar($x->nick,$x->token,RH['base'],"ke_generales","Id_Elemento",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        break;
+
  					default:
  						// No existe la peticion
 	                    $cuerpo = PETICION_INVALIDA;

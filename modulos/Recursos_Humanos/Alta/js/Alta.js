@@ -473,3 +473,109 @@ function guardarNuevoUsuario(){
         });
 
 }
+
+function actualizarUsuario(_id_elemento){
+    //Datos Personales
+
+    var FIngreso = $("#f_ingreso_usuario").val();
+
+    var NoEmp_RH = $("#num_emp_usuario").val();
+    var RFC = $("#rfc_usuario").val();
+    var CURP = $("#curp_usuario").val();
+    var Apaterno = $("#A_Paterno_usuario").val();
+    var AMaterno = $("#A_Materno_usuario").val();
+    var Nombre = $("#Nombre_usuario").val();
+    var FNacimiento	 = $("#f_nacimiento_usuario").val();
+
+    $( "#f_nacimiento_usuario" ).change(function() {
+    var edadUsuario = getEdad($("#f_nacimiento_usuario").val());
+    $("#edad_usuario").val(edadUsuario);  
+    });
+
+    var Nacionalidad = $("#nacionalidad_usuario").val();
+    var Entidad = $("#entidad_nac_usuario").val();
+    var MunicipioNac = $("#municipio_nac_usuario").val();
+    var Genero = $("#genero_usuario").val();
+    var TipoSangre = $("#tipo_sangre_usuario").val();
+    var EdoCivil = $("#edo_civil_usuario").val();
+    var Email = $("#e_mail_usuario").val();
+    var Tel = $("#telefono_usuario").val();
+    var Cel = $("#cel_usuario").val();
+    var OtroTel = $("#tel_2_usuario").val();
+            
+    //Domicilio
+    var Calle = $("#calle_usuario").val();
+    var Num = $("#nexterior_usuario").val();
+    var NInterior	 = $("#ninterior_usuario").val();
+    var CP = $("#cp_usuario").val();
+    var Cruce1 = $("#cruce1_usuario").val();
+    var Cruce2 = $("#cruce2_usuario").val();
+    var Colonia = $("#colonia_usuario").val();
+    var Estado = $("#entidad_dom_usuario").val();
+    var Municipio = $("#municipio_dom_usuario").val();
+
+    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes',{  
+        method: 'PUT',
+        headers:{
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nick : nuser.Nick,
+                token: nuser.Token,
+                Id:_id_elemento,
+                datos:{ 
+                        FIngreso:FIngreso,
+                        NoEmp_RH:NoEmp_RH,
+                        RFC:RFC,
+                        CURP:CURP,
+                        Apaterno:Apaterno,
+                        AMaterno:AMaterno,
+                        Nombre:Nombre,
+                        FNacimiento:FNacimiento,
+                        Nacionalidad:Nacionalidad,
+                        Entidad:Entidad,
+                        MunicipioNac:MunicipioNac,
+                        Genero:Genero,
+                        TipoSangre:TipoSangre,
+                        EdoCivil:EdoCivil,
+                        Email:Email,
+                        Tel:Tel,
+                        Cel:Cel,
+                        OtroTel:OtroTel,
+                        Calle:Calle,
+                        Num:Num,
+                        NInterior:NInterior,
+                        CP:CP,
+                        Cruce1:Cruce1,
+                        Cruce2:Cruce2,
+                        Colonia:Colonia,
+                        Estado:Estado,
+                        Municipio:Municipio
+                }
+                
+            })
+        }).then((res)=> res.json()).then((respApi)=>{
+            var respuesta = respApi.data;
+
+            if (respApi.status) {
+                swal({
+                    type: 'success',
+                    title: 'Actualización exitosa.',
+                    text: respuesta,
+                })
+
+                cerrarModalUsuario_Id();
+                listadoUsuarios();
+                
+            }else{
+                swal({
+                    type: 'error',
+                    html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
+                    showConfirmButton: true,
+                });
+                $("#modal_usuario").modal("hide");
+            }
+            
+        });
+
+}
