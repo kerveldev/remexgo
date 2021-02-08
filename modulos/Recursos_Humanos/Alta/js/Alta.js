@@ -176,7 +176,8 @@ function listadoUsuarios(){
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
     
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Eliminar Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-thrash'></i></button>&nbsp;"+
 
                         "</tr>";
                 });
@@ -578,4 +579,68 @@ function actualizarUsuario(_id_elemento){
             
         });
 
+}
+
+
+function eliminarUsuario_Id(_id_elemento, nombre){
+    
+    swal({
+        title: 'Deseas eliminar a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminalo!'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/altas/elimina_usuario', {  
+    method: 'DELETE',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id: _id_elemento
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+            console.log(resdelJson)
+
+            if(resdelJson.status_sesion){
+
+                if (resdelJson.status) {
+                    cerrarmodal_Usuarios();
+                    swal({
+                        type: 'success',
+                        title: 'El Usuario ha sido eliminada.!',
+                        confirmButtonText: 'Ok'
+                    }).then((result)=>{
+                        if(result.value){
+                           
+                            listadoUsuarios();
+
+                        }
+                    })
+                }else{
+                    cerrarmodal_Usuarios();
+                    swal(
+                                'Error!',
+                                'El Usuario no fue eliminado.',
+                                'error'
+                            )
+                }
+               
+
+            }else{
+                 swal({
+                       title: 'La sesion a caducado, inicie sesion nuevamente',
+                        
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        })
+
+        }
+    });
 }
