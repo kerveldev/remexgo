@@ -13,9 +13,14 @@ class proveedor {
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);
                         if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-                        
-                        $sql = "CALL proveedores_lst();";
-                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        $cuerpo = [
+                            'status'=>TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj'=>"Listado proveedores.",
+                            'data'=>NULL
+                         ];
+                        /* $sql = "CALL proveedores_lst();";
+                        return peticion_estandar($x->nick, $x->token, PROVEEDOR['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion); */
                         break;
 
                     case 'proveedores_id':
