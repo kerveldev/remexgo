@@ -133,7 +133,7 @@ $us = $_SESSION['user']['data'];
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="col-sm-2">  
+                                                        <div class="col-sm-3">  
                                                             <br> 
 
                                                             <label class="checkbox-inline"> 
