@@ -370,19 +370,16 @@ $(document).ready(function() {
                                                                   timer: 2000,
                                                                   type: 'success',
                                                                   title: 'Actualizado',
-                                                                  text:'Cambio de Contraseña Exitosa',
+                                                                  text:'Modificacion de información Exitosa',
                                                                   showConfirmButton: false,
                                                                 });
-                                                            cerrarcontraseña();
                                                             
-    
                                                         }else{
                                                              swal({
                                                                   type: 'error',
-                                                                  title: 'Error al Intentar Cambiar la Contraseña',
+                                                                  title: 'Error al modificar información',
                                                                   text: respApi.msj,
                                                                 });
-                                                             cerrarcontraseña();
                                                         }
                                             }else{//Status false
                                                 swal({
@@ -391,7 +388,7 @@ $(document).ready(function() {
                                                           text: respApi.msj,
                                                           showConfirmButton: false,
                                                         });
-                                                //location = "https://lab.parp.mx";
+                                                
                                             }
                                         })
     }
