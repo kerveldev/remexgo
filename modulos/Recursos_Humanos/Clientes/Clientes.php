@@ -150,7 +150,7 @@ $us = $_SESSION['user']['data'];
                         </div>
                   </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" onclick="cerrarModalImgAsignacion();">Cerrar</button>
+                    <button class="btn btn-secondary" type="button" onclick="cerrarModalClientes();">Cerrar</button>
 
                 </div>
             </div>

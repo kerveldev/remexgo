@@ -18,6 +18,14 @@ class clientes {
                             $cuerpo = peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break; 
 
+                    case 'lst_clientes':
+                            $fields = array("nick","token","id");// Lista de parametros por recibir
+                            $box = new Storer($fields,true);
+                            if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                            $sql = "Call id_cliente("$x->id");";
+                            $cuerpo = peticion_estandar($x->nick, $x->token, RH['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                        break; 
+
                     case 'modifica_clientes':
                         $fields = array("nick","token","Id","datos");// Lista de parametros por recibir
                         $box = new Storer($fields);
