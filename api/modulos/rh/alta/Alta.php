@@ -54,10 +54,10 @@
 
 								// Estructura de la respuesta
 								$resp = array();
-								$_rfc = NULL;
+								$_id_elemento = NULL;
 
 								// Se obtiene el rfc a partir del nick
-								if(empty($_rfc= getUser($x->nick))){
+								if(empty($_id_elemento= getUser($x->nick))){
 									$resp['status']=FALSE;
 									$resp['msj']='Nombre de usuario incorrecto -peticion insertar carpeta.';
 									$resp['data']=NULL;
@@ -73,7 +73,7 @@
 								$nave = new nauta(IREK,USUARIOS['base'], USUARIOS['ruta']);
 								
 								if($nave->conectado==TRUE){
-									//"RFC", "Apaterno", "Amaterno", "Nombre", "Nombramiento", "Nick", "Pasword", "Email", "Status", "Niv_acceso"  
+									
 									$sql = "CALL inserta_usuario('"
 									.$x->datos->Apaterno."','"
 									.$x->datos->AMaterno."','"
@@ -97,7 +97,8 @@
 									.$x->datos->Cruce2."','"
 									.$x->datos->Colonia."','"
 									.$x->datos->Estado."','"
-									.$x->datos->Municipio.
+									.$x->datos->Municipio."','"
+									.$x->datos->Usuario.
 									"');";
 
 									$t = $nave->consultaSQL_asociativo($sql);
