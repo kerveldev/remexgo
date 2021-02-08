@@ -447,6 +447,10 @@ function guardarNuevoUsuario(){
                     title: 'Creacion exitosa.',
                     text: respuesta,
                 })
+
+                cerrarModalUsuario_Id();
+                listadoUsuarios();
+                
             }else{
                 swal({
                     type: 'error',
@@ -454,7 +458,7 @@ function guardarNuevoUsuario(){
                     showConfirmButton: true,
                 });
             }
-            listadoUsuarios();
+            
         });
 
 }
