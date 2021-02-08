@@ -291,7 +291,7 @@ $(document).ready(function() {
                             
                     respuesta = resJson.data;
     
-                    $("#Id_cliente").val(respuesta[0].Id_cliente);
+                    $("#Id_cliente").val(respuesta[0].Id_Cliente);
                     $("#Nombre").val(respuesta[0].Nombre);
                     $("#RFC").val(respuesta[0].RFC);
                     $("#Calle").val(respuesta[0].Calle);
