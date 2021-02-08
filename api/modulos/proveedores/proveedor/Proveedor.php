@@ -40,7 +40,7 @@ class proveedor {
                         return peticion_actualizar($x->nick,$x->token,PROVEEDOR['base'],"proveedores","Id_Proveedor",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
-                        default:
+                    default:
                         $cuerpo = PETICION_INVALIDA;
                         break;
                 }
@@ -76,8 +76,7 @@ class proveedor {
                     default:
                         $cuerpo = PETICION_INVALIDA;
                         break;
-                }
-                break;
+                }                
                 break;
             default:
                 $cuerpo = METODO_NO_PERMITIDO;
