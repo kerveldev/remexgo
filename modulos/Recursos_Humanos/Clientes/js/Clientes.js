@@ -166,7 +166,7 @@ $(document).ready(function() {
                         "<td>"+checarNulos(reg.Estatus)+"</td>"+
                         "<td>"+
     
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
+                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
                         
                         // botones+
                         "</tr>";
@@ -238,8 +238,7 @@ $(document).ready(function() {
         });
     }
     
-    
-    function abrirUsuario_Id(_id_cliente, _nombre){
+    function abrirClientes_Id(_id_cliente, _nombre){
     
          $("#modal_clientes").modal({"backdrop":"static"});
     
