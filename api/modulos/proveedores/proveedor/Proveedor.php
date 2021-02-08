@@ -36,7 +36,13 @@ class proveedor {
                         break;
 
                     default:
-                        $cuerpo = PETICION_INVALIDA;
+                        $cuerpo = [
+                            'status' => TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj' => 'Peticion POST - '.$peticion,
+                            'data' => NULL
+                        ];
+                        //$cuerpo = PETICION_INVALIDA;
                         break;
                 }
                 break;
@@ -54,7 +60,13 @@ class proveedor {
                         break;
                     
                     default:
-                        $cuerpo = PETICION_INVALIDA;
+                        $cuerpo = [
+                            'status' => TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj' => 'Peticion PUT - '.$peticion,
+                            'data' => NULL
+                        ];
+                        //$cuerpo = PETICION_INVALIDA;
                         break;
                 }
                 break;
@@ -69,15 +81,27 @@ class proveedor {
                         break;
                     
                     default:
-                        $cuerpo = PETICION_INVALIDA;
+                        $cuerpo = [
+                            'status' => TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj' => 'Peticion DELETE - '.$peticion,
+                            'data' => NULL
+                        ];
+                        //$cuerpo = PETICION_INVALIDA;
                         break;
                 }                
                 break;
             default:
-                $cuerpo = METODO_NO_PERMITIDO;
+                $cuerpo = [
+                            'status' => TRUE,
+                            'status_sesion'=> TRUE,
+                            'msj' => 'Metodo no permitido - '.$GLOBALS['metodo'],
+                            'data' => NULL
+                        ];
+                //$cuerpo = METODO_NO_PERMITIDO;
                 break;
         }
-        $cuerpo['msj'] .= " Peticion ".$peticion;
+        
         return $cuerpo;
     }
     
