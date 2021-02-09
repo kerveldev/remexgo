@@ -188,7 +188,10 @@ $us = $_SESSION['user']['data'];
                             </div>
                             <div class="card-body">
                               <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-10">
+                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                </div>
+                                <div class="col-md-2">
                                 <button class="btn btn-success " type="button"><i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">Upload</span></button>
                                   <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
                                 </div>
