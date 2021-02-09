@@ -277,7 +277,7 @@
         $("#nUsuario").text(_nombre);
 
         var _botonGuardar = '<button id="botonGuardar" type="button" class="btn btn-success" onclick="guardar_cliente();" >Guardar</button>';
-        $(".modal-footer").html(_botonGuardar+_botonCancelar);
+        $(".modal-footer").html(_botonGuardar);
 
 
         cargar_datos(_id_cliente, _nombre);
