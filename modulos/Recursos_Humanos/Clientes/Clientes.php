@@ -197,6 +197,7 @@ $us = $_SESSION['user']['data'];
                                   <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
                                 </div>
                               </div>
+                              <br>
                               <div class="row">
                                 <div class="col-md-12">
                                   <table class="table table-striped nowrap" id="tabla_clientes">
