@@ -34,14 +34,14 @@ $us = $_SESSION['user']['data'];
 
 <body>
 
-    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog"
+    <div class="modal dark_bg" id="modal_proveedor" data-backdrop="false" tabindex="-1" role="dialog"
         aria-labelledby="titulo" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
-                    <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span
+                    <h5 class="modal-title" id="titulo">Datos del proveedor: <span id="nproveedor"></span></h5>
+                    <button type="button" class="close" onclick="cerrarModalproveedor_Id();" aria-label="Close"> <span
                             aria-hidden="true">×</span> </button>
                 </div>
 
@@ -60,9 +60,9 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-12">
-                                                <label for="f_ingreso_usuario">F. Ingreso Elemento:</label>
-                                                <input type="date" class="form-control" name="f_ingreso_usuario"
-                                                    id="f_ingreso_usuario">
+                                                <label for="f_ingreso_proveedor">F. Ingreso Elemento:</label>
+                                                <input type="date" class="form-control" name="f_ingreso_proveedor"
+                                                    id="f_ingreso_proveedor">
                                             </div>
 
                                         </div>
@@ -70,21 +70,21 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="num_emp_usuario">NoEmp_RH:</label>
-                                                <input type="text" class="form-control" name="num_emp_usuario"
-                                                    id="num_emp_usuario">
+                                                <label for="num_emp_proveedor">NoEmp_RH:</label>
+                                                <input type="text" class="form-control" name="num_emp_proveedor"
+                                                    id="num_emp_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="rfc_usuario">RFC:</label>
-                                                <input type="text" class="form-control" name="rfc_usuario"
-                                                    id="rfc_usuario">
+                                                <label for="rfc_proveedor">RFC:</label>
+                                                <input type="text" class="form-control" name="rfc_proveedor"
+                                                    id="rfc_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="curp_usuario">CURP:</label>
-                                                <input type="text" class="form-control" name="curp_usuario"
-                                                    id="curp_usuario">
+                                                <label for="curp_proveedor">CURP:</label>
+                                                <input type="text" class="form-control" name="curp_proveedor"
+                                                    id="curp_proveedor">
                                             </div>
 
                                         </div>
@@ -93,43 +93,21 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="A_Paterno_usuario">A. Paterno:</label>
-                                                <input type="text" class="form-control" name="A_Paterno_usuario"
-                                                    id="A_Paterno_usuario">
+                                                <label for="A_Paterno_proveedor">A. Paterno:</label>
+                                                <input type="text" class="form-control" name="A_Paterno_proveedor"
+                                                    id="A_Paterno_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="A_Materno_usuario">A. Materno:</label>
-                                                <input type="text" class="form-control" name="A_Materno_usuario"
-                                                    id="A_Materno_usuario">
+                                                <label for="A_Materno_proveedor">A. Materno:</label>
+                                                <input type="text" class="form-control" name="A_Materno_proveedor"
+                                                    id="A_Materno_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="Nombre_usuario">Nombre:</label>
-                                                <input type="text" class="form-control" name="Nombre_usuario"
-                                                    id="Nombre_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="f_nacimiento_usuario">Fecha Nacimiento:</label>
-                                                <input type="date" class="form-control" name="f_nacimiento_usuario"
-                                                    id="f_nacimiento_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="edad_usuario">Edad:</label>
-                                                <input type="text" class="form-control" name="edad_usuario"
-                                                    id="edad_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="nacionalidad_usuario">Nacionalidad:</label>
-                                                <input type="text" class="form-control" name="nacionalidad_usuario"
-                                                    id="nacionalidad_usuario">
+                                                <label for="Nombre_proveedor">Nombre:</label>
+                                                <input type="text" class="form-control" name="Nombre_proveedor"
+                                                    id="Nombre_proveedor">
                                             </div>
 
                                         </div>
@@ -137,43 +115,21 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="entidad_nac_usuario">Entidad Nacimiento:</label>
-                                                <input type="text" class="form-control" name="entidad_nac_usuario"
-                                                    id="entidad_nac_usuario">
+                                                <label for="f_nacimiento_proveedor">Fecha Nacimiento:</label>
+                                                <input type="date" class="form-control" name="f_nacimiento_proveedor"
+                                                    id="f_nacimiento_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="municipio_nac_usuario">Municipio Nacimiento:</label>
-                                                <input type="text" class="form-control" name="municipio_nac_usuario"
-                                                    id="municipio_nac_usuario">
+                                                <label for="edad_proveedor">Edad:</label>
+                                                <input type="text" class="form-control" name="edad_proveedor"
+                                                    id="edad_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="genero_usuario">Genero:</label>
-                                                <input type="text" class="form-control" name="genero_usuario"
-                                                    id="genero_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="tipo_sangre_usuario">Tipo Sangre:</label>
-                                                <input type="text" class="form-control" name="tipo_sangre_usuario"
-                                                    id="tipo_sangre_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="edo_civil_usuario">Estado Civil:</label>
-                                                <input type="text" class="form-control" name="edo_civil_usuario"
-                                                    id="edo_civil_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="e_mail_usuario">Correo Electronico:</label>
-                                                <input type="text" class="form-control" name="e_mail_usuario"
-                                                    id="e_mail_usuario">
+                                                <label for="nacionalidad_proveedor">Nacionalidad:</label>
+                                                <input type="text" class="form-control" name="nacionalidad_proveedor"
+                                                    id="nacionalidad_proveedor">
                                             </div>
 
                                         </div>
@@ -181,21 +137,65 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="telefono_usuario">Telefono:</label>
-                                                <input type="text" class="form-control" name="telefono_usuario"
-                                                    id="telefono_usuario">
+                                                <label for="entidad_nac_proveedor">Entidad Nacimiento:</label>
+                                                <input type="text" class="form-control" name="entidad_nac_proveedor"
+                                                    id="entidad_nac_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="cel_usuario">Celular:</label>
-                                                <input type="text" class="form-control" name="cel_usuario"
-                                                    id="cel_usuario">
+                                                <label for="municipio_nac_proveedor">Municipio Nacimiento:</label>
+                                                <input type="text" class="form-control" name="municipio_nac_proveedor"
+                                                    id="municipio_nac_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="tel_2_usuario">Otro Telefono:</label>
-                                                <input type="text" class="form-control" name="tel_2_usuario"
-                                                    id="tel_2_usuario">
+                                                <label for="genero_proveedor">Genero:</label>
+                                                <input type="text" class="form-control" name="genero_proveedor"
+                                                    id="genero_proveedor">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-4">
+                                                <label for="tipo_sangre_proveedor">Tipo Sangre:</label>
+                                                <input type="text" class="form-control" name="tipo_sangre_proveedor"
+                                                    id="tipo_sangre_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="edo_civil_proveedor">Estado Civil:</label>
+                                                <input type="text" class="form-control" name="edo_civil_proveedor"
+                                                    id="edo_civil_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="e_mail_proveedor">Correo Electronico:</label>
+                                                <input type="text" class="form-control" name="e_mail_proveedor"
+                                                    id="e_mail_proveedor">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-4">
+                                                <label for="telefono_proveedor">Telefono:</label>
+                                                <input type="text" class="form-control" name="telefono_proveedor"
+                                                    id="telefono_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="cel_proveedor">Celular:</label>
+                                                <input type="text" class="form-control" name="cel_proveedor"
+                                                    id="cel_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="tel_2_proveedor">Otro Telefono:</label>
+                                                <input type="text" class="form-control" name="tel_2_proveedor"
+                                                    id="tel_2_proveedor">
                                             </div>
 
                                         </div>
@@ -210,43 +210,21 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="calle_usuario">Calle:</label>
-                                                <input type="text" class="form-control" name="calle_usuario"
-                                                    id="calle_usuario">
+                                                <label for="calle_proveedor">Calle:</label>
+                                                <input type="text" class="form-control" name="calle_proveedor"
+                                                    id="calle_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="nexterior_usuario">N° Exterior:</label>
-                                                <input type="text" class="form-control" name="nexterior_usuario"
-                                                    id="nexterior_usuario">
+                                                <label for="nexterior_proveedor">N° Exterior:</label>
+                                                <input type="text" class="form-control" name="nexterior_proveedor"
+                                                    id="nexterior_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="ninterior_usuario">N° Interior:</label>
-                                                <input type="text" class="form-control" name="ninterior_usuario"
-                                                    id="ninterior_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="cp_usuario">C.P.:</label>
-                                                <input type="text" class="form-control" name="cp_usuario"
-                                                    id="cp_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="cruce1_usuario">Cruce 1:</label>
-                                                <input type="text" class="form-control" name="cruce1_usuario"
-                                                    id="cruce1_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="cruce2_usuario">Cruce 2:</label>
-                                                <input type="text" class="form-control" name="cruce2_usuario"
-                                                    id="cruce2_usuario">
+                                                <label for="ninterior_proveedor">N° Interior:</label>
+                                                <input type="text" class="form-control" name="ninterior_proveedor"
+                                                    id="ninterior_proveedor">
                                             </div>
 
                                         </div>
@@ -254,21 +232,43 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
 
                                             <div class="col-sm-4">
-                                                <label for="colonia_usuario">Colonia.:</label>
-                                                <input type="text" class="form-control" name="colonia_usuario"
-                                                    id="colonia_usuario">
+                                                <label for="cp_proveedor">C.P.:</label>
+                                                <input type="text" class="form-control" name="cp_proveedor"
+                                                    id="cp_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="entidad_dom_usuario">Entidad:</label>
-                                                <input type="text" class="form-control" name="entidad_dom_usuario"
-                                                    id="entidad_dom_usuario">
+                                                <label for="cruce1_proveedor">Cruce 1:</label>
+                                                <input type="text" class="form-control" name="cruce1_proveedor"
+                                                    id="cruce1_proveedor">
                                             </div>
 
                                             <div class="col-sm-4">
-                                                <label for="municipio_dom_usuario">Municipio:</label>
-                                                <input type="text" class="form-control" name="municipio_dom_usuario"
-                                                    id="municipio_dom_usuario">
+                                                <label for="cruce2_proveedor">Cruce 2:</label>
+                                                <input type="text" class="form-control" name="cruce2_proveedor"
+                                                    id="cruce2_proveedor">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+
+                                            <div class="col-sm-4">
+                                                <label for="colonia_proveedor">Colonia.:</label>
+                                                <input type="text" class="form-control" name="colonia_proveedor"
+                                                    id="colonia_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="entidad_dom_proveedor">Entidad:</label>
+                                                <input type="text" class="form-control" name="entidad_dom_proveedor"
+                                                    id="entidad_dom_proveedor">
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label for="municipio_dom_proveedor">Municipio:</label>
+                                                <input type="text" class="form-control" name="municipio_dom_proveedor"
+                                                    id="municipio_dom_proveedor">
                                             </div>
 
                                         </div>
@@ -289,8 +289,8 @@ $us = $_SESSION['user']['data'];
                 </div>
 
                   <div class="modal-footer ">
-                        <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
-                        <button type="button" class="btn btn-primary btn-guardar-usuario">Guardar</button>
+                        <button type="button " class="btn btn-secondary " onclick="cerrarModalproveedor_Id();" >Cerrar</button>
+                        <button type="button" class="btn btn-primary btn-guardar-proveedor">Guardar</button>
                     </div>
 
             </div>
@@ -317,7 +317,7 @@ $us = $_SESSION['user']['data'];
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                    <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirproveedor('')">Agregar proveedor</button> -->
                                 </div>
                             </div>
                             <div class="row">
