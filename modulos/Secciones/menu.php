@@ -6,7 +6,7 @@
         <li class="nav-header">
             <div class="dropdown profile-element"> <span>
           
-                <img alt='image' class='img-circle' src='../../../img/profile_small.jpg' />";
+                <img alt='image' class='img-circle' src='/img/profile_small.jpg' />";
          
                      </span>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -30,7 +30,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Menu_Principal/dashboard_remex">Dashboard v.1</a></li>
+                          <li><a href="/modulos/Menu_Principal/dashboard_remex">Dashboard v.1</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -41,7 +41,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Recursos_Humanos/Alta/Alta">Alta</a></li>
+                          <li><a href="/modulos/Recursos_Humanos/Alta/Alta">Alta</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -53,7 +53,7 @@
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="../Recursos_Humanos/Clientes/Clientes">Listado</a></li>
+                          <li><a href="/modulos/Recursos_Humanos/Clientes/Clientes">Listado</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -65,7 +65,7 @@
             <ul class="nav nav-second-level">
 
        
-                           <li><a href="../Servicios/recargas">Recargas</a></li>
+                           <li><a href="/modulos/Servicios/recargas">Recargas</a></li>
                           <!--<li><a href="dashboard_2.html">Dashboard v.2</a></li>-->
      
                
@@ -77,7 +77,7 @@
             <ul class="nav nav-second-level">
 
           
-                           <li><a href="../AdminUsuarios/adminUsuarios">Adm. Usuarios</a></li>
+                           <li><a href="/modulos/AdminUsuarios/adminUsuarios">Adm. Usuarios</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
          
                
