@@ -1,4 +1,4 @@
-$(document).ready(function() {
+    $(document).ready(function() {
 
     InicializarDatatable("tabla_clientes");
     
@@ -102,6 +102,7 @@ $(document).ready(function() {
                  });
     
     }); 
+    
     function comprobarCheck(var_check){
 
         if ($("#"+var_check+"").prop("checked")) {
@@ -121,7 +122,7 @@ $(document).ready(function() {
            $("#"+var_check+"").prop("checked", false);
            $("#divOTrabj").css("display", "none");
        }
-   }
+    }
 
     function checarNulos(_valor){
         var regresarValor = "";
@@ -188,9 +189,9 @@ $(document).ready(function() {
                 lst.forEach(reg => {
                     estado = "";
                     if(reg.Estatus == 1){
-                        estado = "<span class='label label-success'>Pending</span>";
+                        estado = "<span class='label label-success'>ACTIVO</span>";
                     }else{
-                        estado = "<span class='label label-danger'>Pending</span>";
+                        estado = "<span class='label label-danger'>INACTIVO</span>";
                     }
                     tbody += 
                         "<tr>"+
@@ -316,8 +317,29 @@ $(document).ready(function() {
     
     function cerrarModalClientes(){
      $("#modal_clientes").modal("hide");
+     listadoClientes();
+     limpia_clientes();
     }
     
+    function limpia_clientes(){
+
+        $("#Id_cliente").val("");
+        $("#Nombre").val("");
+        $("#RFC").val("");
+        $("#Calle").val("");
+        $("#Numero").val("");
+        $("#CP").val("");
+        $("#Municipio").val("");
+        $("#Entidad").val("");
+        $("#Pais").val("");
+        $("#Tel1").val("");
+        $("#Ext1").val("");
+        $("#Tel2").val("");
+        $("#Ext2").val("");
+        pintarCheckOtroTrabajo("btn_status",0);
+        $("#Estatus").val("");
+    }
+
     function guardar_cliente(){
         
         var Id_cliente = $("#Id_cliente").val();
@@ -409,72 +431,6 @@ $(document).ready(function() {
         
     }
     
-    function eliminarUsuario(rfc, nombre){
-    
-        swal({
-            title: 'Deseas eliminar a '+nombre+' ?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminalo!'
-        }).then((result) => {
-            if (result.value) {
-        fetch ('https://remex.kerveldev.com/api/logger/elimina_usuario', {  
-        method: 'DELETE',   
-        headers:{
-        'Content-Type': 'application/json'
-        },
-            body: JSON.stringify({
-                nick: nuser.Nick,
-                token: nuser.Token,
-                rfc: rfc
-            })
-        }).then((res)=> res.json())
-            .then((resdelJson)=>{
-                console.log(resdelJson)
-    
-                if(resdelJson.status_sesion){
-    
-                    if (resdelJson.status) {
-                        cerrarmodal_Usuarios();
-                        swal({
-                            type: 'success',
-                            title: 'El Usuario ha sido eliminada.!',
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                               document.location.reload();
-    
-                            }
-                        })
-                    }else{
-                        cerrarmodal_Usuarios();
-                        swal(
-                                    'Error!',
-                                    'El Usuario no fue eliminado.',
-                                    'error'
-                                )
-                    }
-                   
-    
-                }else{
-                     swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                            document.location.reload();
-                            }
-                        })
-                }
-            })
-    
-            }
-        });
-    }
-    
     function agregar_usu(){
         $("#modal_clientes").modal();
         $("#Pasword").prop("disabled",false);
@@ -552,23 +508,7 @@ $(document).ready(function() {
         limpiar_mUsuarios();
     }
     
-    function limpiar_mUsuarios(){
-        $("#RFC").val();
-        $("#Nombre").val();
-        $("#APaterno").val();
-        $("#AMaterno").val();
-        $("#Nombramiento").val();
-        $("#U_Fisica").val();
-        $("#Email").val();
-        $("#Niv_acceso").val();
-        $("#Nick_user").text();
-        $("#Pasword").val();
-        $("#Status").val();
-    
-    }
-    
     function guardarDatos(){
-    
     
         var accion = $("#accion").val();
         var RFC = $("#RFC").val();
