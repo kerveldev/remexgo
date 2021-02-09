@@ -188,9 +188,9 @@ $(document).ready(function() {
                 lst.forEach(reg => {
                     estado = "";
                     if(reg.Estatus == 1){
-                        estado = "<span class='label label-success'>Pending</span>";
+                        estado = "<span class='label label-success'>ACTIVO</span>";
                     }else{
-                        estado = "<span class='label label-danger'>Pending</span>";
+                        estado = "<span class='label label-danger'>INACTIVO</span>";
                     }
                     tbody += 
                         "<tr>"+
