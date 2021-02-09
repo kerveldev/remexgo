@@ -200,7 +200,8 @@ define('RH',[
           'ruta_web'=> NULL,
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
           'clientes'=>MODULOS.'rh/clientes/Clientes.php',
-          'altas'=>MODULOS.'rh/alta/Alta.php'
+          'altas'=>MODULOS.'rh/alta/Alta.php',
+          'ventas'=>MODULOS.'rh/ventas/Ventas.php'
      ]);
 
 define('QR',[
