@@ -618,22 +618,68 @@ function eliminarUsuario_Id(_id_elemento, nombre){
                         title: 'El Usuario ha sido eliminado.!',
                         confirmButtonText: 'Ok'
                     })
-                       
-                           
-                            listadoUsuarios();
+                              
+                    listadoUsuarios();
 
-                  
                 }else{
                    
                     swal(
-                                'Error!',
-                                'El Usuario no fue eliminado.',
-                                'error'
-                            )
+                        'Error!',
+                        'El Usuario no fue eliminado.',
+                        'error'
+                        )
                 }
 
             })
 
+        }
+    });
+}
+
+function crearUsuarioSistema(_id_elemento, nombre){
+
+    swal({
+        title: 'Activar para Sistemas de Usuario a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes', {  
+    method: 'POST',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id:_id_elemento,
+            datos:{ 
+                Activo:"1",
+            }
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+
+            console.log(resdelJson)
+
+                if (resdelJson.status) {
+                    swal({
+                        type: 'success',
+                        title: 'El Usuario ha sido activado.!',
+                        confirmButtonText: 'Ok'
+                    })  
+                    listadoUsuarios();
+                }else{
+                    swal(
+                        'Error!',
+                        'El Usuario no se pudo activar.',
+                        'error'
+                        )
+                }
+            })
         }
     });
 }
