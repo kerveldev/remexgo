@@ -189,7 +189,7 @@
                 lst.forEach(reg => {
                     estado = "";
                     if(reg.Estatus == 1){
-                        estado = "<span class='label label-success'>ACTIVO</span>";
+                        estado = "<span class='label label-info'>ACTIVO</span>";
                     }else{
                         estado = "<span class='label label-danger'>INACTIVO</span>";
                     }
