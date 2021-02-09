@@ -299,8 +299,14 @@ $us = $_SESSION['user']['data'];
     <script src="/js/datatables/js/dataTables.buttons.min.js"></script>
     <script src="/js/datatables/js/buttons.html5.min.js"></script>
     <script src="/js/datatables/js/dataTables.select.min.js" type="text/javascript" ></script>
-
-     <!-- Toastr -->
+    
+    <!-- Chosen -->
+    <script src="js/plugins/chosen/chosen.jquery.js"></script>
+    
+    <!-- JSKnob -->
+    <script src="js/plugins/jsKnob/jquery.knob.js"></script>
+    
+    <!-- Toastr -->
     <script src="/js/plugins/toastr/toastr.min.js"></script>
 
     <!-- Steps -->
