@@ -26,6 +26,19 @@
                     $cuerpo = RECURSO_NO_IMPLEMENTADO;
                 }
             break;
+
+            case 'ventas':
+                $v = include_once(RH['ventas']);
+
+                if($v == TRUE){
+                    $l = ventas::recurso($peticion);
+                    $l['status']?$vista->est=200:$vista->est=401;
+                    $vista->imprimir($l);
+                }else{
+                    $vista->estado = 400;
+                    $cuerpo = RECURSO_NO_IMPLEMENTADO;
+                }
+            break;
         
     default:
     $vista->estado = 400;
