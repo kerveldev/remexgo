@@ -166,7 +166,7 @@ $us = $_SESSION['user']['data'];
         </div>
     </div>
 
-    <div id="wrapper">
+        <div id="wrapper">
                             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 <div id="page-wrapper" class="gray-bg">
                              <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
@@ -189,6 +189,7 @@ $us = $_SESSION['user']['data'];
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-md-12">
+                                <button class="btn btn-success " type="button"><i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">Upload</span></button>
                                   <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
                                 </div>
                               </div>
@@ -222,7 +223,7 @@ $us = $_SESSION['user']['data'];
                             </div>
                         </div>
                       </div>
-                      <div class="row">
+                      <!--<div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
                                 <div class="ibox-content">
@@ -1176,7 +1177,7 @@ $us = $_SESSION['user']['data'];
                                 </div>
                             </div>
                         </div>
-                      </div>
+                      </div>-->
                          <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 </div>
         </div>
