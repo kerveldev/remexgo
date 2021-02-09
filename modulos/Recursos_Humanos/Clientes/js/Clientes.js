@@ -325,11 +325,11 @@
 
     function nuevo_cliente(){
         $("#modal_clientes").modal({"backdrop":"static"});
-        var _botonGuardar = '<button id="botonGuardar" type="button" class="btn btn-success" onclick="nuevo_cliente();" >Guardar</button>';
+        var _botonGuardar = '<button id="botonGuardar" type="button" class="btn btn-success" onclick="guarda_nuevo();" >Guardar</button>';
         $(".modal-footer").html(_botonGuardar);
     }
 
-    function nuevo_cliente(){
+    function guarda_nuevo(){
         var Id_cliente = $("#Id_cliente").val();
         var Nombre = $("#Nombre").val();
         var RFC = $("#RFC").val();
