@@ -197,12 +197,9 @@ $(document).ready(function() {
                         "<td>"+checarNulos(reg.Id_Cliente)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre)+"</td>"+
                         "<td>"+checarNulos(reg.Entidad)+"</td>"+
-                        "<td>"+ estado +"</td>"
+                        "<td>"+ estado +"</td>"+
                         "<td>"+
-    
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
-                        
-                        // botones+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+    
                         "</tr>";
                 });
                 //Se dibuja la tabla
