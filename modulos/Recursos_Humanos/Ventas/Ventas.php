@@ -267,7 +267,7 @@ $us = $_SESSION['user']['data'];
     <script src="js/Ventas.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
-
+    
     <script>
         var nuser = JSON.parse(<?php echo "'".json_encode($us)."'"; ?>);
         if(!nuser){
