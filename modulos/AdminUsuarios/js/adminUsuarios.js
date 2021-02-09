@@ -196,8 +196,7 @@ function abrirUsuario_Id(_id_elemento, _nombre_usuario){
                 $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                 $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                 $("#Nick_cam").val(respuesta[0].Nick);
-                $("#Pasword_cam").val(respuesta[0].Pasword);
-              
+                $("#Pasword_cam").val(respuesta[0].Pasword);              
             }
         })
 
