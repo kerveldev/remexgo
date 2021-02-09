@@ -49,11 +49,23 @@
         </li>
 
         <li>
-            <a href="index.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Clientes</span> <span class="fa arrow"></span></a>
+            <a href="index.html"><i class="fa fa-group"></i> <span class="nav-label">Clientes</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
        
            
                           <li><a href="/modulos/Recursos_Humanos/Clientes/Clientes">Listado</a></li>
+                          <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
+    
+               
+            </ul>
+        </li>
+
+        <li>
+            <a href="index.html"><i class="fa fa-line-chart"></i> <span class="nav-label">Ventas</span> <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+       
+           
+                          <li><a href="/modulos/Recursos_Humanos/Ventas/Ventas">Nueva venta</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
