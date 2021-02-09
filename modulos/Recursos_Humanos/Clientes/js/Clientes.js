@@ -186,13 +186,18 @@ $(document).ready(function() {
                 var lst = resp.data;
                
                 lst.forEach(reg => {
-    
+                    estado = "";
+                    if(reg.Estatus == 1){
+                        estado = "<span class='label label-success'>Pending</span>";
+                    }else{
+                        estado = "<span class='label label-danger'>Pending</span>";
+                    }
                     tbody += 
                         "<tr>"+
                         "<td>"+checarNulos(reg.Id_Cliente)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre)+"</td>"+
                         "<td>"+checarNulos(reg.Entidad)+"</td>"+
-                        "<td>"+checarNulos(reg.Estatus)+"</td>"+
+                        estado+
                         "<td>"+
     
                         "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
