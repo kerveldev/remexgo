@@ -325,31 +325,92 @@
 
     function nuevo_cliente(){
         $("#modal_clientes").modal({"backdrop":"static"});
+        var _botonGuardar = '<button id="botonGuardar" type="button" class="btn btn-success" onclick="nuevo_cliente();" >Guardar</button>';
+        $(".modal-footer").html(_botonGuardar);
     }
 
-    function cerrarModalClientes(){
-     $("#modal_clientes").modal("hide");
-     listadoClientes();
-     limpia_clientes();
-    }
+    function nuevo_cliente(){
+        var Id_cliente = $("#Id_cliente").val();
+        var Nombre = $("#Nombre").val();
+        var RFC = $("#RFC").val();
+        var Calle= $("#Calle").val();
+        var Numero = $("#Numero").val();
+        var CP = $("#CP").val();
+        var Municipio = $("#Municipio").val();
+        var Entidad = $("#Entidad").val();
+        var Pais = $("#Pais").val();
+        var Tel1 = $("#Tel1").val();
+        var Ext1 = $("#Ext1").val();
+        var Tel2 = $("#Tel2").val();
+        var Ext2 = $("#Ext2").val();
+        var Estatus = $("#Estatus").val();
+
+        if(Estatus == 1 || Estatus == 0){
+            Estatus = $("#Estatus").val();
+        }else{
+            Estatus = 0;
+        }
     
-    function limpia_clientes(){
-
-        $("#Id_cliente").val("");
-        $("#Nombre").val("");
-        $("#RFC").val("");
-        $("#Calle").val("");
-        $("#Numero").val("");
-        $("#CP").val("");
-        $("#Municipio").val("");
-        $("#Entidad").val("");
-        $("#Pais").val("");
-        $("#Tel1").val("");
-        $("#Ext1").val("");
-        $("#Tel2").val("");
-        $("#Ext2").val("");
-        pintarCheckOtroTrabajo("btn_status",0);
-        $("#Estatus").val("");
+        fetch ('https://remex.kerveldev.com/api/rh/clientes/crea_clientes', {  
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                        },
+                                body: JSON.stringify({
+                                        nick:nuser.Nick,
+                                        token: nuser.Token,
+                                        datos:{
+                                            Nombre: Nombre,
+                                            RFC: RFC,
+                                            Calle: Calle,
+                                            Numero: Numero,
+                                            CP: CP,
+                                            Municipio: Municipio,
+                                            Entidad: Entidad,
+                                            Pais: Pais,
+                                            Tel1: Tel1,
+                                            Ext1: Ext1,
+                                            Tel2: Tel2,
+                                            Ext2: Ext2,
+                                            Estatus: Estatus
+                                        }
+                                            
+                                        })
+                                    }).then((res)=> res.json())
+                                        .then((respApi)=>{
+                                            console.log(respApi);
+    
+                                            if(respApi.status_sesion){
+    
+                                                        if(respApi.status){
+                                                            swal({
+                                                                  title: 'Actualizado',
+                                                                  type: 'success',
+                                                                  text:'Modificacion de información Exitosa',
+                                                                  showConfirmButton: true,
+                                                                  confirmButtonColor: "#8CD4F5",
+                                                                  confirmButtonText: "OK",
+                                                                  closeOnConfirm: false
+                                                                });
+                                                            cerrarModalClientes();
+                                                        }else{
+                                                             swal({
+                                                                  type: 'error',
+                                                                  title: 'Error al modificar información',
+                                                                  text: respApi.msj,
+                                                                });
+                                                            cerrarModalClientes();
+                                                        }
+                                            }else{//Status false
+                                                swal({
+                                                          type: 'error',
+                                                          title: 'Sesión expiró',
+                                                          text: respApi.msj,
+                                                          showConfirmButton: false,
+                                                        });
+                                                
+                                            }
+                                        })
     }
 
     function guardar_cliente(){
@@ -438,71 +499,31 @@
                                         })
     }
     
-    function cerrarcontraseña(){
-        $("#modal_contraseñas").modal("hide");
-        
+    function cerrarModalClientes(){
+        $("#modal_clientes").modal("hide");
+        listadoClientes();
+        limpia_clientes();
     }
-    
-    function agregar_usu(){
-        $("#modal_clientes").modal();
-        $("#Pasword").prop("disabled",false);
-    
-        var actualiza = "nuevo";
-        $("#accion").val(actualiza);
+       
+    function limpia_clientes(){
+   
+           $("#Id_cliente").val("");
+           $("#Nombre").val("");
+           $("#RFC").val("");
+           $("#Calle").val("");
+           $("#Numero").val("");
+           $("#CP").val("");
+           $("#Municipio").val("");
+           $("#Entidad").val("");
+           $("#Pais").val("");
+           $("#Tel1").val("");
+           $("#Ext1").val("");
+           $("#Tel2").val("");
+           $("#Ext2").val("");
+           pintarCheckOtroTrabajo("btn_status",0);
+           $("#Estatus").val("");
     }
-    
-    function abrirmodal(rfc, nombre){
-        $("#modal_clientes").modal();
-    
-        $("#nombre_usuario").text(nombre);
-    
-        fetch ('https://remex.kerveldev.com/api/logger/navegante_rfc', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-          },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    rfc: rfc
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if(resJson.status_sesion){
-                            
-                    respuesta = resJson.data;
-                    var actualiza = "actualiza";
-                    $("#accion").val(actualiza);
-                    $("#RFC").val(respuesta[0].RFC);
-                    $("#Nombre").val(respuesta[0].Nombre);
-                    $("#Apaterno").val(respuesta[0].Apaterno);
-                    $("#Amaterno").val(respuesta[0].Amaterno);
-                    $("#Nombramiento").val(respuesta[0].Nombramiento);
-                    $("#U_Fisica").val(respuesta[0].U_Fisica);
-                    $("#Email").val(respuesta[0].Email);
-                    $("#Niv_acceso").val(respuesta[0].Niv_acceso);
-                    $("#Nick_user").val(respuesta[0].Nick);
-                    $("#Pasword").val(respuesta[0].Pasword);
-                    $("#Pasword").prop("disabled",true);
-    
-                    var status = respuesta[0].Status;
-                    if (status == 1) {
-                        val = 1;
-                        $("#Status").attr('checked', true);
-                        $("#Status").val(val);
-                    }else{
-                        val = 0;
-                        $("#Status").attr('checked', false);
-                        $("#Status").val(val);
-                    }
-                    
-                }
-            })
-    
-    }
-    
+
     $("#Status").on('change', function(){
             var v = document.getElementById("Status");
             if(v.checked===true){
@@ -514,152 +535,3 @@
             }
         });
     
-    
-    function cerrarmodal_Usuarios(){
-        $("#modal_clientes").modal("hide");
-        limpiar_mUsuarios();
-    }
-    
-    function guardarDatos(){
-    
-        var accion = $("#accion").val();
-        var RFC = $("#RFC").val();
-        var Nombre = $("#Nombre").val();
-        var Apaterno = $("#Apaterno").val();
-        var Amaterno = $("#Amaterno").val();
-        var Nombramiento = $("#Nombramiento").val();
-        var U_Fisica = $("#U_Fisica").val();
-        var Email = $("#Email").val();
-        var Nick = $("#Nick_user").val();
-        var Pasword = $("#Pasword").val();
-        var Niv_acceso = $("#Niv_acceso").val();
-        var Status = $("#Status").val();
-    
-    
-      if((accion == "nuevo")){
-        
-    
-         fetch ('https://remex.kerveldev.com/api/logger/crea_usuario', {  
-                method: 'PUT',
-                headers:{
-            'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    datos: {
-                        RFC: RFC,
-                        Apaterno: Apaterno,
-                        Amaterno: Amaterno,
-                        Nombre: Nombre,
-                        Nick: Nick,
-                        Pasword: Pasword,
-                        Email: Email,
-                        Status: Status,
-                        Niv_acceso: Niv_acceso
-    
-                                        }
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if (resJson.status_sesion) {
-    
-                        if (resJson.status) {
-                            
-                            cerrarmodal_Usuarios();
-                             swal({
-                                        type: 'success',
-                                        title: 'Usuario Creado con Exito',
-                                        confirmButtonText: 'Ok'
-                                
-                                        });
-                
-                        }else{
-                            cerrarmodal_Usuarios();
-                            swal(
-                                    'Error!',
-                                    'El Usuario no fue creado.',
-                                    'error'
-                                )
-                        }
-                    }else{
-                         swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-    
-                                //carga_mod(id);
-                               
-                            }
-                        })
-                    }
-    
-                })
-    }else{
-            fetch ('https://remex.kerveldev.com/api/logger/act_usuario', {  
-                method: 'POST',
-                headers:{
-            'Content-Type': 'application/json'
-            },
-                body: JSON.stringify({
-                    nick: nuser.Nick,
-                    token: nuser.Token,
-                    datos: {
-                        RFC: RFC,
-                        Apaterno: Apaterno,
-                        Amaterno: Amaterno,
-                        Nombre: Nombre,
-                        Nombramiento: Nombramiento,
-                        U_Fisica: U_Fisica,
-                        Email: Email,
-                        Status: Status,
-                        Niv_acceso: Niv_acceso
-    
-                                        }
-                })
-            }).then((res)=> res.json())
-                .then((resJson)=>{
-                    console.log(resJson)
-    
-                    if (resJson.status_sesion) {
-    
-                        if (resJson.status) {
-                         
-                            cerrarmodal_Usuarios();
-                             swal({
-                                        type: 'success',
-                                        title: 'Usuario Modificado con Exito',
-                                        confirmButtonText: 'Ok'
-                                
-                                        });
-                            
-                        }else{
-                            cerrarmodal_Usuarios();
-                            swal(
-                                    'Error!',
-                                    'El Usuario no Modificado.',
-                                    'error'
-                                )
-                        }
-                    }else{
-                         swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-    
-                                //carga_mod(id);
-                               
-                            }
-                        })
-    
-                    }
-    
-                })
-    }
-    }
