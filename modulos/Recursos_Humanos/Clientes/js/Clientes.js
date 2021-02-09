@@ -352,7 +352,7 @@
         }
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/crea_clientes', {  
-                    method: 'POST',
+                    method: 'PUT',
                     headers:{
                         'Content-Type': 'application/json'
                         },
