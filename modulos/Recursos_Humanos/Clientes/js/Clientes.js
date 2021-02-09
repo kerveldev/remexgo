@@ -384,9 +384,9 @@
     
                                                         if(respApi.status){
                                                             swal({
-                                                                  title: 'Actualizado',
+                                                                  title: 'Nuevo',
                                                                   type: 'success',
-                                                                  text:'Modificacion de información Exitosa',
+                                                                  text:'Cliente creado exitosamente',
                                                                   showConfirmButton: true,
                                                                   confirmButtonColor: "#8CD4F5",
                                                                   confirmButtonText: "OK",
