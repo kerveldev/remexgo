@@ -53,7 +53,8 @@ $us = $_SESSION['user']['data'];
                               <div class="text-center m-t-md">
                                                 
                                                     <div class="row">
-
+                                                        <input type="hidden" id="Id_cliente" name="Id_cliente"></input>
+                                                        <input type="hidden" id="Estatus" name="Estatus"></input>
                                                           <div class="col-sm-6">
                                                             <label for="Nombre">Nombre del Cliente:</label>
                                                             <input type="text" class="form-control" name="Nombre" id="Nombre"> 
@@ -127,7 +128,7 @@ $us = $_SESSION['user']['data'];
 
                                                             <div class="col-sm-2">
                                                               <label for="Ext2">Ext1:</label>
-                                                              <input type="Ext2" class="form-control" name="Ext2" id="Ext2"> 
+                                                              <input type="text" class="form-control" name="Ext2" id="Ext2"> 
                                                             </div>
                         
                                                     </div>
@@ -165,7 +166,7 @@ $us = $_SESSION['user']['data'];
         </div>
     </div>
 
-    <div id="wrapper">
+        <div id="wrapper">
                             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 <div id="page-wrapper" class="gray-bg">
                              <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
@@ -184,13 +185,19 @@ $us = $_SESSION['user']['data'];
                             <div class="card-header">
 
                               <h6 class="card-title">Listado Elementos</h6>
+                              <hr>
                             </div>
                             <div class="card-body">
                               <div class="row">
-                                <div class="col-md-12">
-                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                <div class="col-md-11">
+                                  
+                                </div>
+                                <div class="col-md-1">
+                                <button class="btn btn-primary " type="button"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
+                                  
                                 </div>
                               </div>
+                              <br>
                               <div class="row">
                                 <div class="col-md-12">
                                   <table class="table table-striped nowrap" id="tabla_clientes">
@@ -221,7 +228,7 @@ $us = $_SESSION['user']['data'];
                             </div>
                         </div>
                       </div>
-                      <div class="row">
+                      <!--<div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
                                 <div class="ibox-content">
@@ -1175,7 +1182,7 @@ $us = $_SESSION['user']['data'];
                                 </div>
                             </div>
                         </div>
-                      </div>
+                      </div>-->
                          <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
                 </div>
         </div>
@@ -1191,8 +1198,6 @@ $us = $_SESSION['user']['data'];
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
     <script src="/js/plugins/iCheck/icheck.min.js"></script>
-     <!-- Datables -->
-<!--     <script src="../../../js/plugins/dataTables/datatables.min.js"></script> -->
 
     <!--Datatables-->
     <script src="/js/datatables/js/jquery.dataTables.min.js"></script>

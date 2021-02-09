@@ -175,8 +175,13 @@ function listadoUsuarios(){
                         "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
-    
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Contraseña & Nick: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+
+                            "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='crearUsuarioSistema(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Crear Sistema Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-check'></i></button>&nbsp;"+
+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            
+                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Eliminar Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                        
 
                         "</tr>";
                 });
@@ -257,6 +262,10 @@ function listadoUsuarios(){
     function limpiarModalUsuario(){
 
             //Datos Personales
+            $("#f_ingreso_usuario").val("");
+            $("#num_emp_usuario").val("");
+            $("#rfc_usuario").val("");
+            $("#curp_usuario").val("");
             $("#A_Paterno_usuario").val("");
             $("#A_Materno_usuario").val("");
             $("#Nombre_usuario").val("");
@@ -289,7 +298,7 @@ function listadoUsuarios(){
     
     function abrirNuevoUsuario(){
         
-        limpiarModalUsuario();
+    
         $("#modal_usuario").modal({"backdrop":"static"});
         $(".btn-guardar-usuario").attr('onClick', 'guardarNuevoUsuario();');
         $("#nUsuario").text("Nuevo Usuario");
@@ -321,6 +330,11 @@ function listadoUsuarios(){
                     respuesta = resJson.data;
                     
                     //Datos Personales
+
+                    $("#f_ingreso_usuario").val(respuesta[0].FIngreso);
+                    $("#num_emp_usuario").val(respuesta[0].NoEmp_RH);
+                    $("#rfc_usuario").val(respuesta[0].RFC);
+                    $("#curp_usuario").val(respuesta[0].CURP);
                     $("#A_Paterno_usuario").val(respuesta[0].Apaterno);
                     $("#A_Materno_usuario").val(respuesta[0].Amaterno);
                     $("#Nombre_usuario").val(respuesta[0].Nombre);
@@ -357,6 +371,7 @@ function listadoUsuarios(){
     
 function cerrarModalUsuario_Id(){
     $("#modal_usuario").modal("hide");
+    limpiarModalUsuario();
 }
     
 function guardarNuevoUsuario(){
@@ -367,7 +382,7 @@ function guardarNuevoUsuario(){
     var NoEmp_RH = $("#num_emp_usuario").val();
     var RFC = $("#rfc_usuario").val();
     var CURP = $("#curp_usuario").val();
-    var Apaterno = $("#A_Paterno_usuario").val();
+    var APaterno = $("#A_Paterno_usuario").val();
     var AMaterno = $("#A_Materno_usuario").val();
     var Nombre = $("#Nombre_usuario").val();
     var FNacimiento	 = $("#f_nacimiento_usuario").val();
@@ -412,7 +427,7 @@ function guardarNuevoUsuario(){
                         NoEmp_RH:NoEmp_RH,
                         RFC:RFC,
                         CURP:CURP,
-                        Apaterno:Apaterno,
+                        APaterno:APaterno,
                         AMaterno:AMaterno,
                         Nombre:Nombre,
                         FNacimiento:FNacimiento,
@@ -457,8 +472,214 @@ function guardarNuevoUsuario(){
                     html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
                     showConfirmButton: true,
                 });
+                $("#modal_usuario").modal("hide");
             }
             
         });
 
+}
+
+function actualizarUsuario(_id_elemento){
+    //Datos Personales
+
+    var FIngreso = $("#f_ingreso_usuario").val();
+
+    var NoEmp_RH = $("#num_emp_usuario").val();
+    var RFC = $("#rfc_usuario").val();
+    var CURP = $("#curp_usuario").val();
+    var APaterno = $("#A_Paterno_usuario").val();
+    var AMaterno = $("#A_Materno_usuario").val();
+    var Nombre = $("#Nombre_usuario").val();
+    var FNacimiento	 = $("#f_nacimiento_usuario").val();
+
+    $( "#f_nacimiento_usuario" ).change(function() {
+    var edadUsuario = getEdad($("#f_nacimiento_usuario").val());
+    $("#edad_usuario").val(edadUsuario);  
+    });
+
+    var Nacionalidad = $("#nacionalidad_usuario").val();
+    var Entidad = $("#entidad_nac_usuario").val();
+    var MunicipioNac = $("#municipio_nac_usuario").val();
+    var Genero = $("#genero_usuario").val();
+    var TipoSangre = $("#tipo_sangre_usuario").val();
+    var EdoCivil = $("#edo_civil_usuario").val();
+    var Email = $("#e_mail_usuario").val();
+    var Tel = $("#telefono_usuario").val();
+    var Cel = $("#cel_usuario").val();
+    var OtroTel = $("#tel_2_usuario").val();
+            
+    //Domicilio
+    var Calle = $("#calle_usuario").val();
+    var Num = $("#nexterior_usuario").val();
+    var NInterior = $("#ninterior_usuario").val();
+    var CP = $("#cp_usuario").val();
+    var Cruce1 = $("#cruce1_usuario").val();
+    var Cruce2 = $("#cruce2_usuario").val();
+    var Colonia = $("#colonia_usuario").val();
+    var Estado = $("#entidad_dom_usuario").val();
+    var Municipio = $("#municipio_dom_usuario").val();
+
+    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes',{  
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nick : nuser.Nick,
+                token: nuser.Token,
+                Id:_id_elemento,
+                datos:{ 
+                        FIngreso:FIngreso,
+                        NoEmp_RH:NoEmp_RH,
+                        RFC:RFC,
+                        CURP:CURP,
+                        APaterno:APaterno,
+                        AMaterno:AMaterno,
+                        Nombre:Nombre,
+                        FNacimiento:FNacimiento,
+                        Nacionalidad:Nacionalidad,
+                        Entidad:Entidad,
+                        MunicipioNac:MunicipioNac,
+                        Genero:Genero,
+                        TipoSangre:TipoSangre,
+                        EdoCivil:EdoCivil,
+                        Email:Email,
+                        Tel:Tel,
+                        Cel:Cel,
+                        OtroTel:OtroTel,
+                        Calle:Calle,
+                        Num:Num,
+                        NInterior:NInterior,
+                        CP:CP,
+                        Cruce1:Cruce1,
+                        Cruce2:Cruce2,
+                        Colonia:Colonia,
+                        Estado:Estado,
+                        Municipio:Municipio
+                }
+                
+            })
+        }).then((res)=> res.json()).then((respApi)=>{
+            var respuesta = respApi.data;
+
+            if (respApi.status) {
+                swal({
+                    type: 'success',
+                    title: 'Actualización exitosa.',
+                    text: respuesta,
+                })
+
+                cerrarModalUsuario_Id();
+                listadoUsuarios();
+                
+            }else{
+                swal({
+                    type: 'error',
+                    html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
+                    showConfirmButton: true,
+                });
+                $("#modal_usuario").modal("hide");
+            }
+            
+        });
+
+}
+
+
+function eliminarUsuario_Id(_id_elemento, nombre){
+    
+    swal({
+        title: 'Deseas eliminar a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminalo!'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/rh/altas/elimina_usuario', {  
+    method: 'DELETE',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id: _id_elemento
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+            console.log(resdelJson)
+
+                if (resdelJson.status) {
+                   
+                    swal({
+                        type: 'success',
+                        title: 'El Usuario ha sido eliminado.!',
+                        confirmButtonText: 'Ok'
+                    })
+                              
+                    listadoUsuarios();
+
+                }else{
+                   
+                    swal(
+                        'Error!',
+                        'El Usuario no fue eliminado.',
+                        'error'
+                        )
+                }
+
+            })
+
+        }
+    });
+}
+
+function crearUsuarioSistema(_id_elemento, nombre){
+
+    swal({
+        title: 'Activar para Sistemas de Usuario a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ok'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes', {  
+    method: 'POST',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id:_id_elemento,
+            datos:{ 
+                Activo:"1",
+            }
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+
+            console.log(resdelJson)
+
+                if (resdelJson.status) {
+                    swal({
+                        type: 'success',
+                        title: 'El Usuario ha sido activado.!',
+                        confirmButtonText: 'Ok'
+                    })  
+                    listadoUsuarios();
+                }else{
+                    swal(
+                        'Error!',
+                        'El Usuario no se pudo activar.',
+                        'error'
+                        )
+                }
+            })
+        }
+    });
 }

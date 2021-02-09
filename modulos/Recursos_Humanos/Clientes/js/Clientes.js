@@ -1,4 +1,4 @@
-$(document).ready(function() {
+    $(document).ready(function() {
 
     InicializarDatatable("tabla_clientes");
     
@@ -102,6 +102,7 @@ $(document).ready(function() {
                  });
     
     }); 
+    
     function comprobarCheck(var_check){
 
         if ($("#"+var_check+"").prop("checked")) {
@@ -121,7 +122,7 @@ $(document).ready(function() {
            $("#"+var_check+"").prop("checked", false);
            $("#divOTrabj").css("display", "none");
        }
-   }
+    }
 
     function checarNulos(_valor){
         var regresarValor = "";
@@ -186,18 +187,20 @@ $(document).ready(function() {
                 var lst = resp.data;
                
                 lst.forEach(reg => {
-    
+                    estado = "";
+                    if(reg.Estatus == 1){
+                        estado = "<span class='label label-primary'>ACTIVO</span>";
+                    }else{
+                        estado = "<span class='label label-danger'>INACTIVO</span>";
+                    }
                     tbody += 
                         "<tr>"+
                         "<td>"+checarNulos(reg.Id_Cliente)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre)+"</td>"+
                         "<td>"+checarNulos(reg.Entidad)+"</td>"+
-                        "<td>"+checarNulos(reg.Estatus)+"</td>"+
+                        "<td>"+ estado +"</td>"+
                         "<td>"+
-    
-                        "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+
-                        
-                        // botones+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+    
                         "</tr>";
                 });
                 //Se dibuja la tabla
@@ -291,6 +294,7 @@ $(document).ready(function() {
                             
                     respuesta = resJson.data;
     
+                    $("#Id_cliente").val(respuesta[0].Id_Cliente);
                     $("#Nombre").val(respuesta[0].Nombre);
                     $("#RFC").val(respuesta[0].RFC);
                     $("#Calle").val(respuesta[0].Calle);
@@ -302,7 +306,7 @@ $(document).ready(function() {
                     $("#Tel1").val(respuesta[0].Tel1);
                     $("#Ext1").val(respuesta[0].Ext1);
                     $("#Tel2").val(respuesta[0].Tel2);
-                    $("#Tel2").val(respuesta[0].Tel2);
+                    $("#Ext2").val(respuesta[0].Ext2);
                     pintarCheckOtroTrabajo("btn_status",respuesta[0].Estatus);
                     $("#Estatus").val(respuesta[0].Estatus);
                   
@@ -313,8 +317,29 @@ $(document).ready(function() {
     
     function cerrarModalClientes(){
      $("#modal_clientes").modal("hide");
+     listadoClientes();
+     limpia_clientes();
     }
     
+    function limpia_clientes(){
+
+        $("#Id_cliente").val("");
+        $("#Nombre").val("");
+        $("#RFC").val("");
+        $("#Calle").val("");
+        $("#Numero").val("");
+        $("#CP").val("");
+        $("#Municipio").val("");
+        $("#Entidad").val("");
+        $("#Pais").val("");
+        $("#Tel1").val("");
+        $("#Ext1").val("");
+        $("#Tel2").val("");
+        $("#Ext2").val("");
+        pintarCheckOtroTrabajo("btn_status",0);
+        $("#Estatus").val("");
+    }
+
     function guardar_cliente(){
         
         var Id_cliente = $("#Id_cliente").val();
@@ -331,6 +356,12 @@ $(document).ready(function() {
         var Tel2 = $("#Tel2").val();
         var Ext2 = $("#Ext2").val();
         var Estatus = $("#Estatus").val();
+
+        if(Estatus == 1 || Estatus == 0){
+            Estatus = $("#Estatus").val();
+        }else{
+            Estatus = 0;
+        }
     
         fetch ('https://remex.kerveldev.com/api/rh/clientes/modifica_clientes', {  
                     method: 'POST',
@@ -366,22 +397,22 @@ $(document).ready(function() {
     
                                                         if(respApi.status){
                                                             swal({
-                                                                  timer: 2000,
-                                                                  type: 'success',
                                                                   title: 'Actualizado',
-                                                                  text:'Cambio de Contraseña Exitosa',
-                                                                  showConfirmButton: false,
+                                                                  type: 'success',
+                                                                  text:'Modificacion de información Exitosa',
+                                                                  showConfirmButton: true,
+                                                                  confirmButtonColor: "#8CD4F5",
+                                                                  confirmButtonText: "OK",
+                                                                  closeOnConfirm: false
                                                                 });
-                                                            cerrarcontraseña();
-                                                            
-    
+                                                            cerrarModalClientes();
                                                         }else{
                                                              swal({
                                                                   type: 'error',
-                                                                  title: 'Error al Intentar Cambiar la Contraseña',
+                                                                  title: 'Error al modificar información',
                                                                   text: respApi.msj,
                                                                 });
-                                                             cerrarcontraseña();
+                                                            cerrarModalClientes();
                                                         }
                                             }else{//Status false
                                                 swal({
@@ -390,7 +421,7 @@ $(document).ready(function() {
                                                           text: respApi.msj,
                                                           showConfirmButton: false,
                                                         });
-                                                //location = "https://lab.parp.mx";
+                                                
                                             }
                                         })
     }
@@ -398,72 +429,6 @@ $(document).ready(function() {
     function cerrarcontraseña(){
         $("#modal_contraseñas").modal("hide");
         
-    }
-    
-    function eliminarUsuario(rfc, nombre){
-    
-        swal({
-            title: 'Deseas eliminar a '+nombre+' ?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, eliminalo!'
-        }).then((result) => {
-            if (result.value) {
-        fetch ('https://remex.kerveldev.com/api/logger/elimina_usuario', {  
-        method: 'DELETE',   
-        headers:{
-        'Content-Type': 'application/json'
-        },
-            body: JSON.stringify({
-                nick: nuser.Nick,
-                token: nuser.Token,
-                rfc: rfc
-            })
-        }).then((res)=> res.json())
-            .then((resdelJson)=>{
-                console.log(resdelJson)
-    
-                if(resdelJson.status_sesion){
-    
-                    if (resdelJson.status) {
-                        cerrarmodal_Usuarios();
-                        swal({
-                            type: 'success',
-                            title: 'El Usuario ha sido eliminada.!',
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                               document.location.reload();
-    
-                            }
-                        })
-                    }else{
-                        cerrarmodal_Usuarios();
-                        swal(
-                                    'Error!',
-                                    'El Usuario no fue eliminado.',
-                                    'error'
-                                )
-                    }
-                   
-    
-                }else{
-                     swal({
-                           title: 'La sesion a caducado, inicie sesion nuevamente',
-                            
-                            confirmButtonText: 'Ok'
-                        }).then((result)=>{
-                            if(result.value){
-                            document.location.reload();
-                            }
-                        })
-                }
-            })
-    
-            }
-        });
     }
     
     function agregar_usu(){
@@ -543,23 +508,7 @@ $(document).ready(function() {
         limpiar_mUsuarios();
     }
     
-    function limpiar_mUsuarios(){
-        $("#RFC").val();
-        $("#Nombre").val();
-        $("#APaterno").val();
-        $("#AMaterno").val();
-        $("#Nombramiento").val();
-        $("#U_Fisica").val();
-        $("#Email").val();
-        $("#Niv_acceso").val();
-        $("#Nick_user").text();
-        $("#Pasword").val();
-        $("#Status").val();
-    
-    }
-    
     function guardarDatos(){
-    
     
         var accion = $("#accion").val();
         var RFC = $("#RFC").val();
