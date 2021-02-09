@@ -190,11 +190,11 @@ $us = $_SESSION['user']['data'];
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-md-11">
-                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                  
                                 </div>
                                 <div class="col-md-1">
-                                <button class="btn btn-success " type="button"><i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">Upload</span></button>
-                                  <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                <button class="btn btn-primary " type="button"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
+                                  
                                 </div>
                               </div>
                               <br>
