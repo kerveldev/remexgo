@@ -275,7 +275,16 @@
         $("#modal_clientes").modal({"backdrop":"static"});
     
         $("#nUsuario").text(_nombre);
+
+        var _botonGuardar = '<button id="botonGuardar" type="button" class="btn btn-success" onclick="guardar_cliente();" >Guardar</button>';
+        $(".modal-footer").html(_botonGuardar+_botonCancelar);
+
+
+        cargar_datos(_id_cliente, _nombre);
     
+    }
+    
+    function cargar_datos(_id_cliente, _nombre){
         fetch ('https://remex.kerveldev.com/api/rh/clientes/id_cliente', {  
                 method: 'POST',
                 headers:{
@@ -312,9 +321,12 @@
                   
                 }
             })
-    
     }
-    
+
+    function nuevo_cliente(){
+        $("#modal_clientes").modal({"backdrop":"static"});
+    }
+
     function cerrarModalClientes(){
      $("#modal_clientes").modal("hide");
      listadoClientes();

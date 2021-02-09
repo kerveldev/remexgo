@@ -159,7 +159,7 @@ $us = $_SESSION['user']['data'];
                   </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" onclick="cerrarModalClientes();">Cerrar</button>
-                    <button class="btn btn-primary" type="button" onclick="guardar_cliente();">Guardar</button>
+                    <button class="btn btn-primary" type="button" onclick=""  id="botonGuardar">Guardar</button>
 
                 </div>
             </div>
@@ -193,7 +193,7 @@ $us = $_SESSION['user']['data'];
                                   
                                 </div>
                                 <div class="col-md-1">
-                                <button class="btn btn-primary " type="button"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
+                                <button class="btn btn-primary " type="button" onclick="nuevo_cliente();"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
                                   
                                 </div>
                               </div>
