@@ -170,11 +170,6 @@ $us = $_SESSION['user']['data'];
         <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
         <div id="page-wrapper" class="gray-bg">
             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
-            <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                    <h2>Ventas</h2>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -291,6 +286,7 @@ $us = $_SESSION['user']['data'];
     <!-- Custom and plugin javascript -->
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/js/plugins/iCheck/icheck.min.js"></script>
 
     <!--Datatables-->
