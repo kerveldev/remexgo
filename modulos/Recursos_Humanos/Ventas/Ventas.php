@@ -166,16 +166,65 @@ $us = $_SESSION['user']['data'];
         </div>
     </div>
 
-        <div id="wrapper">
-                            <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
-                <div id="page-wrapper" class="gray-bg">
-                             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
-                    <div class="row wrapper border-bottom white-bg page-heading">
-                        <div class="col-lg-10">
-                            <h2>Clientes</h2>
+    <div id="wrapper">
+        <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
+        <div id="page-wrapper" class="gray-bg">
+            <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Ventas</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Dual Listbox</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <p>
+                                Bootstrap Dual Listbox is a responsive dual listbox widget optimized for Twitter Bootstrap. It works on all modern browsers and on touch devices.
+                            </p>
+
+                            <form id="form" action="#" class="wizard-big">
+                                <div class="bootstrap-duallistbox-container row moveonselect"> <div class="box1 col-md-6">   <label for="bootstrap-duallistbox-nonselected-list_" style="display: none;"></label>   <span class="info-container">     <span class="info">Showing all 11</span>     <button type="button" class="btn clear1 pull-right btn-default btn-xs">show all</button>   </span>   <input class="filter form-control" type="text" placeholder="Filter">   <div class="btn-group buttons">     <button type="button" class="btn moveall btn-default" title="Move all">       <i class="glyphicon glyphicon-arrow-right"></i>       <i class="glyphicon glyphicon-arrow-right"></i>     </button>     <button type="button" class="btn move btn-default" title="Move selected">       <i class="glyphicon glyphicon-arrow-right"></i>     </button>   </div>   <select multiple="multiple" id="bootstrap-duallistbox-nonselected-list_" class="form-control" name="_helper1" style="height: 162px;"><option value="United States">United States</option><option value="United Kingdom">United Kingdom</option><option selected="" value="Austria">Austria</option><option selected="" value="Bahamas">Bahamas</option><option value="Barbados">Barbados</option><option value="Belgium">Belgium</option><option value="Bermuda">Bermuda</option><option value="Brazil">Brazil</option><option value="Bulgaria">Bulgaria</option><option value="Cameroon">Cameroon</option><option value="Canada">Canada</option></select> </div> <div class="box2 col-md-6">   <label for="bootstrap-duallistbox-selected-list_" style="display: none;"></label>   <span class="info-container">     <span class="info">Showing all 1</span>     <button type="button" class="btn clear2 pull-right btn-default btn-xs">show all</button>   </span>   <input class="filter form-control" type="text" placeholder="Filter">   <div class="btn-group buttons">     <button type="button" class="btn remove btn-default" title="Remove selected">       <i class="glyphicon glyphicon-arrow-left"></i>     </button>     <button type="button" class="btn removeall btn-default" title="Remove all">       <i class="glyphicon glyphicon-arrow-left"></i>       <i class="glyphicon glyphicon-arrow-left"></i>     </button>   </div>   <select multiple="multiple" id="bootstrap-duallistbox-selected-list_" class="form-control" name="_helper2" style="height: 162px;"><option value="Australia" data-sortindex="10">Australia</option></select> </div></div><select class="form-control dual_select" multiple="" style="display: none;">
+                                    <option value="United States">United States</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Australia" data-sortindex="10">Australia</option>
+                                    <option selected="" value="Austria">Austria</option>
+                                    <option selected="" value="Bahamas">Bahamas</option>
+                                    <option value="Barbados">Barbados</option>
+                                    <option value="Belgium">Belgium</option>
+                                    <option value="Bermuda">Bermuda</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Bulgaria">Bulgaria</option>
+                                    <option value="Cameroon">Cameroon</option>
+                                    <option value="Canada">Canada</option>
+                                </select>
+                            </form>
                         </div>
                     </div>
+                </div>
 
+            </div>
                       <div class="row">
                         <div class="col-lg-12">
                             <div class="ibox">
