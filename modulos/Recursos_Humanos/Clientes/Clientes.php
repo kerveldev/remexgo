@@ -185,6 +185,7 @@ $us = $_SESSION['user']['data'];
                             <div class="card-header">
 
                               <h6 class="card-title">Listado Elementos</h6>
+                              <hr>
                             </div>
                             <div class="card-body">
                               <div class="row">
