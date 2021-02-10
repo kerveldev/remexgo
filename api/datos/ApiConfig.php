@@ -3,7 +3,16 @@
  *      Internas                            *
  * ******************************************/
 //include_once('../../../../apiConfig/cfg.php');
-print_r($_SERVER['DOCUMENT_ROOT']);
+$princ = $_SERVER['DOCUMENT_ROOT'];
+
+$p = [
+     'status' => TRUE,
+     'status_sesion'=> TRUE,
+     'msj' => 'Ejemplo.',
+     'data' => $princ
+];
+
+print_r(json_encode($p));
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
