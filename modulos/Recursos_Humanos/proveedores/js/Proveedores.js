@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-    InicializarDatatable("tabla_usuarios");
-    
-        setTimeout(function() {
+    InicializarDatatable("tabla_proveedores");
+        
+    setTimeout(function() {
             toastr.options = {
                 closeButton: true,
                 progressBar: true,
@@ -12,10 +12,10 @@ $(document).ready(function() {
             toastr.success(nuser.Nombre_completo);
     }, 1300);  
     
-         listadoUsuarios();
+    listadoUsuarios();
 
-         $("#wizard").steps();
-         $("#form").steps({
+    $("#wizard").steps();
+    $("#form").steps({
              bodyTag: "fieldset",
              onStepChanging: function (event, currentIndex, newIndex)
              {
@@ -79,7 +79,7 @@ $(document).ready(function() {
                  // Submit form input
                  form.submit();
              }
-         }).validate({
+    }).validate({
                      errorPlacement: function (error, element)
                      {
                          element.before(error);
@@ -89,9 +89,9 @@ $(document).ready(function() {
                              equalTo: "#password"
                          }
                      }
-                 });
-    
     });
+    
+});
     
     function getEdad(dateString) {
         var today = new Date();
@@ -150,10 +150,10 @@ $(document).ready(function() {
     
     
 function listadoUsuarios(){
-        var tabla = "tabla_usuarios";
+        var tabla = "tabla_proveedores";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/rh/altas/navegantes_lst',
+            url : 'http://remex.kerveldev.com/api/proveedores/proveedores/proveedores_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -168,19 +168,21 @@ function listadoUsuarios(){
                 var lst = resp.data;
                
                 lst.forEach(reg => {
-    
+                    
                     tbody += 
                         "<tr>"+
-                        "<td>"+checarNulos(reg.NoEmp_RH)+"</td>"+
-                        "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
-                        "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
+                        "<td>"+checarNulos(reg.Id_Proveedor)+"</td>"+
+                        "<td>"+checarNulos(reg.Nombre)+"</td>"+
+                        "<td>"+checarNulos(reg.Tel1)+"</td>"+
+                        "<td>"+checarNulos(reg.Tel2)+"</td>"+
+                        "<td>"+checarNulos(reg.Municipio)+"</td>"+
                         "<td>"+
 
-                            "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='crearUsuarioSistema(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Crear Sistema Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-check'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='crearUsuarioSistema(\"" +  reg.Id_Proveedore + "\",\"" +  reg.Nombre + "\")'; title='Crear Sistema Usuario: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"+
 
-                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Proveedore + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             
-                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Eliminar Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Proveedore + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Usuario: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                         
 
                         "</tr>";
@@ -208,7 +210,7 @@ function listadoUsuarios(){
                                     'className': 'control',
                                 },
                                 { responsivePriority: 1, targets: 0 },
-                                { responsivePriority: 2, targets: 3 }
+                                { responsivePriority: 2, targets: 6 }
                             ],
                             // select: {
                             //     'style': 'multi',
