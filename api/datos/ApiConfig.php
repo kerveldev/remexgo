@@ -2,18 +2,19 @@
 /* ******************************************
  *      Internas                            *
  * ******************************************/
-define('IREK',[
+include_once('../../../../apiConfig/cfg.php');
+/* define('IREK',[
     'serv' => 'localhost',
     'us' => 'irek',
     'pass' => '123ilich@irek'
     ]);
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
-define('ROOT_WEB','https://remex.kerveldev.com/');
+define('ROOT_WEB','https://remex.kerveldev.com/'); */
 
 //define('MULTIMEDIA',ROOT.'mmx/');
 //define('MULTIMEDIA_WEB',ROOT_WEB.'mmx/');
-
+define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
 define('DATOS',API.'datos/');
 define('MODULOS',API.'modulos/');
