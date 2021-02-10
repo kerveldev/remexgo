@@ -2,8 +2,8 @@
 /* ******************************************
  *      Internas                            *
  * ******************************************/
-//include_once('../../../../apiConfig/cfg.php');
-$princ = $_SERVER['DOCUMENT_ROOT'];
+include_once('../../apiConfig/cfg.php');
+/* $princ = $_SERVER['DOCUMENT_ROOT']apiConfig/cfg.php';
 
 $p = [
      'status' => TRUE,
@@ -13,7 +13,7 @@ $p = [
 ];
 
 print_r(json_encode($p));
-exit();
+exit(); */
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
