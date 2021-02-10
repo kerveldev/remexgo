@@ -13,6 +13,7 @@ $p = [
 ];
 
 print_r(json_encode($p));
+exit();
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
