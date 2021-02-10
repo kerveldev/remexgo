@@ -329,6 +329,7 @@ $us = $_SESSION['user']['data'];
                                             <th>Tel 1</th>
                                             <th>Tel 2</th>
                                             <th>Municipio</th>
+                                            <th>Acciones</th>
                                         </thead>
                                         <tbody>
 
@@ -339,6 +340,7 @@ $us = $_SESSION['user']['data'];
                                             <th>Tel 1</th>
                                             <th>Tel 2</th>
                                             <th>Municipio</th>
+                                            <th>Acciones</th>
                                         </tfoot>
                                     </table>
                                 </div>
