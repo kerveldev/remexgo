@@ -3,9 +3,9 @@
  *      Internas                            *
  * ******************************************/
 $niv = explode('/',$_SERVER['DOCUMENT_ROOT'],);
-//include_once('../../apiConfig/cfg.php');
+include_once('/'.$niv[1].'/'.$niv[2].'/apiConfig/cfg.php');
 /* $princ = $_SERVER['DOCUMENT_ROOT']apiConfig/cfg.php';
-*/
+
 $p = [
      'status' => TRUE,
      'status_sesion'=> TRUE,
@@ -14,7 +14,7 @@ $p = [
 ];
 
 print_r(json_encode($p));
-exit(); 
+exit(); */
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
