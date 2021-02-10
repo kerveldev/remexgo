@@ -210,7 +210,7 @@ function listadoUsuarios(){
                                     'className': 'control',
                                 },
                                 { responsivePriority: 1, targets: 0 },
-                                { responsivePriority: 2, targets: 6 }
+                                { responsivePriority: 2, targets: 5 }
                             ],
                             // select: {
                             //     'style': 'multi',

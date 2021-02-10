@@ -324,7 +324,6 @@ $us = $_SESSION['user']['data'];
                                 <div class="col-md-12">
                                     <table class="table table-striped nowrap" id="tabla_proveedores">
                                         <thead>
-                                            <th></th>
                                             <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Tel 1</th>
@@ -335,7 +334,6 @@ $us = $_SESSION['user']['data'];
 
                                         </tbody>
                                         <tfoot>
-                                            <th></th>
                                             <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Tel 1</th>
