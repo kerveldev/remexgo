@@ -166,17 +166,28 @@ function listadoUsuarios(){
                 $("#" + tabla + " tbody").remove();
                 var tbody = "<tbody>";
                 var lst = resp.data;
+                var color = '';
+              
                
                 lst.forEach(reg => {
+
+                    if(reg.EdoAdmtvo == 'ACTIVO'){
+
+                        color = 'text-info';
+                        boton = "";
+                        
+                    }else{
+
+                        color = '';
+                        boton = "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='crearUsuarioSistema(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Crear Sistema Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-check'></i></button>&nbsp;";
+                    } 
     
                     tbody += 
-                        "<tr>"+
+                        "<tr class='"+color+"'>"+
                         "<td>"+checarNulos(reg.NoEmp_RH)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
-
-                            "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='crearUsuarioSistema(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Crear Sistema Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-check'></i></button>&nbsp;"+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             
@@ -658,6 +669,7 @@ function crearUsuarioSistema(_id_elemento, nombre){
             Id:_id_elemento,
             datos:{ 
                 Activo:"1",
+                EdoAdmtvo:"ACTIVO",
             }
         })
     }).then((res)=> res.json())
