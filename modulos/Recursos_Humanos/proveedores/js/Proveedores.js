@@ -153,7 +153,7 @@ function listadoUsuarios(){
         var tabla = "tabla_proveedores";
         //Se piden los datos
         $.ajax({
-            url : 'http://remex.kerveldev.com/api/proveedores/proveedores/proveedores_lst',
+            url : 'https://remex.kerveldev.com/api/proveedores/proveedores/proveedores_lst',
             data : 
             { 
                 nick : nuser.Nick,
