@@ -4,33 +4,6 @@
  * ******************************************/
 $niv = explode('/',$_SERVER['DOCUMENT_ROOT'],);
 include_once('/'.$niv[1].'/'.$niv[2].'/apiConfig/cfg.php');
-/* $princ = $_SERVER['DOCUMENT_ROOT']apiConfig/cfg.php';
-
-$p = [
-     'status' => TRUE,
-     'status_sesion'=> TRUE,
-     'msj' => 'Ejemplo.',
-     'data' => $niv
-];
-
-print_r(json_encode($p));
-exit(); */
-
-define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
-define('API',ROOT.'api/');
-define('DATOS',API.'datos/');
-define('MODULOS',API.'modulos/');
-
-define('UTILIDADES',API.'utilidades/');
-define('AUXCTRL',API.'aux_tcontrol.php');
-define('NAUTA',UTILIDADES.'Nauta.php');
-define('STORER',UTILIDADES.'Storer.php');
-define('EXCEPCIONES',UTILIDADES.'ExcepcionApi.php');
-define('QRLIB',UTILIDADES.'/phpqrcode/qrlib.php');
-
-define('VISTA',API.'vistas/VistaApi.php');
-define('VISTA_JSON',API.'vistas/VistaJson.php');
-define('VISTA_XML',API.'vistas/VistaXML.php');
 
 
 /* **************************************
