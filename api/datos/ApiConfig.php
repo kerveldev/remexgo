@@ -10,7 +10,7 @@ $p = [
      'status' => TRUE,
      'status_sesion'=> TRUE,
      'msj' => 'Ejemplo.',
-     'data' => $princ
+     'data' => $niv
 ];
 
 print_r(json_encode($p));
