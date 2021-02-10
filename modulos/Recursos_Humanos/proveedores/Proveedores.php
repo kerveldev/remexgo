@@ -378,7 +378,7 @@ $us = $_SESSION['user']['data'];
     <!-- Jquery Validate -->
     <script src="/js/plugins/validate/jquery.validate.min.js"></script>
     <!-- Personal JS -->
-    <script src="js/Alta.js"></script>
+    <script src="js/Proveedores.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
 
