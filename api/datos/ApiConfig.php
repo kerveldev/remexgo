@@ -2,7 +2,8 @@
 /* ******************************************
  *      Internas                            *
  * ******************************************/
-include_once('../../../../apiConfig/cfg.php');
+//include_once('../../../../apiConfig/cfg.php');
+print_r($_SERVER['DOCUMENT_ROOT']);
 
 define('ROOT',$_SERVER['DOCUMENT_ROOT'].'/');
 define('API',ROOT.'api/');
