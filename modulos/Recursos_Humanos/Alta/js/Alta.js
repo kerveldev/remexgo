@@ -188,6 +188,7 @@ function listadoUsuarios(){
                         "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
+                            boton+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirUsuario_Id(\"" +  reg.Id_Elemento + "\",\"" +  reg.Nombre_Completo + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre_Completo+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             
