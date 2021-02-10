@@ -61,11 +61,11 @@
         </li>
 
         <li>
-            <a href="index.html"><i class="fa fa-line-chart"></i> <span class="nav-label">Ventas</span> <span class="fa arrow"></span></a>
+            <a href="index.html"><i class="fa fa-group"></i> <span class="nav-label">Proveedores</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
        
            
-                          <li><a href="/modulos/Recursos_Humanos/Ventas/Ventas">Nueva venta</a></li>
+                          <li><a href="/modulos/Recursos_Humanos/proveedores/Proveedores">Listado</a></li>
                           <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
     
                
@@ -73,13 +73,25 @@
         </li>
 
         <li>
-            <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Servicios</span> <span class="fa arrow"></span></a>
+            <a href="index.html"><i class="fa fa-group"></i> <span class="nav-label">Servicios</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
-
        
-                           <li><a href="/modulos/Servicios/recargas">Recargas</a></li>
-                          <!--<li><a href="dashboard_2.html">Dashboard v.2</a></li>-->
-     
+           
+                          <li><a href="/modulos/Recursos_Humanos/servicios_productos/Servicios_Productos">Productos</a></li>
+                          <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
+    
+               
+            </ul>
+        </li>
+
+        <li>
+            <a href="index.html"><i class="fa fa-line-chart"></i> <span class="nav-label">Ventas</span> <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+       
+           
+                          <li><a href="/modulos/Recursos_Humanos/Ventas/Ventas">Nueva venta</a></li>
+                          <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
+    
                
             </ul>
         </li>
