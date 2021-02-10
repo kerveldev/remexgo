@@ -202,49 +202,64 @@ function abrirUsuario_Id(_id_elemento, _nombre_usuario){
 
 }
 
+function guardarcambio(_id_elemento) {
 
+    var Nick_cam = $("#Nick_cam").val();
+    var Pasword_cam = $("#Pasword_cam").val();
 
-function actualizarUsuario(_id_elemento){
-    //Datos Personales
-    
-    var Nick = $("#Nick_cam").val();
-    var Pasword = $("#Pasword_cam").val();
-
-    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes',{  
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                nick : nuser.Nick,
-                token: nuser.Token,
-                Id:_id_elemento,
-                datos:{ 
-                        Nick:Nick,
-                        Pasword:Pasword
-                    }  
-            })
-        }).then((res)=> res.json()).then((respApi)=>{
-            var respuesta = respApi.data;
-
-            if (respApi.status) {
-                swal({
-                    type: 'success',
-                    title: 'Actualización exitosa.',
-                    text: respuesta,
-                })
-
-                listadoUsuarios();
+	fetch ('https://irontigers.app/api/logger/act_nick_pass', {  
+    method: 'POST',
+    headers:{
+        'Content-Type': 'application/json'
+        },
+    body: JSON.stringify({
+            nick:nuser.Nick,
+            token: nuser.Token,
+            Id_Elemento:_id_elemento,
+            nick_mod: Nick_cam,
+            pass: Pasword_cam
                 
-            }else{
-                swal({
-                    type: 'error',
-                    html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
-                    showConfirmButton: true,
-                });
-                $("#modal_usuario").modal("hide");
-            }
-            
-        });
+            })
+        }).then((res)=> res.json())
+            .then((respApi)=>{
+                console.log(respApi);
 
+                    if(respApi.status){
+                        
+                            if (nuser.Id_Elemento == _id_elemento) {
+                                
+                                    swal({
+                                    type: 'success',
+                                    title: 'Actualizado',
+                                    text:'Se detecto cambio de contraseña y nick. Inicia sesion de nuevo',
+                                    showConfirmButton: true,
+                                }).then((result)=>{
+                                if(result.value){
+                                        location = "https://remex.kerveldev.com";
+                                
+                                    }
+                                })
+                                    
+                            }else{
+                                swal({
+                                    timer: 2000,
+                                    type: 'success',
+                                    title: 'Actualizado',
+                                    text:'Cambio Exitoso',
+                                    showConfirmButton: false,
+                                });
+                                
+                                cerrarModalUsuario_Id();
+                            }
+                        
+
+                    }else{
+                            swal({
+                                type: 'error',
+                                title: 'Error al realizar el Cambio',
+                                text: respApi.msj,
+                            });
+                    }
+               
+            })
 }

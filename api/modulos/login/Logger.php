@@ -58,41 +58,29 @@ class logger{
 								return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
 								
 							break;
-							
-							
-							// case 'navegante_nick':
-							// 			$fields = array("nick","token");// Lista de parametros por recibir
-							// 			$box = new Storer($fields);
-							// 			if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-										
-							// 			$sql = "CALL navegante_nick('$x->nick');";
-							// 			return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
-										
-							// 	break;
 
-
-
-							
+							case 'modifica_navegantes':
+								$fields = array("nick","token","Id","datos");// Lista de parametros por recibir
+								$box = new Storer($fields);
+								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
 								
-					        case 'act_usuario':
-									$fields = array("nick","token","datos");// Lista de parametros por recibir
-									$box = new Storer($fields);
-									if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+								return peticion_actualizar($x->nick,$x->token,RH['base'],"ke_generales","Id_Elemento",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+							break;
+		
 
-									$cuerpo = peticion_actualizar($x->nick,$x->token,USUARIOS['base'],"navegantes","RFC",$x->datos->RFC,(array)$x->datos,$GLOBALS['modulo'],$recurso,$recurso);
-								    
-					            break;
+							case 'act_nick_pass':
+								$fields = array("nick","token","Id_Elemento","nick_mod","pass");// Lista de parametros por recibir
+								$box = new Storer($fields);
+								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+									
+								$sql = "Select cambiar_pass_x_id('$x->Id_Elemento','$x->pass','$x->nick_mod');";
+								return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
+								
 
-					    	case 'act_contraseña':
-									$fields = array("nick","token","nick_mod","pass");// Lista de parametros por recibir
-									$box = new Storer($fields);
-									if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
-										
-									$sql = "Select cambiar_pass_x_nick('$x->nick_mod','$x->pass');";
-
-									return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
-								    
-					            break;                 	
+							break;   
+							
+						
+              	
 
 							default:
 								$cuerpo['status']=FALSE;
