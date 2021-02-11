@@ -222,7 +222,7 @@ function listadoProveedores(){
                 body: JSON.stringify({
                     nick: nuser.Nick,
                     token: nuser.Token,
-                    Id_Elemento: _id_proveedor
+                    Id: _id_proveedor
                 })
             }).then((res)=> res.json())
                 .then((resJson)=>{
