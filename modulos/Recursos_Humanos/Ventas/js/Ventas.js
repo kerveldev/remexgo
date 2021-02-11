@@ -95,6 +95,7 @@ $(document).ready(function() {
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
+        cerrarModalArticulos();
         
         if(Id == "" || Id == undefined){
 
@@ -106,10 +107,8 @@ $(document).ready(function() {
                 Cantidad,
                 Descuento,
                 Precio,
-                "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;",
+                "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
             ] ).draw( false );
-     
-            counter++;
         }
      
     }
@@ -526,7 +525,7 @@ $(document).ready(function() {
                                             }
 
                                             listadoClientes(Id.toString(),Nombre.toString(),Cantidad.toString(),Descuento.toString(),Precio.toString());
-                                            cerrarModalArticulos();
+                                            
                                         }
                             },
                             ],
