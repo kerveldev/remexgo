@@ -74,10 +74,10 @@ $us = $_SESSION['user']['data'];
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-9">
+                                            <div class="col-md-10">
                                     
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-2">
                                                 <button class="btn btn-success " type="button" onclick="nuevo_articulo();"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">Agregar articulo</span></button>
                                             </div>
                                         </div>
