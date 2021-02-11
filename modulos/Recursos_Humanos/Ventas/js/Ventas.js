@@ -557,7 +557,7 @@ $(document).ready(function() {
                             processing: true,
                             searching: true,
     
-                            dom: "<'row'<'col-sm-12 col-md-4 col-xl-4'i><'col-sm-12 col-md-4 col-xl-4'><' col-sm-12 col-md-4 col-xl-4 floatRight'f>>" +
+                            dom: "<'row'<'col-sm-12 col-sm-4 col-xl-4'i><'col-sm-12 col-sm-4 col-xl-4'><' col-sm-12 col-sm-4 col-xl-4 floatRight'f>>" +
                                 "<'row'<'col-sm-12'tr>>" +
                                 "<'row'<'#divisor.col-md-12'>>" +
                                 "<'row'<'col-sm-4 'l><'col-sm-4 '><'col-sm-4 floatRight'p>>" +
