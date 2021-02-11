@@ -424,7 +424,7 @@ $(document).ready(function() {
                                         })
     }
     
-    function cerrarModalClientes(){
+    function cerrarModalArticulos(){
         $("#modal_clientes").modal("hide");
         listadoClientes();
         limpia_clientes();
@@ -506,4 +506,106 @@ $(document).ready(function() {
                     }
                 })
     }, 400);
-        
+    
+    function nuevo_articulo(){
+        var tabla = "tabla_articulos";
+        //Se piden los datos
+        $.ajax({
+            url : 'https://remex.kerveldev.com/api/rh/clientes/lst_clientes',
+            data : 
+            { 
+                nick : nuser.Nick,
+                token: nuser.Token
+            },
+            type : 'POST',
+            dataType : 'json',
+            success : function(resp) {
+                console.log(resp);
+                $("#" + tabla + " tbody").remove();
+                var tbody = "<tbody>";
+                var lst = resp.data;
+               
+                lst.forEach(reg => {
+                    estado = "";
+                    if(reg.Estatus == 1){
+                        estado = "<span class='label label-primary'>ACTIVO</span>";
+                    }else{
+                        estado = "<span class='label label-danger'>INACTIVO</span>";
+                    }
+                    tbody += 
+                        "<tr>"+
+                        "<td>"+checarNulos(reg.Id_Cliente)+"</td>"+
+                        "<td>"+checarNulos(reg.Nombre)+"</td>"+
+                        "<td>"+checarNulos(reg.Entidad)+"</td>"+
+                        "<td>"+checarNulos(reg.Entidad)+"</td>"+
+                        "<td>"+ estado +"</td>"+
+                        "<td>"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+    
+                        "</tr>";
+                });
+                //Se dibuja la tabla
+                tbody += "</tbody>";
+                $("#" + tabla + "").append(tbody);
+    
+    
+                //Se asigna el plugin DataTables
+                var table = $("#" + tabla + "").DataTable({
+                //var table = $("#tabla").DataTable({
+                            responsive: true,
+                            destroy: true,
+                            processing: true,
+                            searching: true,
+    
+                            dom: "<'row'<'col-sm-12 col-md-4 col-xl-4'i><'col-sm-12 col-md-4 col-xl-4'><' col-sm-12 col-md-4 col-xl-4 floatRight'f>>" +
+                                "<'row'<'col-sm-12'tr>>" +
+                                "<'row'<'#divisor.col-md-12'>>" +
+                                "<'row'<'col-sm-4 'l><'col-sm-4 '><'col-sm-4 floatRight'p>>" +
+                                "<'row'<'#divisor2.col-md-12'>>" +
+                                "<'row'<'col-sm-12'B>>",
+                            columnDefs: [{
+                                    'className': 'control',
+                                },
+                                { responsivePriority: 1, targets: 0 },
+                                { responsivePriority: 2, targets: 5 }
+                            ],
+                            // select: {
+                            //     'style': 'multi',
+                            //     'selector': 'td:not(.control)'
+                            // },
+                            order: [
+                                [0, "asc"]
+                            ],
+                            buttons: [
+    
+                                {   extend: 'excel', 
+                                    className: 'btn btn-info',
+                                }
+                            ],
+    
+                            language: {
+    
+                                "loadingRecords": "&nbsp;",
+                                "processing": "Cargando...",
+                                "search": " Buscar:",
+                                "info": "Mostrando de _START_ a _END_ de _TOTAL_ registros",
+                                "infoEmpty": "No hay registros",
+                                "lengthMenu": " _MENU_ ",
+                                "emptyTable": "No se han encontrado registros para la tabla.",
+                                "paginate": {
+                                    "next": "Siguiente",
+                                    "previous": "Atras"
+                                }
+                            }
+    
+                });
+    
+            },
+            error : function(xhr, status) {
+                alert('Error al recibir los datos ( '+status.toString()+' ).');
+                console.log(xhr);
+            },
+            complete : function(xhr, status) {
+                console.log(xhr);
+            }
+        });
+    }

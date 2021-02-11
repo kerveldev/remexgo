@@ -38,6 +38,54 @@ $us = $_SESSION['user']['data'];
 
 <body>
 
+    <div class="modal dark_bg" id="modal_articulos" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">   
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo">Listado de Articulos</h5>
+                    <button type="button" class="close" onclick="cerrarModalArticulos();" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="text-center m-t-md">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table table-striped nowrap" id="tabla_articulos">
+                                            <thead>
+                                                <th>Id Articulo</th>
+                                                <th>Nombre</th>
+                                                <th>Cantidad</th>
+                                                <th>Descuento</th>
+                                                <th>Precio</th>
+                                                <th>Acciones</th>
+                                            </thead>
+                                            <tbody>
+                                
+                                            </tbody>
+                                            <tfoot>
+                                                <th>Id Articulo</th>
+                                                <th>Nombre</th>
+                                                <th>Cantidad</th>
+                                                <th>Descuento</th>
+                                                <th>Precio</th>
+                                                <th>Acciones</th>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" onclick="cerrarModalClientes();">Cerrar</button>
+                    <button class="btn btn-primary" type="button"  id="botonGuardar">Guardar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="wrapper">
         <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/menu.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
         <div id="page-wrapper" class="gray-bg">
