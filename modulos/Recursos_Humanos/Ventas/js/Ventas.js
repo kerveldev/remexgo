@@ -562,7 +562,7 @@ $(document).ready(function() {
                                 "<'row'<'col-sm-12'tr>>" +
                                 "<'row'<'#divisor.col-md-12'>>" +
                                 "<'row'<'col-sm-4 'l><'col-sm-4 '><'col-sm-4 floatRight'p>>" +
-                                "<'row'<'#divisor2.col-md-12'>>" +
+                                "<'row'<'#divisor2.col-md-12'>>",
                             columnDefs: [{
                                     'className': 'control',
                                 },
