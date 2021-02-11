@@ -65,7 +65,7 @@ function listadoProductos(){
         var tabla = "tabla_productos";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/sp/sp/sp_lst',
+            url : 'https://remex.kerveldev.com/api/sp/servicios_productos/sp_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -83,16 +83,16 @@ function listadoProductos(){
                     
                     tbody += 
                         "<tr>"+
-                        "<td>"+checarNulos(reg.Id_Producto)+"</td>"+
-                        "<td>"+checarNulos(reg.Nombre)+"</td>"+
-                        "<td>"+checarNulos(reg.Tel1)+"</td>"+
-                        "<td>"+checarNulos(reg.Tel2)+"</td>"+
-                        "<td>"+checarNulos(reg.Municipio)+"</td>"+
+                        "<td>"+checarNulos(reg.Id_SP)+"</td>"+
+                        "<td>"+checarNulos(reg.Id_Proveedor)+"</td>"+
+                        "<td>"+checarNulos(reg.Nombre_SP)+"</td>"+
+                        "<td>"+checarNulos(reg.Tipo)+"</td>"+
+                        "<td>"+checarNulos(reg.Precio)+"</td>"+
                         "<td>"+
 
-                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProducto_Id(\"" +  reg.Id_Producto + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Producto: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProducto_Id(\"" +  reg.Id_SP + "\",\"" +  reg.Nombre_SP + "\")'; title='Abrir Informacion Producto: "+reg.Nombre_SP+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             
-                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProducto_Id(\"" +  reg.Id_Producto + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Producto: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProducto_Id(\"" +  reg.Id_SP + "\",\"" +  reg.Nombre_SP + "\")'; title='Eliminar Producto: "+reg.Nombre_SP+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                         
 
                         "</tr>";
@@ -173,18 +173,14 @@ function listadoProductos(){
 
     function limpiarModalProducto(){
 
+        $("#id_proveedor").val("");
+        $("#tipo_producto").val("");
         $("#nombre_producto").val("");
-        $("#contacto_producto").val("");
-        $("#tel_1_producto").val("");
-        $("#ext_1_producto").val("");
-        $("#tel_2_producto").val("");
-        $("#ext_2_producto").val("");
-        $("#direccion_producto").val("");
-        $("#cp_producto").val("");
-        $("#municipio_producto").val("");
-        $("#entidad_producto").val("");
-        $("#pais_producto").val("");
-        $("#email_producto").val("");
+        $("#caracteristica_producto").val("");
+        $("#precio_producto").val("");
+        $("#cantidad_producto").val("");
+        $("#min_producto").val("");
+        $("#unidad_producto").val("");
 
     }
     
@@ -203,7 +199,7 @@ function listadoProductos(){
         $(".btn-guardar-producto").attr('onClick', 'actualizarProducto('+_id_producto+');');
         $("#nProducto").text(_nombre_producto);
     
-        fetch ('https://remex.kerveldev.com/api/sp/sp/sp_id', {  
+        fetch ('https://remex.kerveldev.com/api/sp/servicios_productos/sp_id', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -221,19 +217,16 @@ function listadoProductos(){
                             
                     respuesta = resJson.data;
 
-                    $("#nombre_producto").val(respuesta[0].Nombre);
-                    $("#contacto_producto").val(respuesta[0].Contacto);
-                    $("#tel_1_producto").val(respuesta[0].Tel1);
-                    $("#ext_1_producto").val(respuesta[0].Ext1);
-                    $("#tel_2_producto").val(respuesta[0].Tel2);
-                    $("#ext_2_producto").val(respuesta[0].Ext2);
-                    $("#direccion_producto").val(respuesta[0].Direccion);
-                    $("#cp_producto").val(respuesta[0].CP);
-                    $("#municipio_producto").val(respuesta[0].Municipio);
-                    $("#entidad_producto").val(respuesta[0].Entidad);
-                    $("#pais_producto").val(respuesta[0].Pais);
-                    $("#email_producto").val(respuesta[0].Email);
-                   
+                    $("#id_proveedor").val(respuesta[0].Id_Proveedor);
+                    $("#tipo_producto").val(respuesta[0].Tipo);
+                    $("#nombre_producto").val(respuesta[0].Nombre_SP);
+                    $("#caracteristica_producto").val(respuesta[0].Caracteristicas);
+                    $("#precio_producto").val(respuesta[0].Precio);
+                    $("#descuento_producto").val(respuesta[0].Descuento);
+                    $("#cantidad_producto").val(respuesta[0].Cantidad);
+                    $("#min_producto").val(respuesta[0].Min);
+                    $("#unidad_producto").val(respuesta[0].Unidad);
+                  
                 }
             })
     
@@ -246,20 +239,18 @@ function cerrarModalProducto_Id(){
     
 function guardarNuevoProducto(){
 
-    var Nombre = $("#nombre_producto").val();
-    var Contacto = $("#contacto_producto").val();
-    var Tel1 = $("#tel_1_producto").val();
-    var Ext1 = $("#ext_1_producto").val();
-    var Tel2 = $("#tel_2_producto").val();
-    var Ext2 = $("#ext_2_producto").val();
-    var Direccion = $("#direccion_producto").val();
-    var CP	 = $("#cp_producto").val();
-    var Municipio = $("#municipio_producto").val();
-    var Entidad = $("#entidad_producto").val();
-    var Pais = $("#pais_producto").val();
-    var Email = $("#email_producto").val();
+    var Id_Proveedor = $("#id_proveedor").val();
+    var Tipo = $("#tipo_producto").val();
+    var Nombre_SP = $("#nombre_producto").val();
+    var Caracteristicas = $("#caracteristica_producto").val();
+    var Precio = $("#precio_producto").val();
+    var Descuento = $("#descuento_producto").val();
+    var Cantidad = $("#cantidad_producto").val();
+    var Min	 = $("#min_producto").val();
+    var Unidad	 = $("#unidad_producto").val();
+
    
-    fetch ('https://remex.kerveldev.com/api/sp/sp/crea_sp',{  
+    fetch ('https://remex.kerveldev.com/api/sp/servicios_productos/crea_sp',{  
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
@@ -268,18 +259,15 @@ function guardarNuevoProducto(){
                 nick : nuser.Nick,
                 token: nuser.Token,
                 datos:{ 
-                    Nombre:Nombre,
-                    Contacto:Contacto,
-                    Tel1:Tel1,
-                    Ext1:Ext1,
-                    Tel2:Tel2,
-                    Ext2:Ext2,
-                    Direccion:Direccion,
-                    CP:CP,
-                    Municipio:Municipio,
-                    Entidad:Entidad,
-                    Pais:Pais,
-                    Email:Email
+                    Id_Proveedor:Id_Proveedor,
+                    Tipo:Tipo,
+                    Nombre_SP:Nombre_SP,
+                    Caracteristicas:Caracteristicas,
+                    Precio:Precio,
+                    Descuento:Descuento,
+                    Cantidad:Cantidad,
+                    Min:Min,
+                    Unidad:Unidad
                         
                 }
                 
@@ -316,20 +304,17 @@ function guardarNuevoProducto(){
 
 function actualizarProducto(_id_producto){
 
-    var Nombre = $("#nombre_producto").val();
-    var Contacto = $("#contacto_producto").val();
-    var Tel1 = $("#tel_1_producto").val();
-    var Ext1 = $("#ext_1_producto").val();
-    var Tel2 = $("#tel_2_producto").val();
-    var Ext2 = $("#ext_2_producto").val();
-    var Direccion = $("#direccion_producto").val();
-    var CP	 = $("#cp_producto").val();
-    var Municipio = $("#municipio_producto").val();
-    var Entidad = $("#entidad_producto").val();
-    var Pais = $("#pais_producto").val();
-    var Email = $("#email_producto").val();
+    var Id_Proveedor = $("#id_proveedor").val();
+    var Tipo = $("#tipo_producto").val();
+    var Nombre_SP = $("#nombre_producto").val();
+    var Caracteristicas = $("#caracteristica_producto").val();
+    var Precio = $("#precio_producto").val();
+    var Descuento = $("#descuento_producto").val();
+    var Cantidad = $("#cantidad_producto").val();
+    var Min	 = $("#min_producto").val();
+    var Unidad	 = $("#unidad_producto").val();
 
-    fetch ('https://remex.kerveldev.com/api/sp/sp/modifica_sp',{  
+    fetch ('https://remex.kerveldev.com/api/sp/servicios_productos/modifica_sp',{  
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -339,18 +324,15 @@ function actualizarProducto(_id_producto){
                 token: nuser.Token,
                 Id:_id_producto,
                 datos:{ 
-                    Nombre:Nombre,
-                    Contacto:Contacto,
-                    Tel1:Tel1,
-                    Ext1:Ext1,
-                    Tel2:Tel2,
-                    Ext2:Ext2,
-                    Direccion:Direccion,
-                    CP:CP,
-                    Municipio:Municipio,
-                    Entidad:Entidad,
-                    Pais:Pais,
-                    Email:Email
+                    Id_Proveedor:Id_Proveedor,
+                    Tipo:Tipo,
+                    Nombre_SP:Nombre_SP,
+                    Caracteristicas:Caracteristicas,
+                    Precio:Precio,
+                    Descuento:Descuento,
+                    Cantidad:Cantidad,
+                    Min:Min,
+                    Unidad:Unidad
                 }
                 
             })
@@ -393,7 +375,7 @@ function eliminarProducto_Id(_id_producto, nombre){
         confirmButtonText: 'Si, eliminalo!'
     }).then((result) => {
         if (result.value) {
-    fetch ('https://remex.kerveldev.com/api/sp/sp/elimina_sp', {  
+    fetch ('https://remex.kerveldev.com/api/sp/servicios_productos/elimina_sp', {  
     method: 'DELETE',   
     headers:{
     'Content-Type': 'application/json'
