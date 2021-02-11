@@ -496,7 +496,7 @@ $(document).ready(function() {
     
                                 {   extend: 'excel', 
                                     className: 'btn btn-info',
-                                }
+                                },
 
                                 {   text: 'Agregar',
                                         className: 'btn btn-info',
