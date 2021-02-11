@@ -56,18 +56,18 @@ $us = $_SESSION['user']['data'];
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Cliente</label>
+                                            <div class="col-md-8">
+                                                <label>Cliente:</label>
                                                 <input  type="text" class="form-control" name="Cliente" id="Cliente"></input>
                                             </div>
-                                            <div class="col-md-6">
-                                                <label>Fecha</label>
+                                            <div class="col-md-4">
+                                                <label>Fecha:</label>
                                                 <input  type="text" class="form-control" name="Fecha" id="Fecha"></input>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Sucursal</label>
+                                                <label>Sucursal:</label>
                                                 <input  type="text" class="form-control" name="Sucursal" id="Sucursal"></input>
                                             </div>
                                             <div class="col-md-6">
@@ -79,7 +79,7 @@ $us = $_SESSION['user']['data'];
                                     
                                             </div>
                                             <div class="col-md-1">
-                                                <button class="btn btn-primary " type="button" onclick="nuevo_cliente();"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
+                                                <button class="btn btn-primary " type="button" onclick="nuevo_articulo();"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">Agregar articulo</span></button>
                                             </div>
                                         </div>
                                         <br>
@@ -87,10 +87,11 @@ $us = $_SESSION['user']['data'];
                                             <div class="col-md-12">
                                             <table class="table table-striped nowrap" id="tabla_clientes">
                                                 <thead>
-                                                <th>Id</th>
-                                                <th>Cliente</th>
-                                                <th>Entidad</th>
-                                                <th>Status</th>
+                                                <th>Id Articulo</th>
+                                                <th>Nombre</th>
+                                                <th>Cantidad</th>
+                                                <th>Descuento</th>
+                                                <th>Precio</th>
                                                 <th>Acciones</th>
                                                 </thead>
                                                 <tbody>
