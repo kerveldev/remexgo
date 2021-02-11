@@ -13,6 +13,7 @@ $(document).ready(function() {
     }, 1300);  
     
     listadoProductos();
+    catalogoProveedores();
     
 });
     
@@ -412,4 +413,42 @@ function eliminarProducto_Id(_id_producto, nombre){
 
         }
     });
+}
+
+function catalogoProveedores() {
+
+    fetch ('https://irontigers.app/api/servicios_productos/sp/catalogo_proveedores', {  
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nick : nuser.Nick,
+                token: nuser.Token
+            })
+    }).then((res)=> res.json()).then((respApi)=>{
+
+        console.log(respApi);
+
+        var respuesta = respApi.data;
+
+        if(respApi.status){
+
+            if (respApi.data == null || respApi.data == "" || respApi.data == undefined ) {
+                $("#id_proveedor").empty(); 
+            }else{
+                 
+                 $("#id_proveedor").empty();
+                 $("#id_proveedor").append("<option val=''disabled selected>Selecciona Opción:</option>");
+                for (var i = 0; i < respuesta.length; i++) {
+                    $("#id_proveedor").append("<option val=" + respuesta[i].Id_Proveedor + ">" + respuesta[i].Nombre + "</option>");
+                }
+            }
+
+           
+
+
+        }
+    });
+
 }

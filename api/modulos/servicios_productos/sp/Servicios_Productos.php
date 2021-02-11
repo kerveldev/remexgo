@@ -35,6 +35,16 @@ class sp {
                         $cuerpo = peticion_actualizar($x->nick,$x->token,SP['base'],"servicios_productos","Id_SP",$x->Id,(array)$x->datos,$GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
                         break;
 
+                    case 'catalogo_proveedores':
+                        $fields = array("nick","token");// Lista de parametros por recibir
+                        $box = new Storer($fields);
+                        if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
+                        
+                        $sql = "CALL catalogo_proveedores();";
+                        $cuerpo = peticion_estandar($x->nick, $x->token, SP['base'], $sql, $GLOBALS['modulo'], $GLOBALS['recurso'], $peticion);
+                    break;
+                    
+
                     default:
                         $cuerpo = [
                             'status' => TRUE,
