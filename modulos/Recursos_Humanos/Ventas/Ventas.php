@@ -60,7 +60,6 @@ $us = $_SESSION['user']['data'];
                                                 <th>Cantidad</th>
                                                 <th>Descuento</th>
                                                 <th>Precio</th>
-                                                <th>Acciones</th>
                                             </thead>
                                             <tbody>
                                 
@@ -71,7 +70,6 @@ $us = $_SESSION['user']['data'];
                                                 <th>Cantidad</th>
                                                 <th>Descuento</th>
                                                 <th>Precio</th>
-                                                <th>Acciones</th>
                                             </tfoot>
                                         </table>
                                     </div>

@@ -515,7 +515,7 @@ $(document).ready(function() {
         var tabla = "tabla_articulos";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/rh/clientes/lst_clientes',
+            url : 'https://remex.kerveldev.com/api/servicios_productos/sp/sp_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -538,13 +538,11 @@ $(document).ready(function() {
                     }
                     tbody += 
                         "<tr>"+
-                        "<td>"+checarNulos(reg.Id_Cliente)+"</td>"+
-                        "<td>"+checarNulos(reg.Nombre)+"</td>"+
-                        "<td>"+checarNulos(reg.Entidad)+"</td>"+
-                        "<td>"+checarNulos(reg.Entidad)+"</td>"+
-                        "<td>"+ estado +"</td>"+
-                        "<td>"+
-                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id(\"" +  reg.Id_Cliente + "\",\"" +  reg.Nombre + "\")'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;"+    
+                        "<td>"+checarNulos(reg.Id_SP)+"</td>"+
+                        "<td>"+checarNulos(reg.Nombre_SP)+"</td>"+
+                        "<td>"+checarNulos(reg.Cantidad)+"</td>"+
+                        "<td>"+checarNulos(reg.Descuento)+"</td>"+
+                        "<td>"+checarNulos(reg.Precio)+"</td>"+
                         "</tr>";
                 });
                 //Se dibuja la tabla
@@ -570,7 +568,7 @@ $(document).ready(function() {
                                     'className': 'control',
                                 },
                                 { responsivePriority: 1, targets: 0 },
-                                { responsivePriority: 2, targets: 5 }
+                                { responsivePriority: 2, targets: 4 }
                             ],
                             // select: {
                             //     'style': 'multi',
