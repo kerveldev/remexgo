@@ -159,6 +159,10 @@ $(document).ready(function() {
                             order: [
                                 [0, "asc"]
                             ],
+                            select: {
+                                'style': 'multi',
+                                'selector': 'td:not(.control)'
+                            },
                             buttons: [
     
                                 {   extend: 'excel', 

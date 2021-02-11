@@ -26,6 +26,8 @@ $us = $_SESSION['user']['data'];
       <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
       <link href="/js/datatables/css/responsive.dataTables.min.css" rel="stylesheet">
       <link href="/js/datatables/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
+      <link href="/js/datatables/css/select.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
         
     <!-- Toastr style -->
     <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
