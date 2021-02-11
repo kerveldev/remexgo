@@ -22,7 +22,6 @@ $us = $_SESSION['user']['data'];
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
-    <link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
       <!-- DataTables Responsive CSS -->
       <link href="/js/datatables/css/dataTables.bootstrap4.css" rel="stylesheet">
       <link href="/js/datatables/css/responsive.dataTables.min.css" rel="stylesheet">
@@ -134,42 +133,6 @@ $us = $_SESSION['user']['data'];
     <script src="/js/datatables/js/dataTables.buttons.min.js"></script>
     <script src="/js/datatables/js/buttons.html5.min.js"></script>
     <script src="/js/datatables/js/dataTables.select.min.js" type="text/javascript" ></script>
-    
-    <!-- Chosen -->
-    <script src="js/plugins/chosen/chosen.jquery.js"></script>
-    
-    <!-- JSKnob -->
-    <script src="js/plugins/jsKnob/jquery.knob.js"></script>
-    
-    <!-- Input Mask-->
-    <script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
-
-    <!-- Data picker -->
-    <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
-
-    <!-- NouSlider -->
-    <script src="js/plugins/nouslider/jquery.nouislider.min.js"></script>
-
-    <!-- Switchery -->
-    <script src="js/plugins/switchery/switchery.js"></script>
-
-    <!-- IonRangeSlider -->
-    <script src="js/plugins/ionRangeSlider/ion.rangeSlider.min.js"></script>
-
-    <!-- iCheck -->
-    <script src="js/plugins/iCheck/icheck.min.js"></script>
-
-    <!-- Select2 -->
-    <script src="js/plugins/select2/select2.full.min.js"></script>
-
-    <!-- TouchSpin -->
-    <script src="js/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script>
-
-    <!-- Tags Input -->
-    <script src="js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
-
-    <!-- Dual Listbox -->
-    <script src="js/plugins/dualListbox/jquery.bootstrap-duallistbox.js"></script>
 
     <!-- Toastr -->
     <script src="/js/plugins/toastr/toastr.min.js"></script>
