@@ -417,7 +417,7 @@ function eliminarProducto_Id(_id_producto, nombre){
 
 function catalogoProveedores() {
 
-    fetch ('https://irontigers.app/api/servicios_productos/sp/catalogo_proveedores', {  
+    fetch ('https://remex.kerveldev.com/api/servicios_productos/sp/catalogo_proveedores', {  
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
