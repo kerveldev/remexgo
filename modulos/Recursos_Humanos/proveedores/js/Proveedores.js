@@ -16,17 +16,6 @@ $(document).ready(function() {
     
 });
     
-    function getEdad(dateString) {
-        var today = new Date();
-        var birthDate = new Date(dateString);
-        var edad = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            edad--;
-        }
-        return edad;
-    }
-    
     function checarNulos(_valor){
         var regresarValor = "";
         if (_valor == '' || _valor == null) {
@@ -240,8 +229,8 @@ function listadoProveedores(){
                     $("#ext_2_proveedor").val(respuesta[0].Ext2);
                     $("#direccion_proveedor").val(respuesta[0].Direccion);
                     $("#cp_proveedor").val(respuesta[0].CP);
-                    $("#municipio_proveedor").val(getEdad(respuesta[0].Municipio));
-                    $("#entidad_proveedor").val(getEdad(respuesta[0].Entidad));
+                    $("#municipio_proveedor").val(respuesta[0].Municipio);
+                    $("#entidad_proveedor").val(respuesta[0].Entidad);
                     $("#pais_proveedor").val(respuesta[0].Pais);
                     $("#email_proveedor").val(respuesta[0].Email);
                    
