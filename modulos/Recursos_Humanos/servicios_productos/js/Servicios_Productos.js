@@ -240,7 +240,7 @@ function cerrarModalProducto_Id(){
     
 function guardarNuevoProducto(){
 
-    var Id_Proveedor = $("#id_proveedor").val();
+    var Id_Proveedor = $("#id_proveedor option:selected").val();
     var Tipo = $("#tipo_producto").val();
     var Nombre_SP = $("#nombre_producto").val();
     var Caracteristicas = $("#caracteristica_producto").val();
@@ -305,7 +305,7 @@ function guardarNuevoProducto(){
 
 function actualizarProducto(_id_producto){
 
-    var Id_Proveedor = $("#id_proveedor").val();
+    var Id_Proveedor = $("#id_proveedor option:selected").val();
     var Tipo = $("#tipo_producto").val();
     var Nombre_SP = $("#nombre_producto").val();
     var Caracteristicas = $("#caracteristica_producto").val();
