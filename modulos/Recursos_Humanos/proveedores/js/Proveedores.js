@@ -87,7 +87,7 @@ function listadoProveedores(){
                     if(reg.Estatus == null || reg.Estatus == ''){
                         color="text-danger";
                         botonInactivar = "";
-                        botonActivar = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='activarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Activar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
+                        botonActivar = "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='activarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Activar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
                     }else{
                         color = "text-info";
                         botonInactivar = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
