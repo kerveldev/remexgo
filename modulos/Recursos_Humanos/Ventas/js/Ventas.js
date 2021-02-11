@@ -94,7 +94,10 @@ $(document).ready(function() {
     
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
-        var t = $('#tabla_clientes').DataTable();
+        var t = $('#tabla_clientes').DataTable({
+            responsive: false,
+                        
+        });
         cerrarModalArticulos();
         
         if(Id == "" || Id == undefined){
@@ -109,6 +112,7 @@ $(document).ready(function() {
                 Precio,
                 "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
             ] ).draw( false );
+            
         }
      
     }
