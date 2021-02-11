@@ -210,7 +210,7 @@ function listadoProveedores(){
     
     function abrirProveedor_Id(_id_proveedor, _nombre_usuario){
     
-        $("#modal_usuario").modal({"backdrop":"static"});
+        $("#modal_proveedor").modal({"backdrop":"static"});
         $(".btn-guardar-proveedor").attr('onClick', 'actualizarProveedor('+_id_proveedor+');');
         $("#nProveedor").text(_nombre_usuario);
     
