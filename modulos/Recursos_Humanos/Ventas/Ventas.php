@@ -176,7 +176,7 @@ $us = $_SESSION['user']['data'];
     <!--Datatables-->
     <script src="/js/datatables/js/jquery.dataTables.min.js"></script>
     <script src="/js/datatables/js/dataTables.bootstrap4.js"></script>
-    <script src="/js/datatables/js/dataTables.responsive.min.js"></script>
+    <!--<script src="/js/datatables/js/dataTables.responsive.min.js"></script>-->
     <script src="/js/datatables/js/jszip.min.js"></script>
     <script src="/js/datatables/js/pdfmake.min.js"></script>
     <script src="/js/datatables/js/vfs_fonts.js"></script>
