@@ -103,7 +103,7 @@ function listadoProveedores(){
                         "<td>"+checarNulos(reg.Municipio)+"</td>"+
                         "<td>"+
 
-                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-success p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             // "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                             botonInactivar+
                             botonActivar+
