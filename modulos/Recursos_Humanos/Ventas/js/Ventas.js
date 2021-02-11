@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    InicializarDatatable("tabla_clientes");
+    //InicializarDatatable("tabla_clientes");
     
         setTimeout(function() {
             toastr.options = {
@@ -95,8 +95,10 @@ $(document).ready(function() {
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
-        var counter = 1;
-     
+        if(Id == "" || Id == NULL || Id == undefined){
+
+            InicializarDatatable("tabla_clientes");
+        }else{
             t.row.add( [
                 Id,
                 Nombre,
@@ -106,9 +108,8 @@ $(document).ready(function() {
             ] ).draw( false );
      
             counter++;
+        }
      
-        // Automatically add a first row of data
-        $('#addRow').click();
     }
     
     function abrirClientes_Id(_id_cliente, _nombre){
