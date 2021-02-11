@@ -214,7 +214,7 @@ function listadoProveedores(){
         $(".btn-guardar-proveedor").attr('onClick', 'actualizarProveedor('+_id_proveedor+');');
         $("#nProveedor").text(_nombre_usuario);
     
-        fetch ('https://remex.kerveldev.com/api/rh/altas/navegante_id', {  
+        fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/proveedores_id', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -231,8 +231,6 @@ function listadoProveedores(){
                     if(resJson.status_sesion){
                             
                     respuesta = resJson.data;
-                    
-                    //Datos Personales
 
                     $("#nombre_proveedor").val(respuesta[0].Nombre);
                     $("#contacto_proveedor").val(respuesta[0].Contacto);
@@ -257,8 +255,7 @@ function cerrarModalProveedor_Id(){
     limpiarModalProveedor();
 }
     
-function guardarNuevoUsuario(){
-    //Datos Personales
+function guardarNuevoProveedor(){
 
     var Nombre = $("#nombre_proveedor").val();
     var Contacto = $("#contacto_proveedor").val();
@@ -273,7 +270,7 @@ function guardarNuevoUsuario(){
     var Pais = $("#pais_proveedor").val();
     var Email = $("#email_proveedor").val();
    
-    fetch ('https://remex.kerveldev.com/api/rh/altas/crea_usuario',{  
+    fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/crea_proveedor',{  
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
@@ -315,12 +312,13 @@ function guardarNuevoUsuario(){
                
                 
             }else{
+                $("#modal_proveedor").modal("hide");
                 swal({
                     type: 'error',
                     html: '<h2>Error</h2><p>'+respApi.msj+'</p>',
                     showConfirmButton: true,
                 });
-                $("#modal_proveedor").modal("hide");
+               
             }
             
         });
@@ -342,7 +340,7 @@ function actualizarProveedor(_id_proveedor){
     var Pais = $("#pais_proveedor").val();
     var Email = $("#email_proveedor").val();
 
-    fetch ('https://remex.kerveldev.com/api/rh/altas/modifica_navegantes',{  
+    fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/modifica_proveedor',{  
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -380,8 +378,6 @@ function actualizarProveedor(_id_proveedor){
                     text: respuesta,
                 })
 
-              
-                
             }else{
                 $("#modal_proveedor").modal("hide");
                 swal({
@@ -408,7 +404,7 @@ function eliminarProveedor_Id(_id_proveedor, nombre){
         confirmButtonText: 'Si, eliminalo!'
     }).then((result) => {
         if (result.value) {
-    fetch ('https://remex.kerveldev.com/api/rh/altas/elimina_usuario', {  
+    fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/elimina_proveedor', {  
     method: 'DELETE',   
     headers:{
     'Content-Type': 'application/json'
@@ -426,7 +422,7 @@ function eliminarProveedor_Id(_id_proveedor, nombre){
                    
                     swal({
                         type: 'success',
-                        title: 'El Usuario ha sido eliminado.!',
+                        title: 'El Proveedor ha sido eliminado.!',
                         confirmButtonText: 'Ok'
                     })
                               
@@ -436,7 +432,7 @@ function eliminarProveedor_Id(_id_proveedor, nombre){
                    
                     swal(
                         'Error!',
-                        'El Usuario no fue eliminado.',
+                        'El Proveedor no fue eliminado.',
                         'error'
                         )
                 }
