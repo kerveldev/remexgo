@@ -207,7 +207,7 @@ function guardarcambio(_id_elemento) {
     var Nick_cam = $("#Nick_cam").val();
     var Pasword_cam = $("#Pasword_cam").val();
 
-	fetch ('https://irontigers.app/api/logger/act_nick_pass', {  
+	fetch ('https://remex.kerveldev.com/api/logger/act_nick_pass', {  
     method: 'POST',
     headers:{
         'Content-Type': 'application/json'
