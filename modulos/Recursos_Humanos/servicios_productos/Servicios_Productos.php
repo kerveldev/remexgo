@@ -13,7 +13,7 @@ $us = $_SESSION['user']['data'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Irek Pelaez, Chrystian Redín, Jaquie Gonzalez">
 
-    <title>REMEX | Alta RH</title>
+    <title>REMEX | Servicios & Productos</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -34,14 +34,14 @@ $us = $_SESSION['user']['data'];
 
 <body>
 
-    <div class="modal dark_bg" id="modal_usuario" data-backdrop="false" tabindex="-1" role="dialog"
+    <div class="modal dark_bg" id="modal_producto" data-backdrop="false" tabindex="-1" role="dialog"
         aria-labelledby="titulo" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titulo">Datos del Usuario: <span id="nUsuario"></span></h5>
-                    <button type="button" class="close" onclick="cerrarModalUsuario_Id();" aria-label="Close"> <span
+                    <h5 class="modal-title" id="titulo">Datos del Producto: <span id="nProducto"></span></h5>
+                    <button type="button" class="close" onclick="cerrarModalProducto_Id();" aria-label="Close"> <span
                             aria-hidden="true">×</span> </button>
                 </div>
 
@@ -50,237 +50,148 @@ $us = $_SESSION['user']['data'];
 
                         <div class="card-body">
 
-                            <!-- <div class="ibox float-e-margins"> -->
+                            <div class="row">
 
-                            <div id="wizard">
-                                <h1>Personales</h1>
-                                <div class="step-content">
-                                    <div class="text-center m-t-md">
-
-                                        <div class="row">
-
-                                            <div class="col-sm-12">
-                                                <label for="f_ingreso_usuario">F. Ingreso Elemento:</label>
-                                                <input type="date" class="form-control" name="f_ingreso_usuario"
-                                                    id="f_ingreso_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="num_emp_usuario">NoEmp_RH:</label>
-                                                <input type="text" class="form-control" name="num_emp_usuario"
-                                                    id="num_emp_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="rfc_usuario">RFC:</label>
-                                                <input type="text" class="form-control" name="rfc_usuario"
-                                                    id="rfc_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="curp_usuario">CURP:</label>
-                                                <input type="text" class="form-control" name="curp_usuario"
-                                                    id="curp_usuario">
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="A_Paterno_usuario">A. Paterno:</label>
-                                                <input type="text" class="form-control" name="A_Paterno_usuario"
-                                                    id="A_Paterno_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="A_Materno_usuario">A. Materno:</label>
-                                                <input type="text" class="form-control" name="A_Materno_usuario"
-                                                    id="A_Materno_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="Nombre_usuario">Nombre:</label>
-                                                <input type="text" class="form-control" name="Nombre_usuario"
-                                                    id="Nombre_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="f_nacimiento_usuario">Fecha Nacimiento:</label>
-                                                <input type="date" class="form-control" name="f_nacimiento_usuario"
-                                                    id="f_nacimiento_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="edad_usuario">Edad:</label>
-                                                <input type="text" class="form-control" name="edad_usuario"
-                                                    id="edad_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="nacionalidad_usuario">Nacionalidad:</label>
-                                                <input type="text" class="form-control" name="nacionalidad_usuario"
-                                                    id="nacionalidad_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="entidad_nac_usuario">Entidad Nacimiento:</label>
-                                                <input type="text" class="form-control" name="entidad_nac_usuario"
-                                                    id="entidad_nac_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="municipio_nac_usuario">Municipio Nacimiento:</label>
-                                                <input type="text" class="form-control" name="municipio_nac_usuario"
-                                                    id="municipio_nac_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="genero_usuario">Genero:</label>
-                                                <input type="text" class="form-control" name="genero_usuario"
-                                                    id="genero_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="tipo_sangre_usuario">Tipo Sangre:</label>
-                                                <input type="text" class="form-control" name="tipo_sangre_usuario"
-                                                    id="tipo_sangre_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="edo_civil_usuario">Estado Civil:</label>
-                                                <input type="text" class="form-control" name="edo_civil_usuario"
-                                                    id="edo_civil_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="e_mail_usuario">Correo Electronico:</label>
-                                                <input type="text" class="form-control" name="e_mail_usuario"
-                                                    id="e_mail_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="telefono_usuario">Telefono:</label>
-                                                <input type="text" class="form-control" name="telefono_usuario"
-                                                    id="telefono_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="cel_usuario">Celular:</label>
-                                                <input type="text" class="form-control" name="cel_usuario"
-                                                    id="cel_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="tel_2_usuario">Otro Telefono:</label>
-                                                <input type="text" class="form-control" name="tel_2_usuario"
-                                                    id="tel_2_usuario">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
+                                <div class="col-sm-12">
+                                    <label for="f_ingreso_producto">F. Ingreso Elemento:</label>
+                                    <input type="date" class="form-control" name="f_ingreso_producto"
+                                        id="f_ingreso_producto">
                                 </div>
 
-                                <h1>Domicilio</h1>
-                                <div class="step-content">
-                                    <div class="text-center m-t-md">
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="calle_usuario">Calle:</label>
-                                                <input type="text" class="form-control" name="calle_usuario"
-                                                    id="calle_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="nexterior_usuario">N° Exterior:</label>
-                                                <input type="text" class="form-control" name="nexterior_usuario"
-                                                    id="nexterior_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="ninterior_usuario">N° Interior:</label>
-                                                <input type="text" class="form-control" name="ninterior_usuario"
-                                                    id="ninterior_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="cp_usuario">C.P.:</label>
-                                                <input type="text" class="form-control" name="cp_usuario"
-                                                    id="cp_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="cruce1_usuario">Cruce 1:</label>
-                                                <input type="text" class="form-control" name="cruce1_usuario"
-                                                    id="cruce1_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="cruce2_usuario">Cruce 2:</label>
-                                                <input type="text" class="form-control" name="cruce2_usuario"
-                                                    id="cruce2_usuario">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <div class="col-sm-4">
-                                                <label for="colonia_usuario">Colonia.:</label>
-                                                <input type="text" class="form-control" name="colonia_usuario"
-                                                    id="colonia_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="entidad_dom_usuario">Entidad:</label>
-                                                <input type="text" class="form-control" name="entidad_dom_usuario"
-                                                    id="entidad_dom_usuario">
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <label for="municipio_dom_usuario">Municipio:</label>
-                                                <input type="text" class="form-control" name="municipio_dom_usuario"
-                                                    id="municipio_dom_usuario">
-                                            </div>
-
-                                        </div>
-
-
-
-
-
-                                    </div>
-                                </div>
                             </div>
-                            <!-- </div> -->
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="num_emp_producto">NoEmp_RH:</label>
+                                    <input type="text" class="form-control" name="num_emp_producto"
+                                        id="num_emp_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="rfc_producto">RFC:</label>
+                                    <input type="text" class="form-control" name="rfc_producto"
+                                        id="rfc_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="curp_producto">CURP:</label>
+                                    <input type="text" class="form-control" name="curp_producto"
+                                        id="curp_producto">
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="A_Paterno_producto">A. Paterno:</label>
+                                    <input type="text" class="form-control" name="A_Paterno_producto"
+                                        id="A_Paterno_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="A_Materno_producto">A. Materno:</label>
+                                    <input type="text" class="form-control" name="A_Materno_producto"
+                                        id="A_Materno_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="Nombre_producto">Nombre:</label>
+                                    <input type="text" class="form-control" name="Nombre_producto"
+                                        id="Nombre_producto">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="f_nacimiento_producto">Fecha Nacimiento:</label>
+                                    <input type="date" class="form-control" name="f_nacimiento_producto"
+                                        id="f_nacimiento_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="edad_producto">Edad:</label>
+                                    <input type="text" class="form-control" name="edad_producto"
+                                        id="edad_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="nacionalidad_producto">Nacionalidad:</label>
+                                    <input type="text" class="form-control" name="nacionalidad_producto"
+                                        id="nacionalidad_producto">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="entidad_nac_producto">Entidad Nacimiento:</label>
+                                    <input type="text" class="form-control" name="entidad_nac_producto"
+                                        id="entidad_nac_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="municipio_nac_producto">Municipio Nacimiento:</label>
+                                    <input type="text" class="form-control" name="municipio_nac_producto"
+                                        id="municipio_nac_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="genero_producto">Genero:</label>
+                                    <input type="text" class="form-control" name="genero_producto"
+                                        id="genero_producto">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="tipo_sangre_producto">Tipo Sangre:</label>
+                                    <input type="text" class="form-control" name="tipo_sangre_producto"
+                                        id="tipo_sangre_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="edo_civil_producto">Estado Civil:</label>
+                                    <input type="text" class="form-control" name="edo_civil_producto"
+                                        id="edo_civil_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="e_mail_producto">Correo Electronico:</label>
+                                    <input type="text" class="form-control" name="e_mail_producto"
+                                        id="e_mail_producto">
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-4">
+                                    <label for="telefono_producto">Telefono:</label>
+                                    <input type="text" class="form-control" name="telefono_producto"
+                                        id="telefono_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="cel_producto">Celular:</label>
+                                    <input type="text" class="form-control" name="cel_producto"
+                                        id="cel_producto">
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label for="tel_2_producto">Otro Telefono:</label>
+                                    <input type="text" class="form-control" name="tel_2_producto"
+                                        id="tel_2_producto">
+                                </div>
+
+                            </div>
 
                         </div>
 
@@ -289,8 +200,8 @@ $us = $_SESSION['user']['data'];
                 </div>
 
                   <div class="modal-footer ">
-                        <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
-                        <button type="button" class="btn btn-primary btn-guardar-usuario">Guardar</button>
+                        <button type="button " class="btn btn-secondary " onclick="cerrarModalProducto_Id();" >Cerrar</button>
+                        <button type="button" class="btn btn-primary btn-guardar-producto">Guardar</button>
                     </div>
 
             </div>
@@ -317,12 +228,12 @@ $us = $_SESSION['user']['data'];
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirUsuario('')">Agregar Usuario</button> -->
+                                    <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirProducto('')">Agregar Producto</button> -->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <table class="table table-striped nowrap" id="tabla_usuarios">
+                                    <table class="table table-striped nowrap" id="tabla_productos">
                                         <thead>
                                             <th>N° Emp</th>
                                             <th>Nombre</th>
@@ -376,7 +287,7 @@ $us = $_SESSION['user']['data'];
     <!-- Jquery Validate -->
     <script src="/js/plugins/validate/jquery.validate.min.js"></script>
     <!-- Personal JS -->
-    <script src="js/Alta.js"></script>
+    <script src="js/Servicios_Productos.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
 
