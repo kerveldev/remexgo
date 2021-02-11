@@ -41,7 +41,7 @@ $us = $_SESSION['user']['data'];
 <body>
 
     <div class="modal dark_bg" id="modal_articulos" data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="titulo" aria-hidden="true">   
-        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="titulo">Listado de Articulos</h5>
