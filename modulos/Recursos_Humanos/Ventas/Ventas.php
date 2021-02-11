@@ -135,7 +135,7 @@ $us = $_SESSION['user']['data'];
                                         <br>
                                         <div class="row">
                                             <div class="col-md-12">
-                                            <table class="table table-striped" id="tabla_clientes">
+                                            <table class="table table" id="tabla_clientes">
                                                 <thead>
                                                 <th>Id Articulo</th>
                                                 <th>Nombre</th>
