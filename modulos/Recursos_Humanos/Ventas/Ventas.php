@@ -64,7 +64,7 @@ $us = $_SESSION['user']['data'];
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Fecha:</label>
-                                                <input  type="text" class="form-control" name="Fecha" id="Fecha"></input>
+                                                <input  type="date" class="form-control" name="Fecha" id="Fecha"></input>
                                             </div>
                                         </div>
                                         <div class="row">
