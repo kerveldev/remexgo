@@ -79,16 +79,19 @@ function listadoProveedores(){
                 var tbody = "<tbody>";
                 var lst = resp.data;
                 var color = "";
-                var boton = "";
+                var botonInactivar = "";
+                var botonActivar = "";
                
                 lst.forEach(reg => {
 
                     if(reg.Estatus == null || reg.Estatus == ''){
                         color="text-danger";
-                        boton = "";
+                        botonInactivar = "";
+                        botonActivar = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='activarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Activar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
                     }else{
                         color = "text-info";
-                        boton = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
+                        botonInactivar = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
+                        botonActivar = "";
                     }
 
                     tbody += 
@@ -102,7 +105,8 @@ function listadoProveedores(){
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             // "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
-                            boton+
+                            botonInactivar+
+                            botonActivar+
                             
                         
 
@@ -478,6 +482,61 @@ function inactivarProveedor_Id(_id_proveedor,nombre){
                     swal({
                         type: 'success',
                         title: 'El Proveedor ha sido inactivado.!',
+                        confirmButtonText: 'Ok'
+                    })
+                              
+                    listadoProveedores();
+
+                }else{
+                   
+                    swal(
+                        'Error!',
+                        'El Proveedor no fue inactivado.',
+                        'error'
+                        )
+                }
+
+            })
+
+        }
+    });
+
+}
+
+
+function activarProveedor_Id(_id_proveedor,nombre){
+
+    swal({
+        title: 'Deseas activar a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, activar!'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/modifica_proveedor', {  
+    method: 'POST',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id: _id_proveedor,
+            datos:{
+                Estatus:"1"
+            }
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+            console.log(resdelJson)
+
+                if (resdelJson.status) {
+                   
+                    swal({
+                        type: 'success',
+                        title: 'El Proveedor ha sido activado.!',
                         confirmButtonText: 'Ok'
                     })
                               
