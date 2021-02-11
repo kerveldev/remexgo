@@ -74,11 +74,11 @@ $us = $_SESSION['user']['data'];
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-11">
+                                            <div class="col-md-9">
                                     
                                             </div>
-                                            <div class="col-md-1">
-                                                <button class="btn btn-primary " type="button" onclick="nuevo_articulo();"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">Agregar articulo</span></button>
+                                            <div class="col-md-3">
+                                                <button class="btn btn-success " type="button" onclick="nuevo_articulo();"><i class="fa fa-plus"></i>&nbsp;&nbsp;<span class="bold">Agregar articulo</span></button>
                                             </div>
                                         </div>
                                         <br>
@@ -120,7 +120,6 @@ $us = $_SESSION['user']['data'];
     <!-- Custom and plugin javascript -->
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
     <script src="/js/plugins/iCheck/icheck.min.js"></script>
 
     <!--Datatables-->
