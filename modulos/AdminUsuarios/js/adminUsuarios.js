@@ -227,7 +227,7 @@ function guardarcambio(_id_elemento) {
                     if(respApi.status){
                         
                             if (nuser.Id_Elemento == _id_elemento) {
-                                
+                                    cerrarModalUsuario_Id();
                                     swal({
                                     type: 'success',
                                     title: 'Actualizado',
@@ -241,6 +241,8 @@ function guardarcambio(_id_elemento) {
                                 })
                                     
                             }else{
+
+                                cerrarModalUsuario_Id();
                                 swal({
                                     timer: 2000,
                                     type: 'success',
@@ -249,7 +251,7 @@ function guardarcambio(_id_elemento) {
                                     showConfirmButton: false,
                                 });
                                 
-                                cerrarModalUsuario_Id();
+                                
                             }
                         
 
