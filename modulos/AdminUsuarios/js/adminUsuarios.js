@@ -172,7 +172,7 @@ function abrirUsuario_Id(_id_elemento, _nombre_usuario){
 
     $("#nUsuario").text(_nombre_usuario);
 
-    $("#btn-guardar-usuario").attr('onClick', 'guardarcambio('+_id_elemento+');');
+    $(".btn-guardar-usuario").attr('onClick', 'guardarcambio('+_id_elemento+');');
 
     fetch ('https://remex.kerveldev.com/api/logger/navegante_id', {  
             method: 'POST',
