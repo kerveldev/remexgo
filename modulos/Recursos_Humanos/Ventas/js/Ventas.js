@@ -342,8 +342,6 @@ $(document).ready(function() {
     
     function cerrarModalArticulos(){
         $("#modal_articulos").modal("hide");
-        listadoClientes();
-        limpia_clientes();
     }
        
     function limpia_clientes(){
@@ -525,6 +523,7 @@ $(document).ready(function() {
                                             }
 
                                             listadoClientes(Id.toString(),Nombre.toString(),Cantidad.toString(),Descuento.toString(),Precio.toString());
+                                            cerrarModalArticulos();
                                         }
                             },
                             ],

@@ -79,7 +79,7 @@ $us = $_SESSION['user']['data'];
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" onclick="cerrarModalClientes();">Cerrar</button>
+                    <button class="btn btn-secondary" type="button" onclick="cerrarModalArticulos();">Cerrar</button>
                     <button class="btn btn-primary" type="button"  id="botonGuardar">Agregar</button>
 
                 </div>
