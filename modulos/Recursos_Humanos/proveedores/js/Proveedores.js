@@ -546,7 +546,7 @@ function activarProveedor_Id(_id_proveedor,nombre){
                    
                     swal(
                         'Error!',
-                        'El Proveedor no fue inactivado.',
+                        'El Proveedor no fue activado.',
                         'error'
                         )
                 }
