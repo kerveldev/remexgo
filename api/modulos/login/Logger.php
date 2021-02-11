@@ -69,11 +69,11 @@ class logger{
 		
 
 							case 'act_nick_pass':
-								$fields = array("nick","token","Id_Elemento","nick_mod","pass");// Lista de parametros por recibir
+								$fields = array("nick","token","Id_Elemento","nick_mod","");// Lista de parametros por recibir
 								$box = new Storer($fields);
 								if(empty($x = $box->stocker)){return $cuerpo = FALTAN_PARAMETROS;}// Si retorna null sale de la peticion
 									
-								$sql = "Select cambiar_pass_x_id('$x->Id_Elemento','$x->pass','$x->nick_mod');";
+								$sql = "Select cambiar_pass_x_id('$x->Id_Elemento','$x->nick_mod','$x->pass');";
 								return peticion_estandar($x->nick, $x->token, USUARIOS['base'], $sql, $GLOBALS['modulo'], $recurso, $recurso);
 								
 
