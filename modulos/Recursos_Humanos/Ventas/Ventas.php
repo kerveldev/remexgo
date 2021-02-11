@@ -142,11 +142,19 @@ $us = $_SESSION['user']['data'];
                                                 <th>Cantidad</th>
                                                 <th>Descuento</th>
                                                 <th>Precio</th>
-                                                <!--<th>Acciones</th>-->
+                                                <th>Acciones</th>
                                                 </thead>
                                                 <tbody>
                                 
                                                 </tbody>
+                                                <tfoot>
+                                                <th>TOTAL</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                                <th>Acciones</th>
+                                            </tfoot>
                                             </table>
                                             </div>
                                         </div>

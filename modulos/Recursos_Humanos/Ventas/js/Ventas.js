@@ -94,10 +94,7 @@ $(document).ready(function() {
     
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
-        var t = $('#tabla_clientes').DataTable({
-            responsive: false,
-                        
-        });
+        var t = $('#tabla_clientes').DataTable();
         cerrarModalArticulos();
         
         if(Id == "" || Id == undefined){
