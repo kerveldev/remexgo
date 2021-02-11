@@ -60,7 +60,7 @@ $(document).ready(function() {
     function InicializarDatatable(_nombre_tabla){
        $("#"+_nombre_tabla+"").dataTable({ 
                 "language": {
-                "emptyTable": "Cargando....... ",
+                "emptyTable": "Sin productos agregados",
                 "loadingRecords": "&nbsp;",
                 "processing": "Cargando...",
                 "search": " Buscar:",
