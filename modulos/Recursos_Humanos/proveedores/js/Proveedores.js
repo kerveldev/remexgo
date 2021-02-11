@@ -79,13 +79,16 @@ function listadoProveedores(){
                 var tbody = "<tbody>";
                 var lst = resp.data;
                 var color = "";
+                var boton = "";
                
                 lst.forEach(reg => {
 
                     if(reg.Estatus == null || reg.Estatus == ''){
                         color="text-danger";
+                        boton = "";
                     }else{
-                        color = "text-info"; 
+                        color = "text-info";
+                        boton = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
                     }
 
                     tbody += 
@@ -98,8 +101,9 @@ function listadoProveedores(){
                         "<td>"+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"+
                             "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                            boton+
+                            
                         
 
                         "</tr>";
