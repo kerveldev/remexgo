@@ -91,7 +91,7 @@ function listadoProveedores(){
                         "<td>"+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
-                            
+                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"+
                             "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                         
 
@@ -431,3 +431,61 @@ function eliminarProveedor_Id(_id_proveedor, nombre){
         }
     });
 }
+
+
+
+function inactivarProveedor_Id(_id_proveedor,nombre){
+
+    swal({
+        title: 'Deseas inactivar a '+nombre+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, inactivar!'
+    }).then((result) => {
+        if (result.value) {
+    fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/modifica_proveedor', {  
+    method: 'POST',   
+    headers:{
+    'Content-Type': 'application/json'
+    },
+        body: JSON.stringify({
+            nick: nuser.Nick,
+            token: nuser.Token,
+            Id: _id_proveedor,
+            datos:{
+                Estatus:"0"
+            }
+        })
+    }).then((res)=> res.json())
+        .then((resdelJson)=>{
+            console.log(resdelJson)
+
+                if (resdelJson.status) {
+                   
+                    swal({
+                        type: 'success',
+                        title: 'El Proveedor ha sido inactivado.!',
+                        confirmButtonText: 'Ok'
+                    })
+                              
+                    listadoProveedores();
+
+                }else{
+                   
+                    swal(
+                        'Error!',
+                        'El Proveedor no fue inactivado.',
+                        'error'
+                        )
+                }
+
+            })
+
+        }
+    });
+
+}
+
+
