@@ -81,7 +81,7 @@ $us = $_SESSION['user']['data'];
                     </div>
                   <div class="modal-footer ">
                       <button type="button " class="btn btn-secondary " onclick="cerrarModalUsuario_Id();" >Cerrar</button>
-                      <button type="button" class="btn btn-primary" onclick="guardarcambio();">Cambiar Contraseña</button>
+                      <button type="button" class="btn btn-primary btn-guardar-usuario">Cambiar Contraseña</button>
                   </div>
             
             </div>
