@@ -45,53 +45,70 @@ $us = $_SESSION['user']['data'];
             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
 
             <div class="row">
-                        <div class="col-lg-12">
-                            <div class="ibox">
-                                <div class="ibox-content">
-                                <div class="card">
-                            <div class="card-block">
-                            <div class="card-header">
-
-                              <h6 class="card-title">Listado de Venta</h6>
-                              <hr>
-                            </div>
-                            <div class="card-body">
-                              <div class="row">
-                                <div class="col-md-11">
-                                  
-                                </div>
-                                <div class="col-md-1">
-                                <button class="btn btn-primary " type="button" onclick="nuevo_cliente();"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
-                                  
-                                </div>
-                              </div>
-                              <br>
-                              <div class="row">
-                                <div class="col-md-12">
-                                  <table class="table table-striped nowrap" id="tabla_clientes">
-                                    <thead>
-                                      <th>Id</th>
-                                      <th>Cliente</th>
-                                      <th>Entidad</th>
-                                      <th>Status</th>
-                                      <th>Acciones</th>
-                                    </thead>
-                                    <tbody>
-                    
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                            </div>
-                          </div>
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="card-header">
+                                        <h6 class="card-title">Listado de Venta</h6>
+                                        <hr>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Cliente</label>
+                                                <input  type="text" class="form-control" name="Cliente" id="Cliente"></input>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Fecha</label>
+                                                <input  type="text" class="form-control" name="Fecha" id="Fecha"></input>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Sucursal</label>
+                                                <input  type="text" class="form-control" name="Sucursal" id="Sucursal"></input>
+                                            </div>
+                                            <div class="col-md-6">
+                                        
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                    
+                                            </div>
+                                            <div class="col-md-1">
+                                                <button class="btn btn-primary " type="button" onclick="nuevo_cliente();"><i class="fa fa-group"></i>&nbsp;&nbsp;<span class="bold">Nuevo</span></button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                            <table class="table table-striped nowrap" id="tabla_clientes">
+                                                <thead>
+                                                <th>Id</th>
+                                                <th>Cliente</th>
+                                                <th>Entidad</th>
+                                                <th>Status</th>
+                                                <th>Acciones</th>
+                                                </thead>
+                                                <tbody>
+                                
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                      </div>
-                        <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
+                    </div>
                 </div>
+            </div>
+                        <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
         </div>
+    </div>
     
     <!-- Mainly scripts -->
     <script src="/js/plugins/sweetAlert2/sweetalert2.all.js"></script>
