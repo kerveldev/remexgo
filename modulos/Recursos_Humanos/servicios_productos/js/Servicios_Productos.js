@@ -65,7 +65,7 @@ function listadoProductos(){
         var tabla = "tabla_productos";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/producto/producto/producto_lst',
+            url : 'https://remex.kerveldev.com/api/sp/sp/sp_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -203,7 +203,7 @@ function listadoProductos(){
         $(".btn-guardar-producto").attr('onClick', 'actualizarProducto('+_id_producto+');');
         $("#nProducto").text(_nombre_producto);
     
-        fetch ('https://remex.kerveldev.com/api/producto/producto/producto_id', {  
+        fetch ('https://remex.kerveldev.com/api/sp/sp/sp_id', {  
                 method: 'POST',
                 headers:{
             'Content-Type': 'application/json'
@@ -259,7 +259,7 @@ function guardarNuevoProducto(){
     var Pais = $("#pais_producto").val();
     var Email = $("#email_producto").val();
    
-    fetch ('https://remex.kerveldev.com/api/producto/producto/crea_producto',{  
+    fetch ('https://remex.kerveldev.com/api/sp/sp/crea_sp',{  
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
@@ -329,7 +329,7 @@ function actualizarProducto(_id_producto){
     var Pais = $("#pais_producto").val();
     var Email = $("#email_producto").val();
 
-    fetch ('https://remex.kerveldev.com/api/producto/producto/modifica_producto',{  
+    fetch ('https://remex.kerveldev.com/api/sp/sp/modifica_sp',{  
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -393,7 +393,7 @@ function eliminarProducto_Id(_id_producto, nombre){
         confirmButtonText: 'Si, eliminalo!'
     }).then((result) => {
         if (result.value) {
-    fetch ('https://remex.kerveldev.com/api/producto/producto/elimina_producto', {  
+    fetch ('https://remex.kerveldev.com/api/sp/sp/elimina_sp', {  
     method: 'DELETE',   
     headers:{
     'Content-Type': 'application/json'

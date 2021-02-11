@@ -53,9 +53,14 @@ $us = $_SESSION['user']['data'];
                             <div class="row">
 
                                 <div class="col-sm-12">
-                                    <label for="f_ingreso_producto">F. Ingreso Elemento:</label>
-                                    <input type="date" class="form-control" name="f_ingreso_producto"
-                                        id="f_ingreso_producto">
+                                    <label for="id_proveedor">Proveedor:</label>
+                                    <select type="date" class="form-control" name="id_proveedor"
+                                        id="id_proveedor">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
                                 </div>
 
                             </div>
@@ -63,21 +68,21 @@ $us = $_SESSION['user']['data'];
                             <div class="row">
 
                                 <div class="col-sm-4">
-                                    <label for="num_emp_producto">NoEmp_RH:</label>
-                                    <input type="text" class="form-control" name="num_emp_producto"
-                                        id="num_emp_producto">
+                                    <label for="tipo_producto">Tipo:</label>
+                                    <input type="text" class="form-control" name="tipo_producto"
+                                        id="tipo_producto">
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <label for="rfc_producto">RFC:</label>
-                                    <input type="text" class="form-control" name="rfc_producto"
-                                        id="rfc_producto">
+                                    <label for="nombre_producto">Nombre:</label>
+                                    <input type="text" class="form-control" name="nombre_producto"
+                                        id="nombre_producto">
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <label for="curp_producto">CURP:</label>
-                                    <input type="text" class="form-control" name="curp_producto"
-                                        id="curp_producto">
+                                    <label for="caracteristica_producto">Caracteristicas:</label>
+                                    <input type="text" class="form-control" name="caracteristica_producto"
+                                        id="caracteristica_producto">
                                 </div>
 
                             </div>
@@ -86,21 +91,21 @@ $us = $_SESSION['user']['data'];
                             <div class="row">
 
                                 <div class="col-sm-4">
-                                    <label for="A_Paterno_producto">A. Paterno:</label>
-                                    <input type="text" class="form-control" name="A_Paterno_producto"
-                                        id="A_Paterno_producto">
+                                    <label for="precio_producto">Precio:</label>
+                                    <input type="number" class="form-control" name="precio_producto"
+                                        id="precio_producto">
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <label for="A_Materno_producto">A. Materno:</label>
-                                    <input type="text" class="form-control" name="A_Materno_producto"
-                                        id="A_Materno_producto">
+                                    <label for="descuento_producto">Descuento:</label>
+                                    <input type="number" class="form-control" name="descuento_producto"
+                                        id="descuento_producto">
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <label for="Nombre_producto">Nombre:</label>
-                                    <input type="text" class="form-control" name="Nombre_producto"
-                                        id="Nombre_producto">
+                                    <label for="cantidad_producto">Cantidad:</label>
+                                    <input type="number" class="form-control" name="cantidad_producto"
+                                        id="cantidad_producto">
                                 </div>
 
                             </div>
@@ -108,91 +113,21 @@ $us = $_SESSION['user']['data'];
                             <div class="row">
 
                                 <div class="col-sm-4">
-                                    <label for="f_nacimiento_producto">Fecha Nacimiento:</label>
-                                    <input type="date" class="form-control" name="f_nacimiento_producto"
-                                        id="f_nacimiento_producto">
+                                    <label for="min_producto">Min:</label>
+                                    <input type="number" class="form-control" name="min_producto"
+                                        id="min_producto">
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <label for="edad_producto">Edad:</label>
-                                    <input type="text" class="form-control" name="edad_producto"
-                                        id="edad_producto">
+                                    <label for="unidad_producto">Unidad:</label>
+                                    <input type="number" class="form-control" name="unidad_producto"
+                                        id="unidad_producto">
                                 </div>
 
-                                <div class="col-sm-4">
-                                    <label for="nacionalidad_producto">Nacionalidad:</label>
-                                    <input type="text" class="form-control" name="nacionalidad_producto"
-                                        id="nacionalidad_producto">
-                                </div>
+                                
 
                             </div>
-
-                            <div class="row">
-
-                                <div class="col-sm-4">
-                                    <label for="entidad_nac_producto">Entidad Nacimiento:</label>
-                                    <input type="text" class="form-control" name="entidad_nac_producto"
-                                        id="entidad_nac_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="municipio_nac_producto">Municipio Nacimiento:</label>
-                                    <input type="text" class="form-control" name="municipio_nac_producto"
-                                        id="municipio_nac_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="genero_producto">Genero:</label>
-                                    <input type="text" class="form-control" name="genero_producto"
-                                        id="genero_producto">
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-sm-4">
-                                    <label for="tipo_sangre_producto">Tipo Sangre:</label>
-                                    <input type="text" class="form-control" name="tipo_sangre_producto"
-                                        id="tipo_sangre_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="edo_civil_producto">Estado Civil:</label>
-                                    <input type="text" class="form-control" name="edo_civil_producto"
-                                        id="edo_civil_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="e_mail_producto">Correo Electronico:</label>
-                                    <input type="text" class="form-control" name="e_mail_producto"
-                                        id="e_mail_producto">
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col-sm-4">
-                                    <label for="telefono_producto">Telefono:</label>
-                                    <input type="text" class="form-control" name="telefono_producto"
-                                        id="telefono_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="cel_producto">Celular:</label>
-                                    <input type="text" class="form-control" name="cel_producto"
-                                        id="cel_producto">
-                                </div>
-
-                                <div class="col-sm-4">
-                                    <label for="tel_2_producto">Otro Telefono:</label>
-                                    <input type="text" class="form-control" name="tel_2_producto"
-                                        id="tel_2_producto">
-                                </div>
-
-                            </div>
-
+                          
                         </div>
 
                     </div>
@@ -235,9 +170,9 @@ $us = $_SESSION['user']['data'];
                                 <div class="col-md-12">
                                     <table class="table table-striped nowrap" id="tabla_productos">
                                         <thead>
-                                            <th>N° Emp</th>
-                                            <th>Nombre</th>
-                                            <th>Edo. Adm.</th>
+                                            <th>Proveedor</th>
+                                            <th>Tipo</th>
+                                            <th>Nombre_SP</th>
                                             <th>Acciones</th>
                                         </thead>
                                         <tbody>
