@@ -439,9 +439,9 @@ function catalogoProveedores() {
             }else{
                  
                  $("#id_proveedor").empty();
-                 $("#id_proveedor").append("<option val=''disabled selected>Selecciona Opción:</option>");
+                 $("#id_proveedor").append("<option value=''disabled selected>Selecciona Opción:</option>");
                 for (var i = 0; i < respuesta.length; i++) {
-                    $("#id_proveedor").append("<option val=" + respuesta[i].Id_Proveedor + ">" + respuesta[i].Nombre + "</option>");
+                    $("#id_proveedor").append("<option value=" + respuesta[i].Id_Proveedor + ">" + respuesta[i].Nombre + "</option>");
                 }
             }
 
