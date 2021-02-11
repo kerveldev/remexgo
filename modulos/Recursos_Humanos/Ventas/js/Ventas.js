@@ -92,17 +92,17 @@ $(document).ready(function() {
     
     }
     
-    function listadoClientes(file){
+    function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
         var counter = 1;
      
             t.row.add( [
-                counter +file,
-                counter +'.2',
-                counter +'.3',
-                counter +'.4',
-                counter +'.5'
+                Id,
+                Nombre,
+                Cantidad,
+                Descuento,
+                Precio
             ] ).draw( false );
      
             counter++;
@@ -508,11 +508,15 @@ $(document).ready(function() {
 
                                             for (i = 0; i < table.rows('.selected').data().length; i++) {
 
-                                                filas[i] = table.rows('.selected').data()[i][0];
+                                                Id[i] = table.rows('.selected').data()[i][0];
+                                                Nombre[i] = table.rows('.selected').data()[i][1];
+                                                Cantidad[i] = table.rows('.selected').data()[i][2];
+                                                Descuento[i] = table.rows('.selected').data()[i][3];
+                                                Precio[i] = table.rows('.selected').data()[i][4];
 
                                             }
 
-                                            listadoClientes(filas.toString());
+                                            listadoClientes(Id.toString(),Nombre.toString(),Cantidad.toString(),Descuento.toString(),Precio.toString());
                                         }
                             },
                             ],
