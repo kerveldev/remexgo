@@ -95,6 +95,7 @@ $(document).ready(function() {
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
+        
         if(Id == "" || Id == undefined){
 
             InicializarDatatable("tabla_clientes");
@@ -104,7 +105,8 @@ $(document).ready(function() {
                 Nombre,
                 Cantidad,
                 Descuento,
-                Precio
+                Precio,
+                "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-user'></i></button>&nbsp;",
             ] ).draw( false );
      
             counter++;
