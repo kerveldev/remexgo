@@ -92,7 +92,7 @@ $(document).ready(function() {
     
     }
     
-    function listadoClientes(){
+    function listadoClientes(file){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
         var counter = 1;
@@ -514,7 +514,7 @@ $(document).ready(function() {
 
                                             }
 
-                                        abrirModalCatorcenaActual(filas.toString());
+                                            listadoClientes(filas.toString());
                                         }
                             },
                             ],
