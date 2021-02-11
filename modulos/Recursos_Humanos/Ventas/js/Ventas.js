@@ -95,7 +95,7 @@ $(document).ready(function() {
     function listadoClientes(Id,Nombre,Cantidad,Descuento,Precio){
        // var tabla = "tabla_clientes";
         var t = $('#tabla_clientes').DataTable();
-        if(Id == "" || Id == NULL || Id == undefined){
+        if(Id == "" || Id == undefined){
 
             InicializarDatatable("tabla_clientes");
         }else{
