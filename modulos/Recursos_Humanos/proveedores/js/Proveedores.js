@@ -90,9 +90,9 @@ function listadoProveedores(){
                         "<td>"+checarNulos(reg.Municipio)+"</td>"+
                         "<td>"+
 
-                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Usuario: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             
-                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarUsuario_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Usuario: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                            "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                         
 
                         "</tr>";
@@ -193,15 +193,15 @@ function listadoProveedores(){
     
         $("#modal_proveedor").modal({"backdrop":"static"});
         $(".btn-guardar-proveedor").attr('onClick', 'guardarNuevoProveedor();');
-        $("#nUsuario").text("Nuevo Proveedor");
+        $("#nProveedor").text("Nuevo Proveedor");
    
    }
     
-    function abrirProveedor_Id(_id_proveedor, _nombre_usuario){
+    function abrirProveedor_Id(_id_proveedor, _nombre_proveedor){
     
         $("#modal_proveedor").modal({"backdrop":"static"});
         $(".btn-guardar-proveedor").attr('onClick', 'actualizarProveedor('+_id_proveedor+');');
-        $("#nProveedor").text(_nombre_usuario);
+        $("#nProveedor").text(_nombre_proveedor);
     
         fetch ('https://remex.kerveldev.com/api/proveedores/proveedores/proveedores_id', {  
                 method: 'POST',
