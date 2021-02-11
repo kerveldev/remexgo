@@ -41,7 +41,7 @@ $us = $_SESSION['user']['data'];
 
             <div class="modal-header">
                 <h5 class="modal-title" id="titulo">Datos del proveedor: <span id="nProveedor"></span></h5>
-                <button type="button" class="close" onclick="cerrarModalproveedor_Id();" aria-label="Close"> <span
+                <button type="button" class="close" onclick="cerrarModalProveedor_Id();" aria-label="Close"> <span
                         aria-hidden="true">×</span> </button>
             </div>
 
