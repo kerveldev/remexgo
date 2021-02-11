@@ -570,18 +570,12 @@ $(document).ready(function() {
                                 { responsivePriority: 1, targets: 0 },
                                 { responsivePriority: 2, targets: 4 }
                             ],
-                            // select: {
-                            //     'style': 'multi',
-                            //     'selector': 'td:not(.control)'
-                            // },
+                             select: {
+                                 'style': 'multi',
+                                 'selector': 'td:not(.control)'
+                             },
                             order: [
                                 [0, "asc"]
-                            ],
-                            buttons: [
-    
-                                {   extend: 'excel', 
-                                    className: 'btn btn-info',
-                                }
                             ],
     
                             language: {
