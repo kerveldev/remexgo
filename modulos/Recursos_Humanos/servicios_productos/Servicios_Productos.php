@@ -158,7 +158,7 @@ $us = $_SESSION['user']['data'];
                     <div class="card">
                         <div class="card-header">
 
-                            <h6 class="card-title">Listado Elementos</h6>
+                            <h6 class="card-title">Listado Productos</h6>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -171,17 +171,19 @@ $us = $_SESSION['user']['data'];
                                     <table class="table table-striped nowrap" id="tabla_productos">
                                         <thead>
                                             <th>Proveedor</th>
+                                            <th>Producto</th>
                                             <th>Tipo</th>
-                                            <th>Nombre_SP</th>
+                                            <th>Precio</th>
                                             <th>Acciones</th>
                                         </thead>
                                         <tbody>
 
                                         </tbody>
                                         <tfoot>
-                                            <th>N° Emp</th>
-                                            <th>Nombre</th>
-                                            <th>Edo. Adm.</th>
+                                            <th>Proveedor</th>
+                                            <th>Producto</th>
+                                            <th>Tipo</th>
+                                            <th>Precio</th>
                                             <th>Acciones</th>
                                         </tfoot>
                                     </table>

@@ -83,7 +83,6 @@ function listadoProductos(){
                     
                     tbody += 
                         "<tr>"+
-                        "<td>"+checarNulos(reg.Id_SP)+"</td>"+
                         "<td>"+checarNulos(reg.Id_Proveedor)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre_SP)+"</td>"+
                         "<td>"+checarNulos(reg.Tipo)+"</td>"+
@@ -120,7 +119,7 @@ function listadoProductos(){
                                     'className': 'control',
                                 },
                                 { responsivePriority: 1, targets: 0 },
-                                { responsivePriority: 2, targets: 5 }
+                                { responsivePriority: 2, targets: 4 }
                             ],
                             // select: {
                             //     'style': 'multi',
