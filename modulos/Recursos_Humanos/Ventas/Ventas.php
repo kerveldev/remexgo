@@ -79,13 +79,6 @@ $us = $_SESSION['user']['data'];
                                     <tbody>
                     
                                     </tbody>
-                                    <tfoot>
-                                      <th>Id</th>
-                                      <th>Cliente</th>
-                                      <th>Entidad</th>
-                                      <th>Status</th>
-                                      <th>Acciones</th>
-                                    </tfoot>
                                   </table>
                                 </div>
                               </div>
