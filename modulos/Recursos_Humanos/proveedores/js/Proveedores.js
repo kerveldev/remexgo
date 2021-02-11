@@ -252,7 +252,7 @@ function listadoProveedores(){
     
     }
     
-function cerrarModalUsuario_Id(){
+function cerrarModalProveedor_Id(){
     $("#modal_proveedor").modal("hide");
     limpiarModalProveedor();
 }
@@ -370,7 +370,7 @@ function actualizarProveedor(_id_proveedor){
         }).then((res)=> res.json()).then((respApi)=>{
             var respuesta = respApi.data;
 
-            cerrarModaProveedor_Id();
+            cerrarModalProveedor_Id();
             listadoProveedores();
 
             if (respApi.status) {

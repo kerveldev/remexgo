@@ -58,7 +58,7 @@ $us = $_SESSION['user']['data'];
 
                                     <div class="col-sm-12">
                                         <label for="nombre_proveedor">Nombre:</label>
-                                        <input type="date" class="form-control" name="nombre_proveedor"
+                                        <input type="text" class="form-control" name="nombre_proveedor"
                                             id="nombre_proveedor">
                                     </div>
 
@@ -113,7 +113,7 @@ $us = $_SESSION['user']['data'];
 
                                     <div class="col-sm-4">
                                         <label for="cp_proveedor">CP:</label>
-                                        <input type="date" class="form-control" name="cp_proveedor"
+                                        <input type="number" class="form-control" name="cp_proveedor"
                                             id="cp_proveedor">
                                     </div>
 
@@ -156,7 +156,7 @@ $us = $_SESSION['user']['data'];
                 </div>
 
                 <div class="modal-footer ">
-                    <button type="button " class="btn btn-secondary " onclick="cerrarModalproveedor_Id();" >Cerrar</button>
+                    <button type="button " class="btn btn-secondary " onclick="cerrarModalProveedor_Id();" >Cerrar</button>
                     <button type="button" class="btn btn-primary btn-guardar-proveedor">Guardar</button>
                 </div>
 
