@@ -57,7 +57,10 @@ $us = $_SESSION['user']['data'];
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <label>Cliente:</label>
-                                                <input  type="text" class="form-control" name="Cliente" id="Cliente"></input>
+                                                <input  type="hidden" class="form-control" name="Cliente" id="Cliente"></input>
+                                                <select class="form-control" id="Sel_clientes">
+                                                    <option></option>
+                                                </select>
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Fecha:</label>

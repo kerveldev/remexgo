@@ -460,3 +460,50 @@ $(document).ready(function() {
             }
         });
     
+    setTimeout(function(){
+        fetch ('https://remex.kerveldev.com/api/rh/clientes/lst_clientes', {  
+            method: 'POST',
+            headers:{
+            'Content-Type': 'application/json'
+        },
+            body: JSON.stringify({
+                nick : nuser.Nick,
+                token: nuser.Token
+            })
+            }).then((res)=> res.json())
+                .then((resJson)=>{
+                console.log(resJson);
+        
+                    if (resJson.status_sesion == true) {
+                        if (resJson.status == true) {
+                            var respuesta = resJson.data;
+                            var option = "";
+        
+                            for (var i = 0; i < respuesta.length; i++) {
+                                option += "<option value='" + respuesta[i].Id_Cliente + "'>" + respuesta[i].Nombre + "</option>";
+                            }
+        
+                            $("#Sel_clientes").html(option);
+                        }else{
+                            swal(
+                                'Error!',
+                                'No se pudo cargar el registro.',
+                                'error'
+                            )
+                        }
+                    }else{
+                        swal({
+                            title: 'La sesion a caducado, inicie sesion nuevamente',
+                                
+                            confirmButtonText: 'Ok'
+                        }).then((result)=>{
+                            if(result.value){
+        
+                                //carga_mod(id);
+                                   
+                            }
+                        })
+                    }
+                })
+    }, 400);
+        
