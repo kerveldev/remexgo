@@ -177,6 +177,7 @@ function listadoProductos(){
         $("#nombre_producto").val("");
         $("#caracteristica_producto").val("");
         $("#precio_producto").val("");
+        $("#descuento_producto").val("");
         $("#cantidad_producto").val("");
         $("#min_producto").val("");
         $("#unidad_producto").val("");
