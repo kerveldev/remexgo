@@ -78,11 +78,18 @@ function listadoProveedores(){
                 $("#" + tabla + " tbody").remove();
                 var tbody = "<tbody>";
                 var lst = resp.data;
+                var color = "";
                
                 lst.forEach(reg => {
-                    
+
+                    if(reg.Estatus == null || reg.Estatus == ''){
+                        color="text-danger";
+                    }else{
+                        color = "text-info"; 
+                    }
+
                     tbody += 
-                        "<tr>"+
+                        "<tr class='"+color+"'>"+
                         "<td>"+checarNulos(reg.Id_Proveedor)+"</td>"+
                         "<td>"+checarNulos(reg.Nombre)+"</td>"+
                         "<td>"+checarNulos(reg.Tel1)+"</td>"+
