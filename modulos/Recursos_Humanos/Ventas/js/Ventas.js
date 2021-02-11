@@ -425,7 +425,7 @@ $(document).ready(function() {
     }
     
     function cerrarModalArticulos(){
-        $("#modal_clientes").modal("hide");
+        $("#modal_articulos").modal("hide");
         listadoClientes();
         limpia_clientes();
     }
@@ -508,6 +508,7 @@ $(document).ready(function() {
     }, 400);
     
     function nuevo_articulo(){
+        $("#modal_articulos").modal({"backdrop":"static"});
         var tabla = "tabla_articulos";
         //Se piden los datos
         $.ajax({
