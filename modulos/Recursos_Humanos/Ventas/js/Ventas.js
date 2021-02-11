@@ -107,7 +107,7 @@ $(document).ready(function() {
                 Cantidad,
                 Descuento,
                 Precio,
-                //"<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
+                "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
             ] ).draw( false );
         }
      
