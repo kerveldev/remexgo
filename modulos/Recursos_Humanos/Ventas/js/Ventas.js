@@ -97,9 +97,8 @@ $(document).ready(function() {
         var t = $('#tabla_clientes').DataTable();
         var counter = 1;
      
-        $('#addRow').on( 'click', function () {
             t.row.add( [
-                counter +'.1',
+                counter +file,
                 counter +'.2',
                 counter +'.3',
                 counter +'.4',
@@ -107,7 +106,6 @@ $(document).ready(function() {
             ] ).draw( false );
      
             counter++;
-        } );
      
         // Automatically add a first row of data
         $('#addRow').click();
