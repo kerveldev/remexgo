@@ -54,7 +54,7 @@ $us = $_SESSION['user']['data'];
 
                                 <div class="col-sm-12">
                                     <label for="id_proveedor">Proveedor:</label>
-                                    <select type="date" class="form-control" name="id_proveedor"
+                                    <select class="form-control" name="id_proveedor"
                                         id="id_proveedor">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
