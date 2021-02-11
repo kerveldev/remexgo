@@ -502,9 +502,17 @@ $(document).ready(function() {
                                         action: function(e, dt, node, config) {
 
                                             //Enviar datos del articulo a pantalla principal              
-                                            var filas = new Array();
+                                            var Id = new Array();
+                                            var Nombre = new Array();
+                                            var Cantidad = new Array();
+                                            var Descuento = new Array();
+                                            var Precio = new Array();
 
-                                            filas = [];
+                                            Id = [];
+                                            Nombre = [];
+                                            Cantidad = [];
+                                            Descuento = [];
+                                            Precio = [];
 
                                             for (i = 0; i < table.rows('.selected').data().length; i++) {
 
