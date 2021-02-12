@@ -102,9 +102,6 @@ $(document).ready(function() {
             InicializarDatatable("tabla_clientes");
         }else{
             var t = $('#tabla_clientes').DataTable({
-                paging:   false,
-                bFilter: false, 
-                bInfo: false,
                 "footerCallback": function ( row, data, start, end, display ) {
                     var api = this.api(), data;
          
@@ -137,20 +134,19 @@ $(document).ready(function() {
                         '$'+pageTotal +' ( $'+ total +' total)'
                     );
                 }
-            }).fnAddData([
-                rep = Id.length,
-                for(i=0;i<rep; i++){
-                    t.row.add( [
-                        Id[i],
-                        Nombre[i],
-                        Cantidad[i],
-                        Descuento[i],
-                        Precio[i],
-                        "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
-                    ] ).draw( false );
-                    
-                }]);
-            
+            }).fnAddData([]);
+            rep = Id.length;
+            for(i=0;i<rep; i++){
+                t.row.add( [
+                    Id[i],
+                    Nombre[i],
+                    Cantidad[i],
+                    Descuento[i],
+                    Precio[i],
+                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
+                ] ).draw( false );
+                
+            }
         }
      
     }
