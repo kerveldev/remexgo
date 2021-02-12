@@ -139,8 +139,8 @@ $us = $_SESSION['user']['data'];
                                                 <thead>
                                                 <th>Id Articulo</th>
                                                 <th>Nombre</th>
-                                                <th>Cantidad</th>
-                                                <th>Descuento</th>
+                                                <th><input type="number"/>Cantidad</th>
+                                                <th><input type="number" step="0.01"/>Descuento</th>
                                                 <th>Precio</th>
                                                 <th>Acciones</th>
                                                 </thead>
