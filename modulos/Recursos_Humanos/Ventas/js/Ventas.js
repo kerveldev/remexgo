@@ -139,7 +139,8 @@ $(document).ready(function() {
     function total_articulo(Id, precio){
         var cantidad = $(".cantidad"+Id+"").val();
         var descuento = $(".descuento"+Id+"").val();
-        total = ((precio*cantidad)*descuento)/100;
+        unidad = (precio*descuento)/100;
+        total = (unidad*cantidad);
         alert(total);
     }
 
