@@ -130,6 +130,7 @@ $(document).ready(function() {
                          + "\nFilas Filtradas: " + $("#example").DataTable().rows( { filter : 'applied'} ).nodes().length);
                   }
                 });
+            });
         }
      
     }
