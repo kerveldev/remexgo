@@ -147,6 +147,12 @@ $us = $_SESSION['user']['data'];
                                                 <tbody>
                                 
                                                 </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <th colspan="4" style="text-align:right">Total:</th>
+                                                    <th></th>
+                                                </tr>
+                                            </tfoot>
                                                 <!--<tfoot>
                                                 <th>TOTAL</th>
                                                 <th></th>
