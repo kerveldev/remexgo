@@ -107,8 +107,8 @@ $(document).ready(function() {
                 t.row.add( [
                     Id[i],
                     Nombre[i],
-                    Cantidad[i],
-                    Descuento[i],
+                    '<input type="text" name="cantidad">',
+                    '<input type="text" name="descuento" value="'+Descuento[i]+'">',
                     Precio[i],
                     "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
