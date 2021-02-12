@@ -107,6 +107,7 @@ $(document).ready(function() {
             rep = Id.length;
             for(i=0;i<rep; i++){
                 canti = $("#cantidad").val(val);
+                canti = parseInt(canti);
                 Preci = Precio[i];
                 Preci = parseInt(Preci);
                 t.row.add( [
