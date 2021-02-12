@@ -462,12 +462,6 @@ $(document).ready(function() {
                 var lst = resp.data;
                
                 lst.forEach(reg => {
-                    estado = "";
-                    if(reg.Estatus == 1){
-                        estado = "<span class='label label-primary'>ACTIVO</span>";
-                    }else{
-                        estado = "<span class='label label-danger'>INACTIVO</span>";
-                    }
                     tbody += 
                         "<tr>"+
                         "<td>"+checarNulos(reg.Id_SP)+"</td>"+
@@ -495,7 +489,7 @@ $(document).ready(function() {
                                 "<'row'<'#divisor.col-md-12'>>" +
                                 "<'row'<'col-sm-4 'l><'col-sm-4 '><'col-sm-4 floatRight'p>>" +
                                 "<'row'<'#divisor2.col-md-12'>>" +
-                                "<'row'<'col-sm-12'B>>",
+                                "<'row'<'col-sm-8'><'col-sm-4'B>>",
                             columnDefs: [{
                                     'className': 'control',
                                 },
