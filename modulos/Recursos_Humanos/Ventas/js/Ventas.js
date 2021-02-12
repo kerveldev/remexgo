@@ -113,7 +113,7 @@ $(document).ready(function() {
                     '<input type="number" name="cantidad" max="'+Cantidad[i]+'">',
                     '<input type="number"  step="0.01" name="descuento" value="'+Descuento[i]+'">',
                     Precio[i],
-                    Precio[i]*canti,
+                    parseInt(Precio[i])*canti,
                     "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
                 
