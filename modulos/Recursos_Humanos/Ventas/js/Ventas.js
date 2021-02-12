@@ -106,13 +106,14 @@ $(document).ready(function() {
             $("#cantidad").val(val);
             rep = Id.length;
             for(i=0;i<rep; i++){
+                canti = $("#cantidad").val(val);
                 t.row.add( [
                     Id[i],
                     Nombre[i],
                     '<input type="number" name="cantidad" max="'+Cantidad[i]+'">',
                     '<input type="number"  step="0.01" name="descuento" value="'+Descuento[i]+'">',
                     Precio[i],
-                    Precio[i]*$("#cantidad").val(),
+                    Precio[i]*canti,
                     "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
                 
