@@ -115,19 +115,12 @@ $(document).ready(function() {
                 
             }
             
-            
-
-            t.columns().every(function() {
-                var that = this;
-                  if (that.search() !== this.value) {
-                    that
-                      .search(this.value)
-                      .draw();
-                      
-                    console.log("Filas Totales: " + $("#tabla_clientes").DataTable().rows().count()
-                         + "\nFilas Filtradas: " + $("#tabla_clientes").DataTable().rows( { filter : 'applied'} ).nodes().length);
-                  }
+            t.rows().iterator('row', function (context, index) {
+                let node = $(this.row(index).node());
+                total += +(node.find('td').eq(4))
             });
+            console.log(total);
+           
         }
      
     }
