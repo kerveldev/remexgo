@@ -115,6 +115,7 @@ $(document).ready(function() {
                 
             }
             let statusElement= "";
+            let sumatotal= null;
 
             cantidadr = t.rows().data().length;
 
