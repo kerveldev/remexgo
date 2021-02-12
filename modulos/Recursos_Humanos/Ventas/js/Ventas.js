@@ -101,6 +101,7 @@ $(document).ready(function() {
 
             InicializarDatatable("tabla_clientes");
         }else{
+            Id=
             rep = Id.length;
             for(i=0;i<rep; i++){
                 t.row.add( [
@@ -527,7 +528,7 @@ $(document).ready(function() {
 
                                             }
 
-                                            listadoClientes(Id.toString(),Nombre.toString(),Cantidad.toString(),Descuento.toString(),Precio.toString());
+                                            listadoClientes(Id,Nombre,Cantidad,Descuento,Precio);
                                             
                                         }
                             },
