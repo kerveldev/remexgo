@@ -114,20 +114,22 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
+            
+            
 
-            t.columns().every(function () {
+            table.columns().every(function() {
                 var that = this;
-
-
-                $('input', this.footer()).on('keyup change', function () {
-                    if (that.search() !== this.value) {
-                        that
-                                .search(this.value)
-                                .draw();
-                    }
-                    totales();
+            
+                $('select', this.header()).on('keyup change', function() {
+                  if (that.search() !== this.value) {
+                    that
+                      .search(this.value)
+                      .draw();
+                      
+                    console.log("Filas Totales: " + $("#example").DataTable().rows().count()
+                         + "\nFilas Filtradas: " + $("#example").DataTable().rows( { filter : 'applied'} ).nodes().length);
+                  }
                 });
-            });
         }
      
     }
