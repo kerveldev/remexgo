@@ -137,7 +137,8 @@ $(document).ready(function() {
                         '$'+pageTotal +' ( $'+ total +' total)'
                     );
                 }
-            }).fnAddData([rep = Id.length;
+            }).fnAddData([
+                rep = Id.length,
                 for(i=0;i<rep; i++){
                     t.row.add( [
                         Id[i],
