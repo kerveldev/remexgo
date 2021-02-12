@@ -147,14 +147,14 @@ $us = $_SESSION['user']['data'];
                                                 <tbody>
                                 
                                                 </tbody>
-                                                <tfoot>
+                                                <!--<tfoot>
                                                 <th>TOTAL</th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th>Acciones</th>
-                                            </tfoot>
+                                            </tfoot>-->
                                             </table>
                                             </div>
                                         </div>
