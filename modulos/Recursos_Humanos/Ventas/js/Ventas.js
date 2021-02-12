@@ -115,6 +115,8 @@ $(document).ready(function() {
                 
             }
             let statusElement= "";
+
+            cantidadr = t.rows().data().length;
             t.rows().every(function(index, element) {
                  row = $(this.row(index).node());
                  statusElement += (row.find('td').eq(4)); // Index 6 - the 7th column in the table
