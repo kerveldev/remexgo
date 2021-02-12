@@ -114,12 +114,21 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
-            
-            t.rows().iterator('row', function (context, index) {
+            	
+            t.rows().every(function(index, element) {
+                var row = $(this.node());
+                var statusElement = row.find('td').eq(4); // Index 6 - the 7th column in the table
+            });
+            console.log(statusElement);
+           
+           /* t.rows().iterator('row', function (context, index) {
                 let node = $(this.row(index).node());
                 total += +(node.find('td').eq(4));
-            });
-            console.log(total);
+            });*/
+            t.rows().iterator( 'row', function ( context, index ) {
+                $( this.row( index ).node() ).addClass( 'lowlight' );
+            } );
+            //console.log(total);
            
         }
      
