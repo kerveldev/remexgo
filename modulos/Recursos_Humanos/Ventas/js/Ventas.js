@@ -122,21 +122,8 @@ $(document).ready(function() {
             for (x = 0; x < t.rows().data().length; x++) {
                 sumatotal += +(t.rows().data()[x][4]);
             }
-            t.rows().every(function(index, element) {
-                 row = $(this.row(index).node());
-                 statusElement += (row.find('td').eq(4)); // Index 6 - the 7th column in the table
-
-            });
             console.log(sumatotal);
-           
-           /* t.rows().iterator('row', function (context, index) {
-                let node = $(this.row(index).node());
-                total += +(node.find('td').eq(4));
-            });*/
-            t.rows().iterator( 'row', function ( context, index ) {
-                $( this.row( index ).node() ).addClass( 'lowlight' );
-            } );
-            //console.log(total);
+            $("#can").html(sumatotal);
            
         }
      
