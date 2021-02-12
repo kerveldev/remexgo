@@ -116,7 +116,7 @@ $(document).ready(function() {
                     "<input type='number' class='cantidad"+ Id[i]+"' max='"+Cantidad[i]+"'>",
                     "<input type='number'  step='0.01' class='descuento"+ Id[i]+"' value='"+Descuento[i]+"'>",
                     Precio[i],
-                    Preci*canti,
+                    "<input type='text' class='total"+ Id[i]+"'>",
                     "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
                 
@@ -143,6 +143,7 @@ $(document).ready(function() {
         unidad = precio - descuento;
         total = (unidad*cantidad);
         alert(total);
+        $(".total"+Id+"").val(total);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
