@@ -116,7 +116,7 @@ $(document).ready(function() {
             }
             let statusElement= "";
             t.rows().every(function(index, element) {
-                 row = $(this.node());
+                 row = $(this.row(index).node());
                  statusElement = row.find('td').eq(4); // Index 6 - the 7th column in the table
             });
             console.log(statusElement);
