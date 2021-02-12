@@ -137,6 +137,7 @@ $us = $_SESSION['user']['data'];
                                                 <th>Cantidad</th>
                                                 <th>Descuento</th>
                                                 <th>Precio</th>
+                                                <th>Total</th>
                                                 <th>Acciones</th>
                                                 </thead>
                                                 <tbody>
@@ -144,7 +145,7 @@ $us = $_SESSION['user']['data'];
                                                 </tbody>
                                                 <tfoot>
                                                 <tr>
-                                                    <th colspan="4" style="text-align:right">Total:</th>
+                                                    <th colspan="5" style="text-align:right">Total:</th>
                                                     <th id="can"></th>
                                                 </tr>
                                             </tfoot>
