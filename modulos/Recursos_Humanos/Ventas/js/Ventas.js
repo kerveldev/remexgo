@@ -102,7 +102,7 @@ $(document).ready(function() {
             InicializarDatatable("tabla_clientes");
         }else{
             rep = Id.length;
-            for(i=0,i<rep, i++){
+            for(i=0;i<rep; i++){
                 t.row.add( [
                     Id[i],
                     Nombre[i],
