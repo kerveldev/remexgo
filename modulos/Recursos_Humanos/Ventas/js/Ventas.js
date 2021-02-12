@@ -119,8 +119,6 @@ $(document).ready(function() {
 
             t.columns().every(function() {
                 var that = this;
-            
-                $('select', this.header()).on('keyup change', function() {
                   if (that.search() !== this.value) {
                     that
                       .search(this.value)
@@ -129,7 +127,6 @@ $(document).ready(function() {
                     console.log("Filas Totales: " + $("#tabla_clientes").DataTable().rows().count()
                          + "\nFilas Filtradas: " + $("#tabla_clientes").DataTable().rows( { filter : 'applied'} ).nodes().length);
                   }
-                });
             });
         }
      
