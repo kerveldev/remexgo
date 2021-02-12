@@ -117,7 +117,7 @@ $(document).ready(function() {
                     '<input type="number"  step="0.01" name="descuento" value="'+Descuento[i]+'">',
                     Precio[i],
                     Preci*canti,
-                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
+                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + $("#cantidad").val() + "\",\"" + $("#descuento").val() + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
                 
             }
@@ -136,6 +136,10 @@ $(document).ready(function() {
      
     }
     
+    function total_articulo(cantidad, descuento, precio){
+        alert(cantidad, descuento, precio);
+    }
+
     function abrirClientes_Id(_id_cliente, _nombre){
     
         $("#modal_clientes").modal({"backdrop":"static"});
