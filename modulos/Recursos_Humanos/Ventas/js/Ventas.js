@@ -113,8 +113,8 @@ $(document).ready(function() {
                 t.row.add( [
                     Id[i],
                     Nombre[i],
-                    '<input type="number" name="cantidad" max="'+Cantidad[i]+'">',
-                    '<input type="number"  step="0.01" name="descuento" value="'+Descuento[i]+'">',
+                    '<input type="number" id="cantidad" name="cantidad" max="'+Cantidad[i]+'">',
+                    '<input type="number"  step="0.01" id="descuento" name="descuento" value="'+Descuento[i]+'">',
                     Precio[i],
                     Preci*canti,
                     "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + $("#cantidad").val() + "\",\"" + $("#descuento").val() + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
