@@ -126,8 +126,8 @@ $(document).ready(function() {
                       .search(this.value)
                       .draw();
                       
-                    console.log("Filas Totales: " + $("#example").DataTable().rows().count()
-                         + "\nFilas Filtradas: " + $("#example").DataTable().rows( { filter : 'applied'} ).nodes().length);
+                    console.log("Filas Totales: " + $("#tabla_clientes").DataTable().rows().count()
+                         + "\nFilas Filtradas: " + $("#tabla_clientes").DataTable().rows( { filter : 'applied'} ).nodes().length);
                   }
                 });
             });
