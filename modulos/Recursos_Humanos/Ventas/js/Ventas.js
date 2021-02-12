@@ -114,6 +114,20 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
+
+            t.columns().every(function () {
+                var that = this;
+
+
+                $('input', this.footer()).on('keyup change', function () {
+                    if (that.search() !== this.value) {
+                        that
+                                .search(this.value)
+                                .draw();
+                    }
+                    totales();
+                });
+            });
         }
      
     }
