@@ -113,11 +113,11 @@ $(document).ready(function() {
                 t.row.add( [
                     Id[i],
                     Nombre[i],
-                    '<input type="number" id="cantidad" name="cantidad" max="'+Cantidad[i]+'">',
-                    '<input type="number"  step="0.01" id="descuento" name="descuento" value="'+Descuento[i]+'">',
+                    "<input type='number' class='cantidad"+ Id[i]+"' max='"+Cantidad[i]+"'>",
+                    "<input type='number'  step='0.01' class='descuento"+ Id[i]+"' value='"+Descuento[i]+"'>",
                     Precio[i],
                     Preci*canti,
-                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + $("#cantidad").val() + "\",\"" + $("#descuento").val() + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
+                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
                 ] ).draw( false );
                 
             }
@@ -136,7 +136,9 @@ $(document).ready(function() {
      
     }
     
-    function total_articulo(cantidad, descuento, precio){
+    function total_articulo(Id, precio){
+        var cantidad = $(".cantidad"+Id+"").val();
+        var descuento = $(".descuento"+Id+"").val();
         alert(cantidad, descuento, precio);
     }
 
