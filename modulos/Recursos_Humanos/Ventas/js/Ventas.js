@@ -137,19 +137,19 @@ $(document).ready(function() {
                         '$'+pageTotal +' ( $'+ total +' total)'
                     );
                 }
-            });
-            rep = Id.length;
-            for(i=0;i<rep; i++){
-                t.row.add( [
-                    Id[i],
-                    Nombre[i],
-                    Cantidad[i],
-                    Descuento[i],
-                    Precio[i],
-                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
-                ] ).draw( false );
-                
-            }
+            }).fnAddData([rep = Id.length;
+                for(i=0;i<rep; i++){
+                    t.row.add( [
+                        Id[i],
+                        Nombre[i],
+                        Cantidad[i],
+                        Descuento[i],
+                        Precio[i],
+                        "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='abrirClientes_Id()'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp;",
+                    ] ).draw( false );
+                    
+                }]);
+            
         }
      
     }
