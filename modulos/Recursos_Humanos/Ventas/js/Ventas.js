@@ -114,10 +114,10 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
-            	
+            let statusElement= "";
             t.rows().every(function(index, element) {
-                var row = $(this.node());
-                var statusElement = row.find('td').eq(4); // Index 6 - the 7th column in the table
+                 row = $(this.node());
+                 statusElement = row.find('td').eq(4); // Index 6 - the 7th column in the table
             });
             console.log(statusElement);
            
