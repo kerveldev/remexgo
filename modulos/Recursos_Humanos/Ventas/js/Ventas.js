@@ -117,7 +117,7 @@ $(document).ready(function() {
             
             t.rows().iterator('row', function (context, index) {
                 let node = $(this.row(index).node());
-                total += +(node.find('td').eq(4))
+                total += +(node.find('td').eq(4));
             });
             console.log(total);
            
