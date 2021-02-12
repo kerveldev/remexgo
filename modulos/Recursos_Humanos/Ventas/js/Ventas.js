@@ -117,7 +117,7 @@ $(document).ready(function() {
             
             
 
-            table.columns().every(function() {
+            t.columns().every(function() {
                 var that = this;
             
                 $('select', this.header()).on('keyup change', function() {
