@@ -138,6 +138,14 @@ $(document).ready(function() {
             var cantidad = $(".cantidad"+id+"").val();
             var descuento = $(".descuento"+id+"").val();
 
+            if (isNaN(cantidad) || cantidad =="" || cantidad ==null || cantidad == undefined){
+                cantidad = 0;
+            }
+
+            if (isNaN(descuento) || descuento =="" || descuento ==null || descuento == undefined){
+                descuento = 0;
+            }
+
             precio = (t.rows().data()[x][4]);
             if(precio== null || precio ==  undefined   || precio == ""){
                 precio =0;
