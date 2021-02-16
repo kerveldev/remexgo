@@ -135,8 +135,8 @@ $(document).ready(function() {
             id= (t.rows().data()[x][0]);
 
             //Suma individual de articulo
-            cantidad = $(".cantidad"+id+"").val();
-            descuento = $(".descuento"+id+"").val();
+            cantidad = (t.rows().data()[x][2]);
+            descuento = (t.rows().data()[x][3]);
             precio = (t.rows().data()[x][4]);
             if(precio== null || precio ==  undefined   || precio == ""){
                 precio =0;
