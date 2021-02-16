@@ -147,7 +147,8 @@ $(document).ready(function() {
             }
 
             precio = (t.rows().data()[x][4]);
-            if(precio== null || precio ==  undefined   || precio == ""){
+            precio = precio.split(" ");
+            if(precio[1]== null || precio[1] ==  undefined   || precio[1] == ""){
                 precio =0;
             }
             descuento = (precio*descuento)/100;
