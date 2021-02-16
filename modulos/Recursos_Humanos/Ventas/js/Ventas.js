@@ -132,11 +132,12 @@ $(document).ready(function() {
         let sumatotal= null;
 
         for (x = 0; x < t.rows().data().length; x++) {
-            id= (t.rows().data()[x][0])
+            id= (t.rows().data()[x][0]);
 
             //Suma individual de articulo
             cantidad = $(".cantidad"+id+"").val();
             descuento = $(".descuento"+id+"").val();
+            precio = (t.rows().data()[x][4]);
 
             descuento = (precio*descuento)/100;
             unidad = precio - descuento;
@@ -146,7 +147,7 @@ $(document).ready(function() {
 
             //Suma total de venta
             total = $(".total"+id[0]+"").val();
-            if(total== null || total == undefined || total == ""){
+            if(total== null || total ==      || total == ""){
                 total =0;
             }
             sumatotal += +total;
