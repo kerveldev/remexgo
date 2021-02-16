@@ -152,7 +152,7 @@ $(document).ready(function() {
                 precio =0;
             }else{
                 precio = precio[1];
-                precio = Integer.parseInt(precio);
+                precio = parseInt(precio);
             }
             descuento = (precio*descuento)/100;
             unidad = precio - descuento;
