@@ -117,7 +117,7 @@ $(document).ready(function() {
                     "<input type='number'  step='0.01' class='descuento"+ Id[i]+"' value='"+Descuento[i]+"'>",
                     "$ "+Precio[i],
                     "<input type='text' class='total"+ Id[i]+"' readonly='readonly'>",
-                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-trash'></i></button>&nbsp;",
+                    "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>&nbsp<button type='button' class='btn btn-sm btn-outline btn-danger p-2 del' onclick='eliminar_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-trash'></i></button>&nbsp;",
                 ] ).draw( false );
                 
             }
@@ -128,6 +128,18 @@ $(document).ready(function() {
      
     }
     
+    function total_articulo(Id, precio){
+        var cantidad = $(".cantidad"+Id+"").val();
+        var descuento = $(".descuento"+Id+"").val();
+        descuento = (precio*descuento)/100;
+        unidad = precio - descuento;
+        total = (unidad*cantidad);
+    
+        $(".total"+Id+"").val(total);
+
+        sumafinal();
+    }
+
     function sumafinal(){
         let sumatotal= null;
 
@@ -173,16 +185,13 @@ $(document).ready(function() {
 
     }
 
-    function total_articulo(Id, precio){
-            var cantidad = $(".cantidad"+Id+"").val();
-            var descuento = $(".descuento"+Id+"").val();
-        descuento = (precio*descuento)/100;
-        unidad = precio - descuento;
-        total = (unidad*cantidad);
-       
-        $(".total"+Id+"").val(total);
-
-        sumafinal();
+    function eliminar_articulo(){
+        // Borrar registro
+        t.on('click', 'button.del', function() {
+            let $tr = $(this).closest('tr');
+                
+        // Le pedimos al DataTable que borre la fila
+        t.row($tr).remove().draw(false);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
