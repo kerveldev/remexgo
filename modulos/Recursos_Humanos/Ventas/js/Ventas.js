@@ -135,8 +135,14 @@ $(document).ready(function() {
             id= (t.rows().data()[x][0]);
 
             //Suma individual de articulo
-            cantidad = (t.rows().data()[x][2]);
-            descuento = (t.rows().data()[x][3]);
+            cantidad = $(".cantidad"+id+"").val();
+            if(NaN(cantidad)){
+                cantidad = 0;
+            }
+            descuento = $(".descuento"+id+"").val();
+            if(NaN(descuento)){
+                descuento = 0;
+            }
             precio = (t.rows().data()[x][4]);
             if(precio== null || precio ==  undefined   || precio == ""){
                 precio =0;
