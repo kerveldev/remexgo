@@ -147,7 +147,7 @@ $us = $_SESSION['user']['data'];
                                                 <tr>
                                                     <th colspan="5" style="text-align:right">Total:</th>
                                                     <th id="can"></th>
-                                                    <th colspan="6" class="btn btn-xs btn-primary"><i class='fa fa-refresh'></i></th>
+                                                    <th colspan="6" style="text-align:right" class="btn btn-xs btn-primary"><i class='fa fa-refresh'></i></th>
                                                 </tr>
                                             </tfoot>
                                                 <!--<tfoot>
