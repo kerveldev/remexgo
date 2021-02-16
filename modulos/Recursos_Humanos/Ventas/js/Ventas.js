@@ -127,7 +127,9 @@ $(document).ready(function() {
             cantidadr = t.rows().data().length;
 
             for (x = 0; x < t.rows().data().length; x++) {
-                sumatotal += +(t.rows().data()[x][5]);
+                total = $(".total"+Id[x]+"").val();
+                sumatotal += +total;
+                //sumatotal += +(t.rows().data()[x][5]);
             }
             console.log(sumatotal);
             $("#can").html(sumatotal);
