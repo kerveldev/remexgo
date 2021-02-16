@@ -108,10 +108,7 @@ $(document).ready(function() {
             $("#cantidad").val(val);
             rep = Id.length;
             for(i=0;i<rep; i++){
-                canti = $("#cantidad").val(val);
-                canti = parseInt(canti);
-                Preci = Precio[i];
-                Preci = parseInt(Preci);
+
                 t.row.add( [
                     Id[i],
                     Nombre[i],
@@ -143,6 +140,9 @@ $(document).ready(function() {
 
             for (x = 0; x < t.rows().data().length; x++) {
                 total = $(".total"+Id[x]+"").val();
+                if(total== null || total == undefined || total == ""){
+                    total =0;
+                }
                 sumatotal += +total;
                 //sumatotal += +(t.rows().data()[x][5]);
             }
