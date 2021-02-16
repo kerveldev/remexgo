@@ -121,18 +121,6 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
-            let statusElement= "";
-            let sumatotal= null;
-
-            cantidadr = t.rows().data().length;
-
-            for (x = 0; x < t.rows().data().length; x++) {
-                total = $(".total"+Id[x]+"").val();
-                sumatotal += +total;
-                //sumatotal += +(t.rows().data()[x][5]);
-            }
-            console.log(sumatotal);
-            $("#can").html(sumatotal);
            
         }
      
@@ -146,6 +134,18 @@ $(document).ready(function() {
         total = (unidad*cantidad);
         //alert(total);
         $(".total"+Id+"").val(total);
+
+        let sumatotal= null;
+
+            cantidadr = t.rows().data().length;
+
+            for (x = 0; x < t.rows().data().length; x++) {
+                total = $(".total"+Id[x]+"").val();
+                sumatotal += +total;
+                //sumatotal += +(t.rows().data()[x][5]);
+            }
+            console.log(sumatotal);
+            $("#can").html(sumatotal);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
