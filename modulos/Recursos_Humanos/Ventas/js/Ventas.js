@@ -136,11 +136,11 @@ $(document).ready(function() {
 
             //Suma individual de articulo
             cantidad = $(".cantidad"+id+"").val();
-            if(NaN(cantidad)){
+            if(isNaN(cantidad)){
                 cantidad = 0;
             }
             descuento = $(".descuento"+id+"").val();
-            if(NaN(descuento)){
+            if(isNaN(descuento)){
                 descuento = 0;
             }
             precio = (t.rows().data()[x][4]);
