@@ -124,12 +124,16 @@ $(document).ready(function() {
 
             sumafinal();
             // Borrar registro
+            let eli = 0
             t.on('click', 'button.del', function() {
+                
                 let $tr = $(this).closest('tr');
-                    
-            // Le pedimos al DataTable que borre la fila
-            t.row($tr).remove().draw(false);
-        });
+                if(eli <=1){
+                    // Le pedimos al DataTable que borre la fila
+                    t.row($tr).remove().draw(false);
+                }
+                
+            });
            
         }
      
