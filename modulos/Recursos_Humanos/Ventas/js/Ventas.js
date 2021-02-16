@@ -27,6 +27,7 @@ $(document).ready(function() {
     }); 
 
     let t = "";
+    let sumatotal= null;
     
     function comprobarCheck(var_check){
 
@@ -121,48 +122,39 @@ $(document).ready(function() {
                 
             }
 
-            cantidadr = t.rows().data().length;
-
-            for (x = 0; x < t.rows().data().length; x++) {
-                id= (t.rows().data()[x][0])
-                total = $(".total"+id[0]+"").val();
-                if(total== null || total == undefined || total == ""){
-                    total =0;
-                }
-                sumatotal += +total;
-                //sumatotal += +(t.rows().data()[x][5]);
-            }
-            console.log(sumatotal);
-            $("#can").html(sumatotal);
+            sumafinal();
            
         }
      
     }
     
+    function sumafinal(){
+        cantidadr = t.rows().data().length;
+
+        for (x = 0; x < t.rows().data().length; x++) {
+            id= (t.rows().data()[x][0])
+            total = $(".total"+id[0]+"").val();
+            if(total== null || total == undefined || total == ""){
+                total =0;
+            }
+            sumatotal += +total;
+            //sumatotal += +(t.rows().data()[x][5]);
+        }
+        console.log(sumatotal);
+        $("#can").html(sumatotal);
+
+        sumafinal();
+    }
+
     function total_articulo(Id, precio){
         var cantidad = $(".cantidad"+Id+"").val();
         var descuento = $(".descuento"+Id+"").val();
         descuento = (precio*descuento)/100;
         unidad = precio - descuento;
         total = (unidad*cantidad);
-        //alert(total);
+       
         $(".total"+Id+"").val(total);
 
-        let sumatotal= null;
-
-            cantidadr = t.rows().data().length;
-
-            for (x = 0; x < t.rows().data().length; x++) {
-                id= (t.rows().data()[x][0])
-                total = $(".total"+id[0]+"").val();
-                if(total== null || total == undefined || total == ""){
-                    total =0;
-                }
-                sumatotal += +total;
-                //sumatotal += +(t.rows().data()[x][5]);
-            }
-            console.log(sumatotal);
-            $("#can").html(sumatotal);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
