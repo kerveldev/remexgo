@@ -147,7 +147,7 @@ $us = $_SESSION['user']['data'];
                                                 <tr>
                                                     <th colspan="5" style="text-align:right">Total:</th>
                                                     <th id="can"></th>
-                                                    <th colspan="6"><a href=""  data-bubble="<?php echo $data->id; ?>" class="btn btn-xs btn-primary"> Ver Mas</a></th>
+                                                    <th colspan="6" class="btn btn-xs btn-primary"><i class='fa fa-refresh'></i></th>
                                                 </tr>
                                             </tfoot>
                                                 <!--<tfoot>
