@@ -150,14 +150,6 @@ $us = $_SESSION['user']['data'];
                                                     
                                                 </tr>
                                             </tfoot>
-                                                <!--<tfoot>
-                                                <th>TOTAL</th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                                <th>Acciones</th>
-                                            </tfoot>-->
                                             </table>
                                             </div>
                                         </div>
