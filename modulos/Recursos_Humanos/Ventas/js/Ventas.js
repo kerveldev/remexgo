@@ -139,13 +139,13 @@ $(document).ready(function() {
             cantidadr = t.rows().data().length;
 
             for (x = 0; x < t.rows().data().length; x++) {
-                total = $(".total"+Id[x]+"").val();
+                total = t.rows().data()[x][5];
                 if(total== null || total == undefined || total == ""){
                     total =0;
                 }
-                //sumatotal += +total;
-                sumatotal += +(t.rows().data()[x][5]);
-            }
+                sumatotal += +total;
+                //sumatotal += +(t.rows().data()[x][5]);
+                }
             console.log(sumatotal);
             $("#can").html(sumatotal);
     }
