@@ -129,7 +129,7 @@ $(document).ready(function() {
                     
             // Le pedimos al DataTable que borre la fila
             t.row($tr).remove().draw(false);
-        }
+        });
            
         }
      
