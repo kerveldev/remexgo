@@ -147,7 +147,7 @@ $(document).ready(function() {
 
             //Suma total de venta
             total = $(".total"+id[0]+"").val();
-            if(total== null || total ==      || total == ""){
+            if(total== null || total ==  undefined   || total == ""){
                 total =0;
             }
             sumatotal += +total;
