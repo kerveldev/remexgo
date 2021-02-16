@@ -131,6 +131,7 @@ $(document).ready(function() {
                 if(eli <=1){
                     // Le pedimos al DataTable que borre la fila
                     t.row($tr).remove().draw(false);
+                    eli ++;
                 }
                 
             });
