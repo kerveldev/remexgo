@@ -154,6 +154,9 @@ $us = $_SESSION['user']['data'];
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" onclick="total_articulo()">Cerrar<i class='fa fa-refresh'></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
