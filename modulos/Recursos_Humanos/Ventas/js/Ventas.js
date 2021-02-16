@@ -140,7 +140,7 @@ $(document).ready(function() {
 
             for (x = 0; x < t.rows().data().length; x++) {
                 id= (t.rows().data()[x][0])
-                total = $(".total"+id[x]+"").val();
+                total = $(".total"+id[0]+"").val();
                 if(total== null || total == undefined || total == ""){
                     total =0;
                 }
