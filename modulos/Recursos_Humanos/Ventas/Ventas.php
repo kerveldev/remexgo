@@ -147,8 +147,7 @@ $us = $_SESSION['user']['data'];
                                                 <tr>
                                                     <th colspan="5" style="text-align:right">Total:</th>
                                                     <th id="can"></th>
-                                                    <th <button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='total_articulo(\"" + Id[i] + "\",\"" + Precio[i] + "\")'; title='Informacion del cliente'><i class='fa fa-refresh'></i></button>></th>
-                                                    <th><a href=""  data-bubble="<?php echo $data->id; ?>" class="btn btn-xs btn-primary"> Ver Mas</a></th>
+                                                    <th colspan="6"><a href=""  data-bubble="<?php echo $data->id; ?>" class="btn btn-xs btn-primary"> Ver Mas</a></th>
                                                 </tr>
                                             </tfoot>
                                                 <!--<tfoot>
