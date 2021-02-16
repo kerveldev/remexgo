@@ -138,7 +138,9 @@ $(document).ready(function() {
             cantidad = $(".cantidad"+id+"").val();
             descuento = $(".descuento"+id+"").val();
             precio = (t.rows().data()[x][4]);
-
+            if(precio== null || precio ==  undefined   || precio == ""){
+                precio =0;
+            }
             descuento = (precio*descuento)/100;
             unidad = precio - descuento;
             total = (unidad*cantidad);
