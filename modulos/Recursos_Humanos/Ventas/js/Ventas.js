@@ -120,21 +120,8 @@ $(document).ready(function() {
                 ] ).draw( false );
                 
             }
-           
-        }
-     
-    }
-    
-    function total_articulo(Id, precio){
-        var cantidad = $(".cantidad"+Id+"").val();
-        var descuento = $(".descuento"+Id+"").val();
-        descuento = (precio*descuento)/100;
-        unidad = precio - descuento;
-        total = (unidad*cantidad);
-        //alert(total);
-        $(".total"+Id+"").val(total);
 
-        let sumatotal= null;
+            let sumatotal= null;
 
             cantidadr = t.rows().data().length;
 
@@ -149,6 +136,19 @@ $(document).ready(function() {
             }
             console.log(sumatotal);
             $("#can").html(sumatotal);
+           
+        }
+     
+    }
+    
+    function total_articulo(Id, precio){
+        var cantidad = $(".cantidad"+Id+"").val();
+        var descuento = $(".descuento"+Id+"").val();
+        descuento = (precio*descuento)/100;
+        unidad = precio - descuento;
+        total = (unidad*cantidad);
+        //alert(total);
+        $(".total"+Id+"").val(total);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
