@@ -136,13 +136,8 @@ $(document).ready(function() {
 
             //Suma individual de articulo
             var cantidad = $(".cantidad"+id+"").val();
-            if(isNaN(cantidad)){
-                cantidad = 0;
-            }
             var descuento = $(".descuento"+id+"").val();
-            if(isNaN(descuento)){
-                descuento = 0;
-            }
+
             precio = (t.rows().data()[x][4]);
             if(precio== null || precio ==  undefined   || precio == ""){
                 precio =0;
@@ -167,8 +162,8 @@ $(document).ready(function() {
     }
 
     function total_articulo(Id, precio){
-        var cantidad = $(".cantidad"+Id+"").val();
-        var descuento = $(".descuento"+Id+"").val();
+            var cantidad = $(".cantidad"+Id+"").val();
+            var descuento = $(".descuento"+Id+"").val();
         descuento = (precio*descuento)/100;
         unidad = precio - descuento;
         total = (unidad*cantidad);
