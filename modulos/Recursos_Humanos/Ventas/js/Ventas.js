@@ -150,6 +150,9 @@ $(document).ready(function() {
             precio = precio.split(" ");
             if(precio[1]== null || precio[1] ==  undefined   || precio[1] == ""){
                 precio =0;
+            }else{
+                precio = precio[1];
+                precio = Integer.parseInt(precio);
             }
             descuento = (precio*descuento)/100;
             unidad = precio - descuento;
