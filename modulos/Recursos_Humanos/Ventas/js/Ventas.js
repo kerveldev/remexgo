@@ -27,7 +27,7 @@ $(document).ready(function() {
     }); 
 
     let t = "";
-    let sumatotal= null;
+    
     
     function comprobarCheck(var_check){
 
@@ -129,6 +129,7 @@ $(document).ready(function() {
     }
     
     function sumafinal(){
+        let sumatotal= null;
         cantidadr = t.rows().data().length;
 
         for (x = 0; x < t.rows().data().length; x++) {
