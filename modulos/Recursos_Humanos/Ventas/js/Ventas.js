@@ -123,6 +123,13 @@ $(document).ready(function() {
             }
 
             sumafinal();
+            // Borrar registro
+            t.on('click', 'button.del', function() {
+                let $tr = $(this).closest('tr');
+                    
+            // Le pedimos al DataTable que borre la fila
+            t.row($tr).remove().draw(false);
+        }
            
         }
      
@@ -186,12 +193,6 @@ $(document).ready(function() {
     }
 
     function eliminar_articulo(){
-        // Borrar registro
-        t.on('click', 'button.del', function() {
-            let $tr = $(this).closest('tr');
-                
-        // Le pedimos al DataTable que borre la fila
-        t.row($tr).remove().draw(false);
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
