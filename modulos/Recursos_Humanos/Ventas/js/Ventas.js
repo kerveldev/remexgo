@@ -25,6 +25,8 @@ $(document).ready(function() {
         listadoClientes();
     
     }); 
+
+    let t = "";
     
     function comprobarCheck(var_check){
 
@@ -96,7 +98,7 @@ $(document).ready(function() {
        // var tabla = "tabla_clientes";
         
         cerrarModalArticulos();
-        let t = $('#tabla_clientes').DataTable();
+         t = $('#tabla_clientes').DataTable();
         if(Id == "" || Id == undefined){
 
             InicializarDatatable("tabla_clientes");
