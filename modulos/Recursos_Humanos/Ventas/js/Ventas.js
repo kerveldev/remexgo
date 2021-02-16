@@ -143,8 +143,8 @@ $(document).ready(function() {
                 if(total== null || total == undefined || total == ""){
                     total =0;
                 }
-                sumatotal += +total;
-                //sumatotal += +(t.rows().data()[x][5]);
+                //sumatotal += +total;
+                sumatotal += +(t.rows().data()[x][5]);
             }
             console.log(sumatotal);
             $("#can").html(sumatotal);
