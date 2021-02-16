@@ -135,11 +135,11 @@ $(document).ready(function() {
             id= (t.rows().data()[x][0]);
 
             //Suma individual de articulo
-            cantidad = $(".cantidad"+id+"").val();
+            var cantidad = $(".cantidad"+id+"").val();
             if(isNaN(cantidad)){
                 cantidad = 0;
             }
-            descuento = $(".descuento"+id+"").val();
+            var descuento = $(".descuento"+id+"").val();
             if(isNaN(descuento)){
                 descuento = 0;
             }
