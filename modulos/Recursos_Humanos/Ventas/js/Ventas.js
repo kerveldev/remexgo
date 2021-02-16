@@ -96,12 +96,12 @@ $(document).ready(function() {
        // var tabla = "tabla_clientes";
         
         cerrarModalArticulos();
-        
+        let t = $('#tabla_clientes').DataTable();
         if(Id == "" || Id == undefined){
 
             InicializarDatatable("tabla_clientes");
         }else{
-            var t = $('#tabla_clientes').DataTable();
+           
             var val = 0;
             $("#cantidad").val(val);
             rep = Id.length;
