@@ -143,7 +143,6 @@ $(document).ready(function() {
         console.log(sumatotal);
         $("#can").html(sumatotal);
 
-        sumafinal();
     }
 
     function total_articulo(Id, precio){
@@ -155,6 +154,7 @@ $(document).ready(function() {
        
         $(".total"+Id+"").val(total);
 
+        sumafinal();
     }
 
     function abrirClientes_Id(_id_cliente, _nombre){
