@@ -170,7 +170,7 @@ $us = $_SESSION['user']['data'];
             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/header.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Proveedores</h2>
+                    <h2>Administrado Rutas</h2>
                 </div>
             </div>
 

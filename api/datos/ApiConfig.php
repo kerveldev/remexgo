@@ -177,7 +177,9 @@ define('RH',[
           'controlador'=>MODULOS.'rh/rh_ctrl.php',
           'clientes'=>MODULOS.'rh/clientes/Clientes.php',
           'altas'=>MODULOS.'rh/alta/Alta.php',
-          'ventas'=>MODULOS.'rh/ventas/Ventas.php'
+          'ventas'=>MODULOS.'rh/ventas/Ventas.php',
+          'rutas'=>MODULOS.'rh/rutas/Ruta.php'
+
      ]);
 
 define('QR',[
