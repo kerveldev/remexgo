@@ -13,7 +13,7 @@ $us = $_SESSION['user']['data'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Irek Pelaez, Chrystian Redín, Jaquie Gonzalez">
 
-    <title>REMEX | Proveedores</title>
+    <title>REMEX | Rutas</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -247,7 +247,7 @@ $us = $_SESSION['user']['data'];
     <!-- Jquery Validate -->
     <script src="/js/plugins/validate/jquery.validate.min.js"></script>
     <!-- Personal JS -->
-    <script src="js/Proveedores.js"></script>
+    <script src="js/Rutas.js"></script>
     <script src="/js/end.js" type="text/javascript"></script>
     <script src="/js/ayudante.js" type="text/javascript"></script>
 
