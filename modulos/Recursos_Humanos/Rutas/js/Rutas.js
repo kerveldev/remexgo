@@ -78,35 +78,18 @@ function listadoVendedoresRuta(){
                 $("#" + tabla + " tbody").remove();
                 var tbody = "<tbody>";
                 var lst = resp.data;
-                var color = "";
-                var botonInactivar = "";
-                var botonActivar = "";
                
                 lst.forEach(reg => {
 
-                    if(reg.Estatus == null || reg.Estatus == ''){
-                        color="text-danger";
-                        botonInactivar = "";
-                        botonActivar = "<button type='button' class='btn btn-sm btn-outline btn-info p-2' onclick='activarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Activar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
-                    }else{
-                        color = "text-info";
-                        botonInactivar = "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='inactivarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Desactivar Proveedor: "+reg.Nombre+"'><i class='fa fa-check'></i></button>&nbsp;"; 
-                        botonActivar = "";
-                    }
-
                     tbody += 
-                        "<tr class='"+color+"'>"+
+                        "<tr>"+
                         "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             // "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
-                            botonInactivar+
-                            botonActivar+
                             
-                        
-
                         "</tr>";
                 });
                 //Se dibuja la tabla

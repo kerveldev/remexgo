@@ -191,22 +191,16 @@ $us = $_SESSION['user']['data'];
                                 <div class="col-md-12">
                                     <table class="table table-striped nowrap" id="tabla_vendedores_ruta">
                                         <thead>
-                                            <th>Id</th>
                                             <th>Nombre</th>
-                                            <th>Tel 1</th>
-                                            <th>Tel 2</th>
-                                            <th>Municipio</th>
+                                            <th>Status</th>
                                             <th>Acciones</th>
                                         </thead>
                                         <tbody>
 
                                         </tbody>
                                         <tfoot>
-                                            <th>Id</th>
                                             <th>Nombre</th>
-                                            <th>Tel 1</th>
-                                            <th>Tel 2</th>
-                                            <th>Municipio</th>
+                                            <th>Status</th>
                                             <th>Acciones</th>
                                         </tfoot>
                                     </table>
