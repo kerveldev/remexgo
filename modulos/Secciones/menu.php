@@ -97,6 +97,18 @@
         </li>
 
         <li>
+            <a href="index.html"><i class="fa fa-line-chart"></i> <span class="nav-label">Ruta</span> <span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+       
+           
+                          <li><a href="/modulos/Recursos_Humanos/Rutas/Rutas">Creación Ruta</a></li>
+                          <!--  <li><a href="dashboard_2.html">Dashboard v.2</a></li> -->
+    
+               
+            </ul>
+        </li>
+
+        <li>
             <a href="index.html"><i class="fa fa-cog"></i> <span class="nav-label">Configuraciones</span> <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
 
