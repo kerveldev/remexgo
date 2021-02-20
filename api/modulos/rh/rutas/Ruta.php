@@ -12,7 +12,7 @@
 
  				switch ($peticion) {
 
-                    case'navegantes_lst':
+                    case'vendedor_ruta_lst':
 
                         $fields = array("nick","token");// Lista de parametros por recibir
                         $box = new Storer($fields);

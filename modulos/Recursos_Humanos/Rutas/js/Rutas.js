@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    InicializarDatatable("tabla_proveedores");
+    InicializarDatatable("tabla_vendedores_ruta");
         
     setTimeout(function() {
             toastr.options = {
@@ -12,7 +12,7 @@ $(document).ready(function() {
             toastr.success(nuser.Nombre_completo);
     }, 1300);  
     
-    listadoProveedores();
+    listadoVendedoresRuta();
     
 });
     
@@ -61,11 +61,11 @@ $(document).ready(function() {
     }
     
     
-function listadoProveedores(){
-        var tabla = "tabla_proveedores";
+function listadoVendedoresRuta(){
+        var tabla = "tabla_vendedores_ruta";
         //Se piden los datos
         $.ajax({
-            url : 'https://remex.kerveldev.com/api/proveedores/proveedores/proveedores_lst',
+            url : 'https://remex.kerveldev.com/api/rh/rutas/vendedor_ruta_lst',
             data : 
             { 
                 nick : nuser.Nick,
@@ -96,11 +96,8 @@ function listadoProveedores(){
 
                     tbody += 
                         "<tr class='"+color+"'>"+
-                        "<td>"+checarNulos(reg.Id_Proveedor)+"</td>"+
-                        "<td>"+checarNulos(reg.Nombre)+"</td>"+
-                        "<td>"+checarNulos(reg.Tel1)+"</td>"+
-                        "<td>"+checarNulos(reg.Tel2)+"</td>"+
-                        "<td>"+checarNulos(reg.Municipio)+"</td>"+
+                        "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
+                        "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
 
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
@@ -135,7 +132,7 @@ function listadoProveedores(){
                                     'className': 'control',
                                 },
                                 { responsivePriority: 1, targets: 0 },
-                                { responsivePriority: 2, targets: 5 }
+                                { responsivePriority: 2, targets: 1 }
                             ],
                             // select: {
                             //     'style': 'multi',
