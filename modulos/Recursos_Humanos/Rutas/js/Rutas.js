@@ -125,14 +125,6 @@ function listadoVendedoresRuta(){
                                 [0, "asc"]
                             ],
                             buttons: [
-                                        {   text: 'Agregar Proveedor',
-                                            className: 'btn btn-success',
-                                            action: function(e, dt, node, config) {
-                                                
-                                                abrirNuevoProveedor();
-                                                
-                                            }
-                                        },
                                         {   extend: 'excel', 
                                             className: 'btn btn-info',
                                         },
