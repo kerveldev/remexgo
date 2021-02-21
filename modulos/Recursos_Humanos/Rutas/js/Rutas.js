@@ -13,6 +13,7 @@ $(document).ready(function() {
     }, 1300);  
     
     listadoVendedoresRuta();
+    listadoNotas();
     
 });
     
@@ -117,19 +118,9 @@ function listadoVendedoresRuta(){
                                 { responsivePriority: 1, targets: 0 },
                                 { responsivePriority: 2, targets: 1 }
                             ],
-                            // select: {
-                            //     'style': 'multi',
-                            //     'selector': 'td:not(.control)'
-                            // },
                             order: [
                                 [0, "asc"]
                             ],
-                            buttons: [
-                                        {   extend: 'excel', 
-                                            className: 'btn btn-info',
-                                        },
-                                ],
-    
                             language: {
     
                                 "loadingRecords": "&nbsp;",
