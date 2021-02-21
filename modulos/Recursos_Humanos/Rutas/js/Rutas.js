@@ -13,6 +13,7 @@ $(document).ready(function() {
     }, 1300);  
     
     listadoVendedoresRuta();
+    listadoNotas();
     
 });
     
