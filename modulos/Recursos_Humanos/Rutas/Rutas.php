@@ -173,20 +173,16 @@ $us = $_SESSION['user']['data'];
                     <h2>Administrador Rutas</h2>
                 </div>
             </div>
-
+            <!-- Inicio Tabla Vendedores -->
             <div class="row wrapper wrapper-content mx-auto">
                 <div class="col-sm-12">
                     <div class="card">
-                        <div class="card-header">
-
-                            <h6 class="card-title">Listado Rutas</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
+                           <div class="row">
                                 <div class="col-md-12">
-                                    <!-- <button class="btn btn-success " id="btn_agregar" onclick="abrirproveedor('')">Agregar proveedor</button> -->
+                                    <h3>Listado Vendedores</h3>
                                 </div>
                             </div>
+                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <table class="table table-striped nowrap" id="tabla_vendedores_ruta">
@@ -210,6 +206,39 @@ $us = $_SESSION['user']['data'];
                     </div>
                 </div>
             </div>
+            <!-- Fin Tabla Vendedores -->
+            <!-- Inicio Tabla Notas Vendedores -->
+            <div class="row wrapper wrapper-content mx-auto">
+                <div class="col-sm-12">
+                    <div class="card">
+                            <div class="col-md-12">
+                                <h3>Listado Notas</h3>
+                            </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table class="table table-striped nowrap" id="tabla_vendedores_notas">
+                                        <thead>
+                                            <th>Nombre</th>
+                                            <th>Status</th>
+                                            <th>Acciones</th>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                        <tfoot>
+                                            <th>Nombre</th>
+                                            <th>Status</th>
+                                            <th>Acciones</th>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tabla Notas Vendedores -->
             <?php  if(!(include_once($_SERVER["DOCUMENT_ROOT"]."/modulos/Secciones/footer.php"))) echo "<p>No se ha podido cargar la cabecera.</p>";  ?>
         </div>
     </div>
