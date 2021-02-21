@@ -87,6 +87,103 @@ function listadoVendedoresRuta(){
                         "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
                         "<td>"+
 
+                            "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirRuta_x_Vendedor(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
+                            // "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
+                            
+                        "</tr>";
+                });
+                //Se dibuja la tabla
+                tbody += "</tbody>";
+                $("#" + tabla + "").append(tbody);
+    
+    
+                //Se asigna el plugin DataTables
+                var table = $("#" + tabla + "").DataTable({
+                //var table = $("#tabla").DataTable({
+                            responsive: true,
+                            destroy: true,
+                            processing: true,
+                            searching: true,
+    
+                            dom: "<'row'<'col-sm-12 col-md-4 col-xl-4'i><'col-sm-12 col-md-4 col-xl-4'><' col-sm-12 col-md-4 col-xl-4 floatRight'f>>" +
+                                "<'row'<'col-sm-12'tr>>" +
+                                "<'row'<'#divisor.col-md-12'>>" +
+                                "<'row'<'col-sm-4 'l><'col-sm-4 '><'col-sm-4 floatRight'p>>" +
+                                "<'row'<'#divisor2.col-md-12'>>" +
+                                "<'row'<'col-sm-12'B>>",
+                            columnDefs: [{
+                                    'className': 'control',
+                                },
+                                { responsivePriority: 1, targets: 0 },
+                                { responsivePriority: 2, targets: 1 }
+                            ],
+                            // select: {
+                            //     'style': 'multi',
+                            //     'selector': 'td:not(.control)'
+                            // },
+                            order: [
+                                [0, "asc"]
+                            ],
+                            buttons: [
+                                        {   extend: 'excel', 
+                                            className: 'btn btn-info',
+                                        },
+                                ],
+    
+                            language: {
+    
+                                "loadingRecords": "&nbsp;",
+                                "processing": "Cargando...",
+                                "search": " Buscar:",
+                                "info": "Mostrando de _START_ a _END_ de _TOTAL_ registros",
+                                "infoEmpty": "No hay registros",
+                                "lengthMenu": " _MENU_ ",
+                                "emptyTable": "No se han encontrado registros para la tabla.",
+                                "paginate": {
+                                    "next": "Siguiente",
+                                    "previous": "Atras"
+                                }
+                            }
+    
+                });
+    
+            },
+            error : function(xhr, status) {
+                alert('Error al recibir los datos ( '+status.toString()+' ).');
+                console.log(xhr);
+            },
+            complete : function(xhr, status) {
+                console.log(xhr);
+            }
+        });
+    }
+
+function listadoNotas(){
+        var tabla = "tabla_vendedores_notas";
+        //Se piden los datos
+        $.ajax({
+            url : 'https://remex.kerveldev.com/api/rh/rutas/vendedor_ruta_lst',
+            data : 
+            { 
+                nick : nuser.Nick,
+                token: nuser.Token
+            },
+            type : 'POST',
+            dataType : 'json',
+            success : function(resp) {
+                console.log(resp);
+                $("#" + tabla + " tbody").remove();
+                var tbody = "<tbody>";
+                var lst = resp.data;
+               
+                lst.forEach(reg => {
+
+                    tbody += 
+                        "<tr>"+
+                        "<td>"+checarNulos(reg.Nombre_Completo)+"</td>"+
+                        "<td>"+checarNulos(reg.EdoAdmtvo)+"</td>"+
+                        "<td>"+
+
                             "<button type='button' class='btn btn-sm btn-outline btn-primary p-2' onclick='abrirProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Abrir Informacion Proveedor: "+reg.Nombre+"'><i class='fa fa-user'></i></button>&nbsp;"+
                             // "<button type='button' class='btn btn-sm btn-outline btn-danger p-2' onclick='eliminarProveedor_Id(\"" +  reg.Id_Proveedor + "\",\"" +  reg.Nombre + "\")'; title='Eliminar Proveedor: "+reg.Nombre+"'><i class='fa fa-trash'></i></button>&nbsp;"+
                             
