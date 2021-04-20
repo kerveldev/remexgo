@@ -4,6 +4,7 @@ class sp {
     private $nave = NULL;
 
     static public function recurso($peticion){
+        //Comentario en el codigo
 
         $nave = new nauta(IREK,SP['base'],SP['ruta']);
         switch($GLOBALS['metodo']){
