@@ -158,7 +158,7 @@ $us = $_SESSION['user']['data'];
                     <div class="card">
                         <div class="card-header">
 
-                            <h6 class="card-title">Listado Productos</h6>
+                            <h6 class="card-title">Listado de Servicios / Productos</h6>
                         </div>
                         <div class="card-body">
                             <div class="row">
